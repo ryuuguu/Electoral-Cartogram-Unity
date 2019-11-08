@@ -11,7 +11,7 @@ public class RegionController : MonoBehaviour {
     public List<Color> borderColors;
     
     
-    public string election2019 = "ED-Canada_2016";
+    public string district2016 = "ED-Canada_2016_utf8";
         
     public static RegionController inst;
    // public Dictionary<string, string> partyList;
@@ -28,7 +28,7 @@ public class RegionController : MonoBehaviour {
 
     public string Convert(string text) {
         // change this to usin unity stuff :)
-        Encoding iso = Encoding.GetEncoding("ISO-8859-9");
+        Encoding iso = Encoding.GetEncoding("ISO-8859-1");
         Encoding utf8 = Encoding.UTF8;
         byte[] isoBytes = utf8.GetBytes(text);
         byte[] utfBytes  = Encoding.Convert(iso,utf8,  isoBytes);
@@ -39,8 +39,9 @@ public class RegionController : MonoBehaviour {
     }
     
     public void LoadElectoralDistricts() {
-        var sourceFile = (TextAsset) Resources.Load(election2019, typeof(TextAsset));
-        var temp = Convert(sourceFile.text);
+        var sourceFile = (TextAsset) Resources.Load(district2016, typeof(TextAsset));
+        //var temp = Convert(sourceFile.text); //in ISO-8859-1 ? 
+        var temp = sourceFile.text;
         var strings = CSV.SplitString(temp);
 
         Dictionary<string, string> regionCodes = new Dictionary<string, string>();
@@ -76,6 +77,9 @@ public class RegionController : MonoBehaviour {
                     isRiding = true,
                     color = Color.white
                 };
+                if (regionCode == "24") {
+                    Debug.Log("LoadElectoralDistricts: " + line[2]);
+                }
                 parent.subLists.Add(rl);
             }
         }
@@ -85,8 +89,8 @@ public class RegionController : MonoBehaviour {
     public void LoadElectionResults() {
         PartyController.ClearPartyVotes();
         var sourceFile = (TextAsset) Resources.Load("EventResults_2019", typeof(TextAsset));
-        var temp = Convert(sourceFile.text);
-        
+        //var temp = Convert(sourceFile.text);
+        var temp = sourceFile.text; // already in utf8
         var strings = CSV.SplitString(temp,new[] { "\t"});
 
         foreach (var line in strings) {
