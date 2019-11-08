@@ -707,7 +707,7 @@ MonoBehaviour:
   mapData:
     width: 54
     height: 23
-    offset: {x: 0, y: 0}
+    offset: {x: -2, y: 0}
     scale: 2
     posCellScale: 4.94
     cellDatas:
@@ -2596,8 +2596,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1307574275}
   m_HandleRect: {fileID: 1307574274}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 0.9999999
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

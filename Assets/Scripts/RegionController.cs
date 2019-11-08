@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 public class RegionController : MonoBehaviour {
@@ -23,6 +25,16 @@ public class RegionController : MonoBehaviour {
         LoadElectionResults();
     }
 
+    public void Convert() {
+        // change this to usin unity stuff :)
+        FileStream test = new FileStream("YourFile",FileMode.Open,FileAccess.Read);
+
+        byte[] data = new byte[test.Length];
+        test.Read(data, 0, (int) test.Length);
+        Encoding.Convert(Encoding.ASCII, Encoding.UTF8, data);
+        //Do stuff
+    }
+    
     public void LoadElectoralDistricts() {
         var sourceFile = (TextAsset) Resources.Load(election2019, typeof(TextAsset));
         var strings = CSV.SplitString(sourceFile.text);

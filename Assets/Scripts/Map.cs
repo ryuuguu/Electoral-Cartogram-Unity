@@ -19,7 +19,7 @@ public class Map : MonoBehaviour {
 
     public void LoadMakeMap() {
         LoadMapDataResource();
-        mapGrid.MakeGrid();
+        mapGrid.MakeGrid(mapData.widthRange,mapData.heightRange);
         MakeMapFromData();
     }
     
@@ -36,8 +36,8 @@ public class Map : MonoBehaviour {
             Debug.Log("could not load JSON TextAsset resource at MapData");
         }
 
-        mapGrid.width = mapData.width;
-        mapGrid.height = mapData.height;
+        mapGrid.widthRange = mapData.widthRange;
+        mapGrid.heightRange = mapData.heightRange;
         mapGrid.offset = mapData.offset;
         mapGrid.scale = mapData.scale;
         mapGrid.posCellScale = mapData.posCellScale;
@@ -94,9 +94,10 @@ public class Map : MonoBehaviour {
 
     [System.Serializable]
     public class MapData {
-        public int width;
-        public int height;
+        public Vector2Int widthRange = Vector2Int.up;
+        public Vector2Int heightRange = Vector2Int.up;
         public Vector2 offset = Vector2.zero;
+        
         public float scale = 2;
         public float posCellScale = 4.94f;
         public List<CellData> cellDatas; 

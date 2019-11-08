@@ -6,8 +6,9 @@ using System.Collections.Generic;
 public class HexGrid : MonoBehaviour {
 
     public bool isRotate30 = true;
-    public int width = 54;
-    public int height = 23;
+    public Vector2Int widthRange = Vector2Int.up;
+    public Vector2Int heightRange = Vector2Int.up;
+
     public Vector2 offset = Vector2.zero;
     
     public HexCell cellPrefab;
@@ -40,10 +41,7 @@ public class HexGrid : MonoBehaviour {
         }
     }
     
-    public void MakeGrid() {
-        MakeGrid(new Vector2Int(0, width), new Vector2Int(0, height));
-    }
-
+    
     public void MakeGrid(Vector2Int widths, Vector2Int heights) {
         ClearGrid();
         cells = new List<HexCell>();
