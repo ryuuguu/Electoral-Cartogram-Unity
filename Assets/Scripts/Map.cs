@@ -113,4 +113,12 @@ public class Map : MonoBehaviour {
         public Vector3Int cubeCoord;
         
     }
+
+    public static void ShowDistrictPopup(string id, Vector2 location, string message) {
+        Debug.Log("ShowDistrictPopup: " + id + " : " + location + " : " +  message);
+    }
+    
+    public static void HideDistrictPopup(string id) {
+        
+    }
 }

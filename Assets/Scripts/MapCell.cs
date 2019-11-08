@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MapCell : HexCell {
+public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
     public RegionList regionList;
 
     public Sprite centerRiding;
@@ -51,7 +53,26 @@ public class MapCell : HexCell {
         RegionEditor.SetMapCellActive(this);
     }
 
+    public void ShowLocationPopup() {
+        if (regionList.isRiding) {
+            var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
+            Map.ShowDistrictPopup(regionList.id, Input.mousePosition, regionList.names[i]);
+        }
+    }
+    
+    public void HideLocationPopup() {
+        
+    }
+
     public void SetHighLight(bool val) {
         targetHighlight.gameObject.SetActive(val);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) {
+        ShowLocationPopup();
+    }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        HideLocationPopup();
     }
 }

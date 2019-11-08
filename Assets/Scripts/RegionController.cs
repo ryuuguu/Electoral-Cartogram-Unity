@@ -26,19 +26,22 @@ public class RegionController : MonoBehaviour {
         
     }
 
-    public void Convert() {
+    public string Convert(string text) {
         // change this to usin unity stuff :)
-        FileStream test = new FileStream("YourFile",FileMode.Open,FileAccess.Read);
-
-        byte[] data = new byte[test.Length];
-        test.Read(data, 0, (int) test.Length);
-        Encoding.Convert(Encoding.ASCII, Encoding.UTF8, data);
-        //Do stuff
+        Encoding iso = Encoding.GetEncoding("ISO-8859-9");
+        Encoding utf8 = Encoding.UTF8;
+        byte[] isoBytes = utf8.GetBytes(text);
+        byte[] utfBytes  = Encoding.Convert(iso,utf8,  isoBytes);
+       return iso.GetString(isoBytes);
+        //FileStream test = new FileStream("YourFile",FileMode.Open,FileAccess.Read);
+        //var temp  = Encoding.Convert(Encoding.ASCII, Encoding.UTF8, data);
+        //return  Encoding.ASCII.GetString(temp);
     }
     
     public void LoadElectoralDistricts() {
         var sourceFile = (TextAsset) Resources.Load(election2019, typeof(TextAsset));
-        var strings = CSV.SplitString(sourceFile.text);
+        var temp = Convert(sourceFile.text);
+        var strings = CSV.SplitString(temp);
 
         Dictionary<string, string> regionCodes = new Dictionary<string, string>();
         regionCodes["10"] = "NL";
@@ -82,7 +85,9 @@ public class RegionController : MonoBehaviour {
     public void LoadElectionResults() {
         PartyController.ClearPartyVotes();
         var sourceFile = (TextAsset) Resources.Load("EventResults_2019", typeof(TextAsset));
-        var strings = CSV.SplitString(sourceFile.text,new[] { "\t"});
+        var temp = Convert(sourceFile.text);
+        
+        var strings = CSV.SplitString(temp,new[] { "\t"});
 
         foreach (var line in strings) {
             //Debug.Log("LoadElectionResults" + line[0]);
