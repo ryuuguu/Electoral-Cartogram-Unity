@@ -9,8 +9,8 @@ using UnityEngine;
 public class RegionController : MonoBehaviour {
     public RegionList regionList;
     public List<Color> borderColors;
-
-    public string election2015;
+    
+    
     public string election2019 = "ED-Canada_2016";
         
     public static RegionController inst;
@@ -23,6 +23,7 @@ public class RegionController : MonoBehaviour {
     private void Start() {
         LoadElectoralDistricts();
         LoadElectionResults();
+        
     }
 
     public void Convert() {

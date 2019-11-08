@@ -705,14 +705,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 709667307}
   mapData:
-    width: 54
-    height: 23
+    widthRange: {x: 0, y: 1}
+    heightRange: {x: 0, y: 1}
     offset: {x: -2, y: 0}
     scale: 2
     posCellScale: 4.94
     cellDatas:
     - regionID: 
       cubeCoord: {x: 0, y: 0, z: 0}
+  regionEditor: {fileID: 845094144}
 --- !u!1 &462426910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,8 +1284,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRotate30: 0
-  width: 54
-  height: 23
+  widthRange: {x: 0, y: 1}
+  heightRange: {x: 0, y: 1}
   offset: {x: 0, y: 0}
   cellPrefab: {fileID: 8094259445393856529, guid: d10160c00805d470e9ae5eedb19cb0b8,
     type: 3}
@@ -2597,7 +2598,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1307574274}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3460,7 +3461,6 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 0.5, g: 0.5, b: 0.5, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
-  election2015: 
   election2019: ED-Canada_2016
 --- !u!4 &1693672577
 Transform:
@@ -3823,6 +3823,50 @@ RectTransform:
   m_AnchoredPosition: {x: -342.7, y: 0}
   m_SizeDelta: {x: 530, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2053087563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053087565}
+  - component: {fileID: 2053087564}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2053087564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053087563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcd5698b129434b2fbaaf3e5090f2e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEditMode: 1
+--- !u!4 &2053087565
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053087563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2082298956
 GameObject:
   m_ObjectHideFlags: 0

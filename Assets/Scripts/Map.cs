@@ -6,7 +6,7 @@ using UnityEngine;
 public class Map : MonoBehaviour {
     public MapGrid mapGrid;
     public MapData mapData;
-    
+    public RegionEditor regionEditor;
     public static Map inst;
 
     void Awake() {
@@ -15,6 +15,10 @@ public class Map : MonoBehaviour {
 
     private void Start() {
         LoadMakeMap();
+        if (GameController.inst.isEditMode) {
+            regionEditor.mapCell = (MapCell) mapGrid.cells[0];
+            regionEditor.gameObject.SetActive(true);
+        }
     }
 
     public void LoadMakeMap() {
