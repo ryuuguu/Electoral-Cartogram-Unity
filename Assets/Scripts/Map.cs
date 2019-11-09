@@ -7,6 +7,8 @@ public class Map : MonoBehaviour {
     public MapGrid mapGrid;
     public MapData mapData;
     public RegionEditor regionEditor;
+    public Tooltip tooltip;
+    
     public static Map inst;
 
     void Awake() {
@@ -77,14 +79,13 @@ public class Map : MonoBehaviour {
         foreach (var cd in mapData.cellDatas) {
             var cell = mapGrid.cells.Find(data => data.cubeCoord == cd.cubeCoord);
             if (cell == null) {
-                Debug.Log("Cell not found:" + cd.cubeCoord + ":" + cd.regionID);
+                //Debug.Log("Cell not found:" + cd.cubeCoord + ":" + cd.regionID);
                 continue;
             }
 
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl.isRiding) rl.isAssigned = true;
             ((MapCell) cell).SetRegion(rl);
-
         }
     }
     
@@ -114,11 +115,12 @@ public class Map : MonoBehaviour {
         
     }
 
-    public static void ShowDistrictPopup(string id, Vector2 location, string message) {
-        Debug.Log("ShowDistrictPopup: " + id + " : " + location + " : " +  message);
+    public static void ShowDistrictPopup(string id, Vector2 location, string message, Vector3 worldPos) {
+        
+        inst.tooltip.Show(id, location, message,worldPos);
     }
     
     public static void HideDistrictPopup(string id) {
-        
+        inst.tooltip.Hide(id);
     }
 }

@@ -56,12 +56,12 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
     public void ShowLocationPopup() {
         if (regionList.isRiding) {
             var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
-            Map.ShowDistrictPopup(regionList.id, Input.mousePosition, regionList.names[i]);
+            Map.ShowDistrictPopup(regionList.id, Input.mousePosition, regionList.names[i],transform.position);
         }
     }
     
     public void HideLocationPopup() {
-        
+        Map.HideDistrictPopup(regionList.id);
     }
 
     public void SetHighLight(bool val) {
