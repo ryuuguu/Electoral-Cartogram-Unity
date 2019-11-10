@@ -50,13 +50,8 @@ public class RegionController : MonoBehaviour {
             if (line.Length < 1 || line[0].Length < 2) continue;
             var regionCode = line[0].Substring(0, 2);
             if (regionCodes.ContainsKey(regionCode)) {
-                //Debug.Log(line.Length);
-                //Debug.Log(line[0]);
                 var id = regionCodes[regionCode];
-                //Debug.Log(id);
                 var parent = regionList.Find(id);
-                //Debug.Log(parent);
-                //Debug.Log(line[0] + ":" + id + ":" + parent.id);
                 var rl = new RegionList() {
                     id = line[0],
                     names = new List<string>() {line[1], line[2]},
@@ -64,9 +59,6 @@ public class RegionController : MonoBehaviour {
                     isRiding = true,
                     color = Color.white
                 };
-                if (regionCode == "24") {
-                    Debug.Log("LoadElectoralDistricts: " + line[2]);
-                }
                 parent.subLists.Add(rl);
             }
         }

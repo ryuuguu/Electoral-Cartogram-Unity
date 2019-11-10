@@ -47,10 +47,6 @@ public class PartyController : MonoBehaviour {
     
 }
 
-
-
-
-
 [System.Serializable]
 public class PartyData {
     public string partyId;

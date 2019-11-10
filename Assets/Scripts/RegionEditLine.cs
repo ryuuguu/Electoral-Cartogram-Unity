@@ -20,8 +20,9 @@ public class RegionEditLine : MonoBehaviour {
         if (regionList.names.Count == 0) {
             regionName.text = "";
         } else {
-            var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
-            regionName.text = regionList.names[i]; 
+            //var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
+            
+            regionName.text = LanguageController.ChooseName(regionList.names); 
         }
 
         ridingIcon.gameObject.SetActive(regionList.isRiding && !regionList.isAssigned);
