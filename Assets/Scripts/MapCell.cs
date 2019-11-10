@@ -51,6 +51,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
         Map.ClearHighLight();
         SetHighLight(true);
         RegionEditor.SetMapCellActive(this);
+        ElectoralDistrictPanel.SetRegionList(this.regionList);
     }
 
     public void ShowLocationPopup() {

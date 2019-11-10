@@ -7,6 +7,7 @@ public class Map : MonoBehaviour {
     public MapGrid mapGrid;
     public MapData mapData;
     public RegionEditor regionEditor;
+    public ElectoralDistrictPanel electoralDistrictPanel;
     public Tooltip tooltip;
     
     public static Map inst;
@@ -21,6 +22,7 @@ public class Map : MonoBehaviour {
             regionEditor.mapCell = (MapCell) mapGrid.cells[0];
             regionEditor.gameObject.SetActive(true);
         }
+        
     }
 
     public void LoadMakeMap() {
