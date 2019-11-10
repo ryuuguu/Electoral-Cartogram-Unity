@@ -99,16 +99,11 @@ public class RegionController : MonoBehaviour {
 
     public void ProcessElectionResults(RegionList aRegionList) {
         if (aRegionList.isRiding) {
-            CandidateResult winner = null;
-            int maxVotes = 0;
-            foreach (var candidateResult in aRegionList.districtResult.candidateResults) {
-                if (candidateResult.votes > maxVotes) {
-                    maxVotes = candidateResult.votes;
-                    winner = candidateResult;
-                }
+            aRegionList.districtResult.candidateResults.Sort((cr1,cr2)=>cr2.votes.CompareTo(cr1.votes));
+            if (aRegionList.districtResult.candidateResults.Count > 0) {
+                PartyController.AddPartySeat(aRegionList.districtResult.candidateResults[0].partyId);
             }
-            aRegionList.districtResult.winningCandidateResult = winner;
-            PartyController.AddPartySeat(winner.partyId);
+            
         }
         else {
             if (aRegionList.subLists != null) {
@@ -187,7 +182,6 @@ public class DistrictResult {
     public string regionId;
     public List<CandidateResult> candidateResults = new List<CandidateResult>();
     public int totalVotes;
-    public CandidateResult winningCandidateResult;
 
 }
 

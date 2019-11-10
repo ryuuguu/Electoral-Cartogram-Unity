@@ -98,8 +98,6 @@ public class RegionEditor : MonoBehaviour {
      
      public static void SetMapCellActive(MapCell aMapCell) {
          inst.mapCell = aMapCell;
-         //var i = Mathf.Min(inst.mapCell.regionList.names.Count - 1, LanguageController.CurrentLanguage());
-         //Debug.Log("SetMapCellActive: "+ inst.mapCell.regionList.names[i] );
          inst.mapRegionName.text = LanguageController.ChooseName(inst.mapCell.regionList.names);
          inst.Redraw();
      }

@@ -16,7 +16,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
         regionList = aRegionList;
         if (regionList.isRiding) {
             center.sprite = centerRiding;
-            var partyId =  regionList.districtResult.winningCandidateResult.partyId;
+            var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
         } else {
             center.sprite = centerOther;
