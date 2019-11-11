@@ -181,7 +181,12 @@ public class CandidateResult {
 public class DistrictResult {
     public string regionId;
     public List<CandidateResult> candidateResults = new List<CandidateResult>();
+    public List<CandidateResult> rawCandidateResults = new List<CandidateResult>();
     public int totalVotes;
 
+    //make function to return clean Candidate list 
+    // one result only for a candidate 
+    // use last validated result 
+    
 }
 
