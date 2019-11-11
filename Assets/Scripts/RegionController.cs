@@ -65,8 +65,13 @@ public class RegionController : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Load and process election results
+    /// assumes that districtResult lists are empty.
+    /// </summary>
     public void LoadElectionResults() {
         PartyController.ClearPartyVotes();
+        
         var sourceFile = (TextAsset) Resources.Load("EventResults_2019", typeof(TextAsset));
         var temp = sourceFile.text; 
         var strings = CSV.SplitString(temp,new[] { "\t"});
@@ -78,6 +83,7 @@ public class RegionController : MonoBehaviour {
             var candidateResult = new CandidateResult();
             string regionId = line[0];
             candidateResult.regionId = regionId;
+            candidateResult.resultType = line[3];
             candidateResult.surname = line[5];
             candidateResult.middleName = line[6];
             candidateResult.givenName = line[7];
@@ -92,12 +98,13 @@ public class RegionController : MonoBehaviour {
                     totalVotes = int.Parse(line[13])
                 };
             }
-            aRegionList.districtResult.candidateResults.Add(candidateResult);
+            aRegionList.districtResult.rawCandidateResults.Add(candidateResult);
         }
         ProcessElectionResults(regionList);
     }
 
     public void ProcessElectionResults(RegionList aRegionList) {
+        aRegionList.districtResult.MakeCleanResults();
         if (aRegionList.isRiding) {
             aRegionList.districtResult.candidateResults.Sort((cr1,cr2)=>cr2.votes.CompareTo(cr1.votes));
             if (aRegionList.districtResult.candidateResults.Count > 0) {
@@ -168,6 +175,7 @@ public class RegionList {
 [System.Serializable]
 public class CandidateResult {
     public string partyId;
+    public string resultType;
     public string regionId;
     public string surname;
     public string middleName;
@@ -184,9 +192,19 @@ public class DistrictResult {
     public List<CandidateResult> rawCandidateResults = new List<CandidateResult>();
     public int totalVotes;
 
-    //make function to return clean Candidate list 
-    // one result only for a candidate 
-    // use last validated result 
+    public void MakeCleanResults() {
+        candidateResults = new List<CandidateResult>();
+        foreach (var cr in rawCandidateResults) {
+            var index = candidateResults.FindIndex(data => data.surname == cr.surname  && data.partyId == cr.partyId);
+            if (index < 0) {
+                candidateResults.Add(cr);
+            }
+            else {
+                if (cr.resultType == "validated")
+                    candidateResults[index] = cr;
+            }
+        }
+    }
     
 }
 
