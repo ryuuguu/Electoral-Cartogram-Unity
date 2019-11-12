@@ -31,7 +31,7 @@ public class ElectoralDistrictPanel : MonoBehaviour{
     }
     
     public void Redraw() {
-        region_1_name.text = " not implemented yet";
+        region_1_name.text =LanguageController.ChooseName(regionList.parent.names);
         districtName.text = LanguageController.ChooseName(regionList.names);
         winner.SetCandidateResult(regionList.districtResult.candidateResults[0]); 
         foreach (Transform child in otherCandHolder) {

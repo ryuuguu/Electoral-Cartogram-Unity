@@ -22,11 +22,13 @@ public class RegionEditor : MonoBehaviour {
     public static RegionEditor inst;
 
     private void Awake() {
+        
         inst = this;
       //   (RectTransform) transform;
     }
 
     void Start() {
+        if(!GameController.inst.isEditMode) this.gameObject.SetActive(false);
         topLine.SetUp(RegionController.inst.regionList, null);
     }
 
@@ -97,6 +99,7 @@ public class RegionEditor : MonoBehaviour {
      }
      
      public static void SetMapCellActive(MapCell aMapCell) {
+         if (!GameController.inst.isEditMode) return;
          inst.mapCell = aMapCell;
          inst.mapRegionName.text = LanguageController.ChooseName(inst.mapCell.regionList.names);
          inst.Redraw();

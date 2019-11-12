@@ -57,7 +57,8 @@ public class RegionController : MonoBehaviour {
                     names = new List<string>() {line[1], line[2]},
                     population = int.Parse(line[3]),
                     isRiding = true,
-                    color = Color.white
+                    color = Color.white,
+                    parent = parent
                 };
                 parent.subLists.Add(rl);
             }
@@ -148,6 +149,7 @@ public class RegionList {
     public bool isRiding;
     public bool isAssigned;
     public List<RegionList> subLists;
+    public RegionList parent;
     public int population;
     public DistrictResult districtResult ;
 
