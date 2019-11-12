@@ -21,6 +21,7 @@ public class RegionController : MonoBehaviour {
     }
 
     private void Start() {
+        if (GameController.inst.isPreloaded) return;
         LoadElectoralDistricts();
         LoadElectionResults();
         

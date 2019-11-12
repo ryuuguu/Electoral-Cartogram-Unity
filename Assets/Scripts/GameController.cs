@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour{
     public bool isEditMode = false;
+    public bool isPreloaded = false;
 
     public static GameController inst;
     
