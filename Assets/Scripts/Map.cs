@@ -26,6 +26,8 @@ public class Map : MonoBehaviour {
         
     }
 
+    
+    [ContextMenu("test makeMap in edit")]
     public void LoadMakeMap() {
         LoadMapDataResource();
         mapGrid.MakeGrid(mapData.widthRange,mapData.heightRange);

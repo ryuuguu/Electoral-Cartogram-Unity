@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using UnityEngine;
 
 public class RegionController : MonoBehaviour {
     public RegionList regionList;
     public List<Color> borderColors;
-    
-    
+
+    public GameController gameController;
     public string district2016 = "ED-Canada_2016_utf8";
         
     public static RegionController inst;
@@ -22,10 +23,41 @@ public class RegionController : MonoBehaviour {
 
     private void Start() {
         if (GameController.inst.isPreloaded) return;
-        LoadElectoralDistricts();
-        LoadElectionResults();
-        
+        LoadRegionData();
     }
+
+    [ContextMenu("loadAlldata")]
+    public void EditorLoadAlldata() {
+        gameController.InEditorSetup();
+        LoadRegionData();
+    }
+    
+    public void LoadRegionData() {
+        ClearRidings();
+       LoadElectoralDistricts();
+       LoadElectionResults(); 
+    }
+
+    public void ClearRidings() {
+        ClearSubRidings(regionList);
+    }
+
+    public void ClearSubRidings(RegionList aRegionList) {
+        bool emptySublist = false;
+        foreach (var rl in aRegionList.subLists) {
+            if (rl.isRiding) {
+                emptySublist = true;
+                break;
+            }
+            else {
+                ClearSubRidings(rl);
+            }
+        }
+        if (emptySublist) {
+            aRegionList.subLists.Clear();
+        }
+    }
+    
 
     public void LoadElectoralDistricts() {
         var sourceFile = (TextAsset) Resources.Load(district2016, typeof(TextAsset));
@@ -72,7 +104,7 @@ public class RegionController : MonoBehaviour {
     /// assumes that districtResult lists are empty.
     /// </summary>
     public void LoadElectionResults() {
-        PartyController.ClearPartyVotes();
+        gameController.partyController.ClearPartyVotes();
         
         var sourceFile = (TextAsset) Resources.Load("EventResults_2019", typeof(TextAsset));
         var temp = sourceFile.text; 
@@ -91,7 +123,7 @@ public class RegionController : MonoBehaviour {
             candidateResult.givenName = line[7];
             candidateResult.partyId = line[8];
             candidateResult.votes = int.Parse(line[10]);
-            PartyController.AddPartyData(candidateResult.partyId, line[9],candidateResult.votes);
+            gameController.partyController.AddPartyData(candidateResult.partyId, line[9],candidateResult.votes);
             candidateResult.percentVotes = float.Parse(line[11]);
             var aRegionList = regionList.Find(regionId);
             if (aRegionList.districtResult == null) {

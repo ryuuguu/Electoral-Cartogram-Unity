@@ -13,8 +13,8 @@ public class PartyController : MonoBehaviour {
         inst = this;
     }
 
-    public static void AddPartyData(string nameE, string nameF, int votes) {
-        var pd = inst.partyDatas.Find((data => data.partyId == nameE));
+    public void AddPartyData(string nameE, string nameF, int votes) {
+        var pd = partyDatas.Find((data => data.partyId == nameE));
         if (pd == null) {
             pd = new PartyData() {
                 partyId = nameE,
@@ -22,13 +22,13 @@ public class PartyController : MonoBehaviour {
                 color = inst.otherPartyColor,
                 isOther = true
             };
-            inst.partyDatas.Add(pd);
+            partyDatas.Add(pd);
         }
         pd.totalVotes += votes;
     }
     
-    public static void ClearPartyVotes() {
-        foreach (var pd in inst.partyDatas) {
+    public void ClearPartyVotes() {
+        foreach (var pd in partyDatas) {
             pd.totalVotes = 0;
             pd.totalSeats = 0;
         }
@@ -40,7 +40,6 @@ public class PartyController : MonoBehaviour {
             pd.totalSeats++;
         }
     }
-
     public static PartyData GetPartyData(string partyId) {
        return inst.partyDatas.Find(data => data.partyId == partyId);
     }
