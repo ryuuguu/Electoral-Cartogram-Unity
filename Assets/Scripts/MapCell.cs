@@ -20,7 +20,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             center.sprite = centerRiding;
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
-            if (!(prefabSubGrid is null)) {
+            if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
                 subGrid = Instantiate<HexGrid>(prefabSubGrid,transform);
                 subGrid.transform.localPosition = Vector3.zero;
                 ColorSubGrid();

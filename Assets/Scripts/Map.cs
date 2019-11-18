@@ -17,12 +17,7 @@ public class Map : MonoBehaviour {
     void Awake() {
         inst = this;
     }
-
-    private void Start() {
-        
-
-    }
-
+    
     void Update() {
         if (delayMapBuild == 0) {
             MapBuild();
@@ -64,7 +59,7 @@ public class Map : MonoBehaviour {
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
         }
-
+   Debug.Log( mapData.offset);
         mapGrid.widthRange = mapData.widthRange;
         mapGrid.heightRange = mapData.heightRange;
         mapGrid.offset = mapData.offset;

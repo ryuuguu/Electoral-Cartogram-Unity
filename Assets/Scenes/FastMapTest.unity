@@ -286,7 +286,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -18, y: -13}
+  m_AnchoredPosition: {x: 51, y: -29}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &45764359
@@ -397,7 +397,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 213, y: 176}
+  m_AnchoredPosition: {x: 213, y: 199}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &62290250
@@ -1472,6 +1472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandidateRecord (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5991437779783674142, guid: cdf6626de84a94cd19061c251e6046ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1555,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -1565,7 +1570,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -1689,7 +1694,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 0, y: 800}
+  m_SizeDelta: {x: 0, y: 760}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &383338854
 MonoBehaviour:
@@ -1707,7 +1712,7 @@ MonoBehaviour:
   mapData:
     widthRange: {x: 0, y: 1}
     heightRange: {x: 0, y: 1}
-    offset: {x: -2, y: 0}
+    offset: {x: 0, y: 0}
     scale: 2
     posCellScale: 4.94
     cellDatas:
@@ -2596,7 +2601,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Winnipeg South
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2665,13 +2670,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 697271338}
-    characterCount: 14
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -2752,7 +2757,7 @@ MonoBehaviour:
   isRotate30: 0
   widthRange: {x: 0, y: 1}
   heightRange: {x: 0, y: 1}
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: 1}
   cellPrefab: {fileID: 8094259445393856529, guid: d10160c00805d470e9ae5eedb19cb0b8,
     type: 3}
   scale: 2
@@ -3007,7 +3012,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 666.2, y: 352.5}
+  m_SizeDelta: {x: 474.2, y: 385.7}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &741118712
 CanvasRenderer:
@@ -3420,7 +3425,7 @@ MonoBehaviour:
     names:
     - "Bloc Qu\xE9b\xE9cois"
     - "Bloc Qu\xE9b\xE9cois"
-    color: {r: 0.12039999, g: 0.84767354, b: 0.86, a: 1}
+    color: {r: 0.025231415, g: 0.5383719, b: 0.764151, a: 1}
     isOther: 1
     totalVotes: 2708541
     totalSeats: 32
@@ -3675,7 +3680,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 944587109}
   m_HandleRect: {fileID: 944587108}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 1.0000001
   m_Size: 0.1716
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4635,7 +4640,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 626, y: 2}
+  m_AnchoredPosition: {x: 626, y: 25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1093453310
@@ -4672,7 +4677,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 333, y: 0}
+  m_AnchoredPosition: {x: 252, y: 0}
   m_SizeDelta: {x: 140, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1093453312
@@ -4695,7 +4700,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Liberal
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4723,7 +4728,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 44.75
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4761,16 +4766,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -89.741425, w: 0}
+  m_margin: {x: 0, y: 0, z: 6.9469776, w: 0}
   m_textInfo:
     textComponent: {fileID: 1093453312}
-    characterCount: 7
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -5100,7 +5105,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 303, y: 0}
+  m_AnchoredPosition: {x: 225, y: 0}
   m_SizeDelta: {x: 40, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1177409806
@@ -5116,7 +5121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.04045032, b: 0.04045032, a: 1}
+  m_Color: {r: 0.9528302, g: 0.04045032, b: 0.04045032, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5406,7 +5411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 731, y: 134}
+  m_AnchoredPosition: {x: 700, y: 200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1246641835
@@ -6422,8 +6427,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 281, y: 0}
-  m_SizeDelta: {x: 52.7, y: 50}
+  m_AnchoredPosition: {x: 197.62, y: 0}
+  m_SizeDelta: {x: 65.45, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1445928548
 MonoBehaviour:
@@ -6445,7 +6450,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 46%
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6473,7 +6478,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.35
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6514,13 +6519,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1445928548}
-    characterCount: 3
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -6632,7 +6637,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 128.8
+  m_fontSize: 111.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7017,7 +7022,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_AnchoredPosition: {x: 0, y: 53}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1600428434
@@ -63275,7 +63280,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  - {r: 0.271, g: 0.271, b: 0.271, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   gameController: {fileID: 2053087564}
   district2016: ED-Canada_2016_utf8
@@ -63716,7 +63721,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 50}
+  m_SizeDelta: {x: 197.8, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1795836231
 MonoBehaviour:
@@ -63738,7 +63743,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Mark Gerretsen
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -63769,7 +63774,7 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -63804,16 +63809,16 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 20.114431, w: 0}
+  m_margin: {x: 0, y: 0, z: -1.0864097, w: 0}
   m_textInfo:
     textComponent: {fileID: 1795836231}
-    characterCount: 14
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -64088,7 +64093,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: NorthWest Territories
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -64116,7 +64121,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 26.85
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -64157,13 +64162,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1801641271}
-    characterCount: 21
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -64395,7 +64400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 614, y: 211}
+  m_AnchoredPosition: {x: 614, y: 299}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1915073826
@@ -64950,6 +64955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandidateRecord (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5991437779783674142, guid: cdf6626de84a94cd19061c251e6046ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65033,7 +65043,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -65043,7 +65053,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -65187,6 +65197,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandidateRecord (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5991437779783674142, guid: cdf6626de84a94cd19061c251e6046ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65270,7 +65285,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -65280,7 +65295,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -65877,6 +65892,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandidateRecord
       objectReference: {fileID: 0}
+    - target: {fileID: 5991437779783674142, guid: cdf6626de84a94cd19061c251e6046ac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -65960,7 +65980,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
@@ -65970,7 +65990,7 @@ PrefabInstance:
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991437779783674209, guid: cdf6626de84a94cd19061c251e6046ac,
         type: 3}
