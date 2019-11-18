@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BasicMap.unity
     guid: 8b76a2ff4b5fb48288e4b0d99a26de1d
+  - enabled: 1
+    path: Assets/Scenes/FastMapTest.unity
+    guid: 830bbf358fdad498fa7fae0b0788202a
   m_configObjects: {}

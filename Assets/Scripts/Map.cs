@@ -10,6 +10,8 @@ public class Map : MonoBehaviour {
     public ElectoralDistrictPanel electoralDistrictPanel;
     public Tooltip tooltip;
     
+    private int delayMapBuild = 1;
+    
     public static Map inst;
 
     void Awake() {
@@ -17,6 +19,20 @@ public class Map : MonoBehaviour {
     }
 
     private void Start() {
+        
+
+    }
+
+    void Update() {
+        if (delayMapBuild == 0) {
+            MapBuild();
+        }
+
+        delayMapBuild--;
+
+    }
+    
+    public void MapBuild() {
         if (!GameController.inst.isPreloaded) {
             LoadMakeMap();
         }
@@ -27,7 +43,7 @@ public class Map : MonoBehaviour {
         }
         
     }
-
+    
     
     [ContextMenu("test makeMap in edit")]
     public void LoadMakeMap() {

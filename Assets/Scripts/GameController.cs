@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour{
 
     public PartyController partyController;
     public LanguageController languageController;
-
+    
     public static GameController inst;
     
     private void Awake() {
@@ -21,4 +21,6 @@ public class GameController : MonoBehaviour{
         PartyController.inst = partyController;
         
     }
+    
+    
 }
