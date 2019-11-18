@@ -37,7 +37,11 @@ public class HexGrid : MonoBehaviour {
     public void ClearGrid() {
         var cells = GetComponentsInChildren<HexCell>();
         for (int i = 0; i < cells.Length; i++) {
+            #if UNITY_EDITOR
+            DestroyImmediate(cells[i].gameObject);
+            #else
             Destroy(cells[i].gameObject);
+            #endif
         }
     }
     

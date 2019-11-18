@@ -17,8 +17,10 @@ public class Map : MonoBehaviour {
     }
 
     private void Start() {
-        if (GameController.inst.isPreloaded) return;
-        LoadMakeMap();
+        if (!GameController.inst.isPreloaded) {
+            LoadMakeMap();
+        }
+
         if (GameController.inst.isEditMode) {
             regionEditor.mapCell = (MapCell) mapGrid.cells[0];
             regionEditor.gameObject.SetActive(true);

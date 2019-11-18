@@ -54,7 +54,7 @@ MonoBehaviour:
   location: {x: 0, y: 0, z: 0}
   cubeCoord: {x: 0, y: 0, z: 0}
   outerRadius: 2
-  center: {fileID: 0}
+  center: {fileID: 7436775004198767357}
   edges: []
 --- !u!222 &7801029438146455793
 CanvasRenderer:

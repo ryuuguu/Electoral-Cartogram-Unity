@@ -11,6 +11,8 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
     public Sprite centerRiding;
     public Sprite centerOther;
     public Image targetHighlight;
+    public HexGrid prefabSubGrid;
+    public HexGrid subGrid;
     
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;
@@ -18,6 +20,12 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             center.sprite = centerRiding;
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
+            if (!(prefabSubGrid is null)) {
+                subGrid = Instantiate<HexGrid>(prefabSubGrid,transform);
+                subGrid.transform.localPosition = Vector3.zero;
+                ColorSubGrid();
+
+            }
         } else {
             center.sprite = centerOther;
             center.color = regionList.color;
@@ -44,9 +52,37 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             }
             edges[i].gameObject.SetActive(border >= 0);
             otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
+            
         }
     }
 
+    public void  ColorSubGrid() {
+        // need total votes 
+        // sorted candidates 
+        var candidateResults = regionList.districtResult.candidateResults;
+        
+        int childIndex = 0;
+        int sumVotes = 0;
+        int totalVotes = 0;
+        foreach (var cr in candidateResults) {
+            totalVotes += cr.votes;
+        }
+            
+        foreach (var cr in candidateResults) {
+            sumVotes += cr.votes;
+            
+            int maxIndex = Mathf.Min(91,Mathf.FloorToInt(91 * sumVotes / totalVotes));
+            
+            Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
+            var color = PartyController.GetPartyData(cr.partyId).color;
+            for (; childIndex < maxIndex; childIndex++) {
+                subGrid.cells[childIndex].center.color = color;
+            }
+        }
+        
+    }
+    
+    
     public void ButtonPressed() {
         Map.ClearHighLight();
         SetHighLight(true);
