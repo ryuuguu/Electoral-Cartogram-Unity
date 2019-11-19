@@ -11,10 +11,12 @@ public class MapGrid : HexGrid {
     }
 
     public  void CreateCellRegion(Vector3Int v3,RegionList rl) {
+        //hack to not draw WATER & USA because of speed problems
+        if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
         MapCell cell = Instantiate<MapCell>((MapCell)cellPrefab);
         cell.SetRegion(rl);
         cells.Add(cell);
-        //kludge to convert cubeCoords to old grid cords
+        //hack to convert cubeCoords to old grid cords
         var gridCoord = v3;
         gridCoord.y += v3.x / 2;
         
