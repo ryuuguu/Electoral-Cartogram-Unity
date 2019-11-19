@@ -31,6 +31,10 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             center.color = regionList.color;
         }
         
+        
+    }
+
+    public void SetBorder() {
         for (int i = 0;i<6;i++) {
             int border = -1;
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
@@ -55,7 +59,8 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             
         }
     }
-
+    
+    
     public void  ColorSubGrid() {
         // need total votes 
         // sorted candidates 

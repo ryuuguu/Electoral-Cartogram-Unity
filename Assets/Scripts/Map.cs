@@ -67,7 +67,6 @@ public class Map : MonoBehaviour {
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
         }
-   Debug.Log( mapData.offset);
         mapGrid.widthRange = mapData.widthRange;
         mapGrid.heightRange = mapData.heightRange;
         mapGrid.offset = mapData.offset;
@@ -119,6 +118,11 @@ public class Map : MonoBehaviour {
                 mapGrid.CreateCellRegion(cd.cubeCoord,rl);
             }
 
+            
+        }
+
+        foreach (var cell in mapGrid.cells) {
+            ((MapCell)cell).SetBorder();
             
         }
     }
