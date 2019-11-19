@@ -32,4 +32,6 @@ public class HexCell  : MonoBehaviour {
         name += cubeCoord.ToString();
     }
 
+     
+    
 }

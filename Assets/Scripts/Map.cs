@@ -28,24 +28,32 @@ public class Map : MonoBehaviour {
     }
     
     public void MapBuild() {
-        if (!GameController.inst.isPreloaded) {
-            LoadMakeMap();
-        }
+        
+        LoadMakeMap(GameController.inst.isEditMode);
+        
 
         if (GameController.inst.isEditMode) {
             regionEditor.mapCell = (MapCell) mapGrid.cells[0];
             regionEditor.gameObject.SetActive(true);
         }
-        
+    }
+
+    public void HideVotes(bool val) {
+        mapGrid.HideVotes(val);
     }
     
     
     [ContextMenu("test makeMap in edit")]
-    public void LoadMakeMap() {
+    public void LoadMakeMap(bool makeGrid) {
         LoadMapDataResource();
-        mapGrid.MakeGrid(mapData.widthRange,mapData.heightRange);
-        MakeMapFromData();
+        if (makeGrid) {
+            mapGrid.MakeGrid(mapData.widthRange, mapData.heightRange);
+        }
+
+        MakeMapFromData(!makeGrid);
     }
+    
+    
     
     /// <summary>
     /// Load Map data from a resource
@@ -93,17 +101,25 @@ public class Map : MonoBehaviour {
         cellData.regionID = mapCell.regionList.id;
     }
     
-    public void MakeMapFromData() {
+    public void MakeMapFromData(bool makeCells) {
+       // Debug.Log("MakeMapFromData: " + makeCells);
         foreach (var cd in mapData.cellDatas) {
-            var cell = mapGrid.cells.Find(data => data.cubeCoord == cd.cubeCoord);
-            if (cell == null) {
-                //Debug.Log("Cell not found:" + cd.cubeCoord + ":" + cd.regionID);
-                continue;
+            
+            var rl = RegionController.inst.regionList.Find(cd.regionID);
+            if (!makeCells) {
+                var cell = mapGrid.cells.Find(data => data.cubeCoord == cd.cubeCoord);
+                if (cell == null) {
+                    //Debug.Log("Cell not found:" + cd.cubeCoord + ":" + cd.regionID);
+                    continue;
+                }
+                if (rl.isRiding) rl.isAssigned = true;
+                ((MapCell) cell).SetRegion(rl);
+            }
+            else {
+                mapGrid.CreateCellRegion(cd.cubeCoord,rl);
             }
 
-            var rl = RegionController.inst.regionList.Find(cd.regionID);
-            if (rl.isRiding) rl.isAssigned = true;
-            ((MapCell) cell).SetRegion(rl);
+            
         }
     }
     

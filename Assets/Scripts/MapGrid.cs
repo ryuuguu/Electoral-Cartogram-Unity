@@ -10,6 +10,17 @@ public class MapGrid : HexGrid {
         SetCellPosition(cell, v3, anOffset);
     }
 
+    public  void CreateCellRegion(Vector3Int v3,RegionList rl) {
+        MapCell cell = Instantiate<MapCell>((MapCell)cellPrefab);
+        cell.SetRegion(rl);
+        cells.Add(cell);
+        //kludge to convert cubeCoords to old grid cords
+        var gridCoord = v3;
+        gridCoord.y += v3.x / 2;
+        
+        SetCellPosition(cell, gridCoord, offset);
+    }
+    
     public void ClearHighLight() {
         foreach(var c in cells) {
             ((MapCell)c).SetHighLight(false);
@@ -18,6 +29,15 @@ public class MapGrid : HexGrid {
     
     public MapCell GetCellAt(Vector3Int v3) {
         return (MapCell)cells.Find((cell => cell.cubeCoord == v3));
+    }
+
+    public void HideVotes(bool val) {
+        foreach (MapCell mapCell in cells) {
+            if (!(mapCell.subGrid is null)) {
+                mapCell.subGrid.gameObject.SetActive(val);
+            }
+
+        }
     }
     
 }

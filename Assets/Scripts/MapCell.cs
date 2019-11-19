@@ -73,7 +73,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
             
             int maxIndex = Mathf.Min(91,Mathf.FloorToInt(91 * sumVotes / totalVotes));
             
-            Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
+           // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;
             for (; childIndex < maxIndex; childIndex++) {
                 subGrid.cells[childIndex].center.color = color;
@@ -94,6 +94,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
         if (regionList.isRiding) {
             //var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
             Map.ShowDistrictPopup(regionList.id, Input.mousePosition, LanguageController.ChooseName(regionList.names)
+                //+ " : " + cubeCoord
                 ,transform.position);
         }
     }

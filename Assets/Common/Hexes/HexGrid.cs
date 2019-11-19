@@ -68,7 +68,7 @@ public class HexGrid : MonoBehaviour {
 
     public void SetCellPosition(HexCell cell, Vector3Int v3, Vector2 anOffset) {
         Vector3 pos = Vector3.zero;
-        if (isRotate30) { // not tested 
+        if (isRotate30) {
             pos = new Vector3(
                 (anOffset.x + v3.x+ v3.y * 0.5f  - v3.y / 2) * cell.outerRadius * HexCell.InnerOuterRatio *2f,
                 (anOffset.y * cell.outerRadius * 2f) + v3.y * cell.outerRadius * 1.5f,
@@ -88,6 +88,8 @@ public class HexGrid : MonoBehaviour {
         tran.localScale = cell.transform.localScale*scale;
         cell.SetLocation(v3,isRotate30);
     }
+
+   
     
 }
         
