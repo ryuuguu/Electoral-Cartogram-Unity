@@ -13,6 +13,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
     public Image targetHighlight;
     public HexGrid prefabSubGrid;
     public HexGrid subGrid;
+    public int SubGridSize = 91;
     
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;
@@ -76,7 +77,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
         foreach (var cr in candidateResults) {
             sumVotes += cr.votes;
             
-            int maxIndex = Mathf.Min(91,Mathf.FloorToInt(91 * sumVotes / totalVotes));
+            int maxIndex = Mathf.Min(SubGridSize,Mathf.FloorToInt(SubGridSize * sumVotes / totalVotes));
             
            // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;

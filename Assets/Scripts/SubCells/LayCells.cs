@@ -5,12 +5,22 @@ using UnityEngine;
 
 public class LayCells : MonoBehaviour {
     public HexGrid subGrid;
-
+    public Vector2Int widths = new Vector2Int(-5,6);
+    public Vector2Int heights = new Vector2Int(-5,6);
+    public bool cull2Hex = true;
+    
     private void Start() {
-        subGrid.MakeGrid(new Vector2Int(-5,6), new Vector2Int(-5,6));
-        CullMaxLimit(5);
+        Layout();
     }
 
+    [ContextMenu("Make Layout")]
+    public void Layout() {
+        subGrid.MakeGrid(widths, heights);
+        if (cull2Hex) {
+            CullMaxLimit(5);
+        }
+    }
+    
     public void CullMaxLimit(int maxLimit) {
         List<HexCell> newList = new List<HexCell>();
         foreach (var cell in subGrid.cells) {

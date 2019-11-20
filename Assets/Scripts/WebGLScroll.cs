@@ -15,17 +15,17 @@ public class WebGLScroll : MonoBehaviour {
 
     public float sensitivity = 100;
 
-//#if UNITY_WEBGL
+#if UNITY_WEBGL
     private void Update() {
 
         var x = Input.GetAxis("Mouse ScrollWheel");
         if (x != 0) {
-            ScrollBy(0,(int)(sensitivity*x));
+            ScrollBy(0,(int)(sensitivity*x*-1));
             debugDisplay.text = x.ToString();
             //Hello();
             ;
         }
 
     }
-//#endif
+#endif
 }
