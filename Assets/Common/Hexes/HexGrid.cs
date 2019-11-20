@@ -46,40 +46,50 @@ public class HexGrid : MonoBehaviour {
     }
     
     
-    public void MakeGrid(Vector2Int widths, Vector2Int heights) {
+    public void MakeGrid(Vector2Int widths, Vector2Int heights, bool isRectangle = false) {
         ClearGrid();
         cells = new List<HexCell>();
         int z = 0;
         for (int y = heights[0]; y < heights[1]; y++) {
             for (int x = widths[0]; x < widths[1]; x++) {
                 var v3 = new Vector3Int(x,y,z);
-                CreateCell(v3,offset);
+                CreateCell(v3,offset,isRectangle);
             }
         }
     }
 
     
     
-    public virtual void CreateCell(Vector3Int v3,Vector2 anOffset) {
+    public virtual void CreateCell(Vector3Int v3,Vector2 anOffset, bool isRectangle = false) {
         HexCell cell = Instantiate<HexCell>(cellPrefab);
         cells.Add(cell);
-        SetCellPosition(cell, v3, anOffset);
+        SetCellPosition(cell, v3, anOffset,isRectangle);
     }
 
-    public void SetCellPosition(HexCell cell, Vector3Int v3, Vector2 anOffset) {
+    public void SetCellPosition(HexCell cell, Vector3Int v3, Vector2 anOffset, bool isRectangle = false) {
         Vector3 pos = Vector3.zero;
-        if (isRotate30) {
+        if (isRectangle) {
             pos = new Vector3(
-                (anOffset.x + v3.x+ v3.y * 0.5f  - v3.y / 2) * cell.outerRadius * HexCell.InnerOuterRatio *2f,
-                (anOffset.y * cell.outerRadius * 2f) + v3.y * cell.outerRadius * 1.5f,
+                (anOffset.x + v3.x) * cell.outerRadius * 1.5f,
+                (anOffset.y +
+                 +v3.y ) * cell.outerRadius * HexCell.InnerOuterRatio * 2f,
                 0);
         }
-        else { 
-            pos = new Vector3(
-                (anOffset.x + v3.x)  * cell.outerRadius * 1.5f,
-                (anOffset.y + 
-                + v3.y + v3.x * 0.5f - v3.x / 2 )* cell.outerRadius * HexCell.InnerOuterRatio * 2f,
-                0); 
+        else {
+
+            if (isRotate30) {
+                pos = new Vector3(
+                    (anOffset.x + v3.x + v3.y * 0.5f - v3.y / 2) * cell.outerRadius * HexCell.InnerOuterRatio * 2f,
+                    (anOffset.y * cell.outerRadius * 2f) + v3.y * cell.outerRadius * 1.5f,
+                    0);
+            }
+            else {
+                pos = new Vector3(
+                    (anOffset.x + v3.x) * cell.outerRadius * 1.5f,
+                    (anOffset.y +
+                     +v3.y + v3.x * 0.5f - v3.x / 2) * cell.outerRadius * HexCell.InnerOuterRatio * 2f,
+                    0);
+            }
         }
 
         var tran = cell.transform;

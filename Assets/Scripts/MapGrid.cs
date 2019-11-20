@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapGrid : HexGrid {
-    public override void CreateCell(Vector3Int v3,Vector2 anOffset) {
+    public override void CreateCell(Vector3Int v3,Vector2 anOffset, bool isrectangle = false) {
         MapCell cell = Instantiate<MapCell>((MapCell)cellPrefab);
         cell.SetRegion(RegionController.inst.regionList);
         cells.Add(cell);

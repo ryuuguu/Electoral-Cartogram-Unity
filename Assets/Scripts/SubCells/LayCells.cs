@@ -8,6 +8,7 @@ public class LayCells : MonoBehaviour {
     public Vector2Int widths = new Vector2Int(-5,6);
     public Vector2Int heights = new Vector2Int(-5,6);
     public bool cull2Hex = true;
+    public bool isRectangle = false;
     
     private void Start() {
         Layout();
@@ -15,7 +16,7 @@ public class LayCells : MonoBehaviour {
 
     [ContextMenu("Make Layout")]
     public void Layout() {
-        subGrid.MakeGrid(widths, heights);
+        subGrid.MakeGrid(widths, heights,isRectangle);
         if (cull2Hex) {
             CullMaxLimit(5);
         }
