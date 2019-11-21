@@ -97,10 +97,21 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
     }
 
     public void ShowLocationPopup() {
+        var debugRT = transform.parent.GetComponent < RectTransform>();
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            debugRT, Input.mousePosition,
+            null ,
+            out pos);
+
+        var debugLoc =(Vector3) HexGrid.GetCubeCoord(pos, 2f*2f*Map.inst.mapGrid.posCellScale);
+        var debugLoc2 = Map.inst.mapGrid.InvertCellPosition(this, pos);
+        debugLoc2.z = -1 * (debugLoc2.x + debugLoc2.y);
+        debugLoc.z = -1 * (debugLoc.x + debugLoc.y);
         if (regionList.isRiding) {
             //var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
             Map.ShowDistrictPopup(regionList.id, Input.mousePosition, LanguageController.ChooseName(regionList.names)
-                //+ " : " + cubeCoord
+                + " : " + cubeCoord + " calc: " + (cubeCoord -debugLoc) + " ms: " + pos + " : " + (cubeCoord -debugLoc2)
                 ,transform.position);
         }
     }
