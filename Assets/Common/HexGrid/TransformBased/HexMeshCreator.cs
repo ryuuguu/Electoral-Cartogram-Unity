@@ -211,8 +211,10 @@ public class HexMeshCreator : MonoBehaviour
     // Adds the specified mesh to a given GameObject and can add a MeshCollider
     public void AddToGameObject(GameObject go, Type type, bool addMeshCollider)
     {
-        if (go == null)
+        if (go == null) {
+            Debug.Log("AddToGameObject ");
             return;
+        }
 
         MeshRenderer meshRenderer = go.GetComponent<MeshRenderer>();
 

@@ -1,23 +1,39 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
+using Com.Ryuuguu.HexGrid;
 
-public class ExampleScript : MonoBehaviour
-{
-    private CubeCoordinates _cubeCoordinates;
+public class HexGridExampleScript : MonoBehaviour {
 
-    private void Awake()
-    {
-        _cubeCoordinates = gameObject.GetComponent<CubeCoordinates>();
+    public Transform holder;
+    public CoordinateTransform prefab;
+    
+     CubeCoordinates _cubeCoordinates;
+
+    private void Awake() {
+        _cubeCoordinates = new CubeCoordinates();
+        
+        //_cubeCoordinates = gameObject.AddComponent<CubeCoordinates>();
+        
     }
 
-    private void NewMap()
-    {
+    private void Start() {
+        holder = transform;
+         var cth = new CoordinateTransformHelper();
+         cth.prefab = prefab;
+        _cubeCoordinates.coordinateHelper = cth;
+        _cubeCoordinates.worldSpaceId = CoordinateTransform.NewWorldSpaceId(1, holder);
+        _cubeCoordinates.CalculateCoordinateDimensions();
+        _cubeCoordinates.Construct(2);
+    }
+
+    private void NewMap() {
         _cubeCoordinates.Construct(10);
 
         // Remove 25% of Coordinates except 0,0,0
-        foreach (Vector3 cube in _cubeCoordinates.GetCubesFromContainer("all"))
-        {
+        foreach (Vector3 cube in _cubeCoordinates.GetCubesFromContainer("all")) {
             if (cube == Vector3.zero)
                 continue;
 
