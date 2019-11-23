@@ -21,8 +21,9 @@ public class Tooltip : MonoBehaviour {
         var top = (int)(screenLocation.y* 2/  Screen.height);
         var rt = ((RectTransform) transform);
         rt.pivot = new Vector2(right,top);
-        Vector3 pos;
+        
         var rectTrans = ((RectTransform) transform.parent);
+        //Vector3 pos;
         //RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTrans, screenLocation, Camera.main, out pos);
         transform.position = worldPos;
     }

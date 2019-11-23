@@ -5,10 +5,7 @@ using UnityEngine;
 
 namespace Com.Ryuuguu.HexGrid {
     public class CoordinateTransform : MonoBehaviour, ICoordinate {
-        private Vector3 _position = Vector3.zero;
         
-        private Vector3 _cube = Vector3.zero;
-
         public Vector3 cube { get; set; }
         
 
@@ -38,24 +35,24 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Initializes the Coordinate given a cube coordinate and worldSpaceId
         //still needs ?? to put in container and check container 
-        public void Init(Vector3 cube,  string worldSpaceId) {
-            Vector3 position = ConvertCubeToWorldPosition(cube, worldSpaceId);
-            this._cube = cube;
-            transform.localPosition = position;
+        public void Init(Vector3 aCube,  string worldSpaceId) {
+            Vector3 position = ConvertCubeToWorldPosition(aCube, worldSpaceId);
+            cube = aCube;
             transform.parent = groups[worldSpaceId];
+            transform.localPosition = position;
             name= "Coordinate: [" + cube.x + "," + cube.y + "," + cube.z + "]";
 
-            HexMeshCreator.Instance.AddToGameObject(this.gameObject, HexMeshCreator.Type.Tile, true);
-            _meshRenderer = gameObject.GetComponent<MeshRenderer>();
-            _meshCollider = gameObject.GetComponent<MeshCollider>();
+            HexMeshCreator.Instance.AddToGameObject(gameObject, HexMeshCreator.Type.Tile, true);
+            _meshRenderer = GetComponent<MeshRenderer>();
+            _meshCollider = GetComponent<MeshCollider>();
 
             _outline = new GameObject("Outline");
             _outline.transform.parent = transform;
 
             HexMeshCreator.Instance.AddToGameObject(_outline, HexMeshCreator.Type.Outline, false);
 
-            gameObject.transform.position = _position;
-            _outline.transform.position = _position;
+            
+            _outline.transform.position = position;
 
             Hide();
             
@@ -91,7 +88,8 @@ namespace Com.Ryuuguu.HexGrid {
         
         static Dictionary<string, WorldSpace> worldSpaces = new Dictionary<string, WorldSpace>();
         
-        public struct WorldSpace {
+        [Serializable]
+        public class WorldSpace {
             public float gameScale;
             public float coordinateRadius;
 
@@ -122,12 +120,13 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Converts a cube coordinate to a world transform position
-        public Vector3 ConvertCubeToWorldPosition(Vector3 cube, string worldSpaceId) {
+        public Vector3 ConvertCubeToWorldPosition(Vector3 aCube, string worldSpaceId) {
             var ws = worldSpaces[worldSpaceId];
-            float x = cube.x * ws.spacingHorizontal;
+           
+            float x = aCube.x * ws.spacingHorizontal;
             float y = 0.0f;
-            float z = -((cube.x * ws.spacingVertical) + (cube.z * ws.spacingVertical * 2.0f));
-
+            float z = -((aCube.x * ws.spacingVertical) + (aCube.z * ws.spacingVertical * 2.0f));
+            Debug.Log("ConvertCubeToWorldPosition " + new Vector3(x, y, z));
             return new Vector3(x, y, z);
         }
 
@@ -139,6 +138,7 @@ namespace Com.Ryuuguu.HexGrid {
             return CubeCoordinates.RoundAxial(new Vector2(q, r));
         }
 
+       
         static public void CalculateCoordinateDimensions(float gameScale,WorldSpace ws) {
             ws.coordinateRadius =  gameScale;
 
@@ -147,7 +147,6 @@ namespace Com.Ryuuguu.HexGrid {
 
             ws.coordinateHeight = (Mathf.Sqrt(3) / 2.0f) * ws.coordinateWidth;
             ws.spacingVertical = ws.coordinateHeight / 2.0f;
-
             HexMeshCreator.Instance.SetRadius(ws.coordinateRadius); //MeshCreator should not be a singleton 
         }
         
