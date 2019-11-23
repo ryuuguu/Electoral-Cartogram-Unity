@@ -135,7 +135,7 @@ namespace Com.Ryuuguu.HexGrid {
             var ws = worldSpaces[worldSpaceId];
             float q = (wPos.x * (2.0f / 3.0f)) / ws.coordinateRadius;
             float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
-            return CubeCoordinates.RoundAxial(new Vector2(q, r));
+            return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
         }
 
        

@@ -10,20 +10,21 @@ public class HexGridExampleScript : MonoBehaviour {
     public Transform holder;
     public CoordinateTransform prefab;
     
-     CubeCoordinates _cubeCoordinates;
+     CubeCoordinates<CoordinateTransform> _cubeCoordinates;
 
     private void Awake() {
-        _cubeCoordinates = new CubeCoordinates();
+        
         
         //_cubeCoordinates = gameObject.AddComponent<CubeCoordinates>();
         
     }
 
     private void Start() {
-        holder = transform;
-         var cth = new CoordinateTransformHelper();
-         cth.prefab = prefab;
-        _cubeCoordinates.coordinateHelper = cth;
+        _cubeCoordinates = new CubeCoordinates<CoordinateTransform>();
+       // holder = transform;
+       //  var cth = new CoordinateTransformHelper();
+       _cubeCoordinates.prefab = prefab;
+        //_cubeCoordinates.coordinateHelper = cth;
         _cubeCoordinates.worldSpaceId = CoordinateTransform.NewWorldSpaceId(1, holder);
         _cubeCoordinates.CalculateCoordinateDimensions();
         _cubeCoordinates.Construct(2);

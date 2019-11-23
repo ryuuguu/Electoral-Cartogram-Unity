@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 
 namespace Com.Ryuuguu.HexGrid {
-//public class CubeCoordinates<T> :  where T : ICoordinate
-    public class CubeCoordinates //: MonoBehaviour
+//public class CubeCoordinates<T>  where T : ICoordinate
+    public class CubeCoordinates<T>  where T : class, ICoordinate
     {
-        private Dictionary<string, Dictionary<Vector3, CoordinateTransform>> _coordinateContainers =
-            new Dictionary<string, Dictionary<Vector3, CoordinateTransform>>();
+        private Dictionary<string, Dictionary<Vector3, T>> _coordinateContainers =
+            new Dictionary<string, Dictionary<Vector3, T>>();
 
         public string worldSpaceId;
         public ICoordinateHelper coordinateHelper;
         public GameObject group;
+        public T prefab;
 
         private float _gameScale = 1.0f;
         private float _coordinateRadius = 1.0f;
@@ -83,10 +84,15 @@ namespace Com.Ryuuguu.HexGrid {
             
             if (GetCoordinateFromContainer(cube, "all") != null)
                 return;
-            var coordinate = (CoordinateTransform)coordinateHelper.NewCoordinate();
-            
-            coordinate.Init(cube,worldSpaceId);
-            AddCoordinateToContainer(coordinate, "all");
+
+            if (typeof(T).IsSubclassOf(typeof(UnityEngine.Object))) {
+                var coordinate =  UnityEngine.Object.Instantiate(prefab as UnityEngine.Object ) as T;
+                coordinate.Init(cube, worldSpaceId);
+                AddCoordinateToContainer(coordinate, "all");
+            }
+            else {
+                //handle making new UIElements here 
+            }
         }
 
         // Creates a set of Coordinate GameObjects for a given list of cube coordinates
@@ -97,7 +103,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Removes and destroys a Coordinate for a given cube coordinate
         public void RemoveCube(Vector3 cube) {
-            CoordinateTransform coordinate = GetCoordinateFromContainer(cube, "all");
+            T coordinate = GetCoordinateFromContainer(cube, "all");
             if (coordinate == null)
                 return;
 
@@ -331,8 +337,8 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> GetReachableCubes(Vector3 cube, bool cleanResults = true) {
             List<Vector3> cubes = new List<Vector3>();
 
-            CoordinateTransform originCoordinate = GetCoordinateFromContainer(cube, "all");
-            CoordinateTransform currentCoordinate = null;
+            T originCoordinate = GetCoordinateFromContainer(cube, "all");
+            T currentCoordinate = null;
             Vector3 currentCube = cube;
 
             for (int i = 0; i < 6; i++) {
@@ -416,9 +422,9 @@ namespace Com.Ryuuguu.HexGrid {
             cameFrom.Add(origin, Vector3.zero);
 
             Vector3 current = Vector3.zero;
-            CoordinateTransform coordinate = null;
-            CoordinateTransform currentCoordinate = null;
-            CoordinateTransform neighborCoordinate = null;
+            T coordinate = null;
+            T currentCoordinate = null;
+            T neighborCoordinate = null;
             float newCost = 0.0f;
 
             while (openSet.Count > 0) {
@@ -487,10 +493,10 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns a coordinate container given a container key
-        private Dictionary<Vector3, CoordinateTransform> GetCoordinateContainer(string key) {
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer;
+        private Dictionary<Vector3, T> GetCoordinateContainer(string key) {
+            Dictionary<Vector3, T> coordinateContainer;
             if (!_coordinateContainers.TryGetValue(key, out coordinateContainer)) {
-                _coordinateContainers.Add(key, new Dictionary<Vector3, CoordinateTransform>());
+                _coordinateContainers.Add(key, new Dictionary<Vector3, T>());
                 _coordinateContainers.TryGetValue(key, out coordinateContainer);
             }
 
@@ -500,7 +506,7 @@ namespace Com.Ryuuguu.HexGrid {
         // Removes empty coordinate containers
         private void CleanEmptyCoordinateContainers() {
             List<string> coordinateContainerKeysToRemove = new List<string>();
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer;
+            Dictionary<Vector3, T> coordinateContainer;
             foreach (string key in _coordinateContainers.Keys) {
                 _coordinateContainers.TryGetValue(key, out coordinateContainer);
                 if (coordinateContainer.Values.Count == 0)
@@ -512,9 +518,9 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns a Coordinate given a cube coordinate and a container key
-        public CoordinateTransform GetCoordinateFromContainer(Vector3 cube, string key) {
-            CoordinateTransform coordinate = null;
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+        public T GetCoordinateFromContainer(Vector3 cube, string key) {
+            T coordinate = null;
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             if (cube == Vector3.zero)
                 coordinateContainer.TryGetValue(Vector3.zero, out coordinate);
             else
@@ -523,10 +529,10 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns a list of Coordinates given a container key
-        public List<CoordinateTransform> GetCoordinatesFromContainer(string key) {
-            List<CoordinateTransform> coordinates = new List<CoordinateTransform>();
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
-            foreach (KeyValuePair<Vector3, CoordinateTransform> entry in coordinateContainer)
+        public List<T> GetCoordinatesFromContainer(string key) {
+            List<T> coordinates = new List<T>();
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
+            foreach (KeyValuePair<Vector3, T> entry in coordinateContainer)
                 coordinates.Add(entry.Value);
             return coordinates;
         }
@@ -534,7 +540,7 @@ namespace Com.Ryuuguu.HexGrid {
         // Returns a list of cube coordinates given a container key
         public List<Vector3> GetCubesFromContainer(string key) {
             List<Vector3> cubes = new List<Vector3>();
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             foreach (Vector3 cube in coordinateContainer.Keys)
                 cubes.Add(cube);
             return cubes;
@@ -552,8 +558,8 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Adds a given Coordinate to the given container key
-        public bool AddCoordinateToContainer(CoordinateTransform coordinate, string key) {
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+        public bool AddCoordinateToContainer(T coordinate, string key) {
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             if (!coordinateContainer.ContainsKey(coordinate.cube)) {
                 coordinateContainer.Add(coordinate.cube, coordinate);
                 return true;
@@ -563,20 +569,20 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Removes a given Coordinate from the given container key
-        public void RemoveCoordinateFromContainer(CoordinateTransform coordinate, string key) {
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+        public void RemoveCoordinateFromContainer(T coordinate, string key) {
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             if (coordinateContainer.ContainsKey(coordinate.cube))
                 coordinateContainer.Remove(coordinate.cube);
         }
 
         // Removes all Coordinates from given container key
         public void RemoveAllCoordinatesInContainer(string key) {
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             coordinateContainer.Clear();
         }
 
         // Removes a given Coordinate from all containers
-        public void RemoveCoordinateFromAllContainers(CoordinateTransform coordinate) {
+        public void RemoveCoordinateFromAllContainers(T coordinate) {
             foreach (string key in _coordinateContainers.Keys)
                 RemoveCoordinateFromContainer(coordinate, key);
         }
@@ -588,13 +594,13 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Clears all Coordinates from a given container key
         public void ClearCoordinatesFromContainer(string key) {
-            Dictionary<Vector3, CoordinateTransform> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
             coordinateContainer.Clear();
         }
 
         // Hides all Coordinates for a given container key
         public void HideCoordinatesInContainer(string key) {
-            foreach (CoordinateTransform coordinate in GetCoordinatesFromContainer(key)) {
+            foreach (T coordinate in GetCoordinatesFromContainer(key)) {
                 coordinate.Hide();
                 RemoveCoordinateFromContainer(coordinate, "visible");
             }
@@ -602,7 +608,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Shows all Coordinates for a given container key
         public void ShowCoordinatesInContainer(string key, bool bCollider = true) {
-            foreach (CoordinateTransform coordinate in GetCoordinatesFromContainer(key)) {
+            foreach (T coordinate in GetCoordinatesFromContainer(key)) {
                 coordinate.Show(bCollider);
                 AddCoordinateToContainer(coordinate, "visible");
             }
@@ -610,7 +616,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Hides and Clears all Coordinates for a given container key
         public void HideAndClearCoordinateContainer(string key) {
-            foreach (CoordinateTransform coordinate in GetCoordinatesFromContainer(key))
+            foreach (T coordinate in GetCoordinatesFromContainer(key))
                 coordinate.Hide();
             ClearCoordinatesFromContainer(key);
         }

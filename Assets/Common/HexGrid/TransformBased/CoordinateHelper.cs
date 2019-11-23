@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Com.Ryuuguu.HexGrid {
-    public class CoordinateHolder<T> where T: ICoordinate  {
+    public class CoordinateHelper<T> where T: class,ICoordinate  {
         //make & return new coordinates
         // make & return coordinate containers 
 
@@ -209,7 +209,7 @@ namespace Com.Ryuuguu.HexGrid {
         public virtual Vector2 ConvertWorldPositionToAxial(Vector3 wPos) {
             float q = (wPos.x * (2.0f / 3.0f)) / _coordinateRadius;
             float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / _coordinateRadius;
-            return CubeCoordinates.RoundAxial(new Vector2(q, r));
+            return CubeCoordinates<T>.RoundAxial(new Vector2(q, r));
         }
 
         public void CalculateCoordinateDimensions() {

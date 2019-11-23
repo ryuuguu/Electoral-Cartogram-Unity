@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Com.Ryuuguu.HexGrid {
-    public interface ICoordinate {
+    public interface ICoordinate  {
 
         /// <summary>
         /// Cube Coordinate
