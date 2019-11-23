@@ -29,13 +29,12 @@ namespace Com.Ryuuguu.HexGrid {
             cube = aCube;
             transform.parent = groups[worldSpaceId];
             transform.localPosition = position;
+            transform.localScale = Vector3.one* worldSpaces[worldSpaceId].coordinateRadius;
             name= "Coordinate: [" + cube.x + "," + cube.y + "," + cube.z + "]";
-
             ExtraInit(cube,worldSpaceId,position);
         }
 
         protected virtual void ExtraInit(Vector3 aCube,  string worldSpaceId, Vector3 position) {
-            
             //override and place code to do extra initialization such creating visuals
         }
 
@@ -88,7 +87,6 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         public static void ExtraWorldSpaceInit(float gameScale, Transform group) {
-            HexMeshCreator.Instance.SetRadius(gameScale); //MeshCreator should not be a singleton 
         }
         // Converts an axial coordinate to a world transform position
         public Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
@@ -119,7 +117,8 @@ namespace Com.Ryuuguu.HexGrid {
 
        
         static public void CalculateCoordinateDimensions(float gameScale,WorldSpace ws) {
-            ws.coordinateRadius =  gameScale;
+            ws.gameScale = gameScale;
+            ws.coordinateRadius =  ws.gameScale;
 
             ws.coordinateWidth = ws.coordinateRadius * 2;
             ws.spacingHorizontal = ws.coordinateWidth * 0.75f;

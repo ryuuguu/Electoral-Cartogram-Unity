@@ -45,10 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21bbd806d02af4656b5e54d8b0731868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshRenderer: {fileID: 0}
-  _meshCollider: {fileID: 0}
   centerMesh: {fileID: 4258297907704559747}
-  outlineMesh: {fileID: 0}
+  outlineMesh: {fileID: 5167670267974460708}
 --- !u!1 &4141602060809686433
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This is used in the Library but was used to make the hex mesh prefabs
+/// </summary>
 public class HexMeshCreator : MonoBehaviour
 {
     private static HexMeshCreator _instance;
