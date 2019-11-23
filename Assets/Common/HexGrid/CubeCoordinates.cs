@@ -43,20 +43,6 @@ namespace Com.Ryuuguu.HexGrid {
             new Vector3(-1.0f, -1.0f, 2.0f),
             new Vector3(1.0f, -2.0f, 1.0f)
         };
-        
-        // Uses gamescale to calculate spacings & dimensions
-        public void CalculateCoordinateDimensions() {
-            _coordinateRadius = _coordinateRadius * _gameScale;
-
-            _coordinateWidth = _coordinateRadius * 2;
-            _spacingHorizontal = _coordinateWidth * 0.75f;
-
-            _coordinateHeight = (Mathf.Sqrt(3) / 2.0f) * _coordinateWidth;
-            _spacingVertical = _coordinateHeight / 2.0f;
-
-            HexMeshCreator.Instance.SetRadius(_coordinateRadius);
-        }
-
         // Constructs new set of coordinates from 0,0,0 given a radius
         public void Construct(int radius) {
             Clear();

@@ -5,14 +5,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using Com.Ryuuguu.HexGrid;
 
-public class HexGridExampleScript : MonoBehaviour {
+public class UIHexGridExampleScript : MonoBehaviour {
 
     public Transform holder;
-    public CoordinateTransform prefab;
+    public CoordinateUI prefab;
 
     protected string AllToken;
     
-     CubeCoordinates<CoordinateTransform> _cubeCoordinates;
+     CubeCoordinates<CoordinateUI> _cubeCoordinates;
 
     private void Awake() {
         
@@ -22,10 +22,10 @@ public class HexGridExampleScript : MonoBehaviour {
     }
 
     private void Start() {
-        _cubeCoordinates = new CubeCoordinates<CoordinateTransform>();
-        AllToken = CubeCoordinates<CoordinateTransform>.AllContainer;
+        _cubeCoordinates = new CubeCoordinates<CoordinateUI>();
+        AllToken = CubeCoordinates<CoordinateUI>.AllContainer;
         _cubeCoordinates.prefab = prefab;
-        _cubeCoordinates.worldSpaceId = CoordinateTransform.NewWorldSpaceId(1, holder);
+        _cubeCoordinates.worldSpaceId = CoordinateUI.NewWorldSpaceId(1, holder);
         _cubeCoordinates.Construct(2);
     }
 
