@@ -10,6 +10,9 @@ public class UIHexGridExampleScript : MonoBehaviour {
     public Transform holder;
     public CoordinateUI prefab;
 
+    public Vector3 debugPos;
+    public Vector2 debugCubePos;
+
     protected string AllToken;
     
      CubeCoordinates<CoordinateUI> _cubeCoordinates;
@@ -28,7 +31,43 @@ public class UIHexGridExampleScript : MonoBehaviour {
         _cubeCoordinates.localSpaceId = CoordinateUI.NewLocalSpaceId(20, holder);
         _cubeCoordinates.Construct(2);
     }
+    
+    private void Update() {
+        DebugMousePos();
+        
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            NewMap();
+            return;
+        }
+        if (_cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count == 0)
+            return;
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+            ShowExample("line");
+
+        if (Input.GetKeyDown(KeyCode.R))
+            ShowExample("reachable");
+
+        if (Input.GetKeyDown(KeyCode.S))
+            ShowExample("spiral");
+
+        if (Input.GetKeyDown(KeyCode.P))
+            ShowExample("path");
+    }
+    
+    private void DebugMousePos() {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)transform, Input.mousePosition,null,out  var localPoint);
+        debugPos = localPoint;
+        debugCubePos = CoordinateUI.ConvertLocalPositionToAxialStatic(debugPos, _cubeCoordinates.localSpaceId);
+
+    }
+    
     private void NewMap() {
         _cubeCoordinates.Construct(10);
 
@@ -79,31 +118,5 @@ public class UIHexGridExampleScript : MonoBehaviour {
         _cubeCoordinates.ShowCoordinatesInContainer(key);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            NewMap();
-            return;
-        }
-        if (_cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count == 0)
-            return;
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-            ShowExample("line");
-
-        if (Input.GetKeyDown(KeyCode.R))
-            ShowExample("reachable");
-
-        if (Input.GetKeyDown(KeyCode.S))
-            ShowExample("spiral");
-
-        if (Input.GetKeyDown(KeyCode.P))
-            ShowExample("path");
-    }
+    
 }
