@@ -10,6 +10,13 @@ public class HexGridExampleScript : MonoBehaviour {
     public Transform holder;
     public CoordinateTransform prefab;
 
+    public Vector3 debugPos;
+    public Vector2 debugCubePos;
+    public float debugEnter;
+    
+    public Vector3 planeNormal;
+    public Plane plane;
+    
     protected string AllToken;
     
      CubeCoordinates<CoordinateTransform> _cubeCoordinates;
@@ -27,7 +34,54 @@ public class HexGridExampleScript : MonoBehaviour {
         _cubeCoordinates.prefab = prefab;
         _cubeCoordinates.localSpaceId = CoordinateTransform.NewLocalSpaceId(2, holder);
         _cubeCoordinates.Construct(2);
+        plane = new Plane(planeNormal, transform.position);
     }
+
+    private void Update() {
+        DebugMousePos();
+        if (Input.GetKeyDown(KeyCode.Return)) {
+            NewMap();
+            return;
+        }
+        if (_cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count == 0)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.C)) {
+            _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+            ShowExample("line");
+
+        if (Input.GetKeyDown(KeyCode.R))
+            ShowExample("reachable");
+
+        if (Input.GetKeyDown(KeyCode.S))
+            ShowExample("spiral");
+
+        if (Input.GetKeyDown(KeyCode.P))
+            ShowExample("path");
+    }
+
+    private void DebugMousePos() {
+        Vector3 worldPoint;
+        //if (Input.GetMouseButton(0)) {
+            //Create a ray from the Mouse click position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            //Initialise the enter variable
+            debugEnter = 0.0f;
+
+            if (plane.Raycast(ray, out debugEnter)) {
+                //Get the point that is clicked
+                worldPoint = ray.GetPoint(debugEnter);
+                var localPoint = transform.InverseTransformPoint(worldPoint);
+                debugPos = localPoint;
+                debugCubePos = CoordinateUI.ConvertLocalPositionToAxialStatic(debugPos, _cubeCoordinates.localSpaceId);
+            }
+        //}
+    }
+
 
     private void NewMap() {
         _cubeCoordinates.Construct(10);
@@ -79,31 +133,5 @@ public class HexGridExampleScript : MonoBehaviour {
         _cubeCoordinates.ShowCoordinatesInContainer(key);
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            NewMap();
-            return;
-        }
-        if (_cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count == 0)
-            return;
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
-        }
-
-        if (Input.GetKeyDown(KeyCode.L))
-            ShowExample("line");
-
-        if (Input.GetKeyDown(KeyCode.R))
-            ShowExample("reachable");
-
-        if (Input.GetKeyDown(KeyCode.S))
-            ShowExample("spiral");
-
-        if (Input.GetKeyDown(KeyCode.P))
-            ShowExample("path");
-    }
+    
 }
