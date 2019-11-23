@@ -60,7 +60,6 @@ namespace Com.Ryuuguu.HexGrid {
         // Constructs new set of coordinates from 0,0,0 given a radius
         public void Construct(int radius) {
             Clear();
-            group = new GameObject("CubeCoordinates");
             //group.transform.parent = holder;
             for (int x = -radius; x <= radius; x++)
             for (int y = -radius; y <= radius; y++)
@@ -72,8 +71,9 @@ namespace Com.Ryuuguu.HexGrid {
         // Destroys all coordinates and entries
         private void Clear() {
             //change to destroying evey object in all container 
-            
-            GameObject.Destroy(group);
+            foreach (var coord in GetCoordinateContainer(AllContainer).Values) {
+                coord.DestroyMe();
+            }
             ClearAllCoordinateContainers();
         }
 
