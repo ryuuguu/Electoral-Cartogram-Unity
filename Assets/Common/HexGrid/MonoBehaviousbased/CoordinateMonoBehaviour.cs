@@ -8,9 +8,6 @@ namespace Com.Ryuuguu.HexGrid {
         
         public Vector3 cube { get; set; }
         
-
-        
-
         public float gCost { get; set; }
         public float hCost { get; set; }
 
@@ -37,7 +34,6 @@ namespace Com.Ryuuguu.HexGrid {
         protected virtual void ExtraInit(Vector3 aCube,  string worldSpaceId, Vector3 position) {
             //override and place code to do extra initialization such creating visuals
         }
-
         
         // Hides the Coordinate
         public virtual void Hide() {
@@ -87,9 +83,11 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         public static void ExtraWorldSpaceInit(float gameScale, Transform group) {
+            
         }
+        
         // Converts an axial coordinate to a world transform position
-        public Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
+        public virtual Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
             var ws = worldSpaces[worldSpaceId];
             float x = axial.x * ws.spacingHorizontal;
             float z = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
@@ -99,12 +97,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Converts a cube coordinate to a world transform position
         public Vector3 ConvertCubeToWorldPosition(Vector3 aCube, string worldSpaceId) {
-            var ws = worldSpaces[worldSpaceId];
-           
-            float x = aCube.x * ws.spacingHorizontal;
-            float y = 0.0f;
-            float z = -((aCube.x * ws.spacingVertical) + (aCube.z * ws.spacingVertical * 2.0f));
-            return new Vector3(x, y, z);
+            return ConvertAxialToWorldPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), worldSpaceId);
         }
 
         // Converts a world transform position to the nearest axial coordinate
@@ -114,8 +107,11 @@ namespace Com.Ryuuguu.HexGrid {
             float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
             return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
         }
-
-       
+        
+        public Vector3 ConvertWorldPositionToCube(Vector3 wPos, string worldSpaceId) {
+            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertWorldPositionToAxial(wPos, worldSpaceId));
+        }
+        
         static public void CalculateCoordinateDimensions(float gameScale,WorldSpace ws) {
             ws.gameScale = gameScale;
             ws.coordinateRadius =  ws.gameScale;
@@ -128,7 +124,12 @@ namespace Com.Ryuuguu.HexGrid {
             
         }
         
-        
         #endregion
+        
+        
+        // Converts a world transform position to the nearest cube coordinate
+        
+
+        
     }
 }

@@ -15,6 +15,14 @@ namespace Com.Ryuuguu.HexGrid {
             Hide();
         }
 
+        public virtual Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
+            var ws = worldSpaces[worldSpaceId];
+            float x = axial.x * ws.spacingHorizontal;
+            float y = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
+
+            return new Vector3(x, y,0);
+        }
+        
         
         // Hides the Coordinate
         public override void Hide() {

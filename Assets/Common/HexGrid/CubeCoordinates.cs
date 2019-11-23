@@ -103,7 +103,7 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Converts a cube coordinate to an axial coordinate
-        public Vector2 ConvertCubetoAxial(Vector3 cube) {
+        public static Vector2 ConvertCubetoAxial(Vector3 cube) {
             return new Vector2(cube.x, cube.z);
         }
 
@@ -112,35 +112,7 @@ namespace Com.Ryuuguu.HexGrid {
             return new Vector3(axial.x, (-axial.x - axial.y), axial.y);
         }
 
-        // Converts an axial coordinate to a world transform position
-        public Vector3 ConvertAxialToWorldPosition(Vector2 axial) {
-            float x = axial.x * _spacingHorizontal;
-            float z = -((axial.x * _spacingVertical) + (axial.y * _spacingVertical * 2.0f));
-
-            return new Vector3(x, 0.0f, z);
-        }
-
-        // Converts a cube coordinate to a world transform position
-        public Vector3 ConvertCubeToWorldPosition(Vector3 cube) {
-            float x = cube.x * _spacingHorizontal;
-            float y = 0.0f;
-            float z = -((cube.x * _spacingVertical) + (cube.z * _spacingVertical * 2.0f));
-
-            return new Vector3(x, y, z);
-        }
-
-        // Converts a world transform position to the nearest axial coordinate
-        public Vector2 ConvertWorldPositionToAxial(Vector3 wPos) {
-            float q = (wPos.x * (2.0f / 3.0f)) / _coordinateRadius;
-            float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / _coordinateRadius;
-            return RoundAxial(new Vector2(q, r));
-        }
-
-        // Converts a world transform position to the nearest cube coordinate
-        public Vector3 ConvertWorldPositionToCube(Vector3 wPos) {
-            return ConvertAxialtoCube(ConvertWorldPositionToAxial(wPos));
-        }
-
+        
         // Rounds a given Vector2 to the nearest axial coordinate
         public static Vector2 RoundAxial(Vector2 axial) {
             return RoundCube(ConvertAxialtoCube(axial));
