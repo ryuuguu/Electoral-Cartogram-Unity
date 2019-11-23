@@ -33,13 +33,6 @@ namespace Com.Ryuuguu.HexGrid {
         /// <param name="worldSpaceId"></param>
         void Init(Vector3 cube, string worldSpaceId);
 
-        /// <summary>
-        /// Make a new set to hold coordinates
-        /// </summary>
-        /// <returns>set Id</returns>
-        string MakeNewSet();
-
-
         void Hide();
         void Show(bool bCollider = true);
 

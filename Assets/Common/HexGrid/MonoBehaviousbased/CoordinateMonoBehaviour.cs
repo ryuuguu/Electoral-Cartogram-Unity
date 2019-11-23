@@ -4,14 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Com.Ryuuguu.HexGrid {
-    public class CoordinateTransform : MonoBehaviour, ICoordinate {
+    public class CoordinateMonobehaviour : MonoBehaviour, ICoordinate {
         
         public Vector3 cube { get; set; }
         
 
-        private GameObject _outline = null;
-        private MeshRenderer _meshRenderer;
-        private MeshCollider _meshCollider;
+        
 
         public float gCost { get; set; }
         public float hCost { get; set; }
@@ -19,16 +17,7 @@ namespace Com.Ryuuguu.HexGrid {
         public float fCost {
             get { return gCost + hCost; }
         }
-
-        /// <summary>
-        /// not implemented
-        /// all coordinates will be in the same set.
-        /// </summary>
-        /// <returns> dummy set Id </returns>
-        public string MakeNewSet() {
-            return "Dummy Set Id";
-        }
-
+        
         public void DestroyMe() {
             Destroy(gameObject);
         }
@@ -42,65 +31,52 @@ namespace Com.Ryuuguu.HexGrid {
             transform.localPosition = position;
             name= "Coordinate: [" + cube.x + "," + cube.y + "," + cube.z + "]";
 
-            HexMeshCreator.Instance.AddToGameObject(gameObject, HexMeshCreator.Type.Tile, true);
-            _meshRenderer = GetComponent<MeshRenderer>();
-            _meshCollider = GetComponent<MeshCollider>();
-
-            _outline = new GameObject("Outline");
-            _outline.transform.parent = transform;
-
-            HexMeshCreator.Instance.AddToGameObject(_outline, HexMeshCreator.Type.Outline, false);
-
-            
-            _outline.transform.position = position;
-
-            Hide();
-            
-            
+            ExtraInit(cube,worldSpaceId,position);
         }
 
+        protected virtual void ExtraInit(Vector3 aCube,  string worldSpaceId, Vector3 position) {
+            
+            //override and place code to do extra initialization such creating visuals
+        }
+
+        
         // Hides the Coordinate
-        public void Hide() {
-            _meshRenderer.enabled = false;
-            _meshCollider.enabled = false;
+        public virtual void Hide() {
+            //override to hide hex 
         }
 
         // Shows the Coordinate
-        public void Show(bool bCollider = true) {
-            _meshRenderer.enabled = true;
-
-            if (bCollider)
-                _meshCollider.enabled = true;
+        public virtual void Show(bool bCollider = true) {
+            //override to show hex 
         }
-        
-        /// <summary>
-        /// Most of the code in the  WorldSpace region is generic
-        /// the group... fields are not 
-        /// meshinstance is not and it should be moved
-        /// when making second coordinate type
-        ///   make an abstract Coordinate with generic code and subclass it 
-        /// </summary>
+
         #region WorldSpace
         
-        private static int worldSpaceIndex = 0;
+        protected  static int worldSpaceIndex = 0;
         
-        static Dictionary<string,Transform> groups = new Dictionary<string, Transform>();
+        protected static Dictionary<string,Transform> groups = new Dictionary<string, Transform>();
         
-        static Dictionary<string, WorldSpace> worldSpaces = new Dictionary<string, WorldSpace>();
-        
+        protected static Dictionary<string, WorldSpace> worldSpaces = new Dictionary<string, WorldSpace>();
+        /// <summary>
+        /// A WorldSpace is stores the data needed to calculate position of new hexes
+        /// There can be multiple worldSpaces for CoordinateTnansforms
+        /// </summary>
         [Serializable]
         public class WorldSpace {
             public float gameScale;
             public float coordinateRadius;
-
             public float coordinateWidth;
             public float coordinateHeight;
-
             public float spacingVertical;
             public float spacingHorizontal;
         }
         
-        
+        /// <summary>
+        /// Setup an new worldSpace with Scale
+        /// </summary>
+        /// <param name="gameScale"></param>
+        /// <param name="group"></param>
+        /// <returns></returns>
         public static string NewWorldSpaceId(float gameScale, Transform group) {
             var result = worldSpaceIndex.ToString();
             worldSpaceIndex++;
@@ -126,7 +102,6 @@ namespace Com.Ryuuguu.HexGrid {
             float x = aCube.x * ws.spacingHorizontal;
             float y = 0.0f;
             float z = -((aCube.x * ws.spacingVertical) + (aCube.z * ws.spacingVertical * 2.0f));
-            Debug.Log("ConvertCubeToWorldPosition " + new Vector3(x, y, z));
             return new Vector3(x, y, z);
         }
 

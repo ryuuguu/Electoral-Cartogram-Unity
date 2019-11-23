@@ -10,8 +10,10 @@ namespace Com.Ryuuguu.HexGrid {
         private Dictionary<string, Dictionary<Vector3, T>> _coordinateContainers =
             new Dictionary<string, Dictionary<Vector3, T>>();
 
+        public const string AllContainer = "ALL";
+        
         public string worldSpaceId;
-        public ICoordinateHelper coordinateHelper;
+        
         public GameObject group;
         public T prefab;
 
@@ -41,13 +43,7 @@ namespace Com.Ryuuguu.HexGrid {
             new Vector3(-1.0f, -1.0f, 2.0f),
             new Vector3(1.0f, -2.0f, 1.0f)
         };
-
-        /*
-         private void Awake() {
-            CalculateCoordinateDimensions();
-        }
-        */
-
+        
         // Uses gamescale to calculate spacings & dimensions
         public void CalculateCoordinateDimensions() {
             _coordinateRadius = _coordinateRadius * _gameScale;
@@ -75,6 +71,8 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Destroys all coordinates and entries
         private void Clear() {
+            //change to destroying evey object in all container 
+            
             GameObject.Destroy(group);
             ClearAllCoordinateContainers();
         }
@@ -82,13 +80,13 @@ namespace Com.Ryuuguu.HexGrid {
         // Creates a Coordinate GameObject for a given cube coordinate
         public void AddCube(Vector3 cube) {
             
-            if (GetCoordinateFromContainer(cube, "all") != null)
+            if (GetCoordinateFromContainer(cube, AllContainer) != null)
                 return;
 
             if (typeof(T).IsSubclassOf(typeof(UnityEngine.Object))) {
                 var coordinate =  UnityEngine.Object.Instantiate(prefab as UnityEngine.Object ) as T;
                 coordinate.Init(cube, worldSpaceId);
-                AddCoordinateToContainer(coordinate, "all");
+                AddCoordinateToContainer(coordinate, AllContainer);
             }
             else {
                 //handle making new UIElements here 
@@ -103,7 +101,8 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Removes and destroys a Coordinate for a given cube coordinate
         public void RemoveCube(Vector3 cube) {
-            T coordinate = GetCoordinateFromContainer(cube, "all");
+            T coordinate = GetCoordinateFromContainer(cube, AllContainer);
+            
             if (coordinate == null)
                 return;
 
@@ -337,13 +336,13 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> GetReachableCubes(Vector3 cube, bool cleanResults = true) {
             List<Vector3> cubes = new List<Vector3>();
 
-            T originCoordinate = GetCoordinateFromContainer(cube, "all");
+            T originCoordinate = GetCoordinateFromContainer(cube, AllContainer);
             T currentCoordinate = null;
             Vector3 currentCube = cube;
 
             for (int i = 0; i < 6; i++) {
                 currentCube = GetNeighborCube(cube, i);
-                currentCoordinate = GetCoordinateFromContainer(currentCube, "all");
+                currentCoordinate = GetCoordinateFromContainer(currentCube, AllContainer);
 
                 if (currentCoordinate != null)
                     cubes.Add(currentCube);
@@ -410,7 +409,7 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns an ordered list of cube coordinates following the A* path results between two given cube coordinates
-        public List<Vector3> GetPathBetweenTwoCubes(Vector3 origin, Vector3 target, string container = "all") {
+        public List<Vector3> GetPathBetweenTwoCubes(Vector3 origin, Vector3 target, string container = AllContainer) {
             if (origin == target)
                 return new List<Vector3>();
 
@@ -487,7 +486,7 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> CleanCubeResults(List<Vector3> cubes) {
             List<Vector3> r = new List<Vector3>();
             foreach (Vector3 cube in cubes)
-                if (GetCoordinateContainer("all").ContainsKey(cube))
+                if (GetCoordinateContainer(AllContainer).ContainsKey(cube))
                     r.Add(cube);
             return r;
         }
@@ -548,13 +547,13 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Adds a given cube coordinate to the given container key
         public void AddCubeToContainer(Vector3 cube, string key) {
-            AddCoordinateToContainer(GetCoordinateFromContainer(cube, "all"), key);
+            AddCoordinateToContainer(GetCoordinateFromContainer(cube, AllContainer), key);
         }
 
         // Adds a list of cube coordinates to the given container key
         public void AddCubesToContainer(List<Vector3> cubes, string key) {
             foreach (Vector3 cube in cubes)
-                AddCoordinateToContainer(GetCoordinateFromContainer(cube, "all"), key);
+                AddCoordinateToContainer(GetCoordinateFromContainer(cube, AllContainer), key);
         }
 
         // Adds a given Coordinate to the given container key

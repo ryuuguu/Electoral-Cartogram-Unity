@@ -9,6 +9,8 @@ public class HexGridExampleScript : MonoBehaviour {
 
     public Transform holder;
     public CoordinateTransform prefab;
+
+    protected string AllToken;
     
      CubeCoordinates<CoordinateTransform> _cubeCoordinates;
 
@@ -21,6 +23,7 @@ public class HexGridExampleScript : MonoBehaviour {
 
     private void Start() {
         _cubeCoordinates = new CubeCoordinates<CoordinateTransform>();
+        AllToken = CubeCoordinates<CoordinateTransform>.AllContainer;
        // holder = transform;
        //  var cth = new CoordinateTransformHelper();
        _cubeCoordinates.prefab = prefab;
@@ -34,7 +37,7 @@ public class HexGridExampleScript : MonoBehaviour {
         _cubeCoordinates.Construct(10);
 
         // Remove 25% of Coordinates except 0,0,0
-        foreach (Vector3 cube in _cubeCoordinates.GetCubesFromContainer("all")) {
+        foreach (Vector3 cube in _cubeCoordinates.GetCubesFromContainer(AllToken)) {
             if (cube == Vector3.zero)
                 continue;
 
@@ -45,13 +48,13 @@ public class HexGridExampleScript : MonoBehaviour {
         // Remove Coordinates not reachable from 0,0,0
         _cubeCoordinates.RemoveCubes(
             _cubeCoordinates.BooleanDifferenceCubes(
-                _cubeCoordinates.GetCubesFromContainer("all"),
+                _cubeCoordinates.GetCubesFromContainer(AllToken),
                 _cubeCoordinates.GetReachableCubes(Vector3.zero, 10)
             )
         );
 
         // Display Coordinates
-        _cubeCoordinates.ShowCoordinatesInContainer("all");
+        _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
 
         // Construct Examples
         ConstructExamples();
@@ -59,7 +62,7 @@ public class HexGridExampleScript : MonoBehaviour {
 
     private void ConstructExamples()
     {
-        List<Vector3> allCubes = _cubeCoordinates.GetCubesFromContainer("all");
+        List<Vector3> allCubes = _cubeCoordinates.GetCubesFromContainer(AllToken);
 
         // Line between the first and last cube coordinate
         _cubeCoordinates.AddCubesToContainer(_cubeCoordinates.GetLineBetweenTwoCubes(allCubes[0], allCubes[allCubes.Count - 1]), "line");
@@ -76,7 +79,7 @@ public class HexGridExampleScript : MonoBehaviour {
 
     private void ShowExample(string key)
     {
-        _cubeCoordinates.HideCoordinatesInContainer("all");
+        _cubeCoordinates.HideCoordinatesInContainer(AllToken);
         _cubeCoordinates.ShowCoordinatesInContainer(key);
     }
 
@@ -87,12 +90,12 @@ public class HexGridExampleScript : MonoBehaviour {
             NewMap();
             return;
         }
-        if (_cubeCoordinates.GetCoordinatesFromContainer("all").Count == 0)
+        if (_cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count == 0)
             return;
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            _cubeCoordinates.ShowCoordinatesInContainer("all");
+            _cubeCoordinates.ShowCoordinatesInContainer(AllToken);
         }
 
         if (Input.GetKeyDown(KeyCode.L))
