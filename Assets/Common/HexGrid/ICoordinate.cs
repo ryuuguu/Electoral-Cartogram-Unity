@@ -27,11 +27,11 @@ namespace Com.Ryuuguu.HexGrid {
         float fCost { get; }
 
         /// <summary>
-        /// Initializes the Coordinate given a cube coordinate and worldSpaceId
+        /// Initializes the Coordinate given a cube coordinate and localSpaceId
         /// </summary>
         /// <param name="cube"></param>
-        /// <param name="worldSpaceId"></param>
-        void Init(Vector3 cube, string worldSpaceId);
+        /// <param name="localSpaceId"></param>
+        void Init(Vector3 cube, string localSpaceId);
 
         void Hide();
         void Show();

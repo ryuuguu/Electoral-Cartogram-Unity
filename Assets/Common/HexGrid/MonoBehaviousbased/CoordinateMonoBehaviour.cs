@@ -19,19 +19,19 @@ namespace Com.Ryuuguu.HexGrid {
             Destroy(gameObject);
         }
 
-        // Initializes the Coordinate given a cube coordinate and worldSpaceId
+        // Initializes the Coordinate given a cube coordinate and localSpaceId
         //still needs ?? to put in container and check container 
-        public void Init(Vector3 aCube,  string worldSpaceId) {
-            Vector3 position = ConvertCubeToWorldPosition(aCube, worldSpaceId);
+        public void Init(Vector3 aCube,  string localSpaceId) {
+            Vector3 position = ConvertCubeToLocalPosition(aCube, localSpaceId);
             cube = aCube;
-            transform.parent = groups[worldSpaceId];
+            transform.parent = groups[localSpaceId];
             transform.localPosition = position;
-            transform.localScale = Vector3.one* worldSpaces[worldSpaceId].coordinateRadius;
+            transform.localScale = Vector3.one* localSpaces[localSpaceId].coordinateRadius;
             name= "Coordinate: [" + cube.x + "," + cube.y + "," + cube.z + "]";
-            ExtraInit(cube,worldSpaceId,position);
+            ExtraInit(cube,localSpaceId,position);
         }
 
-        protected virtual void ExtraInit(Vector3 aCube,  string worldSpaceId, Vector3 position) {
+        protected virtual void ExtraInit(Vector3 aCube,  string localSpaceId, Vector3 position) {
             //override and place code to do extra initialization such creating visuals
         }
         
@@ -45,19 +45,19 @@ namespace Com.Ryuuguu.HexGrid {
             //override to show hex 
         }
 
-        #region WorldSpace
+        #region LocalSpace
         
-        protected  static int worldSpaceIndex = 0;
+        protected  static int localSpaceIndex = 0;
         
         protected static Dictionary<string,Transform> groups = new Dictionary<string, Transform>();
         
-        protected static Dictionary<string, WorldSpace> worldSpaces = new Dictionary<string, WorldSpace>();
+        protected static Dictionary<string, LocalSpace> localSpaces = new Dictionary<string, LocalSpace>();
         /// <summary>
-        /// A WorldSpace is stores the data needed to calculate position of new hexes
-        /// There can be multiple worldSpaces for CoordinateTnansforms
+        /// A LocalSpace is stores the data needed to calculate position of new hexes
+        /// There can be multiple localSpaces for CoordinateTnansforms
         /// </summary>
         [Serializable]
-        public class WorldSpace {
+        public class LocalSpace {
             public float gameScale;
             public float coordinateRadius;
             public float coordinateWidth;
@@ -67,52 +67,52 @@ namespace Com.Ryuuguu.HexGrid {
         }
         
         /// <summary>
-        /// Setup an new worldSpace with Scale
+        /// Setup an new localSpace with Scale
         /// </summary>
         /// <param name="gameScale"></param>
         /// <param name="group"></param>
         /// <returns></returns>
-        public static string NewWorldSpaceId(float gameScale, Transform group) {
-            var result = worldSpaceIndex.ToString();
-            worldSpaceIndex++;
-            worldSpaces[result] =new WorldSpace();
+        public static string NewLocalSpaceId(float gameScale, Transform group) {
+            var result = localSpaceIndex.ToString();
+            localSpaceIndex++;
+            localSpaces[result] =new LocalSpace();
             groups[result] = group;
-            CalculateCoordinateDimensions(gameScale,worldSpaces[result]);
-            ExtraWorldSpaceInit(gameScale, group);
+            CalculateCoordinateDimensions(gameScale,localSpaces[result]);
+            ExtraLocalSpaceInit(gameScale, group);
             return result;
         }
 
-        public static void ExtraWorldSpaceInit(float gameScale, Transform group) {
+        public static void ExtraLocalSpaceInit(float gameScale, Transform group) {
             
         }
         
-        // Converts an axial coordinate to a world transform position
-        public virtual Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
-            var ws = worldSpaces[worldSpaceId];
+        // Converts an axial coordinate to a local transform position
+        public virtual Vector3 ConvertAxialToLocalPosition(Vector2 axial, string localSpaceId) {
+            var ws = localSpaces[localSpaceId];
             float x = axial.x * ws.spacingHorizontal;
             float z = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
 
             return new Vector3(x, 0.0f, z);
         }
 
-        // Converts a cube coordinate to a world transform position
-        public Vector3 ConvertCubeToWorldPosition(Vector3 aCube, string worldSpaceId) {
-            return ConvertAxialToWorldPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), worldSpaceId);
+        // Converts a cube coordinate to a local transform position
+        public Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
+            return ConvertAxialToLocalPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), localSpaceId);
         }
 
-        // Converts a world transform position to the nearest axial coordinate
-        public virtual Vector2 ConvertWorldPositionToAxial(Vector3 wPos, string worldSpaceId) {
-            var ws = worldSpaces[worldSpaceId];
+        // Converts a local transform position to the nearest axial coordinate
+        public virtual Vector2 ConvertLocalPositionToAxial(Vector3 wPos, string localSpaceId) {
+            var ws = localSpaces[localSpaceId];
             float q = (wPos.x * (2.0f / 3.0f)) / ws.coordinateRadius;
             float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
             return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
         }
         
-        public Vector3 ConvertWorldPositionToCube(Vector3 wPos, string worldSpaceId) {
-            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertWorldPositionToAxial(wPos, worldSpaceId));
+        public Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
+            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertLocalPositionToAxial(wPos, localSpaceId));
         }
         
-        static public void CalculateCoordinateDimensions(float gameScale,WorldSpace ws) {
+        static public void CalculateCoordinateDimensions(float gameScale,LocalSpace ws) {
             ws.gameScale = gameScale;
             ws.coordinateRadius =  ws.gameScale;
 
@@ -125,11 +125,6 @@ namespace Com.Ryuuguu.HexGrid {
         }
         
         #endregion
-        
-        
-        // Converts a world transform position to the nearest cube coordinate
-        
 
-        
     }
 }

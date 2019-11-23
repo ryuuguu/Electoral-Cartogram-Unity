@@ -12,7 +12,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         public const string AllContainer = "ALL";
         
-        public string worldSpaceId;
+        public string localSpaceId;
         
         public GameObject group;
         public T prefab;
@@ -71,7 +71,7 @@ namespace Com.Ryuuguu.HexGrid {
 
             if (typeof(T).IsSubclassOf(typeof(UnityEngine.Object))) {
                 var coordinate =  UnityEngine.Object.Instantiate(prefab as UnityEngine.Object ) as T;
-                coordinate.Init(cube, worldSpaceId);
+                coordinate.Init(cube, localSpaceId);
                 AddCoordinateToContainer(coordinate, AllContainer);
             }
             else {

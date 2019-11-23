@@ -25,7 +25,7 @@ public class HexGridExampleScript : MonoBehaviour {
         _cubeCoordinates = new CubeCoordinates<CoordinateTransform>();
         AllToken = CubeCoordinates<CoordinateTransform>.AllContainer;
         _cubeCoordinates.prefab = prefab;
-        _cubeCoordinates.worldSpaceId = CoordinateTransform.NewWorldSpaceId(2, holder);
+        _cubeCoordinates.localSpaceId = CoordinateTransform.NewLocalSpaceId(2, holder);
         _cubeCoordinates.Construct(2);
     }
 

@@ -25,7 +25,7 @@ public class UIHexGridExampleScript : MonoBehaviour {
         _cubeCoordinates = new CubeCoordinates<CoordinateUI>();
         AllToken = CubeCoordinates<CoordinateUI>.AllContainer;
         _cubeCoordinates.prefab = prefab;
-        _cubeCoordinates.worldSpaceId = CoordinateUI.NewWorldSpaceId(20, holder);
+        _cubeCoordinates.localSpaceId = CoordinateUI.NewLocalSpaceId(20, holder);
         _cubeCoordinates.Construct(2);
     }
 

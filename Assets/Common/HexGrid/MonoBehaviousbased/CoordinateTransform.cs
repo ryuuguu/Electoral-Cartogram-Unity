@@ -7,16 +7,15 @@ namespace Com.Ryuuguu.HexGrid {
     public class CoordinateTransform : CoordinateMonobehaviour, ICoordinate {
         
         public MeshRenderer centerMesh;
-        public MeshRenderer outlineMesh;
 
-        // Initializes the Coordinate given a cube coordinate and worldSpaceId
+        // Initializes the Coordinate given a cube coordinate and localSpaceId
         //still needs ?? to put in container and check container 
-        protected override void ExtraInit(Vector3 aCube,  string worldSpaceId, Vector3 position) {
+        protected override void ExtraInit(Vector3 aCube,  string localSpaceId, Vector3 position) {
             Hide();
         }
 
-        public virtual Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
-            var ws = worldSpaces[worldSpaceId];
+        public virtual Vector3 ConvertAxialToLocalPosition(Vector2 axial, string localSpaceId) {
+            var ws = localSpaces[localSpaceId];
             float x = axial.x * ws.spacingHorizontal;
             float y = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
 
