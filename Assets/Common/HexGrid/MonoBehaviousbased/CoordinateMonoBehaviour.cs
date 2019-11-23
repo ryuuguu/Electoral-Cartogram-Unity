@@ -46,7 +46,7 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Shows the Coordinate
-        public virtual void Show(bool bCollider = true) {
+        public virtual void Show() {
             //override to show hex 
         }
 
@@ -83,9 +83,13 @@ namespace Com.Ryuuguu.HexGrid {
             worldSpaces[result] =new WorldSpace();
             groups[result] = group;
             CalculateCoordinateDimensions(gameScale,worldSpaces[result]);
+            ExtraWorldSpaceInit(gameScale, group);
             return result;
         }
-        
+
+        public static void ExtraWorldSpaceInit(float gameScale, Transform group) {
+            HexMeshCreator.Instance.SetRadius(gameScale); //MeshCreator should not be a singleton 
+        }
         // Converts an axial coordinate to a world transform position
         public Vector3 ConvertAxialToWorldPosition(Vector2 axial, string worldSpaceId) {
             var ws = worldSpaces[worldSpaceId];
@@ -122,7 +126,7 @@ namespace Com.Ryuuguu.HexGrid {
 
             ws.coordinateHeight = (Mathf.Sqrt(3) / 2.0f) * ws.coordinateWidth;
             ws.spacingVertical = ws.coordinateHeight / 2.0f;
-            HexMeshCreator.Instance.SetRadius(ws.coordinateRadius); //MeshCreator should not be a singleton 
+            
         }
         
         

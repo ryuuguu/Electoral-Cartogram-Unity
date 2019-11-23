@@ -34,7 +34,7 @@ namespace Com.Ryuuguu.HexGrid {
         void Init(Vector3 cube, string worldSpaceId);
 
         void Hide();
-        void Show(bool bCollider = true);
+        void Show();
 
         /// <summary>
         /// Destroy this coordinate

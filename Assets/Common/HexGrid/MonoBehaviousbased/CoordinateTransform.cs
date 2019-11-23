@@ -8,8 +8,11 @@ namespace Com.Ryuuguu.HexGrid {
 
         
         protected GameObject _outline = null;
-        protected MeshRenderer _meshRenderer;
-        protected MeshCollider _meshCollider;
+        public MeshRenderer _meshRenderer;
+        public MeshCollider _meshCollider;
+
+        public MeshRenderer centerMesh;
+        public MeshRenderer outlineMesh;
 
         // Initializes the Coordinate given a cube coordinate and worldSpaceId
         //still needs ?? to put in container and check container 
@@ -33,16 +36,13 @@ namespace Com.Ryuuguu.HexGrid {
         
         // Hides the Coordinate
         public override void Hide() {
-            _meshRenderer.enabled = false;
-            _meshCollider.enabled = false;
+            centerMesh.enabled = false;
         }
 
         // Shows the Coordinate
-        public override void Show(bool bCollider = true) {
-            _meshRenderer.enabled = true;
-
-            if (bCollider)
-                _meshCollider.enabled = true;
+        public override void Show() {
+            centerMesh.enabled = true;
+            
         }
 
         

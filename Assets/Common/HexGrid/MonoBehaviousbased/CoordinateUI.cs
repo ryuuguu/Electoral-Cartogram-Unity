@@ -25,7 +25,7 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Shows the Coordinate
-        public override void Show(bool bCollider = true) {
+        public override void Show() {
             outline.enabled = true;
         }
 

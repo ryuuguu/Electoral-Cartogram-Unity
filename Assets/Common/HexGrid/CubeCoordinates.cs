@@ -592,9 +592,9 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Shows all Coordinates for a given container key
-        public void ShowCoordinatesInContainer(string key, bool bCollider = true) {
+        public void ShowCoordinatesInContainer(string key) {
             foreach (T coordinate in GetCoordinatesFromContainer(key)) {
-                coordinate.Show(bCollider);
+                coordinate.Show();
                 AddCoordinateToContainer(coordinate, "visible");
             }
         }
