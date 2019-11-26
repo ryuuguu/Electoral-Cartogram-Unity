@@ -12,8 +12,7 @@ public class HexGridExampleScript : MonoBehaviour {
     public PointerTransform pointerTransform;
 
     public Vector2 axialCoord;
-    public Vector3 worldPoint;
-    public Vector3 localPoint;
+   
     
     public Vector3 planeNormal;
     public Plane plane;
@@ -65,7 +64,7 @@ public class HexGridExampleScript : MonoBehaviour {
     }
 
     private void MovePointer() {
-        //Vector3 worldPoint;
+        Vector3 worldPoint;
         if (Input.GetMouseButton(0)) {
             //Create a ray from the Mouse click position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -76,7 +75,7 @@ public class HexGridExampleScript : MonoBehaviour {
             if (plane.Raycast(ray, out enter)) {
                 //Get the point that is clicked
                 worldPoint = ray.GetPoint(enter);
-                localPoint = transform.InverseTransformPoint(worldPoint);
+                Vector3 localPoint = transform.InverseTransformPoint(worldPoint);
                 axialCoord = CoordinateTransform.ConvertLocalPositionToAxialStatic(localPoint, _cubeCoordinates.localSpaceId);
                 var hexCenteredPos =
                     CoordinateTransform.ConvertAxialToLocalPositionStatic(axialCoord, _cubeCoordinates.localSpaceId);

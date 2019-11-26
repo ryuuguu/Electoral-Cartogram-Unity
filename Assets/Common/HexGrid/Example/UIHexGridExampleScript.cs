@@ -9,9 +9,10 @@ public class UIHexGridExampleScript : MonoBehaviour {
 
     public Transform holder;
     public CoordinateUI prefab;
-
+    public PointerTransform pointerTransform;
+    
     public Vector3 debugPos;
-    public Vector2 debugCubePos;
+    public Vector3 axialCoord;
 
     protected string AllToken;
     
@@ -20,7 +21,7 @@ public class UIHexGridExampleScript : MonoBehaviour {
     private void Awake() {
         
         
-        //_cubeCoordinates = gameObject.AddComponent<CubeCoordinates>();
+        //cubeCoordinates = gameObject.AddComponent<CubeCoordinates>();
         
     }
 
@@ -33,7 +34,7 @@ public class UIHexGridExampleScript : MonoBehaviour {
     }
     
     private void Update() {
-        DebugMousePos();
+        MovePointer();
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -60,13 +61,26 @@ public class UIHexGridExampleScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.P))
             ShowExample("path");
     }
-    
+    /*
     private void DebugMousePos() {
         RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)transform, Input.mousePosition,null,out  var localPoint);
         debugPos = localPoint;
-        debugCubePos = CoordinateUI.ConvertLocalPositionToAxialStatic(debugPos, _cubeCoordinates.localSpaceId);
+        debugCubePos = CoordinateUI.ConvertLocalPositionToAxialStatic(debugPos, cubeCoordinates.localSpaceId);
 
     }
+    */
+    private void MovePointer() {
+        Vector3 worldPoint;
+        if (Input.GetMouseButton(0)) {
+            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)transform, Input.mousePosition,null,out  var localPoint);
+            Vector3 axialCoord = CoordinateUI.ConvertLocalPositionToAxialStatic(localPoint, _cubeCoordinates.localSpaceId); 
+            var hexCenteredPos =
+                    CoordinateUI.ConvertAxialToLocalPositionStatic(axialCoord, _cubeCoordinates.localSpaceId);
+            pointerTransform.ShowPointer(hexCenteredPos,true);
+            
+        }
+    }
+
     
     private void NewMap() {
         _cubeCoordinates.Construct(10);

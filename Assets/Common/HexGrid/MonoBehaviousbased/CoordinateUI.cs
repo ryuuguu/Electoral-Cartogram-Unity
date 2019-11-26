@@ -22,8 +22,12 @@ namespace Com.Ryuuguu.HexGrid {
         public override void Show() {
             center.enabled = true;
         }
-        
+
         public override Vector3 ConvertAxialToLocalPosition(Vector2 axial, string localSpaceId) {
+            return ConvertAxialToLocalPositionStatic(axial, localSpaceId);
+        } 
+
+        public static Vector3 ConvertAxialToLocalPositionStatic(Vector2 axial, string localSpaceId) {
             var ws = localSpaces[localSpaceId];
             float x = axial.x * ws.spacingHorizontal;
             float y = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));

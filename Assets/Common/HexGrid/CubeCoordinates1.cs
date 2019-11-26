@@ -1,21 +1,21 @@
 ﻿using UnityEngine;
-using System;
 using System.Collections.Generic;
+using static System.Single;
+using System.Linq;
 
 
 namespace Com.Ryuuguu.HexGrid {
-//public class CubeCoordinates<T>  where T : ICoordinate
-    public class CubeCoordinates<T> where T : class, ICoordinate {
-        protected Dictionary<string, Dictionary<Vector3, T>> _coordinateContainers =
-            new Dictionary<string, Dictionary<Vector3, T>>();
+    public class CubeCoordinates1
+    {
+        protected Dictionary<string, Dictionary<Vector3, Coord>> _coordinateContainers =
+            new Dictionary<string, Dictionary<Vector3, Coord>>();
 
         public const string AllContainer = "ALL";
-
+        
         public string localSpaceId;
-
+        
         public GameObject group;
-        public T prefab;
-
+        
         protected float _gameScale = 1.0f;
         protected float _coordinateRadius = 1.0f;
 
@@ -43,64 +43,70 @@ namespace Com.Ryuuguu.HexGrid {
             new Vector3(1.0f, -2.0f, 1.0f)
         };
 
+
+
+        public static readonly Coord EmptyCoord = new Coord();
+        /// <summary>
+        /// uses cubeCoord.isNotEmpty == false for not assign Coords
+        ///    used like null for a class
+        /// </summary>
+        public struct Coord {
+            public bool isNotEmpty;
+            public Vector3 cubeCoord;
+            public Vector2 planeCoord;
+            public float fCost;  //used for a*  path
+            public float gCost;  //used for a*  path
+            public float hCost;  //used for a*  path
+
+            public bool IsNullCoord() {
+                return IsNaN(cubeCoord.x);
+            }
+            
+        }
+        
+        
         // Constructs new set of coordinates from 0,0,0 given a radius
-        public void Construct(int radius) {
+        public List<Coord> Construct(int radius) {
             Clear();
             //group.transform.parent = holder;
-            for (int x = -radius; x <= radius; x++)
-            for (int y = -radius; y <= radius; y++)
-            for (int z = -radius; z <= radius; z++)
-                if ((x + y + z) == 0)
-                    AddCube(new Vector3(x, y, z));
+            for (int x = -radius; x <= radius; x++) {
+                for (int y = -radius; y <= radius; y++) {
+                    for (int z = -radius; z <= radius; z++) {
+                        if ((x + y + z) == 0) {
+                            AddCube(new Vector3(x, y, z));
+                        }
+                    }
+                }
+            }
+            return GetCoordinatesFromContainer(AllContainer);
         }
 
         // Destroys all coordinates and entries
         protected void Clear() {
-            //change to destroying evey object in all container 
-            foreach (var coord in GetCoordinateContainer(AllContainer).Values) {
-                coord.DestroyMe();
-            }
-
             ClearAllCoordinateContainers();
         }
 
         // Creates a Coordinate GameObject for a given cube coordinate
-        public T AddCube(Vector3 cube) {
+        public Coord AddCube(Vector3 cube) {
 
-            T result = GetCoordinateFromContainer(cube, AllContainer);
-            if (result != null) {
-                return result;
-            }
-
-
-            if (typeof(T).IsSubclassOf(typeof(UnityEngine.Object))) {
-                result = UnityEngine.Object.Instantiate(prefab as UnityEngine.Object) as T;
-                result.Init(cube, localSpaceId);
-                AddCoordinateToContainer(result, AllContainer);
-
-            }
-            else {
-                //handle making new UIElements here 
-            }
-
-            return result;
+            return  GetCoordinateFromContainer(cube, AllContainer);
+            
         }
 
         // Creates a set of Coordinate GameObjects for a given list of cube coordinates
-        public void AddCubes(List<Vector3> cubes) {
+        public List<Coord> AddCubes(List<Vector3> cubes) {
+            var result = new List<Coord>();
             foreach (Vector3 cube in cubes)
-                AddCube(cube);
+                result.Add(AddCube(cube));
+            return result;
         }
 
         // Removes and destroys a Coordinate for a given cube coordinate
         public void RemoveCube(Vector3 cube) {
-            T coordinate = GetCoordinateFromContainer(cube, AllContainer);
-
-            if (coordinate == null)
+            var coordinate = GetCoordinateFromContainer(cube, AllContainer);
+            if (IsNaN(coordinate.cubeCoord.x))
                 return;
-
             RemoveCoordinateFromAllContainers(coordinate);
-            coordinate.DestroyMe();
         }
 
         // Removes and destroys a set of Coordinates for a given list of cube coordinates
@@ -119,7 +125,7 @@ namespace Com.Ryuuguu.HexGrid {
             return new Vector3(axial.x, (-axial.x - axial.y), axial.y);
         }
 
-
+        
         // Rounds a given Vector2 to the nearest axial coordinate
         public static Vector2 RoundAxial(Vector2 axial) {
             return RoundCube(ConvertAxialtoCube(axial));
@@ -240,7 +246,7 @@ namespace Com.Ryuuguu.HexGrid {
             return vec;
         }
 
-        // Boolean excludes two lists of cube coordinates
+        // Boolean excludes two lists of cube coordinates ?? is this right
         public List<Vector3> BooleanExclusionCubes(List<Vector3> a, List<Vector3> b) {
             List<Vector3> vec = new List<Vector3>();
             foreach (Vector3 va in a)
@@ -253,12 +259,12 @@ namespace Com.Ryuuguu.HexGrid {
             return vec;
         }
 
-        // Rotates a cube coordinate right by one coordinate
+        // Rotates a cube coordinate right by one coordinate  ?? is this right
         public Vector4 RotateCubeCoordinatesRight(Vector3 cube) {
             return new Vector3(-cube.z, -cube.x, -cube.y);
         }
 
-        // Rotates a cube coordinate left by one coordinate
+        // Rotates a cube coordinate left by one coordinate ?? is this right
         public Vector4 RotateCubeCoordinatesLeft(Vector3 cube) {
             return new Vector3(-cube.y, -cube.z, -cube.x);
         }
@@ -301,15 +307,15 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> GetReachableCubes(Vector3 cube, bool cleanResults = true) {
             List<Vector3> cubes = new List<Vector3>();
 
-            T originCoordinate = GetCoordinateFromContainer(cube, AllContainer);
-            T currentCoordinate = null;
+            var originCoordinate = GetCoordinateFromContainer(cube, AllContainer);
+            var currentCoordinate = EmptyCoord;
             Vector3 currentCube = cube;
 
             for (int i = 0; i < 6; i++) {
                 currentCube = GetNeighborCube(cube, i);
                 currentCoordinate = GetCoordinateFromContainer(currentCube, AllContainer);
 
-                if (currentCoordinate != null)
+                if (!currentCoordinate.IsNullCoord())
                     cubes.Add(currentCube);
             }
 
@@ -385,16 +391,13 @@ namespace Com.Ryuuguu.HexGrid {
             Dictionary<Vector3, Vector3> cameFrom = new Dictionary<Vector3, Vector3>();
             cameFrom.Add(origin, Vector3.zero);
 
-            Vector3 current = Vector3.zero;
-            T coordinate = null;
-            T currentCoordinate = null;
-            T neighborCoordinate = null;
-            float newCost = 0.0f;
+            Vector3 current;
 
             while (openSet.Count > 0) {
                 current = openSet[0];
-                currentCoordinate = GetCoordinateFromContainer(current, container);
+                var currentCoordinate = GetCoordinateFromContainer(current, container);
 
+                Coord coordinate;
                 for (int i = 1; i < openSet.Count; i++) {
                     coordinate = GetCoordinateFromContainer(openSet[i], container);
                     if (coordinate.fCost < currentCoordinate.fCost || coordinate.fCost == currentCoordinate.fCost &&
@@ -410,16 +413,15 @@ namespace Com.Ryuuguu.HexGrid {
                 if (current == target)
                     break;
 
-                List<Vector3> neighbors = new List<Vector3>();
-                neighbors = GetReachableCubes(current);
+                var neighbors = GetReachableCubes(current);
 
                 foreach (Vector3 neighbor in neighbors) {
                     coordinate = GetCoordinateFromContainer(neighbor, container);
-                    if (coordinate == null || closedSet.Contains(neighbor))
+                    if (!coordinate.isNotEmpty || closedSet.Contains(neighbor))
                         continue;
 
-                    newCost = currentCoordinate.gCost + GetDistanceBetweenTwoCubes(current, neighbor);
-                    neighborCoordinate = GetCoordinateFromContainer(neighbor, container);
+                    var newCost = currentCoordinate.gCost + GetDistanceBetweenTwoCubes(current, neighbor);
+                    var neighborCoordinate = GetCoordinateFromContainer(neighbor, container);
 
                     if (newCost < neighborCoordinate.gCost || !openSet.Contains(neighbor)) {
                         neighborCoordinate.gCost = newCost;
@@ -451,16 +453,17 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> CleanCubeResults(List<Vector3> cubes) {
             List<Vector3> r = new List<Vector3>();
             foreach (Vector3 cube in cubes)
-                if (GetCoordinateContainer(AllContainer).ContainsKey(cube))
+                if (GetCoordinateContainer(AllContainer).ContainsKey(cube)) {
                     r.Add(cube);
+                }
             return r;
         }
 
         // Returns a coordinate container given a container key
-        private Dictionary<Vector3, T> GetCoordinateContainer(string key) {
-            Dictionary<Vector3, T> coordinateContainer;
+        private Dictionary<Vector3, Coord> GetCoordinateContainer(string key) {
+            Dictionary<Vector3, Coord> coordinateContainer;
             if (!_coordinateContainers.TryGetValue(key, out coordinateContainer)) {
-                _coordinateContainers.Add(key, new Dictionary<Vector3, T>());
+                _coordinateContainers.Add(key, new Dictionary<Vector3, Coord>());
                 _coordinateContainers.TryGetValue(key, out coordinateContainer);
             }
 
@@ -470,7 +473,7 @@ namespace Com.Ryuuguu.HexGrid {
         // Removes empty coordinate containers
         private void CleanEmptyCoordinateContainers() {
             List<string> coordinateContainerKeysToRemove = new List<string>();
-            Dictionary<Vector3, T> coordinateContainer;
+            Dictionary<Vector3, Coord> coordinateContainer;
             foreach (string key in _coordinateContainers.Keys) {
                 _coordinateContainers.TryGetValue(key, out coordinateContainer);
                 if (coordinateContainer.Values.Count == 0)
@@ -482,21 +485,20 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns a Coordinate given a cube coordinate and a container key
-        public T GetCoordinateFromContainer(Vector3 cube, string key) {
-            T coordinate = null;
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
-            if (cube == Vector3.zero)
-                coordinateContainer.TryGetValue(Vector3.zero, out coordinate);
-            else
-                coordinateContainer.TryGetValue(cube, out coordinate);
-            return coordinate;
+        public Coord GetCoordinateFromContainer(Vector3 cube, string key) {
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
+            if (!coordinateContainer.TryGetValue(cube, out var coord)) {
+                coord = EmptyCoord;
+            };
+            return coord;
+
         }
 
         // Returns a list of Coordinates given a container key
-        public List<T> GetCoordinatesFromContainer(string key) {
-            List<T> coordinates = new List<T>();
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
-            foreach (KeyValuePair<Vector3, T> entry in coordinateContainer)
+        public List<Coord> GetCoordinatesFromContainer(string key) {
+            List<Coord> coordinates = new List<Coord>();
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
+            foreach (KeyValuePair<Vector3, Coord> entry in coordinateContainer)
                 coordinates.Add(entry.Value);
             return coordinates;
         }
@@ -504,7 +506,7 @@ namespace Com.Ryuuguu.HexGrid {
         // Returns a list of cube coordinates given a container key
         public List<Vector3> GetCubesFromContainer(string key) {
             List<Vector3> cubes = new List<Vector3>();
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
             foreach (Vector3 cube in coordinateContainer.Keys)
                 cubes.Add(cube);
             return cubes;
@@ -522,10 +524,10 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Adds a given Coordinate to the given container key
-        public bool AddCoordinateToContainer(T coordinate, string key) {
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
-            if (!coordinateContainer.ContainsKey(coordinate.cube)) {
-                coordinateContainer.Add(coordinate.cube, coordinate);
+        public bool AddCoordinateToContainer(Coord coordinate, string key) {
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
+            if (!coordinateContainer.ContainsKey(coordinate.cubeCoord)) {
+                coordinateContainer.Add(coordinate.cubeCoord, coordinate);
                 return true;
             }
 
@@ -533,20 +535,20 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Removes a given Coordinate from the given container key
-        public void RemoveCoordinateFromContainer(T coordinate, string key) {
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
-            if (coordinateContainer.ContainsKey(coordinate.cube))
-                coordinateContainer.Remove(coordinate.cube);
+        public void RemoveCoordinateFromContainer(Coord coordinate, string key) {
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
+            if (coordinateContainer.ContainsKey(coordinate.cubeCoord))
+                coordinateContainer.Remove(coordinate.cubeCoord);
         }
 
         // Removes all Coordinates from given container key
         public void RemoveAllCoordinatesInContainer(string key) {
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
             coordinateContainer.Clear();
         }
 
         // Removes a given Coordinate from all containers
-        public void RemoveCoordinateFromAllContainers(T coordinate) {
+        public void RemoveCoordinateFromAllContainers(Coord coordinate) {
             foreach (string key in _coordinateContainers.Keys)
                 RemoveCoordinateFromContainer(coordinate, key);
         }
@@ -558,33 +560,123 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Clears all Coordinates from a given container key
         public void ClearCoordinatesFromContainer(string key) {
-            Dictionary<Vector3, T> coordinateContainer = GetCoordinateContainer(key);
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
             coordinateContainer.Clear();
         }
+        
+        
+        #region LocalSpace
+        /// <summary>
+        /// LocalSpaces are used to convert from Coord vector space to local space coordinates.
+        /// local space coordinates are used transform.localPosition,  rectrTransform.localPosition or UIElements 
+        /// </summary>
+        
+        
+        protected  static int localSpaceIndex = 0;
+        
+        protected static Dictionary<string, LocalSpace> localSpaces = new Dictionary<string, LocalSpace>();
+        /// <summary>
+        /// A LocalSpace is stores the data needed to calculate position of new hexes
+        /// There can be multiple localSpaces for CoordinateTnansforms
+        /// </summary>
+        /// 
+        [System.Serializable]
+        public class LocalSpace {
+            public float gameScale;
+            public float coordinateRadius;
+            public float coordinateWidth;
+            public float coordinateHeight;
+            public float spacingVertical;
+            public float spacingHorizontal;
+            public Transform spaceTransform;
+            public RectTransform spaceRectTransform;
+            //public UIElements whatever is used for transform
 
-        // Hides all Coordinates for a given container key
-        public void HideCoordinatesInContainer(string key) {
-            foreach (T coordinate in GetCoordinatesFromContainer(key)) {
-                coordinate.Hide();
-                RemoveCoordinateFromContainer(coordinate, "visible");
-            }
+            public Orientation orientation;
+            
+            public enum Orientation {
+                XY,
+                XZ,
+                YX,
+                YZ,
+                ZX,
+                ZY
+            }    
+            
         }
 
-        // Shows all Coordinates for a given container key
-        public void ShowCoordinatesInContainer(string key) {
-            foreach (T coordinate in GetCoordinatesFromContainer(key)) {
-                coordinate.Show();
-                AddCoordinateToContainer(coordinate, "visible");
-            }
+        /// <summary>
+        /// Setup an new localSpace with Scale
+        /// </summary>
+        /// <param name="gameScale"> scale for hexes in this localSpace</param>
+        /// <param name="anOrientation"> Orientation Hex Plane </param>
+        /// <param name="aSpaceTransform"> transform used for translating world to localSpace </param>
+        /// <returns></returns>
+        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, Transform aSpaceTransform) {
+            var result = localSpaceIndex.ToString();
+            localSpaceIndex++;
+            var ls = new LocalSpace {orientation = anOrientation, spaceTransform = aSpaceTransform};
+            CalculateCoordinateDimensions(gameScale, ls);
+            localSpaces[result] = ls;
+            return result;
+        }
+        
+        /// <summary>
+        /// Setup an new localSpace with Scale
+        /// </summary>
+        /// <param name="gameScale"> scale for hexes in this localSpace</param>
+        /// <param name="anOrientation"> Orientation Hex Plane </param>
+        /// <param name="aSpaceRectTransform"> rectTransform used for translating world to localSpace </param>
+        /// <returns></returns>
+        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform) {
+            var result = localSpaceIndex.ToString();
+            localSpaceIndex++;
+            var ls = new LocalSpace {orientation = anOrientation, spaceRectTransform = aSpaceRectTransform};
+            CalculateCoordinateDimensions(gameScale, ls);
+            localSpaces[result] = ls;
+            return result;
+        }
+        
+        // Converts an axial coordinate to a local transform position
+        public Vector3 ConvertAxialToLocalPosition(Vector2 axial, string localSpaceId) {
+            var ws = localSpaces[localSpaceId];
+            float x = axial.x * ws.spacingHorizontal;
+            float z = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
+
+            return new Vector3(x, 0.0f, z);
         }
 
-        // Hides and Clears all Coordinates for a given container key
-        public void HideAndClearCoordinateContainer(string key) {
-            foreach (T coordinate in GetCoordinatesFromContainer(key))
-                coordinate.Hide();
-            ClearCoordinatesFromContainer(key);
+        // Converts a cube coordinate to a local transform position
+        public Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
+            return ConvertAxialToLocalPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), localSpaceId);
         }
 
+        // Converts a local transform position to the nearest axial coordinate
+        public Vector2 ConvertLocalPositionToAxial(Vector3 wPos, string localSpaceId) {
+            var ws = localSpaces[localSpaceId];
+            float q = (wPos.x * (2.0f / 3.0f)) / ws.coordinateRadius;
+            float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
+            return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
+        }
+        
+        public Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
+            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertLocalPositionToAxial(wPos, localSpaceId));
+        }
+        
+        public static void CalculateCoordinateDimensions(float gameScale, LocalSpace ws) {
+            ws.gameScale = gameScale;
+            ws.coordinateRadius =  ws.gameScale;
+
+            ws.coordinateWidth = ws.coordinateRadius * 2;
+            ws.spacingHorizontal = ws.coordinateWidth * 0.75f;
+
+            ws.coordinateHeight = (Mathf.Sqrt(3) / 2.0f) * ws.coordinateWidth;
+            ws.spacingVertical = ws.coordinateHeight / 2.0f;
+            
+        }
+        
+        #endregion
 
     }
+    
 }
