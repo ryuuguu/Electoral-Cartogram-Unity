@@ -619,6 +619,17 @@ namespace Com.Ryuuguu.HexGrid {
             }
         }
         
+        public static Vector2 ConvertOrientation(LocalSpace.Orientation or, Vector3 localCoord) {
+            switch (or) {
+                case LocalSpace.Orientation.XY:
+                    return new Vector2(localCoord.x,localCoord.y);
+                    break;
+                default: 
+                    return new Vector2(localCoord.x,localCoord.y);
+            }
+        }
+        
+        
         /// <summary>
         /// Setup an new localSpace with Scale
         /// </summary>
@@ -677,9 +688,10 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Converts a local transform position to the nearest plane coordinate
         public static Vector2 ConvertLocalPositionToPlane(Vector3 wPos, string localSpaceId) {
-            var ws = localSpaces[localSpaceId];
-            float q = (wPos.x * (2.0f / 3.0f)) / ws.coordinateRadius;
-            float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
+            var ls = localSpaces[localSpaceId];
+            var planeCoord = ConvertOrientation(ls.orientation, wPos);
+            float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
+            float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
             return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
         }
         

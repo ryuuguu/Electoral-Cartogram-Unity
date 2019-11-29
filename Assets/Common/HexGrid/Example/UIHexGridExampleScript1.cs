@@ -8,7 +8,7 @@ using Com.Ryuuguu.HexGrid;
 public class UIHexGridExampleScript1 : MonoBehaviour {
 
     public RectTransform holder;
-    public CoordinateUI prefab;
+    public HexUI prefab;
     public PointerTransform pointerTransform;
     
     public Vector3 debugPos;
@@ -74,6 +74,15 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
             }
         }
     }
+
+    public void DestroyAllHexes(string aLocalSpaceId) {
+        var ls = CubeCoordinates1.GetLocalSpace(localSpaceId);
+        var hexes= ls.spaceRectTransform.GetComponentsInChildren<HexUI>();
+        foreach (var hex in hexes) {
+            Destroy(hex.gameObject);
+        }
+
+    }
     
     private void MovePointer() {
         Vector3 worldPoint;
@@ -92,6 +101,7 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
 
     
     private void NewMap() {
+        DestroyAllHexes(localSpaceId);
         cubeCoordinates.Construct(10);
 
         // Remove 25% of Coordinates except 0,0,0
@@ -111,9 +121,8 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
             )
         );
 
-        // Display Coordinates
-        // cubeCoordinates.ShowCoordinatesInContainer(AllToken);
-
+        MakeAllHexes(localSpaceId);
+        
         // Construct Examples
         ConstructExamples();
     }
