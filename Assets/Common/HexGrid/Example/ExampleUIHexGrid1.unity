@@ -427,10 +427,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 1303867066}
-  prefab: {fileID: 5579607615051993062, guid: 3a5b5dd68bacf4f7f85e5776c04e542b, type: 3}
+  prefab: {fileID: 5115644307464775650, guid: 3a5b5dd68bacf4f7f85e5776c04e542b, type: 3}
   pointerTransform: {fileID: 1714818075}
   debugPos: {x: 0, y: 0, z: 0}
-  axialCoord: {x: 0, y: 0, z: 0}
+  mouseCoord: {x: 0, y: 0, z: 0}
   localSpaceId: 
 --- !u!1 &1303867065
 GameObject:
