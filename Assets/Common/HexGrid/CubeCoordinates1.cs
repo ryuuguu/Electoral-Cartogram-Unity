@@ -5,17 +5,17 @@ using System.Linq;
 
 
 namespace Com.Ryuuguu.HexGrid {
+    /// <summary>
+    /// A coordinates in a single instance can be compared to each other
+    /// Local spaces are static 
+    /// </summary>
     public class CubeCoordinates1
     {
         protected Dictionary<string, Dictionary<Vector3, Coord>> _coordinateContainers =
             new Dictionary<string, Dictionary<Vector3, Coord>>();
 
         public const string AllContainer = "ALL";
-        
-        public string localSpaceId;
-        
-        public GameObject group;
-        
+
         protected float _gameScale = 1.0f;
         protected float _coordinateRadius = 1.0f;
 
@@ -53,13 +53,16 @@ namespace Com.Ryuuguu.HexGrid {
         public struct Coord {
             public bool isNotEmpty;
             public Vector3 cubeCoord;
-            public Vector2 planeCoord;
             public float fCost;  //used for a*  path
             public float gCost;  //used for a*  path
             public float hCost;  //used for a*  path
 
-            public bool IsNullCoord() {
-                return IsNaN(cubeCoord.x);
+            public Coord(Vector3 cube) {
+                isNotEmpty = true;
+                cubeCoord = cube;
+                fCost = 0;  //used for a*  path
+                gCost= 0;  //used for a*  path
+                hCost = 0; 
             }
             
         }
@@ -89,7 +92,7 @@ namespace Com.Ryuuguu.HexGrid {
         // Creates a Coordinate GameObject for a given cube coordinate
         public Coord AddCube(Vector3 cube) {
 
-            return  GetCoordinateFromContainer(cube, AllContainer);
+            return  GetAddCoordinateFromContainer(cube, AllContainer);
             
         }
 
@@ -103,7 +106,7 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Removes and destroys a Coordinate for a given cube coordinate
         public void RemoveCube(Vector3 cube) {
-            var coordinate = GetCoordinateFromContainer(cube, AllContainer);
+            var coordinate = GetAddCoordinateFromContainer(cube, AllContainer);
             if (IsNaN(coordinate.cubeCoord.x))
                 return;
             RemoveCoordinateFromAllContainers(coordinate);
@@ -307,15 +310,15 @@ namespace Com.Ryuuguu.HexGrid {
         public List<Vector3> GetReachableCubes(Vector3 cube, bool cleanResults = true) {
             List<Vector3> cubes = new List<Vector3>();
 
-            var originCoordinate = GetCoordinateFromContainer(cube, AllContainer);
+            var originCoordinate = GetAddCoordinateFromContainer(cube, AllContainer);
             var currentCoordinate = EmptyCoord;
             Vector3 currentCube = cube;
 
             for (int i = 0; i < 6; i++) {
                 currentCube = GetNeighborCube(cube, i);
-                currentCoordinate = GetCoordinateFromContainer(currentCube, AllContainer);
+                currentCoordinate = GetAddCoordinateFromContainer(currentCube, AllContainer);
 
-                if (!currentCoordinate.IsNullCoord())
+                if (currentCoordinate.isNotEmpty)
                     cubes.Add(currentCube);
             }
 
@@ -395,15 +398,15 @@ namespace Com.Ryuuguu.HexGrid {
 
             while (openSet.Count > 0) {
                 current = openSet[0];
-                var currentCoordinate = GetCoordinateFromContainer(current, container);
+                var currentCoordinate = GetAddCoordinateFromContainer(current, container);
 
                 Coord coordinate;
                 for (int i = 1; i < openSet.Count; i++) {
-                    coordinate = GetCoordinateFromContainer(openSet[i], container);
+                    coordinate = GetAddCoordinateFromContainer(openSet[i], container);
                     if (coordinate.fCost < currentCoordinate.fCost || coordinate.fCost == currentCoordinate.fCost &&
                         coordinate.hCost < currentCoordinate.hCost) {
                         current = openSet[i];
-                        currentCoordinate = GetCoordinateFromContainer(current, container);
+                        currentCoordinate = GetAddCoordinateFromContainer(current, container);
                     }
                 }
 
@@ -416,12 +419,12 @@ namespace Com.Ryuuguu.HexGrid {
                 var neighbors = GetReachableCubes(current);
 
                 foreach (Vector3 neighbor in neighbors) {
-                    coordinate = GetCoordinateFromContainer(neighbor, container);
+                    coordinate = GetAddCoordinateFromContainer(neighbor, container);
                     if (!coordinate.isNotEmpty || closedSet.Contains(neighbor))
                         continue;
 
                     var newCost = currentCoordinate.gCost + GetDistanceBetweenTwoCubes(current, neighbor);
-                    var neighborCoordinate = GetCoordinateFromContainer(neighbor, container);
+                    var neighborCoordinate = GetAddCoordinateFromContainer(neighbor, container);
 
                     if (newCost < neighborCoordinate.gCost || !openSet.Contains(neighbor)) {
                         neighborCoordinate.gCost = newCost;
@@ -485,11 +488,13 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         // Returns a Coordinate given a cube coordinate and a container key
-        public Coord GetCoordinateFromContainer(Vector3 cube, string key) {
+        public Coord GetAddCoordinateFromContainer(Vector3 cube, string key) {
             Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
             if (!coordinateContainer.TryGetValue(cube, out var coord)) {
-                coord = EmptyCoord;
-            };
+                coord = new Coord(cube);
+                coordinateContainer[cube] = coord;
+            }
+            
             return coord;
 
         }
@@ -514,13 +519,13 @@ namespace Com.Ryuuguu.HexGrid {
 
         // Adds a given cube coordinate to the given container key
         public void AddCubeToContainer(Vector3 cube, string key) {
-            AddCoordinateToContainer(GetCoordinateFromContainer(cube, AllContainer), key);
+            AddCoordinateToContainer(GetAddCoordinateFromContainer(cube, AllContainer), key);
         }
 
         // Adds a list of cube coordinates to the given container key
         public void AddCubesToContainer(List<Vector3> cubes, string key) {
             foreach (Vector3 cube in cubes)
-                AddCoordinateToContainer(GetCoordinateFromContainer(cube, AllContainer), key);
+                AddCoordinateToContainer(GetAddCoordinateFromContainer(cube, AllContainer), key);
         }
 
         // Adds a given Coordinate to the given container key
@@ -530,7 +535,6 @@ namespace Com.Ryuuguu.HexGrid {
                 coordinateContainer.Add(coordinate.cubeCoord, coordinate);
                 return true;
             }
-
             return false;
         }
 
@@ -564,20 +568,20 @@ namespace Com.Ryuuguu.HexGrid {
             coordinateContainer.Clear();
         }
         
-        
         #region LocalSpace
         /// <summary>
+        /// All static 
         /// LocalSpaces are used to convert from Coord vector space to local space coordinates.
         /// local space coordinates are used transform.localPosition,  rectrTransform.localPosition or UIElements 
         /// </summary>
         
         
-        protected  static int localSpaceIndex = 0;
+        protected static int localSpaceIndex = 0;
         
-        protected static Dictionary<string, LocalSpace> localSpaces = new Dictionary<string, LocalSpace>();
+        public static Dictionary<string, LocalSpace> localSpaces = new Dictionary<string, LocalSpace>();
         /// <summary>
         /// A LocalSpace is stores the data needed to calculate position of new hexes
-        /// There can be multiple localSpaces for CoordinateTnansforms
+        /// There can be multiple localSpaces for CoordinateTransforms
         /// </summary>
         /// 
         [System.Serializable]
@@ -605,6 +609,16 @@ namespace Com.Ryuuguu.HexGrid {
             
         }
 
+        public static Vector3 ConvertOrientation(LocalSpace.Orientation or, Vector2 pc) {
+            switch (or) {
+                case LocalSpace.Orientation.XY:
+                    return new Vector3(pc.x,pc.y,0);
+                    break;
+                default: 
+                    return new Vector3(pc.x,pc.y,0);
+            }
+        }
+        
         /// <summary>
         /// Setup an new localSpace with Scale
         /// </summary>
@@ -619,6 +633,10 @@ namespace Com.Ryuuguu.HexGrid {
             CalculateCoordinateDimensions(gameScale, ls);
             localSpaces[result] = ls;
             return result;
+        }
+
+        public static LocalSpace GetLocalSpace(string id) {
+           return localSpaces[id];
         }
         
         /// <summary>
@@ -637,30 +655,36 @@ namespace Com.Ryuuguu.HexGrid {
             return result;
         }
         
-        // Converts an axial coordinate to a local transform position
-        public Vector3 ConvertAxialToLocalPosition(Vector2 axial, string localSpaceId) {
-            var ws = localSpaces[localSpaceId];
-            float x = axial.x * ws.spacingHorizontal;
-            float z = -((axial.x * ws.spacingVertical) + (axial.y * ws.spacingVertical * 2.0f));
-
-            return new Vector3(x, 0.0f, z);
+        // Converts an plane coordinate to a local transform position
+        public static Vector3 ConvertPlaneToLocalPosition(Vector2 planeCoord, string localSpaceId) {
+            var ls = localSpaces[localSpaceId];
+            return ConvertPlaneToLocalPosition(planeCoord,ls);
         }
 
+        public static Vector3 ConvertPlaneToLocalPosition(Vector2 planeCoord, LocalSpace ls) {
+            var v2 = new Vector2();
+            v2.x = planeCoord.x * ls.spacingHorizontal;
+            v2.y = -((planeCoord.x * ls.spacingVertical) + (planeCoord.y * ls.spacingVertical * 2.0f));
+
+            return ConvertOrientation(ls.orientation, v2);
+        }
+        
+        
         // Converts a cube coordinate to a local transform position
-        public Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
-            return ConvertAxialToLocalPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), localSpaceId);
+        public static Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
+            return ConvertPlaneToLocalPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), localSpaceId);
         }
 
-        // Converts a local transform position to the nearest axial coordinate
-        public Vector2 ConvertLocalPositionToAxial(Vector3 wPos, string localSpaceId) {
+        // Converts a local transform position to the nearest plane coordinate
+        public static Vector2 ConvertLocalPositionToPlane(Vector3 wPos, string localSpaceId) {
             var ws = localSpaces[localSpaceId];
             float q = (wPos.x * (2.0f / 3.0f)) / ws.coordinateRadius;
             float r = ((-wPos.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * wPos.z)) / ws.coordinateRadius;
             return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
         }
         
-        public Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
-            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertLocalPositionToAxial(wPos, localSpaceId));
+        public static Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
+            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
         }
         
         public static void CalculateCoordinateDimensions(float gameScale, LocalSpace ws) {
