@@ -9,10 +9,12 @@ public class HexUI : MonoBehaviour{
     // Hides the Hex
     public void Hide() {
         center.enabled= false;
+        //Debug.Log("hide: "+ name);
     }
 
     // Shows the hex
     public void Show() {
         center.enabled = true;
+        //Debug.Log("show: "+ name);
     }
 }

@@ -10,6 +10,8 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
     public RectTransform holder;
     public HexUI prefab;
     public PointerTransform pointerTransform;
+
+    public int exmpleRadius = 8;
     
     public Vector3 debugPos;
     public Vector3 mouseCoord;
@@ -27,7 +29,7 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         cubeCoordinates = new CubeCoordinates1();
         AllToken = CubeCoordinates1.AllContainer;
         localSpaceId =  CubeCoordinates1.NewLocalSpaceId(20, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
-        var coordList = cubeCoordinates.Construct(2);
+        var coordList = cubeCoordinates.Construct(1);
         Debug.Log(" Start(): "+ coordList.Count);
         MakeAllHexes(localSpaceId);
     }
@@ -65,7 +67,7 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates1.GetLocalSpace(localSpaceId);
         if (!hexes.ContainsKey(localSpaceId)) {
-            hexes[localSpaceId] = new Dictionary<Vector3, HexUI>();
+            hexes[aLocalSpaceId] = new Dictionary<Vector3, HexUI>();
         }
         if (ls.spaceRectTransform != null) {
             foreach (var coord in allCoords) {
@@ -75,16 +77,17 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
                 tran.localPosition = localCoord;
                 tran.localScale = Vector3.one*ls.gameScale;
                 hexes[aLocalSpaceId][coord.cubeCoord] = hex;
+                hex.name += coord.cubeCoord;
             }
         }
     }
 
     public void DestroyAllHexes(string aLocalSpaceId) {
        
-        foreach (var hex in hexes[localSpaceId].Values) {
+        foreach (var hex in hexes[aLocalSpaceId].Values) {
             Destroy(hex.gameObject);
         }
-        hexes[localSpaceId].Clear();
+        hexes[aLocalSpaceId].Clear();
 
     }
     
@@ -106,7 +109,7 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
     
     private void NewMap() {
         DestroyAllHexes(localSpaceId);
-        cubeCoordinates.Construct(10);
+        cubeCoordinates.Construct(exmpleRadius);
 
         // Remove 25% of Coordinates except 0,0,0
         foreach (Vector3 cube in cubeCoordinates.GetCubesFromContainer(AllToken)) {
@@ -121,7 +124,7 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         cubeCoordinates.RemoveCubes(
             cubeCoordinates.BooleanDifferenceCubes(
                 cubeCoordinates.GetCubesFromContainer(AllToken),
-                cubeCoordinates.GetReachableCubes(Vector3.zero, 10)
+                cubeCoordinates.GetReachableCubes(Vector3.zero, exmpleRadius )
             )
         );
 
@@ -133,33 +136,41 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
 
     private void ConstructExamples() {
         List<Vector3> allCubes = cubeCoordinates.GetCubesFromContainer(AllToken);
-
         // Line between the first and last cube coordinate
-        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetLineBetweenTwoCubes(allCubes[0], allCubes[allCubes.Count - 1]), "line");
-
-        // Reachable, 3 coordinates away from 0.0.0
-        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetReachableCubes(Vector3.zero, 3), "reachable");
-
-        // Spiral, 3 coordinates away from 0.0.0
-        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetSpiralCubes(Vector3.zero, 3), "spiral");
-
+        var line = cubeCoordinates.GetLineBetweenTwoCubes(allCubes[0], allCubes[allCubes.Count - 1]);
+        cubeCoordinates.AddCubesToContainer(line , "line");
+        
         // Path between the first and last cube coordinate
         cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetPathBetweenTwoCubes(allCubes[0], allCubes[allCubes.Count - 1]), "path");
+        
+        // Reachable, 3 coordinates away from 0.0.0
+        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetReachableCubes(Vector3.zero, 3), "reachable");
+ 
+        // Spiral, 3 coordinates away from 0.0.0
+        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetSpiralCubes(Vector3.zero, 3), "spiral");
+        
     }
 
     private void ShowExample(string aLocalSpaceId, string containerId) {
         
-        var allCoords = cubeCoordinates.GetCoordinatesFromContainer(containerId);
+        var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         foreach (var coord in allCoords) {
             hexes[aLocalSpaceId][coord.cubeCoord].Hide();
+             
         }
-        
         
         var exampleCoords = cubeCoordinates.GetCoordinatesFromContainer(containerId);
         foreach (var coord in exampleCoords) {
             hexes[aLocalSpaceId][coord.cubeCoord].Show();
         }
     }
-
     
+    private void DebugCoords(string msg, string containerName) {
+        var allCoords = cubeCoordinates.GetCoordinatesFromContainer(containerName);
+        Debug.Log("=============== " + msg );
+        foreach (var coord in allCoords) {
+            Debug.Log( msg+ " : " + containerName+ " : " +coord.cubeCoord);
+        }
+    }
+
 }

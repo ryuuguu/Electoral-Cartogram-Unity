@@ -316,7 +316,7 @@ namespace Com.Ryuuguu.HexGrid {
 
             for (int i = 0; i < 6; i++) {
                 currentCube = GetNeighborCube(cube, i);
-                currentCoordinate = GetAddCoordinateFromContainer(currentCube, AllContainer);
+                currentCoordinate = GetCoordinateFromContainer(currentCube, AllContainer);
 
                 if (currentCoordinate.isNotEmpty)
                     cubes.Add(currentCube);
@@ -493,6 +493,17 @@ namespace Com.Ryuuguu.HexGrid {
             if (!coordinateContainer.TryGetValue(cube, out var coord)) {
                 coord = new Coord(cube);
                 coordinateContainer[cube] = coord;
+            }
+            
+            return coord;
+
+        }
+        
+        public Coord GetCoordinateFromContainer(Vector3 cube, string key) {
+            Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
+            if (!coordinateContainer.TryGetValue(cube, out var coord)) {
+                coord = new Coord();
+                
             }
             
             return coord;
