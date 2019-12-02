@@ -694,7 +694,7 @@ namespace Com.Ryuuguu.HexGrid {
         
         // Converts a cube coordinate to a local transform position
         public static Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
-            return ConvertPlaneToLocalPosition(CubeCoordinates<CoordinateTransform>.ConvertCubetoAxial(aCube), localSpaceId);
+            return ConvertPlaneToLocalPosition(CubeCoordinates1.ConvertCubetoAxial(aCube), localSpaceId);
         }
 
         // Converts a local transform position to the nearest plane coordinate
@@ -703,11 +703,11 @@ namespace Com.Ryuuguu.HexGrid {
             var planeCoord = ConvertOrientation(ls.orientation, wPos);
             float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
             float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
-            return CubeCoordinates<CoordinateTransform>.RoundAxial(new Vector2(q, r));
+            return CubeCoordinates1.RoundAxial(new Vector2(q, r));
         }
         
         public static Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
-            return CubeCoordinates<CoordinateTransform>.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
+            return CubeCoordinates1.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
         }
         
         public static void CalculateCoordinateDimensions(float gameScale, LocalSpace ws) {
