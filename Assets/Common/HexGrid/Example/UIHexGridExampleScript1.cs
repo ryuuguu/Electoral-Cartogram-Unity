@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Com.Ryuuguu.HexGrid;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class UIHexGridExampleScript1 : MonoBehaviour {
 
@@ -11,13 +13,18 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
     public HexUI prefab;
     public PointerTransform pointerTransform;
 
-    public int exmpleRadius = 8;
+    public int exampleRadius = 8;
+    public float scale2Radius = 160f;
     
     public Vector3 debugPos;
     public Vector3 mouseCoord;
 
     public string localSpaceId;
-
+    
+    public Text displayTime1;
+    [FormerlySerializedAs("displayDelta")] public Text displayTime2;
+    public Text displayHexes;
+    
     protected string AllToken;
     
     public CubeCoordinates1 cubeCoordinates;
@@ -28,17 +35,15 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
     private void Start() {
         cubeCoordinates = new CubeCoordinates1();
         AllToken = CubeCoordinates1.AllContainer;
-        localSpaceId =  CubeCoordinates1.NewLocalSpaceId(20, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
-        var coordList = cubeCoordinates.Construct(1);
-        Debug.Log(" Start(): "+ coordList.Count);
+        localSpaceId =  CubeCoordinates1.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
+        var coordList = cubeCoordinates.Construct(exampleRadius);
         MakeAllHexes(localSpaceId);
+        NewMap();
     }
     
-    private void Update() {
+    void Update() {
         MovePointer();
-        
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
+        if (Input.GetKeyDown(KeyCode.Return)) {
             NewMap();
             return;
         }
@@ -63,6 +68,9 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
             ShowExample(localSpaceId,"path");
     }
 
+   
+    
+    
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates1.GetLocalSpace(localSpaceId);
@@ -108,8 +116,11 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
 
     
     private void NewMap() {
+        
         DestroyAllHexes(localSpaceId);
-        cubeCoordinates.Construct(exmpleRadius);
+        Timer.StartTimer();
+        localSpaceId =  CubeCoordinates1.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
+        cubeCoordinates.Construct(exampleRadius);
 
         // Remove 25% of Coordinates except 0,0,0
         foreach (Vector3 cube in cubeCoordinates.GetCubesFromContainer(AllToken)) {
@@ -124,11 +135,16 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         cubeCoordinates.RemoveCubes(
             cubeCoordinates.BooleanDifferenceCubes(
                 cubeCoordinates.GetCubesFromContainer(AllToken),
-                cubeCoordinates.GetReachableCubes(Vector3.zero, exmpleRadius )
+                cubeCoordinates.GetReachableCubes(Vector3.zero, exampleRadius )
             )
         );
-
+        
+        displayTime1.text = Timer.CalcTimer().ToString();
+        Timer.StartTimer();
         MakeAllHexes(localSpaceId);
+        
+        displayTime2.text = Timer.CalcTimer().ToString();
+        displayHexes.text = cubeCoordinates.GetCoordinatesFromContainer(AllToken).Count.ToString();
         
         // Construct Examples
         ConstructExamples();
@@ -144,10 +160,10 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetPathBetweenTwoCubes(allCubes[0], allCubes[allCubes.Count - 1]), "path");
         
         // Reachable, 3 coordinates away from 0.0.0
-        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetReachableCubes(Vector3.zero, 3), "reachable");
+        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetReachableCubes(Vector3.zero, exampleRadius/3), "reachable");
  
         // Spiral, 3 coordinates away from 0.0.0
-        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetSpiralCubes(Vector3.zero, 3), "spiral");
+        cubeCoordinates.AddCubesToContainer(cubeCoordinates.GetSpiralCubes(Vector3.zero, exampleRadius/3), "spiral");
         
     }
 
