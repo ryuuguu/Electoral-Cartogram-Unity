@@ -1,0 +1,7 @@
+<UXML xmlns="UnityEngine.UIElements">
+    <!-- Creates the Hex outline. -->
+    <VisualElement class="HexGrid-Hex-icon">
+        <!-- Adds a VisualElement child (corresponding to the highlight). -->
+        <Image class="HexGrid-Hex-highlight" name = "debug test"/>
+    </VisualElement>
+</UXML>

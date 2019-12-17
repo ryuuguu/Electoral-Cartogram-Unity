@@ -8,14 +8,19 @@ public class HexMesh : MonoBehaviour{
     public MeshRenderer  center;
     
     // Hides the Hex
-    public void Hide() {
-        center.enabled= false;
-        //Debug.Log("hide: "+ name);
+    public void Unhighlight() {
+        Highlight(false);
     }
 
     // Shows the hex
-    public void Show() {
-        center.enabled = true;
-        //Debug.Log("show: "+ name);
+    public void Highlight(bool val = true) {
+        center.enabled = val;
     }
+    
+    public bool ToggleHighlight() {
+        Highlight(!center.enabled);
+        return center.enabled;
+        
+    }
+    
 }

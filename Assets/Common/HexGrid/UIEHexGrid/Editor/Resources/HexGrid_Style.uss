@@ -1,0 +1,40 @@
+.hexes-container {
+  /* Populates the elements in this container horizontally. */
+  flex-direction: row;
+  /* Makes the content of the container wrap when resized. */
+  flex-wrap: wrap;
+}
+
+.HexGrid-Hex-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  /* Style rule that aligns items on the horizontal axis. */
+  align-items: flex-start;
+  /* Style rule that aligns items on the vertical axis. */
+  justify-content: center;
+}
+
+.HexGrid-Hex-highlight {
+  margin-left: auto;
+  margin-right: auto;
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.Hide {
+  opacity: 0.0;
+}
+
+/* How the icon should behave when hovered. */
+.HexGrid-Hex-icon:hover {
+  opacity: 1;
+}
+
+/* How the icon should behave when its parent button is clicked. */
+.HexGrid-Hex-icon:active > .quicktool-button-icon {
+  opacity: 0.6;
+}

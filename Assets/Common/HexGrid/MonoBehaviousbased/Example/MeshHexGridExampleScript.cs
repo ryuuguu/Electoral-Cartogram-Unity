@@ -1,48 +1,60 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using Com.Ryuuguu.HexGrid;
+using Com.Ryuuguu.HexGridCC;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class UIHexGridExampleScript1 : MonoBehaviour {
+public class MeshHexGridExampleScript : MonoBehaviour {
 
-    public RectTransform holder;
-    public HexUI prefab;
+    public Transform holder;
+    public HexMesh prefab;
+    public CubeCoordinates.LocalSpace.Orientation orientation;
     public PointerTransform pointerTransform;
+    public RectTransform pointerHolder;
+    public CubeCoordinates.LocalSpace.Orientation pointerOrientation;
+    public Camera pointerCamera;
 
     public int exampleRadius = 8;
     public float scale2Radius = 160f;
+    public Vector2 offsetCoord;
     
-    public Vector3 debugPos;
+    public CubeCoordinates.LocalSpace debugLocalSpace;
     public Vector3 mouseCoord;
 
     public string localSpaceId;
+    public string pointerSpaceId;
     
     public Text displayTime1;
-    [FormerlySerializedAs("displayDelta")] public Text displayTime2;
+    public Text displayTime2;
     public Text displayHexes;
     
     protected string AllToken;
     
-    public CubeCoordinates1 cubeCoordinates;
+    public CubeCoordinates cubeCoordinates;
 
-    public Dictionary<string,Dictionary<Vector3, HexUI>> hexes = new Dictionary<string,Dictionary<Vector3, HexUI>>();
+    //  Dictionary<localSpaceId,Coord, hexMesh>
+    public Dictionary<string,Dictionary<Vector3, HexMesh>> hexes = new Dictionary<string,Dictionary<Vector3, HexMesh>>();
 
     
     private void Start() {
-        cubeCoordinates = new CubeCoordinates1();
-        AllToken = CubeCoordinates1.AllContainer;
-        localSpaceId =  CubeCoordinates1.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
+        cubeCoordinates = new CubeCoordinates();
+        AllToken = CubeCoordinates.AllContainer;
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, orientation, holder,offsetCoord);
+        pointerSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, pointerOrientation, pointerHolder,offsetCoord);
+        debugLocalSpace = CubeCoordinates.GetLocalSpace(localSpaceId);
         var coordList = cubeCoordinates.Construct(exampleRadius);
         MakeAllHexes(localSpaceId);
         NewMap();
     }
     
     void Update() {
+        mouseCoord = Mouse2Coord();
         MovePointer();
+        PointerToggleHighlight();
         if (Input.GetKeyDown(KeyCode.Return)) {
             NewMap();
             return;
@@ -70,17 +82,40 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
 
    
     
+    public void MovePointer() { 
+        var hexCenteredPos = CubeCoordinates.ConvertPlaneToLocalPosition(mouseCoord, pointerSpaceId);
+        pointerTransform.ShowPointer(hexCenteredPos,true);
+       
+    }
+
+    public Vector3  Mouse2Coord() {
+        RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform) pointerHolder
+            , Input.mousePosition, pointerCamera, out var localPoint);
+        // convert rectTrans to plane coord  & round
+        return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPoint, pointerSpaceId));
+    }
+
+    public void PointerToggleHighlight() {
+        if (Input.GetMouseButtonDown(0)) {
+            if (hexes[localSpaceId].ContainsKey(mouseCoord)) {
+                hexes[localSpaceId][mouseCoord].ToggleHighlight();
+            }
+            
+        }
+    }
     
+
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
-        var ls = CubeCoordinates1.GetLocalSpace(localSpaceId);
+        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         if (!hexes.ContainsKey(localSpaceId)) {
-            hexes[aLocalSpaceId] = new Dictionary<Vector3, HexUI>();
+            hexes[aLocalSpaceId] = new Dictionary<Vector3, HexMesh>();
         }
-        if (ls.spaceRectTransform != null) {
+        if (ls.spaceTransform != null) {
             foreach (var coord in allCoords) {
-                var localCoord = CubeCoordinates1.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-                var hex = Instantiate(prefab, ls.spaceRectTransform);
+                var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
+                
+                var hex = Instantiate(prefab, ls.spaceTransform);
                 var tran = hex.transform;
                 tran.localPosition = localCoord;
                 tran.localScale = Vector3.one*ls.gameScale;
@@ -99,27 +134,12 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
 
     }
     
-    private void MovePointer() {
-        Vector3 worldPoint;
-        
-        if (Input.GetMouseButton(0)) {
-            // convert mouse to local rectTransform 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)transform, Input.mousePosition,null,out  var localPoint);
-            // convert rectTrans to plane coord  & round
-            mouseCoord = CubeCoordinates1.ConvertLocalPositionToPlane(localPoint, localSpaceId);
-            //convert backTrans 
-            var hexCenteredPos =
-                CubeCoordinates1.ConvertPlaneToLocalPosition(mouseCoord, localSpaceId);
-            pointerTransform.ShowPointer(hexCenteredPos,true);
-        }
-    }
-
     
     private void NewMap() {
         
         DestroyAllHexes(localSpaceId);
         Timer.StartTimer();
-        localSpaceId =  CubeCoordinates1.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates1.LocalSpace.Orientation.XY, holder);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, orientation, holder,offsetCoord);
         cubeCoordinates.Construct(exampleRadius);
 
         // Remove 25% of Coordinates except 0,0,0
@@ -171,13 +191,13 @@ public class UIHexGridExampleScript1 : MonoBehaviour {
         
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         foreach (var coord in allCoords) {
-            hexes[aLocalSpaceId][coord.cubeCoord].Hide();
+            hexes[aLocalSpaceId][coord.cubeCoord].Unhighlight();
              
         }
         
         var exampleCoords = cubeCoordinates.GetCoordinatesFromContainer(containerId);
         foreach (var coord in exampleCoords) {
-            hexes[aLocalSpaceId][coord.cubeCoord].Show();
+            hexes[aLocalSpaceId][coord.cubeCoord].Highlight();
         }
     }
     

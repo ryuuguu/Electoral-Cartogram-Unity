@@ -4,18 +4,18 @@ using static System.Single;
 using System.Linq;
 
 
-namespace Com.Ryuuguu.HexGrid {
+namespace Com.Ryuuguu.HexGridCC {
     /// <summary>
     /// A coordinates in a single instance can be compared to each other
     /// Local spaces are static 
     /// </summary>
-    public class CubeCoordinates1
+    public class CubeCoordinates
     {
         protected Dictionary<string, Dictionary<Vector3, Coord>> _coordinateContainers =
             new Dictionary<string, Dictionary<Vector3, Coord>>();
 
         public const string AllContainer = "ALL";
-
+/*
         protected float _gameScale = 1.0f;
         protected float _coordinateRadius = 1.0f;
 
@@ -24,8 +24,8 @@ namespace Com.Ryuuguu.HexGrid {
 
         protected float _spacingVertical = 0.0f;
         protected float _spacingHorizontal = 0.0f;
-
-        protected static readonly Vector3[] CubeDirections = {
+*/
+        public static readonly Vector3[] CubeDirections = {
             new Vector3(1.0f, -1.0f, 0.0f),
             new Vector3(1.0f, 0.0f, -1.0f),
             new Vector3(0.0f, 1.0f, -1.0f),
@@ -34,7 +34,7 @@ namespace Com.Ryuuguu.HexGrid {
             new Vector3(0.0f, -1.0f, 1.0f)
         };
 
-        protected static readonly Vector3[] CubeDiagonalDirections = {
+        public static readonly Vector3[] CubeDiagonalDirections = {
             new Vector3(2.0f, -1.0f, -1.0f),
             new Vector3(1.0f, 1.0f, -2.0f),
             new Vector3(-1.0f, 2.0f, -1.0f),
@@ -361,10 +361,11 @@ namespace Com.Ryuuguu.HexGrid {
             List<Vector3> vec = new List<Vector3>();
             Vector4 current = cube + GetCubeDirection(4) * (float) radius;
 
-            for (int i = 0; i < 6; i++)
-            for (int j = 0; j < radius; j++) {
-                vec.Add(current);
-                current = GetNeighborCube(current, i);
+            for (int i = 0; i < 6; i++){
+                for (int j = 0; j < radius; j++) {
+                 vec.Add(current);
+                 current = GetNeighborCube(current, i);
+                }
             }
 
             if (cleanResutls)
@@ -605,6 +606,8 @@ namespace Com.Ryuuguu.HexGrid {
             public float spacingHorizontal;
             public Transform spaceTransform;
             public RectTransform spaceRectTransform;
+            public Vector2 offset;
+            
             //public UIElements whatever is used for transform
 
             public Orientation orientation;
@@ -624,7 +627,17 @@ namespace Com.Ryuuguu.HexGrid {
             switch (or) {
                 case LocalSpace.Orientation.XY:
                     return new Vector3(pc.x,pc.y,0);
-                    break;
+                case LocalSpace.Orientation.YX:
+                    return new Vector3(pc.y,pc.x,0);
+                case LocalSpace.Orientation.XZ:
+                    return new Vector3(pc.x,0,pc.y);
+                case LocalSpace.Orientation.ZX:
+                    return new Vector3(0,pc.x,pc.y);
+                case LocalSpace.Orientation.ZY:
+                    return new Vector3(0,pc.y,pc.x);
+                case LocalSpace.Orientation.YZ:
+                    return new Vector3(pc.y,0,pc.x);
+
                 default: 
                     return new Vector3(pc.x,pc.y,0);
             }
@@ -634,7 +647,8 @@ namespace Com.Ryuuguu.HexGrid {
             switch (or) {
                 case LocalSpace.Orientation.XY:
                     return new Vector2(localCoord.x,localCoord.y);
-                    break;
+                case LocalSpace.Orientation.YX:
+                    return new Vector2(localCoord.y,localCoord.x);
                 default: 
                     return new Vector2(localCoord.x,localCoord.y);
             }
@@ -648,10 +662,10 @@ namespace Com.Ryuuguu.HexGrid {
         /// <param name="anOrientation"> Orientation Hex Plane </param>
         /// <param name="aSpaceTransform"> transform used for translating world to localSpace </param>
         /// <returns></returns>
-        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, Transform aSpaceTransform) {
+        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, Transform aSpaceTransform, Vector3 offset = default) {
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
-            var ls = new LocalSpace {orientation = anOrientation, spaceTransform = aSpaceTransform};
+            var ls = new LocalSpace {orientation = anOrientation, spaceTransform = aSpaceTransform, offset = offset};
             CalculateCoordinateDimensions(gameScale, ls);
             localSpaces[result] = ls;
             return result;
@@ -660,18 +674,19 @@ namespace Com.Ryuuguu.HexGrid {
         public static LocalSpace GetLocalSpace(string id) {
            return localSpaces[id];
         }
-        
+
         /// <summary>
         /// Setup an new localSpace with Scale
         /// </summary>
         /// <param name="gameScale"> scale for hexes in this localSpace</param>
         /// <param name="anOrientation"> Orientation Hex Plane </param>
         /// <param name="aSpaceRectTransform"> rectTransform used for translating world to localSpace </param>
+        /// <param name="offset"> offset used in convert to and from localSpace </param>
         /// <returns></returns>
-        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform) {
+        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform, Vector2 offset = default) {
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
-            var ls = new LocalSpace {orientation = anOrientation, spaceRectTransform = aSpaceRectTransform};
+            var ls = new LocalSpace {orientation = anOrientation, spaceRectTransform = aSpaceRectTransform, offset = offset };
             CalculateCoordinateDimensions(gameScale, ls);
             localSpaces[result] = ls;
             return result;
@@ -684,30 +699,35 @@ namespace Com.Ryuuguu.HexGrid {
         }
 
         public static Vector3 ConvertPlaneToLocalPosition(Vector2 planeCoord, LocalSpace ls) {
+            var calcV2 = planeCoord + ls.offset;
             var v2 = new Vector2();
-            v2.x = planeCoord.x * ls.spacingHorizontal;
-            v2.y = -((planeCoord.x * ls.spacingVertical) + (planeCoord.y * ls.spacingVertical * 2.0f));
-
+            v2.x = calcV2.x * ls.spacingHorizontal;
+            v2.y = -((calcV2.x * ls.spacingVertical) + (calcV2.y * ls.spacingVertical * 2.0f));
+            
             return ConvertOrientation(ls.orientation, v2);
         }
-        
+
+        public static Vector3 PlaneToCube(Vector2 plane) {
+            return new Vector3(plane.x, plane.y, -plane.x - plane.y);
+        }
         
         // Converts a cube coordinate to a local transform position
         public static Vector3 ConvertCubeToLocalPosition(Vector3 aCube, string localSpaceId) {
-            return ConvertPlaneToLocalPosition(CubeCoordinates1.ConvertCubetoAxial(aCube), localSpaceId);
+            var ls = localSpaces[localSpaceId];
+            return ConvertPlaneToLocalPosition(CubeCoordinates.ConvertCubetoAxial(aCube ), ls);
         }
 
         // Converts a local transform position to the nearest plane coordinate
         public static Vector2 ConvertLocalPositionToPlane(Vector3 wPos, string localSpaceId) {
             var ls = localSpaces[localSpaceId];
-            var planeCoord = ConvertOrientation(ls.orientation, wPos);
+            var planeCoord = ConvertOrientation(ls.orientation, wPos) ;
             float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
             float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
-            return CubeCoordinates1.RoundAxial(new Vector2(q, r));
+            return CubeCoordinates.RoundAxial(new Vector2(q, r))-ls.offset;
         }
         
         public static Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
-            return CubeCoordinates1.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
+            return CubeCoordinates.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
         }
         
         public static void CalculateCoordinateDimensions(float gameScale, LocalSpace ws) {
