@@ -22,7 +22,6 @@ public class Map : MonoBehaviour {
         if (delayMapBuild == 0) {
             MapBuild();
         }
-
         delayMapBuild--;
 
     }
