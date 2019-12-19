@@ -36,7 +36,7 @@ public class UIHexGridExampleScript : MonoBehaviour {
     private void Start() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, Vector2.one, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
         var coordList = cubeCoordinates.Construct(exampleRadius);
         MakeAllHexes(localSpaceId);
         NewMap();
@@ -137,13 +137,11 @@ public class UIHexGridExampleScript : MonoBehaviour {
         }
     }
     
-    
-    
     private void NewMap() {
         
         DestroyAllHexes(localSpaceId);
         Timer.StartTimer();
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, Vector2.one, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
         cubeCoordinates.Construct(exampleRadius);
 
         // Remove 25% of Coordinates except 0,0,0

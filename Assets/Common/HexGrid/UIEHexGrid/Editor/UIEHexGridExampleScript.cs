@@ -67,7 +67,7 @@ public class UIEHexGridExampleScript : EditorWindow {
     public void SetupHexes() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, Vector2.one, CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
         var coordList = cubeCoordinates.Construct(exampleRadius);
         MakeAllHexes(localSpaceId);
         //NewMap();

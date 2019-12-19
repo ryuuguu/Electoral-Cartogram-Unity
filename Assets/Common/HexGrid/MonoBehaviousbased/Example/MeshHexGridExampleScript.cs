@@ -43,8 +43,8 @@ public class MeshHexGridExampleScript : MonoBehaviour {
     private void Start() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, orientation, holder,offsetCoord);
-        pointerSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, pointerOrientation, pointerHolder,offsetCoord);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, Vector2.one, orientation, holder,offsetCoord);
+        pointerSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, Vector2.one, pointerOrientation, pointerHolder,offsetCoord);
         debugLocalSpace = CubeCoordinates.GetLocalSpace(localSpaceId);
         var coordList = cubeCoordinates.Construct(exampleRadius);
         MakeAllHexes(localSpaceId);
@@ -139,7 +139,7 @@ public class MeshHexGridExampleScript : MonoBehaviour {
         
         DestroyAllHexes(localSpaceId);
         Timer.StartTimer();
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, orientation, holder,offsetCoord);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(scale2Radius/exampleRadius, Vector2.one, orientation, holder,offsetCoord);
         cubeCoordinates.Construct(exampleRadius);
 
         // Remove 25% of Coordinates except 0,0,0

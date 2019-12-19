@@ -3236,7 +3236,7 @@ MonoBehaviour:
   offset: {x: 0, y: 1}
   cellPrefab: {fileID: 8094259445393856529, guid: d10160c00805d470e9ae5eedb19cb0b8,
     type: 3}
-  scale: 2
+  scale: 20
   posCellScale: 4.94
   cells: []
 --- !u!114 &709667308
@@ -3304,7 +3304,8 @@ MonoBehaviour:
   prefab: {fileID: -8174624448437131821, guid: 9308f4ba9a92949a48c4c7744e779ed8, type: 3}
   pointerTransform: {fileID: 0}
   gridScale: 20
-  offsetCoord: {x: 0, y: 0}
+  offsetCoord: {x: 0, y: 2.5}
+  scaleV2: {x: 1, y: -1}
   mouseCoord: {x: 0, y: 0, z: 0}
   localSpaceId: 
   displayHexes: {fileID: 0}
@@ -3480,7 +3481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &741118711
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4745,8 +4746,8 @@ RectTransform:
   m_Father: {fileID: 132591386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.8284}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

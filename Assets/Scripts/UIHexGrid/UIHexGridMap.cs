@@ -66,8 +66,8 @@ public class UIHexGridMap : MonoBehaviour {
         Debug.Log(mapGrid.offsetCoord);
         Debug.Log(mapData);
         Debug.Log(mapData.offset);
-        mapGrid.offsetCoord = mapData.offset;
-        mapGrid.gridScale = mapData.scale;
+        //mapGrid.offsetCoord = mapData.offset;
+        //mapGrid.gridScale = mapData.scale;
         //mapGrid.posCellScale = mapData.posCellScale;
     }
 

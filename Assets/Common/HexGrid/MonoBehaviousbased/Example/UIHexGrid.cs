@@ -16,6 +16,7 @@ public class UIHexGrid : MonoBehaviour {
     
     public float gridScale = 20;
     public Vector2 offsetCoord = Vector3.zero;
+    public Vector2 scaleV2 = Vector2.one;
     
     public Vector3 mouseCoord;
     
@@ -33,8 +34,8 @@ public class UIHexGrid : MonoBehaviour {
     private void Start() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(gridScale, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
-        var coordList = cubeCoordinates.Construct(8);
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(gridScale, scaleV2, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
+        //var coordList = cubeCoordinates.Construct(8);
         MakeAllHexes(localSpaceId);
     }
     

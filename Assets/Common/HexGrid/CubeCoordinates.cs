@@ -591,6 +591,7 @@ namespace Com.Ryuuguu.HexGridCC {
         public class LocalSpace {
             public string id;
             public float gameScale;
+            public Vector2 scaleV2;
             public float coordinateRadius;
             public float coordinateWidth;
             public float coordinateHeight;
@@ -645,20 +646,21 @@ namespace Com.Ryuuguu.HexGridCC {
                     return new Vector2(localCoord.x,localCoord.y);
             }
         }
-        
-        
+
+
         /// <summary>
         /// Setup an new localSpace with Scale
         /// </summary>
         /// <param name="gameScale"> scale for hexes in this localSpace</param>
+        /// <param name="aScaleV2">used to scale local coord</param>
         /// <param name="anOrientation"> Orientation Hex Plane </param>
         /// <param name="aSpaceTransform"> transform used for translating world to localSpace </param>
         /// <returns></returns>
-        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, Transform aSpaceTransform, Vector3 offset = default) {
+        public static string NewLocalSpaceId(float gameScale, Vector2 aScaleV2 , LocalSpace.Orientation anOrientation, Transform aSpaceTransform, Vector3 offset = default) {
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
             var ls = new LocalSpace {orientation = anOrientation, spaceTransform = aSpaceTransform, offset = offset};
-            CalculateCoordinateDimensions(gameScale, ls);
+            CalculateCoordinateDimensions(gameScale, aScaleV2, ls);
             localSpaces[result] = ls;
             return result;
         }
@@ -675,11 +677,11 @@ namespace Com.Ryuuguu.HexGridCC {
         /// <param name="aSpaceRectTransform"> rectTransform used for translating world to localSpace </param>
         /// <param name="offset"> offset used in convert to and from localSpace </param>
         /// <returns></returns>
-        public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform, Vector2 offset = default) {
+        public static string NewLocalSpaceId(float gameScale, Vector2 scaleV2, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform, Vector2 offset = default) {
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
             var ls = new LocalSpace {id = result,orientation = anOrientation, spaceRectTransform = aSpaceRectTransform, offset = offset };
-            CalculateCoordinateDimensions(gameScale, ls);
+            CalculateCoordinateDimensions(gameScale,scaleV2, ls);
             localSpaces[result] = ls;
             return result;
         }
@@ -695,7 +697,7 @@ namespace Com.Ryuuguu.HexGridCC {
             var v2 = new Vector2();
             v2.x = calcV2.x * ls.spacingHorizontal;
             v2.y = -((calcV2.x * ls.spacingVertical) + (calcV2.y * ls.spacingVertical * 2.0f));
-            
+            v2.Scale(ls.scaleV2);
             return ConvertOrientation(ls.orientation, v2);
         }
 
@@ -722,8 +724,10 @@ namespace Com.Ryuuguu.HexGridCC {
             return CubeCoordinates.ConvertAxialtoCube(ConvertLocalPositionToPlane(wPos, localSpaceId));
         }
         
-        public static void CalculateCoordinateDimensions(float gameScale, LocalSpace ws) {
+        public static void CalculateCoordinateDimensions(float gameScale, Vector2 aScaleV2, LocalSpace ws) {
             ws.gameScale = gameScale;
+            ws.scaleV2 = aScaleV2; 
+            
             ws.coordinateRadius =  ws.gameScale;
 
             ws.coordinateWidth = ws.coordinateRadius * 2;
