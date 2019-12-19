@@ -79,9 +79,11 @@ public class UIHexGrid : MonoBehaviour {
     }
     
     public void MovePointer() { 
+        //TODO refactor to use pointerTransform
+        /*
         var hexCenteredPos = CubeCoordinates.ConvertPlaneToLocalPosition(mouseCoord, localSpaceId);
         pointerTransform.ShowPointer(hexCenteredPos,true);
-       
+       */
     }
 
     public Vector3  Mouse2Coord() {
