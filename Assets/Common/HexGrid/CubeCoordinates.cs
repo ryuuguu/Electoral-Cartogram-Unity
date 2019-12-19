@@ -15,16 +15,7 @@ namespace Com.Ryuuguu.HexGridCC {
             new Dictionary<string, Dictionary<Vector3, Coord>>();
 
         public const string AllContainer = "ALL";
-/*
-        protected float _gameScale = 1.0f;
-        protected float _coordinateRadius = 1.0f;
-
-        protected float _coordinateWidth = 0.0f;
-        protected float _coordinateHeight = 0.0f;
-
-        protected float _spacingVertical = 0.0f;
-        protected float _spacingHorizontal = 0.0f;
-*/
+        
         public static readonly Vector3[] CubeDirections = {
             new Vector3(1.0f, -1.0f, 0.0f),
             new Vector3(1.0f, 0.0f, -1.0f),
@@ -598,6 +589,7 @@ namespace Com.Ryuuguu.HexGridCC {
         /// 
         [System.Serializable]
         public class LocalSpace {
+            public string id;
             public float gameScale;
             public float coordinateRadius;
             public float coordinateWidth;
@@ -686,7 +678,7 @@ namespace Com.Ryuuguu.HexGridCC {
         public static string NewLocalSpaceId(float gameScale, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform, Vector2 offset = default) {
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
-            var ls = new LocalSpace {orientation = anOrientation, spaceRectTransform = aSpaceRectTransform, offset = offset };
+            var ls = new LocalSpace {id = result,orientation = anOrientation, spaceRectTransform = aSpaceRectTransform, offset = offset };
             CalculateCoordinateDimensions(gameScale, ls);
             localSpaces[result] = ls;
             return result;

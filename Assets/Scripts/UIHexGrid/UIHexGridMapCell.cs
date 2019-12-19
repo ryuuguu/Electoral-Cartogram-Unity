@@ -5,14 +5,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIHexGridMapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
+public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     public RegionList regionList;
 
     public Sprite centerRiding;
     public Sprite centerOther;
     public Image targetHighlight;
-    public HexGrid prefabSubGrid;
-    public HexGrid subGrid;
+    public UIHexGrid prefabSubGrid;
+    public UIHexGrid subGrid;
     public int SubGridSize = 91;
     
     public void SetRegion(RegionList aRegionList) {
@@ -22,7 +22,7 @@ public class UIHexGridMapCell : HexCell,IPointerEnterHandler,IPointerExitHandler
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
             if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
-                subGrid = Instantiate<HexGrid>(prefabSubGrid,transform);
+                subGrid = Instantiate<UIHexGrid>(prefabSubGrid,transform);
                 subGrid.transform.localPosition = Vector3.zero;
                 ColorSubGrid();
             }
@@ -94,7 +94,8 @@ public class UIHexGridMapCell : HexCell,IPointerEnterHandler,IPointerExitHandler
     public void ButtonPressed() {
         Map.ClearHighLight();
         SetHighLight(true);
-        RegionEditor.SetMapCellActive(this);
+        //TODO convertRegionEditor.SetMapCellActive() -> UIHexGridMapCell
+        //RegionEditor.SetMapCellActive(this);
         ElectoralDistrictPanel.SetRegionList(this.regionList);
     }
 
