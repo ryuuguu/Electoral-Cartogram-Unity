@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class HexUI : MonoBehaviour{
     public Image  center;
+    public Vector3 cubeCoord;
     
     // Hides the Hex
     public void Unhighlight() {

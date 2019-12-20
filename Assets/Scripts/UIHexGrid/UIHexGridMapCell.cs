@@ -12,8 +12,8 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     public Sprite centerRiding;
     public Sprite centerOther;
     public Image targetHighlight;
-    public UIHexGrid prefabSubGrid;
-    public UIHexGrid subGrid;
+    public UIHexGridOrdered prefabSubGrid;
+    public UIHexGridOrdered subGrid;
     [FormerlySerializedAs("SubGridSize")] public int subGridSize = 91;
     
     public void SetRegion(RegionList aRegionList) {
@@ -23,8 +23,10 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
             if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
-                subGrid = Instantiate<UIHexGrid>(prefabSubGrid,transform);
-                subGrid.transform.localPosition = Vector3.zero;
+                subGrid = Instantiate(prefabSubGrid,transform);
+                var transform1 = subGrid.transform;
+                transform1.localPosition = Vector3.zero;
+                transform1.localScale = 0.1f * Vector3.one;
                 ColorSubGrid();
             }
         } else {
@@ -65,7 +67,7 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     
     
     public void  ColorSubGrid() {
-        /*
+        
         // need total votes 
         // sorted candidates 
         var candidateResults = regionList.districtResult.candidateResults;
@@ -80,15 +82,14 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
         foreach (var cr in candidateResults) {
             sumVotes += cr.votes;
             
-            int maxIndex = Mathf.Min(SubGridSize,Mathf.FloorToInt(SubGridSize * sumVotes / totalVotes));
+            int maxIndex = Mathf.Min(subGridSize,Mathf.FloorToInt(subGridSize * sumVotes / totalVotes));
             
            // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;
             for (; childIndex < maxIndex; childIndex++) {
-                subGrid.cells[childIndex].center.color = color;
+              subGrid.orderedCoords[childIndex].center.color = color;
             }
         }
-     */   
     }
     
     

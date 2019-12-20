@@ -23,7 +23,7 @@ public class UIHexGridOrderCells : MonoBehaviour {
     
     
     public void OrderBySpiral() {
-        var orderedList = new List<Vector3>();
+        var orderedList = new List<HexUI>();
         var allCoords = subGrid.cubeCoordinates.GetCoordinatesFromContainer(subGrid.AllToken);
         Vector3Int currentCubeCoord = new Vector3Int(0,-5,5);
         Vector3Int[] incrs = new Vector3Int[] {
@@ -39,7 +39,7 @@ public class UIHexGridOrderCells : MonoBehaviour {
         int index = 0;
         CubeCoordinates.Coord currentCell;
         currentCell =allCoords.Find(data => data.cubeCoord == currentCubeCoord);
-        orderedList.Add(currentCubeCoord);
+        orderedList.Add(subGrid.hexes[subGrid.localSpaceId][currentCell.cubeCoord]);
         allCoords.Remove(currentCell);
         currentCubeCoord += incrs[index];
 
@@ -66,18 +66,15 @@ public class UIHexGridOrderCells : MonoBehaviour {
             }
             if(notFound) Debug.Log("Next: " + currentCubeCoord);
             notFound = false;
-            orderedList.Add(currentCell.cubeCoord);
+            orderedList.Add(subGrid.hexes[subGrid.localSpaceId][currentCell.cubeCoord]);
             allCoords.Remove(currentCell);
             //Debug.Log("count: "+ allCoords.Count);
             currentCubeCoord += incrs[index];
         }
         //hack :(
-        
-        orderedList.Add(Vector3.zero);
+        currentCell.cubeCoord = Vector3.zero;
+        orderedList.Add(subGrid.hexes[subGrid.localSpaceId][currentCell.cubeCoord]);
         subGrid.orderedCoords = orderedList;
 
     }
-    
-    
-    
 }

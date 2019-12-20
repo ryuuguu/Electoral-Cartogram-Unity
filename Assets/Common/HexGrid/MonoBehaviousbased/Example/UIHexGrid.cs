@@ -27,13 +27,16 @@ public class UIHexGrid : MonoBehaviour {
     
     public CubeCoordinates cubeCoordinates;
 
+    /// <summary>
+    /// hexes[localSpaceId][coord] = hexUI
+    /// </summary>
     public Dictionary<string,Dictionary<Vector3, HexUI>> hexes = new Dictionary<string,Dictionary<Vector3, HexUI>>();
     
     protected void Awake() {
         Init();
     }
 
-    public void Init() {
+    public virtual void Init() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
         localSpaceId = CubeCoordinates.NewLocalSpaceId(gridScale, scaleV2, CubeCoordinates.LocalSpace.Orientation.XY,
@@ -64,9 +67,15 @@ public class UIHexGrid : MonoBehaviour {
         tran.localScale = Vector3.one * ls.gameScale;
         hexes[ls.id][coord.cubeCoord] = hex;
         hex.name += coord.cubeCoord;
+        hex.cubeCoord = coord.cubeCoord;
         return hex;
     }
 
+    public HexUI AddCell(Vector3 v3, CubeCoordinates.LocalSpace ls,HexUI hex) {
+        var coord = cubeCoordinates.GetAddCoordinateFromContainer(v3, AllToken);
+        hexes[ls.id][coord.cubeCoord] = hex;
+        return hex;
+    }
 
     public void DestroyAllHexes(string aLocalSpaceId) {
         foreach (var hex in hexes[aLocalSpaceId].Values) {
