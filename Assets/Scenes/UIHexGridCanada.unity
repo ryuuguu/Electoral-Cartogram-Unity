@@ -3307,7 +3307,7 @@ MonoBehaviour:
   scaleV2: {x: 1, y: -1}
   mouseCoord: {x: 0, y: 0, z: 0}
   localSpaceId: 
-  displayHexes: {fileID: 0}
+  AllToken: 
 --- !u!1 &726824602
 GameObject:
   m_ObjectHideFlags: 0
@@ -8249,7 +8249,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 383338855}
         m_MethodName: HideVotes
         m_Mode: 0
         m_Arguments:

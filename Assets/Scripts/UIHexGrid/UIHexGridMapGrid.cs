@@ -44,14 +44,14 @@ public class UIHexGridMapGrid : UIHexGrid {
     }
 
     public void HideVotes(bool val) {
-        /*
-        foreach (MapCell mapCell in cells) {
+        
+        foreach (UIHexGridMapCell mapCell in hexes[localSpaceId].Values) {
             if (!(mapCell.subGrid is null)) {
                 mapCell.subGrid.gameObject.SetActive(val);
             }
 
         }
-        */
+        
     }
     
 }
