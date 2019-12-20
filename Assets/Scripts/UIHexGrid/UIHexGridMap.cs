@@ -107,20 +107,17 @@ public class UIHexGridMap : MonoBehaviour {
 
             
         }
-        //TODO fix border code below
-/*
-        foreach (var cell in mapGrid.cells) {
-            ((MapCell)cell).SetBorder();
+        foreach (UIHexGridMapCell mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values)  {
+            mapCell.SetBorder();
             
         }
-        */
     }
     
     public static void ClearHighLight() {
         inst.mapGrid.ClearHighLight();
     }
 
-    public static UIHexGridMapCell GetCellAt(Vector3Int v3) {
+    public static UIHexGridMapCell GetCellAt(Vector3 v3) {
         return inst.mapGrid.GetCellAt(v3);
     }
 

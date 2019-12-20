@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -12,6 +13,7 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     public Sprite centerRiding;
     public Sprite centerOther;
     public Image targetHighlight;
+    public Image[] edges;
     public UIHexGridOrdered prefabSubGrid;
     public UIHexGridOrdered subGrid;
     [FormerlySerializedAs("SubGridSize")] public int subGridSize = 91;
@@ -38,11 +40,11 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     }
 
     public void SetBorder() {
-        /*
+        
         for (int i = 0;i<6;i++) {
             int border = -1;
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
-            var otherCell = Map.GetCellAt(MapGrid.edgeDirections[i] + cubeCoord);
+            var otherCell = UIHexGridMap.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
             var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
@@ -62,7 +64,7 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
             otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
             
         }
-        */
+        
     }
     
     

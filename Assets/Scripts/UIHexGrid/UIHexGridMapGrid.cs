@@ -15,7 +15,7 @@ public class UIHexGridMapGrid : UIHexGrid {
         */
        
     }
-    public UIHexGridMapCell CreateCell(Vector3Int v3, bool isrectangle = false) {
+    public UIHexGridMapCell CreateCell(Vector3 v3, bool isrectangle = false) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var cell = (UIHexGridMapCell)  AddCell(v3,ls);
         cell.SetRegion(RegionController.inst.regionList);
@@ -39,7 +39,8 @@ public class UIHexGridMapGrid : UIHexGrid {
         */
     }
     
-    public UIHexGridMapCell GetCellAt(Vector3Int v3) {
+    public UIHexGridMapCell GetCellAt(Vector3 v3) {
+        if (!hexes[localSpaceId].ContainsKey(v3)) return null;
         return (UIHexGridMapCell) hexes[localSpaceId][v3];
     }
 

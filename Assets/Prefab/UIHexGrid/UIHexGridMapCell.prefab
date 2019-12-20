@@ -403,6 +403,13 @@ MonoBehaviour:
   centerRiding: {fileID: 21300000, guid: 06d5c3eef435248c385a0cc9b2d8ec75, type: 3}
   centerOther: {fileID: 21300000, guid: 06d5c3eef435248c385a0cc9b2d8ec75, type: 3}
   targetHighlight: {fileID: 8773231907728158898}
+  edges:
+  - {fileID: 5071382450532697959}
+  - {fileID: 2343697605168770759}
+  - {fileID: 1766034319056799042}
+  - {fileID: 3129455613287894298}
+  - {fileID: 6088909846756685979}
+  - {fileID: 2202209912232073892}
   prefabSubGrid: {fileID: 5739051091679077967, guid: 42d7e84b33af84607a220417e1fc76d1,
     type: 3}
   subGrid: {fileID: 0}
