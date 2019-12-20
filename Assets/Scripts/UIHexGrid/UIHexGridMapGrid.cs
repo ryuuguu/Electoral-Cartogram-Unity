@@ -4,6 +4,17 @@ using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 
 public class UIHexGridMapGrid : UIHexGrid {
+
+   
+    
+    void Update() {
+        /*
+        mouseCoord = Mouse2Coord();
+        MovePointer();
+        PointerToggleHighlight();
+        */
+       
+    }
     public UIHexGridMapCell CreateCell(Vector3Int v3, bool isrectangle = false) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var cell = (UIHexGridMapCell)  AddCell(v3,ls);

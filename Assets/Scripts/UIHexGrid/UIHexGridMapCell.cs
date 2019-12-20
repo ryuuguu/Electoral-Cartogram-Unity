@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
@@ -13,7 +14,7 @@ public class UIHexGridMapCell : HexUI,IPointerEnterHandler,IPointerExitHandler {
     public Image targetHighlight;
     public UIHexGrid prefabSubGrid;
     public UIHexGrid subGrid;
-    public int SubGridSize = 91;
+    [FormerlySerializedAs("SubGridSize")] public int subGridSize = 91;
     
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;

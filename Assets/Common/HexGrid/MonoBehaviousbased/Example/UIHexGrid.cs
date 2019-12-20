@@ -22,27 +22,23 @@ public class UIHexGrid : MonoBehaviour {
     
 
     public string localSpaceId;
-    
-    public Text displayHexes;
-    
-    protected string AllToken;
+
+    public string AllToken;
     
     public CubeCoordinates cubeCoordinates;
 
     public Dictionary<string,Dictionary<Vector3, HexUI>> hexes = new Dictionary<string,Dictionary<Vector3, HexUI>>();
     
-    private void Start() {
+    protected void Awake() {
+        Init();
+    }
+
+    public void Init() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(gridScale, scaleV2, CubeCoordinates.LocalSpace.Orientation.XY, holder,offsetCoord);
-        //var coordList = cubeCoordinates.Construct(8);
+        localSpaceId = CubeCoordinates.NewLocalSpaceId(gridScale, scaleV2, CubeCoordinates.LocalSpace.Orientation.XY,
+            holder, offsetCoord);
         MakeAllHexes(localSpaceId);
-    }
-    
-    void Update() {
-        mouseCoord = Mouse2Coord();
-        MovePointer();
-        PointerToggleHighlight();
     }
     
     public void MakeAllHexes(string aLocalSpaceId) {
