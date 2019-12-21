@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 
 public class UIHexGridMap : MonoBehaviour {
@@ -27,8 +28,10 @@ public class UIHexGridMap : MonoBehaviour {
         }
         delayMapBuild--;
 
-      
-       
+        var coordIn = Vector2.one;
+        var localPos =  CubeCoordinates.ConvertPlaneToLocalPosition(coordIn, mapGrid.localSpaceId);
+        var coordOut = CubeCoordinates.ConvertLocalPositionToPlane(localPos, mapGrid.localSpaceId);
+       Debug.Log("coordIn: "+ coordIn + " : " + localPos + " : "+ coordOut);
         //if new riding update tooltip 
         //   no riding is a type of riding 
     

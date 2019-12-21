@@ -93,7 +93,7 @@ public class UIHexGrid : MonoBehaviour {
     }
 
     public Vector3  Mouse2Coord() {
-        RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform) holder
+        RectTransformUtility.ScreenPointToLocalPointInRectangle( holder
             , Input.mousePosition, null, out var localPoint);
         // convert rectTrans to plane coord  & round
         return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPoint, localSpaceId));
