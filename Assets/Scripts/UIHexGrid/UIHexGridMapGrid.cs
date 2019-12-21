@@ -4,10 +4,7 @@ using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 
 public class UIHexGridMapGrid : UIHexGrid {
-
     
-    
-   
     public UIHexGridMapCell CreateCell(Vector3 v3, bool isrectangle = false) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var cell = (UIHexGridMapCell)  AddCell(v3,ls);
@@ -36,14 +33,11 @@ public class UIHexGridMapGrid : UIHexGrid {
     }
 
     public void HideVotes(bool val) {
-        
         foreach (UIHexGridMapCell mapCell in hexes[localSpaceId].Values) {
             if (!(mapCell.subGrid is null)) {
                 mapCell.subGrid.gameObject.SetActive(val);
             }
-
         }
-        
     }
     
 }

@@ -27,15 +27,7 @@ public class UIHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
-
-        var coordIn = Vector2.one;
-        var localPos =  CubeCoordinates.ConvertPlaneToLocalPosition(coordIn, mapGrid.localSpaceId);
-        var coordOut = CubeCoordinates.ConvertLocalPositionToPlane(localPos, mapGrid.localSpaceId);
-       Debug.Log("coordIn: "+ coordIn + " : " + localPos + " : "+ coordOut);
-        //if new riding update tooltip 
-        //   no riding is a type of riding 
-    
-    
+        
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
         Debug.Log("mouseCoord: "+ mouseCoord);
@@ -51,19 +43,12 @@ public class UIHexGridMap : MonoBehaviour {
                     tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
                         Input.mousePosition);
                 }
+                if (Input.GetMouseButtonDown(0)) {
+                    ElectoralDistrictPanel.SetRegionList(cell.regionList);
+                }
             }
         }
-
-
-        //if new riding update tooltip 
-            //   no riding is a type of riding  
         
-        
-    
-        /*
-        MovePointer();
-        PointerToggleHighlight();
-        */
 
     }
     
