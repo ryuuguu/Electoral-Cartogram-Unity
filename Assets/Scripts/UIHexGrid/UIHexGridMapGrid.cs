@@ -20,11 +20,11 @@ public class UIHexGridMapGrid : UIHexGrid {
     }
     
     public void ClearHighLight() {
-        /*
-        foreach(var c in cells) {
-            ((MapCell)c).SetHighLight(false);
+        
+        foreach (UIHexGridMapCell mapCell in hexes[localSpaceId].Values) {
+            mapCell.SetHighLight(false);
         }
-        */
+        
     }
     
     public UIHexGridMapCell GetCellAt(Vector3 v3) {

@@ -67,7 +67,6 @@ public class UIHexGridMapCell : HexUI {
         
     }
     
-    
     public void  ColorSubGrid() {
         
         // need total votes 
@@ -96,7 +95,6 @@ public class UIHexGridMapCell : HexUI {
     
     
     public void ButtonPressed() {
-        Map.ClearHighLight();
         SetHighLight(true);
         //TODO convertRegionEditor.SetMapCellActive() -> UIHexGridMapCell
         //RegionEditor.SetMapCellActive(this);
@@ -104,6 +102,7 @@ public class UIHexGridMapCell : HexUI {
     }
     
     public void SetHighLight(bool val) {
+        Debug.Log("SetHighLight: "+ name);
         targetHighlight.gameObject.SetActive(val);
     }
 

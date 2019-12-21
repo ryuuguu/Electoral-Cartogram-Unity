@@ -14,7 +14,7 @@ public class UIHexGridMap : MonoBehaviour {
     private int delayMapBuild = 1;
 
     bool inRiding = false;
-    private string prevRidingId = "";
+    UIHexGridMapCell prevCell = null;
     
     public static UIHexGridMap inst;
 
@@ -30,25 +30,24 @@ public class UIHexGridMap : MonoBehaviour {
         
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
-        Debug.Log("mouseCoord: "+ mouseCoord);
         if (cell != null) {
-            string currentRidingId;
             if (!cell.regionList.isRiding) {
-                prevRidingId = "";
+                prevCell= null;
                 tooltip.Hide("");
             }
             else {
-                currentRidingId = cell.regionList.id;
-                if (currentRidingId != prevRidingId) {
+                if (cell != prevCell) {
                     tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
                         Input.mousePosition);
                 }
                 if (Input.GetMouseButtonDown(0)) {
-                    ElectoralDistrictPanel.SetRegionList(cell.regionList);
+                    prevCell?.SetHighLight(false);
+                    cell.ButtonPressed();
                 }
             }
         }
-        
+
+        prevCell = cell;
 
     }
     
