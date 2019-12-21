@@ -15,7 +15,8 @@ public class UIHexGridMap : MonoBehaviour {
 
     bool inRiding = false;
     UIHexGridMapCell prevCell = null;
-    
+    UIHexGridMapCell prevSelectedCell = null;
+
     public static UIHexGridMap inst;
 
     void Awake() {
@@ -27,22 +28,22 @@ public class UIHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
-        
+       
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
         if (cell != null) {
             if (!cell.regionList.isRiding) {
                 prevCell= null;
                 tooltip.Hide("");
-            }
-            else {
+            } else {
                 if (cell != prevCell) {
                     tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
                         Input.mousePosition);
                 }
                 if (Input.GetMouseButtonDown(0)) {
-                    prevCell?.SetHighLight(false);
+                    prevSelectedCell?.SetHighLight(false);
                     cell.ButtonPressed();
+                    prevSelectedCell = cell;
                 }
             }
         }

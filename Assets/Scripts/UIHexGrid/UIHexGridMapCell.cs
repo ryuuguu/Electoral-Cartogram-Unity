@@ -102,7 +102,6 @@ public class UIHexGridMapCell : HexUI {
     }
     
     public void SetHighLight(bool val) {
-        Debug.Log("SetHighLight: "+ name);
         targetHighlight.gameObject.SetActive(val);
     }
 
