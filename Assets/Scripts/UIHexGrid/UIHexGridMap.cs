@@ -11,6 +11,9 @@ public class UIHexGridMap : MonoBehaviour {
     public Tooltip tooltip;
     
     private int delayMapBuild = 1;
+
+    bool inRiding = false;
+    private string prevRidingId = "";
     
     public static UIHexGridMap inst;
 
@@ -23,6 +26,41 @@ public class UIHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
+
+      
+       
+        //if new riding update tooltip 
+        //   no riding is a type of riding 
+    
+    
+        var mouseCoord = mapGrid.Mouse2Coord();
+        var cell = GetCellAt(mouseCoord);
+        Debug.Log("mouseCoord: "+ mouseCoord);
+        if (cell != null) {
+            string currentRidingId;
+            if (!cell.regionList.isRiding) {
+                prevRidingId = "";
+                tooltip.Hide("");
+            }
+            else {
+                currentRidingId = cell.regionList.id;
+                if (currentRidingId != prevRidingId) {
+                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
+                        Input.mousePosition);
+                }
+            }
+        }
+
+
+        //if new riding update tooltip 
+            //   no riding is a type of riding  
+        
+        
+    
+        /*
+        MovePointer();
+        PointerToggleHighlight();
+        */
 
     }
     

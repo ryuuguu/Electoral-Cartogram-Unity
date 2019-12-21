@@ -5,16 +5,9 @@ using UnityEngine;
 
 public class UIHexGridMapGrid : UIHexGrid {
 
-   
     
-    void Update() {
-        /*
-        mouseCoord = Mouse2Coord();
-        MovePointer();
-        PointerToggleHighlight();
-        */
-       
-    }
+    
+   
     public UIHexGridMapCell CreateCell(Vector3 v3, bool isrectangle = false) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var cell = (UIHexGridMapCell)  AddCell(v3,ls);
@@ -27,8 +20,6 @@ public class UIHexGridMapGrid : UIHexGrid {
         if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
         var cell = CreateCell(v3, false);
         cell.SetRegion(rl);
-        //hack to convert cubeCoords to old grid cords
- 
     }
     
     public void ClearHighLight() {

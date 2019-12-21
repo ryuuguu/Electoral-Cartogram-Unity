@@ -716,9 +716,11 @@ namespace Com.Ryuuguu.HexGridCC {
         public static Vector2 ConvertLocalPositionToPlane(Vector3 wPos, string localSpaceId) {
             var ls = localSpaces[localSpaceId];
             var planeCoord = ConvertOrientation(ls.orientation, wPos) ;
+            var invertScaleV2 = Vector2.one / ls.scaleV2;
+            planeCoord.Scale(invertScaleV2);
             float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
             float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
-            return CubeCoordinates.RoundAxial(new Vector2(q, r))-ls.offset;
+            return CubeCoordinates.RoundAxial(new Vector2(q, r)-ls.offset);
         }
         
         public static Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {
