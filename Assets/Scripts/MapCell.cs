@@ -111,7 +111,7 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
         if (regionList.isRiding) {
             //var i = Mathf.Min(regionList.names.Count - 1, LanguageController.CurrentLanguage());
             Map.ShowDistrictPopup(regionList.id, Input.mousePosition, LanguageController.ChooseName(regionList.names)
-                + " : " + cubeCoord + " calc: " + (cubeCoord -debugLoc) + " ms: " + pos + " : " + (cubeCoord -debugLoc2)
+                //+ " : " + cubeCoord + " calc: " + (cubeCoord -debugLoc) + " ms: " + pos + " : " + (cubeCoord -debugLoc2)
                 ,transform.position);
         }
     }
