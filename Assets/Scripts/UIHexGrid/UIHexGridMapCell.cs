@@ -16,6 +16,7 @@ public class UIHexGridMapCell : HexUI {
     public Image[] edges;
     public UIHexGridOrdered prefabSubGrid;
     public UIHexGridOrdered subGrid;
+    public Transform subGridHolder;
     [FormerlySerializedAs("SubGridSize")] public int subGridSize = 91;
     
     public void SetRegion(RegionList aRegionList) {
@@ -25,7 +26,7 @@ public class UIHexGridMapCell : HexUI {
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
             if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
-                subGrid = Instantiate(prefabSubGrid,transform);
+                subGrid = Instantiate(prefabSubGrid,subGridHolder);
                 var transform1 = subGrid.transform;
                 transform1.localPosition = Vector3.zero;
                 transform1.localScale = 0.1f * Vector3.one;
