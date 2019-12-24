@@ -21,6 +21,7 @@ public class UIHexGridMapCell2 : HexUI {
 
     public int subGridPosition= 7;
     
+    
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;
         if (regionList.isRiding) {

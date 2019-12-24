@@ -8,7 +8,6 @@ public class UIHexGridMapGrid : UIHexGrid {
     public UIHexGridMapCell CreateCell(Vector3 v3, bool isrectangle = false) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var cell = (UIHexGridMapCell)  AddCell(v3,ls);
-        cell.SetRegion(RegionController.inst.regionList);
         return cell;
     }
 
