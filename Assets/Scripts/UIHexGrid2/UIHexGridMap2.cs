@@ -35,7 +35,7 @@ public class UIHexGridMap2 : MonoBehaviour {
         delayMapBuild--;
        
         var mouseCoord = mapGrid.Mouse2Coord();
-        var cell = GetCellAt(mouseCoord);
+        
         var regionList = GetCellDataAt(mouseCoord);
         if (regionList != null) {
             if (!regionList.isRiding) {
@@ -43,20 +43,21 @@ public class UIHexGridMap2 : MonoBehaviour {
                 prevMouseCoord = nullCoord;
                 tooltip.Hide("");
             } else {
-                if (cell != prevCell) {
-                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
+                if (mouseCoord != prevMouseCoord) {
+                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(regionList.names),
                         Input.mousePosition);
                 }
                 if (Input.GetMouseButtonDown(0)) {
+                    var prevSelectedCell = GetCellAt(prevSelectedCoord);
                     prevSelectedCell?.SetHighLight(false);
+                    var cell = GetCellAt(mouseCoord);
                     cell.ButtonPressed();
-                    prevSelectedCell = cell;
                     prevSelectedCoord = mouseCoord;
                 }
             }
         }
 
-        prevCell = cell;
+        //prevCell = cell;
         prevMouseCoord = mouseCoord;
 
     }
