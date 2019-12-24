@@ -101,7 +101,7 @@ public class UIHexGridMapCell2 : HexUI {
         SetHighLight(true);
         //TODO convertRegionEditor.SetMapCellActive() -> UIHexGridMapCell
         //RegionEditor.SetMapCellActive(this);
-        ElectoralDistrictPanel.SetRegionList(this.regionList);
+        
     }
     
     public void SetHighLight(bool val) {

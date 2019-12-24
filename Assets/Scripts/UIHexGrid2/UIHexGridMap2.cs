@@ -51,7 +51,8 @@ public class UIHexGridMap2 : MonoBehaviour {
                     var prevSelectedCell = GetCellAt(prevSelectedCoord);
                     prevSelectedCell?.SetHighLight(false);
                     var cell = GetCellAt(mouseCoord);
-                    cell.ButtonPressed();
+                    cell.SetHighLight(true);
+                    ElectoralDistrictPanel.SetRegionList(regionList);
                     prevSelectedCoord = mouseCoord;
                 }
             }
