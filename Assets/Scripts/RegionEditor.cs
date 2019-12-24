@@ -59,6 +59,7 @@ public class RegionEditor : MonoBehaviour {
     }
 
     public void ButtonOK() {
+        if (!GameController.inst.isEditMode) return;
          if (mapCell.regionList.isRiding) {
              mapCell.regionList.isAssigned = false;
          }
@@ -72,6 +73,7 @@ public class RegionEditor : MonoBehaviour {
      }
 
      public void ButtonCancel() {
+         if (!GameController.inst.isEditMode) return;
          if (inst.mapCell.regionList != RegionController.inst.regionList) {
              inst.selectedRegionList = inst.mapCell.regionList;
              inst.Redraw();
@@ -106,6 +108,7 @@ public class RegionEditor : MonoBehaviour {
      }
      
      public void Redraw() {
+         if (!GameController.inst.isEditMode) return;
          var hList =topLine.regionList.HierarchyList(selectedRegionList.id);
          if (hList == null) return;
          RegionEditLine currentRel = null;
@@ -125,7 +128,7 @@ public class RegionEditor : MonoBehaviour {
      }
 
      public void SetPos(RegionEditLine currentRel) {
-         Debug.Log("SetPos: "+ currentRel.regionName);
+        // Debug.Log("SetPos: "+ currentRel.regionName);
          var pos = currentRel.transform.localPosition * -1;
          var startPos = scrollRect.content.localPosition;
          startPos.y = pos.y;
