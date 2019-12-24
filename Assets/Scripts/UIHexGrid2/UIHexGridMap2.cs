@@ -125,18 +125,14 @@ public class UIHexGridMap2 : MonoBehaviour {
     
     public void MakeMapFromData() {
         // Debug.Log("MakeMapFromData: " + makeCells);
-        RegionController.inst.regionList.SetHierarchyLists(new List<RegionList>()); 
+         RegionController.PrepareRegionListData();
         foreach (var cd in mapData.cellDatas) {
-            
-            var rl = RegionController.inst.regionList.Find(cd.regionID);
+            //var rl = RegionController.inst.regionList.Find(cd.regionID);
+            var rl = RegionController.Find(cd.regionID);
             mapGrid.CreateCellRegion(cd.cubeCoord,rl);
-            
-
-            
         }
         foreach (UIHexGridMapCell2 mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values)  {
             mapCell.SetBorder();
-            
         }
     }
     

@@ -109,7 +109,7 @@ public class RegionEditor : MonoBehaviour {
      
      public void Redraw() {
          if (!GameController.inst.isEditMode) return;
-         var hList =topLine.regionList.HierarchyList(selectedRegionList.id);
+         var hList =topLine.regionList.hierarchyList;
          if (hList == null) return;
          RegionEditLine currentRel = null;
          var parent = topLine.transform.parent;

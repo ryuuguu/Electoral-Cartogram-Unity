@@ -47,6 +47,31 @@ public class RegionController : MonoBehaviour {
         ClearSubRidings(regionList);
     }
 
+    /// <summary>
+    /// Make hierarchyList for each RegionList
+    /// Make rlDict 
+    /// 
+    /// </summary>
+    public static void PrepareRegionListData() {
+        inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
+        SetHierarchyLists(inst.regionList);
+    }
+    
+    public static  void SetHierarchyLists(RegionList aRegionList) {
+        inst.rlDict[aRegionList.id] = aRegionList;
+        if (aRegionList.subLists != null) {
+            foreach (var rl in aRegionList.subLists) {
+                rl.hierarchyList = aRegionList.hierarchyList.ToList();
+                rl.hierarchyList.Add(rl);
+                SetHierarchyLists(rl);
+            }
+        }
+    }
+
+    public static RegionList Find(string anId) {
+        return inst.rlDict[anId];
+    }
+    
     public void ClearSubRidings(RegionList aRegionList) {
         bool emptySublist = false;
         foreach (var rl in aRegionList.subLists) {
@@ -63,7 +88,6 @@ public class RegionController : MonoBehaviour {
         }
     }
     
-
     public void LoadElectoralDistricts() {
         var sourceFile = (TextAsset) Resources.Load(district2016, typeof(TextAsset));
         var temp = sourceFile.text;
@@ -161,23 +185,6 @@ public class RegionController : MonoBehaviour {
     }
 }
 
-
-    // base
-    //  make map borders 
-    //   base colors 
-    
-    
-    //read electionData 
-    //  assign seat winners 
-    //  add seats to party data
-    
-    //make basic riding colored map
-        //like one on web
-    
-    // make detailed riding colored map 
-        //with proportional vote numbers 
-
-
 [System.Serializable]
 public class RegionList {
     public string id;
@@ -197,6 +204,13 @@ public class RegionList {
         return il?.Last();
     }
 
+    /// <summary>
+    /// Makes a HierarchyList from anId
+    ///      
+    /// </summary>
+    /// <param name="anId"></param>
+    /// <returns></returns>
+    [Obsolete("HierarchyList is deprecated, please use SetHierarchyLists() once then use field hierarchyList instead.")]
     public List<RegionList> HierarchyList(string anId) {
         if (anId == id) return new List<RegionList>() {this};
         if (subLists != null) {
@@ -211,20 +225,7 @@ public class RegionList {
 
         return null;
     }
-
-    /// <summary>
-    /// tranverse list
-    ///  saving HierarchyList
-    /// </summary>
-    public void SetHierarchyLists(List<RegionList> parentHierarchyList) {
-        hierarchyList = parentHierarchyList.ToList();
-        hierarchyList.Add(this);
-        if (subLists != null) {
-            foreach (var rl in subLists) {
-                rl.SetHierarchyLists(hierarchyList);
-            }
-        }
-    }
+    
 }
 
 [System.Serializable]

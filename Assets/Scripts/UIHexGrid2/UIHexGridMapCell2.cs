@@ -36,19 +36,19 @@ public class UIHexGridMapCell2 : HexUI {
             center.sprite = centerOther;
             center.color = regionList.color;
         }
-        
-        
     }
 
     public void SetBorder() {
         
         for (int i = 0;i<6;i++) {
             int border = -1;
-            var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
+            //var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
+            var hierarchy = regionList.hierarchyList;
             var otherCell = UIHexGridMap2.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
-            var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
+            //var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
+            var otherHierarchy = otherCell.regionList.hierarchyList;
             for (int j = 0; j < Mathf.Min(hierarchy.Count, otherHierarchy.Count);j++) {
                 if (hierarchy[j] != otherHierarchy[j]) {
                     border = j;
