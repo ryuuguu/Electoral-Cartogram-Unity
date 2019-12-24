@@ -32,10 +32,17 @@ public class UIHexGridMapGrid : UIHexGrid {
         return (UIHexGridMapCell) hexes[localSpaceId][v3];
     }
 
+
     public void HideVotes(bool val) {
         foreach (UIHexGridMapCell mapCell in hexes[localSpaceId].Values) {
             if (!(mapCell.subGrid is null)) {
-                mapCell.subGrid.gameObject.SetActive(val);
+                if (val) {
+                    mapCell.subGridHolder.SetSiblingIndex(mapCell.subGridPosition);  
+                }
+                else {
+                    mapCell.subGridHolder.SetSiblingIndex(0);
+                }
+                //mapCell.subGrid.gameObject.SetActive(val);
             }
         }
     }

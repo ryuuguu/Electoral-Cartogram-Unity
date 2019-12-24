@@ -18,6 +18,8 @@ public class UIHexGridMapCell2 : HexUI {
     public UIHexGridOrdered2 subGrid;
     public Transform subGridHolder;
     [FormerlySerializedAs("SubGridSize")] public int subGridSize = 91;
+
+    public int subGridPosition= 7;
     
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;

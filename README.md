@@ -15,6 +15,7 @@ Version Scenes
     uses new HexGrid - refactored to separate display from hex coordinate management
     UI refactored to remove instantiating unneeded GameObjects
       still slow but much faster
+    changed from using SetActive() to hide votes to using SetSiblingIndex(), much faster.
 
   UIHexGridCanada2 - some optimizations on RegionController
     RegionList is a tree structure. It is static after creation.
