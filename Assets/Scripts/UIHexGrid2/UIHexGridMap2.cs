@@ -14,9 +14,14 @@ public class UIHexGridMap2 : MonoBehaviour {
     private int delayMapBuild = 1;
 
     bool inRiding = false;
+    
     UIHexGridMapCell2 prevCell = null;
     UIHexGridMapCell2 prevSelectedCell = null;
-
+    
+    static Vector3 nullCoord = Vector3.one;
+    Vector3 prevMouseCoord = nullCoord;
+    Vector3 prevSelectedCoord = nullCoord;
+    
     public static UIHexGridMap2 inst;
 
     void Awake() {
@@ -31,9 +36,11 @@ public class UIHexGridMap2 : MonoBehaviour {
        
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
-        if (cell != null) {
-            if (!cell.regionList.isRiding) {
+        var regionList = GetCellDataAt(mouseCoord);
+        if (regionList != null) {
+            if (!regionList.isRiding) {
                 prevCell= null;
+                prevMouseCoord = nullCoord;
                 tooltip.Hide("");
             } else {
                 if (cell != prevCell) {
@@ -44,11 +51,13 @@ public class UIHexGridMap2 : MonoBehaviour {
                     prevSelectedCell?.SetHighLight(false);
                     cell.ButtonPressed();
                     prevSelectedCell = cell;
+                    prevSelectedCoord = mouseCoord;
                 }
             }
         }
 
         prevCell = cell;
+        prevMouseCoord = mouseCoord;
 
     }
     
@@ -144,6 +153,13 @@ public class UIHexGridMap2 : MonoBehaviour {
         return inst.mapGrid.GetCellAt(v3);
     }
 
+    public static RegionList GetCellDataAt(Vector3 v3) {
+        if (!inst.mapGrid.cellDataDict.ContainsKey(v3)) {
+            return null;
+        }
+        return inst.mapGrid.cellDataDict[v3];
+    }
+    
     [System.Serializable]
     public class MapData {
         public Vector2Int widthRange = Vector2Int.up;

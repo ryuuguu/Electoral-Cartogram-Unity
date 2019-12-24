@@ -24,9 +24,9 @@ public class UIHexGridMapCell2 : HexUI {
     
     public void SetRegion(RegionList aRegionList) {
         regionList = aRegionList;
-        if (regionList.isRiding) {
+        if (aRegionList.isRiding) {
             center.sprite = centerRiding;
-            var partyId =  regionList.districtResult.candidateResults[0].partyId;
+            var partyId =  aRegionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
             if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
                 subGrid = Instantiate(prefabSubGrid,subGridHolder);
@@ -37,12 +37,11 @@ public class UIHexGridMapCell2 : HexUI {
             }
         } else {
             center.sprite = centerOther;
-            center.color = regionList.color;
+            center.color = aRegionList.color;
         }
     }
 
     public void SetBorder() {
-        
         for (int i = 0;i<6;i++) {
             int border = -1;
             //var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
