@@ -124,7 +124,8 @@ public class UIHexGridMap2 : MonoBehaviour {
     }
     
     public void MakeMapFromData() {
-       // Debug.Log("MakeMapFromData: " + makeCells);
+        // Debug.Log("MakeMapFromData: " + makeCells);
+        RegionController.inst.regionList.SetHierarchyLists(new List<RegionList>()); 
         foreach (var cd in mapData.cellDatas) {
             
             var rl = RegionController.inst.regionList.Find(cd.regionID);

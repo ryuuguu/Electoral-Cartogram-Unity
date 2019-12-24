@@ -15,8 +15,13 @@ public class RegionController : MonoBehaviour {
     public string district2016 = "ED-Canada_2016_utf8";
         
     public static RegionController inst;
-   // public Dictionary<string, string> partyList;
-   
+    
+    
+    /// <summary>
+    /// this should be be made in edit mode and stored
+    /// </summary>
+    Dictionary<string,RegionList> rlDict = new Dictionary<string, RegionList>();
+
     private void Awake() {
         inst = this;
     }
@@ -25,7 +30,7 @@ public class RegionController : MonoBehaviour {
         if (GameController.inst.isPreloaded) return;
         LoadRegionData();
     }
-
+    
     [ContextMenu("loadAlldata")]
     public void EditorLoadAlldata() {
         gameController.InEditorSetup();
@@ -182,6 +187,7 @@ public class RegionList {
     public bool isRiding;
     public bool isAssigned;
     public List<RegionList> subLists;
+    public List<RegionList> hierarchyList;
     public RegionList parent;
     public int population;
     public DistrictResult districtResult ;
@@ -204,6 +210,20 @@ public class RegionList {
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// tranverse list
+    ///  saving HierarchyList
+    /// </summary>
+    public void SetHierarchyLists(List<RegionList> parentHierarchyList) {
+        hierarchyList = parentHierarchyList.ToList();
+        hierarchyList.Add(this);
+        if (subLists != null) {
+            foreach (var rl in subLists) {
+                rl.SetHierarchyLists(hierarchyList);
+            }
+        }
     }
 }
 
