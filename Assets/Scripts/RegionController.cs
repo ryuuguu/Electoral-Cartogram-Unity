@@ -38,9 +38,11 @@ public class RegionController : MonoBehaviour {
     }
     
     public void LoadRegionData() {
+        
         ClearRidings();
-       LoadElectoralDistricts();
-       LoadElectionResults(); 
+        LoadElectoralDistricts();
+        PrepareRegionListData();
+        LoadElectionResults(); 
     }
 
     public void ClearRidings() {
@@ -154,7 +156,7 @@ public class RegionController : MonoBehaviour {
             candidateResult.votes = int.Parse(line[10]);
             gameController.partyController.AddPartyData(candidateResult.partyId, line[9],candidateResult.votes);
             candidateResult.percentVotes = float.Parse(line[11]);
-            var aRegionList = regionList.Find(regionId);
+            var aRegionList = Find(regionId);
             if (aRegionList.districtResult == null) {
                 aRegionList.districtResult = new DistrictResult {
                     regionId = regionId,

@@ -16,6 +16,9 @@ Version Scenes
     UI refactored to remove instantiating unneeded GameObjects
       still slow but much faster
 
+  UIHexGridCanada2 - some optimizations on RegionController
+    RegionList is a tree structure. It is static after creation.
+      so I made a Dictionary of nodes for fast access. Also stored HierarchyList in each Regionlist.
 
 
 Future directions of code
