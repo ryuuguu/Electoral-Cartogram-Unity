@@ -22,13 +22,12 @@ public class UIHexGridMapGrid2 : UIHexGrid {
         cell.SetRegion(rl);
         cellDataDict[v3] = rl;
     }
-    
-    public void ClearHighLight() {
-        
-        foreach (UIHexGridMapCell2 mapCell in hexes[localSpaceId].Values) {
-            mapCell.SetHighLight(false);
+
+    public void SetBorders() {
+        foreach (var kvp in hexes[localSpaceId]) {
+            var mapCell =(UIHexGridMapCell2)kvp.Value;
+            mapCell.SetBorder(cellDataDict[kvp.Key]);
         }
-        
     }
     
     public UIHexGridMapCell2 GetCellAt(Vector3 v3) {

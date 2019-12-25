@@ -33,7 +33,7 @@ public class UIHexGridMapCell2 : HexUI {
                 var transform1 = subGrid.transform;
                 transform1.localPosition = Vector3.zero;
                 transform1.localScale = 0.1f * Vector3.one;
-                ColorSubGrid();
+                ColorSubGrid(aRegionList);
             }
         } else {
             center.sprite = centerOther;
@@ -41,15 +41,12 @@ public class UIHexGridMapCell2 : HexUI {
         }
     }
 
-    public void SetBorder() {
+    public void SetBorder(RegionList aRegionList) {
         for (int i = 0;i<6;i++) {
             int border = -1;
-            //var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
-            var hierarchy = regionList.hierarchyList;
+            var hierarchy = aRegionList.hierarchyList;
             var otherCell = UIHexGridMap2.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
-            //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
-            //var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
             var otherHierarchy = otherCell.regionList.hierarchyList;
             for (int j = 0; j < Mathf.Min(hierarchy.Count, otherHierarchy.Count);j++) {
                 if (hierarchy[j] != otherHierarchy[j]) {
@@ -70,11 +67,11 @@ public class UIHexGridMapCell2 : HexUI {
         
     }
     
-    public void  ColorSubGrid() {
+    public void  ColorSubGrid(RegionList aRegionList) {
         
         // need total votes 
         // sorted candidates 
-        var candidateResults = regionList.districtResult.candidateResults;
+        var candidateResults = aRegionList.districtResult.candidateResults;
         
         int childIndex = 0;
         int sumVotes = 0;
@@ -96,13 +93,6 @@ public class UIHexGridMapCell2 : HexUI {
         }
     }
     
-    
-    public void ButtonPressed() {
-        SetHighLight(true);
-        //TODO convertRegionEditor.SetMapCellActive() -> UIHexGridMapCell
-        //RegionEditor.SetMapCellActive(this);
-        
-    }
     
     public void SetHighLight(bool val) {
         targetHighlight.gameObject.SetActive(val);

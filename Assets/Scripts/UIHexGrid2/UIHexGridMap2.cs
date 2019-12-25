@@ -137,15 +137,9 @@ public class UIHexGridMap2 : MonoBehaviour {
             var rl = RegionController.Find(cd.regionID);
             mapGrid.CreateCellRegion(cd.cubeCoord,rl);
         }
-        foreach (UIHexGridMapCell2 mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values)  {
-            mapCell.SetBorder();
-        }
+        mapGrid.SetBorders();
     }
     
-    public static void ClearHighLight() {
-        inst.mapGrid.ClearHighLight();
-    }
-
     public static UIHexGridMapCell2 GetCellAt(Vector3 v3) {
         return inst.mapGrid.GetCellAt(v3);
     }
