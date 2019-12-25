@@ -36,7 +36,9 @@ public class UIHexGridMapCell2 : HexUI {
         } else {
             center.sprite = centerOther;
             center.color = aRegionList.color;
+           
         }
+        center.color = Color.clear; //used during change to ECS
     }
     
 
