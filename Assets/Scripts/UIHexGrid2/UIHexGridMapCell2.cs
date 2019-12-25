@@ -8,7 +8,6 @@ using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIHexGridMapCell2 : HexUI {
-    public RegionList regionList;
 
     public Sprite centerRiding;
     public Sprite centerOther;
@@ -23,7 +22,6 @@ public class UIHexGridMapCell2 : HexUI {
     
     
     public void SetRegion(RegionList aRegionList) {
-        regionList = aRegionList;
         if (aRegionList.isRiding) {
             center.sprite = centerRiding;
             var partyId =  aRegionList.districtResult.candidateResults[0].partyId;
@@ -40,33 +38,7 @@ public class UIHexGridMapCell2 : HexUI {
             center.color = aRegionList.color;
         }
     }
-
-    public void SetBorder(RegionList aRegionList) {
-        for (int i = 0;i<6;i++) {
-            int border = -1;
-            var hierarchy = aRegionList.hierarchyList;
-            var otherCell = UIHexGridMap2.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
-            if(otherCell == null) continue;
-            var otherHierarchy = otherCell.regionList.hierarchyList;
-            for (int j = 0; j < Mathf.Min(hierarchy.Count, otherHierarchy.Count);j++) {
-                if (hierarchy[j] != otherHierarchy[j]) {
-                    border = j;
-                    break;
-                }
-            }
-
-            SetBorder(i, border);
-            /*
-            if (border >= 0) {
-                edges[i].color = RegionController.inst.borderColors[border];
-                otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
-                //Debug.Log( "Draw: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
-            }
-            edges[i].gameObject.SetActive(border >= 0);
-            otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
-            */
-        }
-    }
+    
 
     public void SetBorder(int edgeIndex, int border) {
         if (border >= 0) {

@@ -26,7 +26,26 @@ public class UIHexGridMapGrid2 : UIHexGrid {
     public void SetBorders() {
         foreach (var kvp in hexes[localSpaceId]) {
             var mapCell =(UIHexGridMapCell2)kvp.Value;
-            mapCell.SetBorder(cellDataDict[kvp.Key]);
+            var aRegionList = cellDataDict[kvp.Key];
+                for (int i = 0;i<6;i++) {
+                    int border = -1;
+                    var hierarchy = aRegionList.hierarchyList;
+                    var otherCoord = CubeCoordinates.CubeDirections[i] + kvp.Key;
+                    if (!cellDataDict.ContainsKey(otherCoord)) {
+                        continue; 
+                    }
+                    var otherHierarchy = cellDataDict[otherCoord].hierarchyList;
+                    for (int j = 0; j < Mathf.Min(hierarchy.Count, otherHierarchy.Count);j++) {
+                        if (hierarchy[j] != otherHierarchy[j]) {
+                            border = j;
+                            break;
+                        }
+                    }
+
+                    mapCell.SetBorder(i, border);
+            
+                }
+            
         }
     }
     
