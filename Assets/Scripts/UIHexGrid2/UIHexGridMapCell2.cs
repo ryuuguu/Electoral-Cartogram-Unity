@@ -55,6 +55,8 @@ public class UIHexGridMapCell2 : HexUI {
                 }
             }
 
+            SetBorder(i, border);
+            /*
             if (border >= 0) {
                 edges[i].color = RegionController.inst.borderColors[border];
                 otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
@@ -62,9 +64,15 @@ public class UIHexGridMapCell2 : HexUI {
             }
             edges[i].gameObject.SetActive(border >= 0);
             otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
-            
+            */
         }
-        
+    }
+
+    public void SetBorder(int edgeIndex, int border) {
+        if (border >= 0) {
+            edges[edgeIndex].color = RegionController.inst.borderColors[border];
+        }
+        edges[edgeIndex].gameObject.SetActive(border >= 0);
     }
     
     public void  ColorSubGrid(RegionList aRegionList) {

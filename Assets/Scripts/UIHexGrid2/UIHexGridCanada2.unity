@@ -64758,7 +64758,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.271, g: 0.271, b: 0.271, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   gameController: {fileID: 2053087564}
   district2016: ED-Canada_2016_utf8
