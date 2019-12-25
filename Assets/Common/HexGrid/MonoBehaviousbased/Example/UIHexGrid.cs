@@ -11,8 +11,6 @@ public class UIHexGrid : MonoBehaviour {
 
     public RectTransform holder;
     public HexUI prefab;
-    public PointerTransform pointerTransform;
-
     
     public float gridScale = 20;
     public Vector2 offsetCoord = Vector3.zero;
@@ -84,13 +82,6 @@ public class UIHexGrid : MonoBehaviour {
         hexes[aLocalSpaceId].Clear();
     }
     
-    public void MovePointer() { 
-        //TODO refactor to use pointerTransform
-        /*
-        var hexCenteredPos = CubeCoordinates.ConvertPlaneToLocalPosition(mouseCoord, localSpaceId);
-        pointerTransform.ShowPointer(hexCenteredPos,true);
-       */
-    }
 
     public Vector3  Mouse2Coord() {
         RectTransformUtility.ScreenPointToLocalPointInRectangle( holder
@@ -99,13 +90,13 @@ public class UIHexGrid : MonoBehaviour {
         return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPoint, localSpaceId));
     }
 
-    public void PointerToggleHighlight() {
-        if (Input.GetMouseButtonDown(0)) {
-            if (hexes[localSpaceId].ContainsKey(mouseCoord)) {
-                hexes[localSpaceId][mouseCoord].ToggleHighlight();
-            }
-            
-        }
+    public Vector3 Coord2Local(Vector3 coord) {
+        var ls = CubeCoordinates.localSpaces[localSpaceId];
+        var a = CubeCoordinates.ConvertOrientation(ls.orientation, coord) ;
+        var b = CubeCoordinates.ConvertPlaneToLocalPosition(a, localSpaceId);
+        return b;
     }
+    
+    
 }
 

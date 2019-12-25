@@ -10,17 +10,15 @@ public class UIHexGridMap2 : MonoBehaviour {
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
     public Tooltip tooltip;
+    public RectTransform selectedMarker;
+    
     
     private int delayMapBuild = 1;
 
     bool inRiding = false;
     
-    UIHexGridMapCell2 prevCell = null;
-    UIHexGridMapCell2 prevSelectedCell = null;
-    
     static Vector3 nullCoord = Vector3.one;
     Vector3 prevMouseCoord = nullCoord;
-    Vector3 prevSelectedCoord = nullCoord;
     
     public static UIHexGridMap2 inst;
 
@@ -39,7 +37,6 @@ public class UIHexGridMap2 : MonoBehaviour {
         var regionList = GetCellDataAt(mouseCoord);
         if (regionList != null) {
             if (!regionList.isRiding) {
-                prevCell= null;
                 prevMouseCoord = nullCoord;
                 tooltip.Hide("");
             } else {
@@ -48,17 +45,15 @@ public class UIHexGridMap2 : MonoBehaviour {
                         Input.mousePosition);
                 }
                 if (Input.GetMouseButtonDown(0)) {
-                    var prevSelectedCell = GetCellAt(prevSelectedCoord);
-                    prevSelectedCell?.SetHighLight(false);
-                    var cell = GetCellAt(mouseCoord);
-                    cell.SetHighLight(true);
+                    selectedMarker.anchoredPosition = mapGrid.Coord2Local(mouseCoord);
                     ElectoralDistrictPanel.SetRegionList(regionList);
-                    prevSelectedCoord = mouseCoord;
                 }
             }
         }
-
-        //prevCell = cell;
+        else {
+            prevMouseCoord = nullCoord;
+            tooltip.Hide("");
+        }
         prevMouseCoord = mouseCoord;
 
     }
