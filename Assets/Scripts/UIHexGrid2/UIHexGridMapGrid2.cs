@@ -18,14 +18,17 @@ public class UIHexGridMapGrid2 : UIHexGrid {
     public  void CreateCellRegion(Vector3Int v3,RegionList rl) {
         //hack to not draw WATER & USA because of speed problems
         if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
-        var cell = CreateCell(v3, false);
-        cell.SetRegion(rl);
+        //var cell = CreateCell(v3, false);
+        //cell.SetRegion(rl);
         cellDataDict[v3] = rl;
+        Color color;
         if (rl.isRiding) {
             var partyId = rl.districtResult.candidateResults[0].partyId;
-            Color color = PartyController.GetPartyData(partyId).color;
-            ECSSpawner.Hex(v3, color);
+            color = PartyController.GetPartyData(partyId).color;
+        }else {
+            color = rl.color;
         }
+        ECSSpawner.Hex(v3, color);
     }
 
     public void SetBorders() {
