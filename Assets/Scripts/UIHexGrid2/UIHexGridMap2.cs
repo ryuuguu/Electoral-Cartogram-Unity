@@ -130,13 +130,13 @@ public class UIHexGridMap2 : MonoBehaviour {
     }
     
     public void MakeMapFromData() {
-        // Debug.Log("MakeMapFromData: " + makeCells);
-         //RegionController.PrepareRegionListData();
+        ECSSpawner.Init(CubeCoordinates.GetLocalSpace(mapGrid.localSpaceId));
         foreach (var cd in mapData.cellDatas) {
             //var rl = RegionController.inst.regionList.Find(cd.regionID);
             var rl = RegionController.Find(cd.regionID);
-            mapGrid.CreateCellRegion(cd.cubeCoord,rl);
+            mapGrid.CreateCellRegion(cd.cubeCoord, rl);
         }
+
         mapGrid.SetBorders();
     }
     

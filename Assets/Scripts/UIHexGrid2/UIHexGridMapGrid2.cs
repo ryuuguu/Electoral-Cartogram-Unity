@@ -21,6 +21,11 @@ public class UIHexGridMapGrid2 : UIHexGrid {
         var cell = CreateCell(v3, false);
         cell.SetRegion(rl);
         cellDataDict[v3] = rl;
+        if (rl.isRiding) {
+            var partyId = rl.districtResult.candidateResults[0].partyId;
+            Color color = PartyController.GetPartyData(partyId).color;
+            ECSSpawner.Hex(v3, color);
+        }
     }
 
     public void SetBorders() {
