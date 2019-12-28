@@ -64,8 +64,8 @@ public class ECSSpawner : MonoBehaviour {
         _entityManager.AddComponentData(instance, new Scale {Value = _gameScale});
         var material = new Material(Shader.Find("Standard"));
         material.color = color;
-        _entityManager.SetComponentData(instance,
-            new HexMeshRenderer {Mesh = _mesh, Material = material});
+        //_entityManager.SetComponentData(instance,
+        //    new HexMeshRenderer {Mesh = _mesh, Material = material});
 
     }
     

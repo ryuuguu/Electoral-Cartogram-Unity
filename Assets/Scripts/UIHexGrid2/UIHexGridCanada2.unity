@@ -7229,7 +7229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holder: {fileID: 1395006617}
-  prefab: {fileID: 4685903374109354575, guid: d688e20addab44429b3885e9084c9311, type: 3}
+  prefab: {fileID: 4229829481360320438, guid: c9892512c6b644807a574a112c73590b, type: 3}
   mesh: {fileID: 4300000, guid: 23222a5a6f8f64827abab8bab55d55ee, type: 2}
   orientation: 0
   offsetCoord: {x: 0, y: 0.5}

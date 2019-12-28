@@ -11,10 +11,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Basic Canada.unity
     guid: 830bbf358fdad498fa7fae0b0788202a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scripts/UIHexGrid/UIHexGridCanada.unity
     guid: 2fffbb11b9a924df089d0c13378688dc
   - enabled: 0
     path: Assets/Scenes/Square Canada.unity
     guid: cb1d68e89aff64fceb81dff6a3b01336
+  - enabled: 1
+    path: Assets/Scripts/UIHexGrid2/UIHexGridCanada2.unity
+    guid: 5d07e2cead30040e2b6668fa77a320fa
   m_configObjects: {}
