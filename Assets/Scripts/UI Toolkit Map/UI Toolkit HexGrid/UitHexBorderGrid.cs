@@ -9,6 +9,8 @@ using Random = UnityEngine.Random;
 public class UitHexBorderGrid :MonoBehaviour {
 
     public Texture2D cellBackground;
+    public Texture2D borderImage;
+
 
     public int exampleRadius = 1;
     public float hexRadius = 50f;
@@ -20,22 +22,33 @@ public class UitHexBorderGrid :MonoBehaviour {
     
     public CubeCoordinates cubeCoordinates;
     
-    public VisualElement hexHolder;
+    public VisualElement borderHolder;
 
-    public Dictionary<string,Dictionary<Vector3, UitHex>> hexes = new Dictionary<string,Dictionary<Vector3, UitHex>>();
-
-
+    public struct HexBorder {
+        public VisualElement borderholder;
+        public VisualElement[] borders;
+    }
+    public Dictionary<string,Dictionary<Vector3, HexBorder>> borders = new Dictionary<string,Dictionary<Vector3, HexBorder>>();
+    
     public void Init(VisualElement aHexHolder) {
-        hexHolder = aHexHolder;
+        borderHolder = aHexHolder;
     }
     
-    private UitHex  MakeHex(Vector3 coord,Vector2 location, VisualElement aHolder) {
-        var hex = AddHex();
-        aHolder.Add(hex);
-        hex.name = coord.ToString();
-        SetupHex(hex, location);
-        hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
-        return hex;
+    private HexBorder  MakeHexBorder(Vector2 location, VisualElement aHolder) {
+        
+        HexBorder hexBorder = new HexBorder();
+        hexBorder.borderholder = new VisualElement();
+        hexBorder.borders = new VisualElement[6];
+        for (int i = 0; i < 6; i++) {
+            var border = new VisualElement();
+            hexBorder.borders[i] = border;
+            hexBorder.borderholder.Add(border);
+            border.style.backgroundImage = borderImage;
+            border.transform.position = new Vector3(hexRadius,0,0);
+            border.transform. rotation = Quaternion.Euler(60*i,0,0);
+        }
+        hexBorder.borderholder.transform.position = (Vector3) location;
+        return hexBorder;
     }
     
     public void SetupHexes() {
@@ -47,20 +60,11 @@ public class UitHexBorderGrid :MonoBehaviour {
         //NewMap();
     }
     
-    public UitHex AddHex() {
-        var hex = new UitHex();
-        hex.EnableInClassList("HexGrid-Hex-icon", true);
-        var image = new Image();
-        image.EnableInClassList("HexGrid-Hex-highlight",true);
-        hex.Add(image);
-        return hex;
-    }
-    
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        if (!hexes.ContainsKey(localSpaceId)) {
-            hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
+        if (!borders.ContainsKey(localSpaceId)) {
+            borders[aLocalSpaceId] = new Dictionary<Vector3, HexBorder>();
         }
         
         // not in editor anymore should this change?
@@ -68,20 +72,10 @@ public class UitHexBorderGrid :MonoBehaviour {
         
             foreach (var coord in allCoords) {
                 var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-                var hex = MakeHex(coord.cubeCoord, localCoord, hexHolder);
-                hexes[aLocalSpaceId][coord.cubeCoord] = hex;
+                var hex = MakeHexBorder(localCoord, borderHolder);
+                borders[aLocalSpaceId][coord.cubeCoord] = hex;
             }
         //}
 
     }
-    
-    private void SetupHex(UitHex hex, Vector2 location) {
-        //hex.style.left = location.x;
-        //hex.style.top = location.y ;
-        hex.transform.position = (Vector3) location;
-        hex.style.backgroundImage = cellBackground;
-        // Sets a basic tooltip to the button itself.
-        hex.tooltip = hex.parent.name;
-    }
-    
 }
