@@ -54,8 +54,7 @@ public class UIHexGrid : MonoBehaviour {
             }
         }
     }
-
-
+    
     public HexUI AddCell(Vector3 v3, CubeCoordinates.LocalSpace ls) {
         var coord = cubeCoordinates.GetAddCoordinateFromContainer(v3, AllToken);
         var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
