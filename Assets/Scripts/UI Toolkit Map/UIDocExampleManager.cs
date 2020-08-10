@@ -9,9 +9,10 @@ public class UIDocExampleManager : MonoBehaviour {
     protected VisualElement root;
 
     protected VisualElement hexHolder;
-
-    public UitHexGrid uitHexGrid;
+    protected VisualElement borderHolder;
     
+    public UitHexGrid uitHexGrid;
+    public UitHexBorderGrid uitHexBorderGrid;
     
     private void Start() {
         // Reference to the root of the window.
@@ -30,8 +31,13 @@ public class UIDocExampleManager : MonoBehaviour {
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
         root.Add(hexHolder);
-        
         uitHexGrid.Init(hexHolder);
         uitHexGrid.SetupHexes();
+        
+        borderHolder = new VisualElement();
+        root.Add(borderHolder);
+        uitHexBorderGrid.Init(borderHolder);
+        uitHexBorderGrid.SetupHexBorders();
+        
     }
 }

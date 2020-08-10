@@ -49,10 +49,7 @@ public class UitHexGrid :MonoBehaviour {
     
     public UitHex AddHex() {
         var hex = new UitHex();
-        hex.EnableInClassList("HexGrid-Hex-icon", true);
-        var image = new Image();
-        image.EnableInClassList("HexGrid-Hex-highlight",true);
-        hex.Add(image);
+        hex.EnableInClassList("HexGrid-Hex", true);
         return hex;
     }
     
