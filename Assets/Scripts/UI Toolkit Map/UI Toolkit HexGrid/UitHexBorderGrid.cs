@@ -53,21 +53,15 @@ public class UitHexBorderGrid :MonoBehaviour {
             hexBorder.borderholder.Add(border1);
             border1.transform. rotation = Quaternion.Euler(0,0,60*i); 
             border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0);
-           
+            
             var border2 = new VisualElement();
+            border2.pickingMode = PickingMode.Ignore;
             border1.Add(border2);
-            
-            
             border2.EnableInClassList("HexGrid-Hex-Border", true);
             var image = new Image();
             border2.Add(image);
-            
             hexBorder.borders[i] = border2;
-            
-            border2.style.backgroundImage = borderImage;
-            //border2.transform. rotation = Quaternion.Euler(0,0,60*i);
-            
-            
+            //border2.style.backgroundImage = borderImage;
             border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0);
            
         }

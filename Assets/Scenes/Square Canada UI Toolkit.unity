@@ -5829,7 +5829,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 0}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
-  exampleRadius: 0
+  exampleRadius: 1
   hexRadius: 50
   offsetCoord: {x: 15, y: -15}
   localSpaceId: 
@@ -6751,7 +6751,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
-  exampleRadius: 0
+  exampleRadius: 3
   hexRadius: 50
   offsetCoord: {x: 15, y: -15}
   localSpaceId: 
