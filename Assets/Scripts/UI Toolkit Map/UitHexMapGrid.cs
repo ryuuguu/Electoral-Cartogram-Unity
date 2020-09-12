@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 
-public class UitHexGridMapGrid : UitHexGrid {
- /*   
-    public UitHexGridMapCell CreateCell(Vector3 v3, bool isrectangle = false) {
-        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        var cell = (UitHexGridMapCell)  AddCell(v3,ls);
+
+/// <summary>
+/// access visual element and region data by coord
+/// </summary>
+public class UitHexMapGrid : UitHexGrid {
+   
+    public UitHex CreateCell(Vector3 v3, bool isrectangle = false) {
+        var cell =  MakeHex(v3); // this creates the Visual element but not the region
         return cell;
     }
 
     public  void CreateCellRegion(Vector3Int v3,RegionList rl) {
         //hack to not draw WATER & USA because of speed problems
         if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
-        var cell = CreateCell(v3, false);
-        cell.SetRegion(rl);
+        var uitHex = CreateCell(v3, false);
+        
+        
+        UitHexGridMapCell mapCell =  new UitHexGridMapCell();
+        mapCell.uitHex = uitHex;
+        mapCell.SetRegion(rl);
     }
     
     //TODO* highlights
-   */ 
+   
     /*
     public void ClearHighLight() {
         

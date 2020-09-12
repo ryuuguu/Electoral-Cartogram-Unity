@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using Com.Ryuuguu.HexGridCC;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
 
 public class UIDocExampleManager : MonoBehaviour {
     protected VisualElement root;
-
     protected VisualElement hexHolder;
     protected VisualElement borderHolder;
     
-    public UitHexGrid uitHexGrid;
-    public UitHexBorderGrid uitHexBorderGrid;
+    public UitHexGridExample uitHexGrid;
+    public UitHexBorderGridExample uitHexBorderGrid;
     
     private void Start() {
         // Reference to the root of the window.
         var uiDoc= GetComponent<UIDocument>();
         root = uiDoc.rootVisualElement;
         
-
         // Associates a stylesheet to our root. Thanks to inheritance, all root’s
         // children will have access to it.
         root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
@@ -34,6 +28,8 @@ public class UIDocExampleManager : MonoBehaviour {
         uitHexGrid.Init(hexHolder);
         uitHexGrid.SetupHexes();
         
+        // adding borderHolder after hexHolder
+        // places all borders over all hexes
         borderHolder = new VisualElement();
         root.Add(borderHolder);
         uitHexBorderGrid.Init(borderHolder);
