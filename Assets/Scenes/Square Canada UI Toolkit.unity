@@ -172,8 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e340500d71e334e6e94a18351e6391d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uitHexGrid: {fileID: 1305230730}
-  uitHexBorderGrid: {fileID: 1132553383}
+  uitHexGrid: {fileID: 0}
+  uitHexBorderGrid: {fileID: 0}
 --- !u!114 &3298882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2413,9 +2413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
-  exampleRadius: 1
-  hexRadius: 10
-  offsetCoord: {x: 0, y: -40}
+  hexRadius: 20
+  veHexScale: 33
+  offsetCoord: {x: 20, y: -40}
   localSpaceId: 
 --- !u!4 &404597494
 Transform:
@@ -4974,8 +4974,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
-  exampleRadius: 2
   hexRadius: 50
+  veHexScale: 25
   offsetCoord: {x: 14, y: -14}
   localSpaceId: 
 --- !u!1 &944587107
@@ -5877,7 +5877,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 0}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
-  exampleRadius: 1
   hexRadius: 50
   offsetCoord: {x: 15, y: -15}
   localSpaceId: 
@@ -6799,8 +6798,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
-  exampleRadius: 3
   hexRadius: 50
+  veHexScale: 25
   offsetCoord: {x: 10, y: -15}
   localSpaceId: 
 --- !u!4 &1305230733

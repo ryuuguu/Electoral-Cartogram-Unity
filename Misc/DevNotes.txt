@@ -1,0 +1,98 @@
+
+VisualElement (a.k.a VE)
+
+UitHexGridExample is an example UitHexGrid  that makes a super hex of a given radius.
+  
+using Com.Ryuuguu.HexGridCC;
+using UnityEngine;
+
+/// <summary>
+/// Make a hex of superHexRadius
+/// 
+/// </summary>
+public class UitHexGridExample : UitHexGrid {
+    
+    public int superHexRadius = 1;
+
+    /// <summary>
+    /// Makes all hexes in a given local space
+    /// </summary>
+    public void SetupHexes() {
+        //make a hex or hexes 
+        // FYI Construct returns a list of the hexes it makes as well as storing them in the local space
+        cubeCoordinates.Construct(superHexRadius);
+        MakeAllHexes(localSpaceId);
+    }
+}
+     
+ Construct(int) gets a list of coordinates that make up the super hex.  Then MakeAllHexes(localSpaceId) asks the parent class to do the work of drawing hexes in UIToolkit and storing references to them.
+
+Next the UitHexGrid class. This makes UI Toolkit hexes and store references to them in a dictionary so they can be updated later. They will not be updated till later articles.
+
+	// the inital string is a localSpaceID it allows multiple hex grids to handled separately 
+    // inner dictionary is to find UI Toolkit elements from their coordinates
+    public Dictionary<string,Dictionary<Vector3, UitHex>> hexes = new Dictionary<string,Dictionary<Vector3, UitHex>>();
+ 
+Init sets the hexHolder which will be the parent of all Hex VEs.
+The underlying CubeCoordinates system can work with subsets of hexes to perform operations such path finding. For this example we will use all the hexes in a given space, so we will only use the CubeCoordinates.AllContainer. Init assigns the AllContainer to the AllToken which is just a const string, and sets up a new local space including its scale and orientation.  
+    
+  public void Init(VisualElement aHexHolder) {
+        hexHolder = aHexHolder;
+        cubeCoordinates = new CubeCoordinates();
+        AllToken = CubeCoordinates.AllContainer;
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, Vector2.one,
+            CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
+    }
+
+
+After the Init has been called we MakeAllHexes. First get a List<Coord>, a copy of the local space and make sure the dictionary to contain the hexes has been created. Next for all the Coord convert from hex coordinates to local space coordinates. In this (x,y) VE coordinates. MakeHex() and store a reference in hexes[]. 
+
+public void MakeAllHexes(string aLocalSpaceId) {
+        var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
+        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
+        if (!hexes.ContainsKey(localSpaceId)) {
+            hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
+        }
+         
+        foreach (var coord in allCoords) {
+            var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
+            var hex = MakeHex(coord.cubeCoord, localCoord, hexHolder);
+            hexes[aLocalSpaceId][coord.cubeCoord] = hex;
+        }
+    }
+
+MakeHex() Get the parent VE for all hexes. Create the UitHex and add it to the parent VE. Name it by its Coord. Setup location specific data. The last part is hack to check how button clicking works in UI Toolkit.
+
+protected UitHex  MakeHex(Vector3 coord,Vector2 location, VisualElement aHolder = null) {
+        if (aHolder == null) {
+            aHolder = hexHolder;
+        } 
+        var hex = MakeUitHex();
+        aHolder.Add(hex);
+        hex.name = coord.ToString();
+        SetupHex(hex, location);
+        // quick hack to test if this works, in later version need to assign it in a separate method
+        hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
+        return hex;
+    }
+
+MakeUitHex the actual creation of the UitHex and add its class. Adding the VE class this was is a hack, not sure where it is best to do it.
+
+public UitHex MakeUitHex() {
+        var hex = new UitHex();
+        hex.EnableInClassList("HexGrid-Hex", true);
+        return hex;
+    }
+
+SetUpHex Move the hex to it proper location in VE space. add the background image, in this case the actual hex, and yet another hack so I can test tooltips later.
+
+public void SetupHex(UitHex hex, Vector2 location) {
+        hex.transform.position = (Vector3) location;
+        hex.style.backgroundImage = cellBackground;
+        // Hack for initial testing
+        //    tooltip is not implemented in the runtime system
+        //    this might be used when I implement tooltip  
+        hex.tooltip = hex.parent.name;
+    }
+    
+Lots hacks and temporary solutions for testing how things work in UI Toolkit. Hopefully when I build the later parts of the map editor I will have gained a better understanding of UI Toolkit and what type of architecture works with it and the map editor.

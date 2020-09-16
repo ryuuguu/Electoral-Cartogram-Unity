@@ -77,6 +77,7 @@ public class RegionController : MonoBehaviour {
     }
 
     public static RegionList Find(string anId) {
+        if (!inst.rlDict.ContainsKey(anId)) return null;
         return inst.rlDict[anId];
     }
     
@@ -122,15 +123,20 @@ public class RegionController : MonoBehaviour {
             if (regionCodes.ContainsKey(regionCode)) {
                 var id = regionCodes[regionCode];
                 var parent = regionListInternal.Find(id);
-                var rl = new RegionList() {
-                    id = line[0],
-                    names = new List<string>() {line[1], line[2]},
-                    population = int.Parse(line[3]),
-                    isRiding = true,
-                    color = Color.white,
-                    parent = parent
-                };
-                parent.subLists.Add(rl);
+                if (parent != null) {
+                    var rl = new RegionList() {
+                        id = line[0],
+                        names = new List<string>() {line[1], line[2]},
+                        population = int.Parse(line[3]),
+                        isRiding = true,
+                        color = Color.white,
+                        parent = parent
+                    };
+                    parent.subLists.Add(rl);
+                }
+                else {
+                    Debug.Log("region not found: " + id);
+                }
             }
         }
 
@@ -163,13 +169,19 @@ public class RegionController : MonoBehaviour {
             gameController.partyController.AddPartyData(candidateResult.partyId, line[9],candidateResult.votes);
             candidateResult.percentVotes = float.Parse(line[11]);
             var aRegionList = Find(regionId);
-            if (aRegionList.districtResult == null) {
-                aRegionList.districtResult = new DistrictResult {
-                    regionId = regionId,
-                    totalVotes = int.Parse(line[13])
-                };
+            if (aRegionList != null) {
+                if (aRegionList.districtResult == null) {
+                    aRegionList.districtResult = new DistrictResult {
+                        regionId = regionId,
+                        totalVotes = int.Parse(line[13])
+                    };
+                }
+
+                aRegionList.districtResult.rawCandidateResults.Add(candidateResult);
             }
-            aRegionList.districtResult.rawCandidateResults.Add(candidateResult);
+            else {
+                Debug.Log("Region ot found: "+ regionId);
+            }
         }
         ProcessElectionResults(regionListInternal);
     }

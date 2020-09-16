@@ -126,6 +126,8 @@ public class UitHexGridMap : MonoBehaviour {
         Debug.Log(mapGrid.offsetCoord);
         Debug.Log(mapData);
         Debug.Log(mapData.offset);
+        Debug.Log(mapData.scale);
+        
         //mapGrid.offsetCoord = mapData.offset;
         //mapGrid.gridScale = mapData.scale;
         //mapGrid.posCellScale = mapData.posCellScale;
@@ -172,13 +174,18 @@ public class UitHexGridMap : MonoBehaviour {
         
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionListInternal.Find(cd.regionID);
-            mapGrid.CreateCellRegion(cd.cubeCoord,rl);
+            if (rl != null) {
+                mapGrid.CreateCellRegion(cd.cubeCoord, rl);
+            }
+            else {
+                Debug.Log("Region not found: "+ cd.regionID );
+            }
         }
         mapGrid.MakeAllHexes(mapGrid.localSpaceId);
         foreach (UitHex mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values) {
             
             // set border is not going to work on UitHex
-            // nned to do this separate border class like in UIDocEampleManager
+            // need to do this separate border class like in UIDocEampleManager
             // mapCell.SetBorder();
 
         }

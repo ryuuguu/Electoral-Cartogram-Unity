@@ -14,6 +14,7 @@ public class UitHexGrid :MonoBehaviour {
     public Texture2D cellBackground;
 
     public float hexRadius = 50f;
+    public float veHexScale = 25f;
     public Vector2 offsetCoord =new Vector2(4,-3);
     
     public string localSpaceId;
@@ -52,7 +53,8 @@ public class UitHexGrid :MonoBehaviour {
     protected UitHex MakeHex(Vector3 coord) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
-        return MakeHex(coord, location);
+        var scale = ls.gameScale;
+        return MakeHex(coord, location, scale);
     }
     
     /// <summary>
@@ -62,14 +64,14 @@ public class UitHexGrid :MonoBehaviour {
     /// <param name="location"></param>
     /// <param name="aHolder"></param>
     /// <returns></returns>
-    protected UitHex  MakeHex(Vector3 coord,Vector2 location, VisualElement aHolder = null) {
+    protected UitHex  MakeHex(Vector3 coord,Vector2 location, float scale, VisualElement aHolder = null) {
         if (aHolder == null) {
             aHolder = hexHolder;
         } 
         var hex = MakeUitHex();
         aHolder.Add(hex);
         hex.name = coord.ToString();
-        SetupHex(hex, location);
+        SetupHex(hex, location, scale);
         // quick hack to test if this works, in later version need to assign it in a separate method
         hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
         return hex;
@@ -93,13 +95,14 @@ public class UitHexGrid :MonoBehaviour {
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
+        var scale = ls.gameScale;
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }
          
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-            var hex = MakeHex(coord.cubeCoord, localCoord, hexHolder);
+            var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
         }
     }
@@ -109,8 +112,9 @@ public class UitHexGrid :MonoBehaviour {
     /// </summary>
     /// <param name="hex"></param>
     /// <param name="location"></param>
-    public void SetupHex(UitHex hex, Vector2 location) {
+    public void SetupHex(UitHex hex, Vector2 location,float scale) {
         hex.transform.position = (Vector3) location;
+        hex.transform.scale = Vector3.one*scale/veHexScale;
         hex.style.backgroundImage = cellBackground;
         // Hack for initial testing
         //    tooltip is not implemented in the runtime system
