@@ -12,6 +12,7 @@ using UnityEngine.UIElements;
 public class UitHexGrid :MonoBehaviour {
 
     public Texture2D cellBackground;
+    public bool isSquare = true;
 
     public float hexRadius = 50f;
     public float veHexScale = 25f;
@@ -53,7 +54,12 @@ public class UitHexGrid :MonoBehaviour {
     protected UitHex MakeHex(Vector3 coord) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
-        var scale = ls.gameScale;
+        Vector3 scale;
+        if (isSquare) {
+            scale = new Vector3(ls.coordinateHeight,ls.coordinateWidth,1);
+        } else {
+            scale = Vector3.one * ls.gameScale;
+        }
         return MakeHex(coord, location, scale);
     }
     
@@ -64,7 +70,7 @@ public class UitHexGrid :MonoBehaviour {
     /// <param name="location"></param>
     /// <param name="aHolder"></param>
     /// <returns></returns>
-    protected UitHex  MakeHex(Vector3 coord,Vector2 location, float scale, VisualElement aHolder = null) {
+    protected UitHex  MakeHex(Vector3 coord,Vector2 location, Vector3 scale, VisualElement aHolder = null) {
         if (aHolder == null) {
             aHolder = hexHolder;
         } 
@@ -95,7 +101,13 @@ public class UitHexGrid :MonoBehaviour {
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        var scale = ls.gameScale;
+        
+        Vector3 scale;
+        if (isSquare) {
+            scale = new Vector3(ls.coordinateHeight,ls.coordinateWidth,1);
+        } else {
+            scale = Vector3.one * ls.gameScale;
+        }
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }
@@ -112,9 +124,9 @@ public class UitHexGrid :MonoBehaviour {
     /// </summary>
     /// <param name="hex"></param>
     /// <param name="location"></param>
-    public void SetupHex(UitHex hex, Vector2 location,float scale) {
+    public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
         hex.transform.position = (Vector3) location;
-        hex.transform.scale = Vector3.one*scale/veHexScale;
+        hex.transform.scale = scale / veHexScale;
         hex.style.backgroundImage = cellBackground;
         // Hack for initial testing
         //    tooltip is not implemented in the runtime system

@@ -2413,8 +2413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
+  isSquare: 1
   hexRadius: 20
-  veHexScale: 33
+  veHexScale: 60
   offsetCoord: {x: 20, y: -40}
   localSpaceId: 
 --- !u!4 &404597494
@@ -4974,6 +4975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
+  isSquare: 1
   hexRadius: 50
   veHexScale: 25
   offsetCoord: {x: 14, y: -14}
@@ -6798,6 +6800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
+  isSquare: 1
   hexRadius: 50
   veHexScale: 25
   offsetCoord: {x: 10, y: -15}
