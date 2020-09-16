@@ -8,7 +8,11 @@ using System.Text;
 using UnityEngine;
 
 public class RegionController : MonoBehaviour {
+
     public RegionList regionList;
+    
+    [NonSerialized]
+    public RegionList regionListInternal =  new RegionList();
     public List<Color> borderColors;
 
     public GameController gameController;
@@ -24,6 +28,8 @@ public class RegionController : MonoBehaviour {
 
     private void Awake() {
         inst = this;
+        regionListInternal = regionList.DeepCopy(regionList);
+        //regionList = null;
     }
 
     private void Start() {
@@ -46,7 +52,7 @@ public class RegionController : MonoBehaviour {
     }
 
     public void ClearRidings() {
-        ClearSubRidings(regionList);
+        ClearSubRidings(regionListInternal);
     }
 
     /// <summary>
@@ -55,8 +61,8 @@ public class RegionController : MonoBehaviour {
     /// 
     /// </summary>
     public static void PrepareRegionListData() {
-        inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
-        SetHierarchyLists(inst.regionList);
+        inst.regionListInternal.hierarchyList = new List<RegionList>(){inst.regionListInternal};
+        SetHierarchyLists(inst.regionListInternal);
     }
     
     public static  void SetHierarchyLists(RegionList aRegionList) {
@@ -115,7 +121,7 @@ public class RegionController : MonoBehaviour {
             var regionCode = line[0].Substring(0, 2);
             if (regionCodes.ContainsKey(regionCode)) {
                 var id = regionCodes[regionCode];
-                var parent = regionList.Find(id);
+                var parent = regionListInternal.Find(id);
                 var rl = new RegionList() {
                     id = line[0],
                     names = new List<string>() {line[1], line[2]},
@@ -165,7 +171,7 @@ public class RegionController : MonoBehaviour {
             }
             aRegionList.districtResult.rawCandidateResults.Add(candidateResult);
         }
-        ProcessElectionResults(regionList);
+        ProcessElectionResults(regionListInternal);
     }
 
     public void ProcessElectionResults(RegionList aRegionList) {
@@ -187,6 +193,8 @@ public class RegionController : MonoBehaviour {
     }
 }
 
+
+
 [System.Serializable]
 public class RegionList {
     public string id;
@@ -206,6 +214,36 @@ public class RegionList {
         return il?.Last();
     }
 
+    /// <summary>
+    /// used to make a deep copy of the region list in the editor to one that does not show in the editor
+    /// Editor has problem with deep trees with a larger number of nodes
+    /// maybe problem is with hierarchyList
+    /// hierarchyList is NOT copied
+    /// </summary>
+    /// <param name="rl"></param>
+    /// <param name="aParent"></param>
+    /// <returns></returns>
+    public RegionList DeepCopy(RegionList rl, RegionList aParent=null) {
+        //first shallow copy
+        // then shallow copy sublists
+        RegionList result = new RegionList();
+        result.id = rl.id;
+        result.borderType = rl.borderType;
+        result.color = rl.color;
+        result.names = rl.names;
+        result.isRiding = rl.isRiding;
+        result.isRiding = rl.isRiding;
+        result.subLists = new List<RegionList>();
+        result.hierarchyList = new List<RegionList>();
+        result.parent = aParent;
+        result.population = rl.population;
+        result.districtResult = rl.districtResult;
+        foreach (var child in rl.subLists) {
+            result.subLists.Add(DeepCopy(child,result));
+        }
+        return result;
+    }
+    
     /// <summary>
     /// Makes a HierarchyList from anId
     ///      

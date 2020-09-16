@@ -103,7 +103,7 @@ public class Map : MonoBehaviour {
        // Debug.Log("MakeMapFromData: " + makeCells);
         foreach (var cd in mapData.cellDatas) {
             
-            var rl = RegionController.inst.regionList.Find(cd.regionID);
+            var rl = RegionController.inst.regionListInternal.Find(cd.regionID);
             if (!makeCells) {
                 var cell = mapGrid.cells.Find(data => data.cubeCoord == cd.cubeCoord);
                 if (cell == null) {

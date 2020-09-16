@@ -45,11 +45,11 @@ public class UIHexGridMapCell : HexUI {
         
         for (int i = 0;i<6;i++) {
             int border = -1;
-            var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
+            var hierarchy = RegionController.inst.regionListInternal.HierarchyList(regionList.id);
             var otherCell = UIHexGridMap.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
-            var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
+            var otherHierarchy = RegionController.inst.regionListInternal.HierarchyList(otherCell.regionList.id);
             for (int j = 0; j < Mathf.Min(hierarchy.Count, otherHierarchy.Count);j++) {
                 if (hierarchy[j] != otherHierarchy[j]) {
                     border = j;

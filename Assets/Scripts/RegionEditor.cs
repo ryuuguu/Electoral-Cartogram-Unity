@@ -29,7 +29,7 @@ public class RegionEditor : MonoBehaviour {
 
     void Start() {
         if(!GameController.inst.isEditMode) this.gameObject.SetActive(false);
-        topLine.SetUp(RegionController.inst.regionList, null);
+        topLine.SetUp(RegionController.inst.regionListInternal, null);
     }
 
     void Update() {
@@ -74,7 +74,7 @@ public class RegionEditor : MonoBehaviour {
 
      public void ButtonCancel() {
          if (!GameController.inst.isEditMode) return;
-         if (inst.mapCell.regionList != RegionController.inst.regionList) {
+         if (inst.mapCell.regionList != RegionController.inst.regionListInternal) {
              inst.selectedRegionList = inst.mapCell.regionList;
              inst.Redraw();
          }
