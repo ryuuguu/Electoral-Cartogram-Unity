@@ -9,10 +9,10 @@ using UnityEngine;
 
 public class RegionController : MonoBehaviour {
 
-    public RegionList regionList;
+    //public RegionList regionList;
     
-    [NonSerialized]
-    public RegionList regionListInternal =  new RegionList();
+    
+    public RegionList regionList ;
     public List<Color> borderColors;
 
     public GameController gameController;
@@ -28,7 +28,7 @@ public class RegionController : MonoBehaviour {
 
     private void Awake() {
         inst = this;
-        regionListInternal = regionList.DeepCopy(regionList);
+       // regionList = regionList.DeepCopy(regionList);
         //regionList = null;
     }
 
@@ -52,7 +52,7 @@ public class RegionController : MonoBehaviour {
     }
 
     public void ClearRidings() {
-        ClearSubRidings(regionListInternal);
+        ClearSubRidings(regionList);
     }
 
     /// <summary>
@@ -61,8 +61,8 @@ public class RegionController : MonoBehaviour {
     /// 
     /// </summary>
     public static void PrepareRegionListData() {
-        inst.regionListInternal.hierarchyList = new List<RegionList>(){inst.regionListInternal};
-        SetHierarchyLists(inst.regionListInternal);
+        inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
+        SetHierarchyLists(inst.regionList);
     }
     
     public static  void SetHierarchyLists(RegionList aRegionList) {
@@ -122,7 +122,7 @@ public class RegionController : MonoBehaviour {
             var regionCode = line[0].Substring(0, 2);
             if (regionCodes.ContainsKey(regionCode)) {
                 var id = regionCodes[regionCode];
-                var parent = regionListInternal.Find(id);
+                var parent = regionList.Find(id);
                 if (parent != null) {
                     var rl = new RegionList() {
                         id = line[0],
@@ -183,7 +183,7 @@ public class RegionController : MonoBehaviour {
                 Debug.Log("Region ot found: "+ regionId);
             }
         }
-        ProcessElectionResults(regionListInternal);
+        ProcessElectionResults(regionList);
     }
 
     public void ProcessElectionResults(RegionList aRegionList) {
@@ -216,6 +216,8 @@ public class RegionList {
     public bool isRiding;
     public bool isAssigned;
     public List<RegionList> subLists;
+    //causes loop errors with inspector
+    [NonSerialized]
     public List<RegionList> hierarchyList;
     public RegionList parent;
     public int population;

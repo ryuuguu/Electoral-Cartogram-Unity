@@ -127,7 +127,7 @@ public class UIHexGridMap : MonoBehaviour {
        // Debug.Log("MakeMapFromData: " + makeCells);
         foreach (var cd in mapData.cellDatas) {
             
-            var rl = RegionController.inst.regionListInternal.Find(cd.regionID);
+            var rl = RegionController.inst.regionList.Find(cd.regionID);
             mapGrid.CreateCellRegion(cd.cubeCoord,rl);
             
 

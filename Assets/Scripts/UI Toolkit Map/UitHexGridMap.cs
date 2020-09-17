@@ -173,7 +173,7 @@ public class UitHexGridMap : MonoBehaviour {
         
         
         foreach (var cd in mapData.cellDatas) {
-            var rl = RegionController.inst.regionListInternal.Find(cd.regionID);
+            var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {
                 mapGrid.CreateCellRegion(cd.cubeCoord, rl);
             }

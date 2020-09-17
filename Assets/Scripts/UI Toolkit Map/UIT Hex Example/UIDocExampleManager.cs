@@ -30,10 +30,12 @@ public class UIDocExampleManager : MonoBehaviour {
         
         // adding borderHolder after hexHolder
         // places all borders over all hexes
-        borderHolder = new VisualElement();
-        root.Add(borderHolder);
-        uitHexBorderGrid.Init(borderHolder);
-        uitHexBorderGrid.SetupHexBorders();
-        
+        if (uitHexBorderGrid != null) {
+            borderHolder = new VisualElement();
+            root.Add(borderHolder);
+            uitHexBorderGrid.Init(borderHolder);
+            uitHexBorderGrid.SetupHexBorders();
+        }
+
     }
 }
