@@ -733,7 +733,7 @@ namespace Com.Ryuuguu.HexGridCC {
             
             ws.coordinateRadius =  ws.gameScale;
 
-            ws.coordinateWidth = ws.coordinateRadius * 2;
+            ws.coordinateWidth = ws.coordinateRadius * 2f;
             ws.spacingHorizontal = ws.coordinateWidth * 0.75f;
 
             ws.coordinateHeight = (Mathf.Sqrt(3) / 2.0f) * ws.coordinateWidth;

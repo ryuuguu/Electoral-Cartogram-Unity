@@ -17,6 +17,7 @@ public class UitHexGrid :MonoBehaviour {
     public float hexRadius = 50f;
     public float veHexScale = 25f;
     public Vector2 offsetCoord =new Vector2(4,-3);
+    public float squareScaleHeightHack = 0.004f;
     
     public string localSpaceId;
     
@@ -56,7 +57,7 @@ public class UitHexGrid :MonoBehaviour {
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
         if (isSquare) {
-            scale = new Vector3(ls.coordinateHeight,ls.coordinateWidth,1);
+            scale = new Vector3(ls.coordinateHeight ,ls.coordinateWidth +squareScaleHeightHack*hexRadius,1);
         } else {
             scale = Vector3.one * ls.gameScale;
         }
@@ -101,17 +102,22 @@ public class UitHexGrid :MonoBehaviour {
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        
         Vector3 scale;
         if (isSquare) {
-            scale = new Vector3(ls.coordinateHeight,ls.coordinateWidth,1);
+            //rounding? errors seem to leave gaps vertically when it fits horizontally
+            //try and hack this
+            //+squareScaleHeightHack*hexRadius
+            scale = new Vector3(ls.coordinateHeight ,ls.coordinateWidth +squareScaleHeightHack*hexRadius,1);
+            
         } else {
             scale = Vector3.one * ls.gameScale;
         }
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }
-         
+        
+        Debug.Log("MakeAllHexes scale: "+ scale);
+        
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
             var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
@@ -128,6 +134,14 @@ public class UitHexGrid :MonoBehaviour {
         hex.transform.position = (Vector3) location;
         hex.transform.scale = scale / veHexScale;
         hex.style.backgroundImage = cellBackground;
+        hex.style.backgroundImage = null;
+        if (Random.Range(0, 2) == 1) {
+            hex.style.backgroundColor = Color.red;
+        }
+        else {
+            hex.style.backgroundColor = Color.green;
+        }
+
         // Hack for initial testing
         //    tooltip is not implemented in the runtime system
         //    this might be used when I implement tooltip  

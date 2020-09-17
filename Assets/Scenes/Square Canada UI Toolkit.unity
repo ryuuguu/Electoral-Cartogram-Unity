@@ -2414,9 +2414,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   isSquare: 1
-  hexRadius: 20
-  veHexScale: 60
-  offsetCoord: {x: 20, y: -40}
+  hexRadius: 25
+  veHexScale: 57
+  offsetCoord: {x: 8, y: -30}
+  squareScaleHeightHack: 0.006
   localSpaceId: 
 --- !u!4 &404597494
 Transform:
@@ -4977,6 +4978,7 @@ MonoBehaviour:
   hexRadius: 50
   veHexScale: 25
   offsetCoord: {x: 14, y: -14}
+  squareScaleHeightHack: 0.002
   localSpaceId: 
 --- !u!1 &944587107
 GameObject:
@@ -6802,6 +6804,7 @@ MonoBehaviour:
   hexRadius: 50
   veHexScale: 25
   offsetCoord: {x: 10, y: -15}
+  squareScaleHeightHack: 0.002
   localSpaceId: 
 --- !u!4 &1305230733
 Transform:
