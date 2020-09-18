@@ -42,17 +42,14 @@
 
 .HexGrid-Hex {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  /* Style rule that aligns items on the horizontal axis. */
-  align-items: flex-start;
-  /* Style rule that aligns items on the vertical axis. */
+  width: 1px;
+  height: 1px;
   background-color: unset;
 }
 
 .HexGrid-Hex-Border{
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 1px;
+  height: 1px;
   background-color: unset;
 }

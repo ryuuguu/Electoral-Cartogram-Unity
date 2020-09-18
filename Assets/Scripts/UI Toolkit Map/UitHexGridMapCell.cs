@@ -55,14 +55,14 @@ public class UitHexGridMapCell : UitHex {
        return subGridHolder;
    }
 
-   public List<VisualElement> MakeSquareSubHexes(VisualElement aParent) {
-       var scale = aParent.transform.scale * 0.1f;
+   public List<VisualElement> MakeSquareSubHexes() {
+       var scale = uitHex.transform.scale * 0.1f;
        var result = new List<VisualElement>();
        for (int i = 0;i<10;i++) {
            for (int j = 0; j < 10; j++) {
                var pos = new Vector3(i, j, 1);
                pos.Scale(scale);
-               result.Add(MakeSubHex(aParent.transform.position + pos,scale));
+               result.Add(MakeSubHex(uitHex.transform.position + pos,scale));
            }
        }
        return result;

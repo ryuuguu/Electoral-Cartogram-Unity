@@ -24,6 +24,7 @@ public class UIDocExampleManager : MonoBehaviour {
 
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
+        //hexHolder.style.
         root.Add(hexHolder);
         uitHexGrid.Init(hexHolder);
         uitHexGrid.SetupHexes();

@@ -2414,10 +2414,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   isSquare: 1
-  hexRadius: 25
-  veHexScale: 57
+  hexRadius: 10
   offsetCoord: {x: 0, y: 0}
-  squareScaleHeightHack: 0.006
+  squareScaleHeightHack: 0
   localSpaceId: 
 --- !u!4 &404597494
 Transform:
@@ -4976,7 +4975,6 @@ MonoBehaviour:
   cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
   isSquare: 1
   hexRadius: 50
-  veHexScale: 25
   offsetCoord: {x: 14, y: -14}
   squareScaleHeightHack: 0.002
   localSpaceId: 
@@ -6802,7 +6800,6 @@ MonoBehaviour:
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
   isSquare: 1
   hexRadius: 50
-  veHexScale: 25
   offsetCoord: {x: 10, y: -15}
   squareScaleHeightHack: 0.002
   localSpaceId: 
@@ -8153,7 +8150,7 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   tooltip: {fileID: 0}
-  mapVEOffset: {x: 100, y: 500, z: 0}
+  mapVEOffset: {x: 300, y: 350, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0

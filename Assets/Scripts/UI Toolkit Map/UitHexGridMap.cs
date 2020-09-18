@@ -30,8 +30,6 @@ public class UitHexGridMap : MonoBehaviour {
 
     void Awake() {
         inst = this;
-        dummy.CloneTree(root);
-        
     }
 
     void Start() {
