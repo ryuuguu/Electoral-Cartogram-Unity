@@ -11,11 +11,14 @@ public class UitHexGridMap : MonoBehaviour {
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
     public Tooltip tooltip;
+    public Vector3 mapVEOffset;
     
     protected VisualElement root;
 
     protected VisualElement hexHolder;
     protected VisualElement borderHolder;
+
+    private VisualTreeAsset dummy;
     
     private int delayMapBuild = 1;
 
@@ -27,6 +30,8 @@ public class UitHexGridMap : MonoBehaviour {
 
     void Awake() {
         inst = this;
+        dummy.CloneTree(root);
+        
     }
 
     void Start() {
@@ -45,11 +50,15 @@ public class UitHexGridMap : MonoBehaviour {
 
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
+        hexHolder.transform.position = hexHolder.transform.position + mapVEOffset;
         root.Add(hexHolder);
         mapGrid.Init(hexHolder);
         
         borderHolder = new VisualElement();
+        borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
         root.Add(borderHolder);
+        
+        
     }
     
     void Update() {
@@ -122,12 +131,14 @@ public class UitHexGridMap : MonoBehaviour {
         }
         //mapGrid.widthRange = mapData.widthRange;
         //mapGrid.heightRange = mapData.heightRange;
+        
+        /*
         Debug.Log(mapGrid);
         Debug.Log(mapGrid.offsetCoord);
         Debug.Log(mapData);
         Debug.Log(mapData.offset);
         Debug.Log(mapData.scale);
-        
+        */
         //mapGrid.offsetCoord = mapData.offset;
         //mapGrid.gridScale = mapData.scale;
         //mapGrid.posCellScale = mapData.posCellScale;
@@ -162,8 +173,6 @@ public class UitHexGridMap : MonoBehaviour {
     
     
     public void MakeMapFromData() {
-        
-        // todo:mapGrid.CreateCellRegion(cd.cubeCoord,rl);
         //todo: mapCell.SetBorder();
        
        
@@ -185,7 +194,7 @@ public class UitHexGridMap : MonoBehaviour {
         foreach (UitHex mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values) {
             
             // set border is not going to work on UitHex
-            // need to do this separate border class like in UIDocEampleManager
+            // need to do this separate border class like in UIDocExampleManager
             // mapCell.SetBorder();
 
         }

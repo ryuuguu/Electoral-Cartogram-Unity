@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 
 /// <summary>
 /// access visual element and region data by coord
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
-   
+    private List<VisualElement> subGridHolders = new List<VisualElement>();
+    
     public UitHex CreateCell(Vector3 v3, bool isrectangle = false) {
         var cell =  MakeHex(v3); // this creates the Visual element but not the region
         return cell;
@@ -22,7 +24,11 @@ public class UitHexMapGrid : UitHexGrid {
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell();
         mapCell.uitHex = uitHex;
-        mapCell.SetRegion(rl);
+        var subgridHolder = mapCell.SetRegion(rl);
+        if (subgridHolder != null) {
+            subGridHolders.Add(subgridHolder);
+        }
+        
     }
     
     //TODO* highlights

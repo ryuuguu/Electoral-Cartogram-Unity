@@ -24,12 +24,12 @@ public class UitHexGrid :MonoBehaviour {
     protected static string AllToken;
     
     // CubeCoordinates manages hexes in 3 a dimensional coordinate space
-    // has utility functions like finding pathes and translating between cude coordinates and 2D local space for drawing
+    // has utility functions like finding paths and translating between cube coordinates and 2D local space for drawing
     public CubeCoordinates cubeCoordinates = new CubeCoordinates();
     
     public VisualElement hexHolder;
 
-    // the inital string is a localSpaceID it allows multiple hex grids to handled separately 
+    // the initial string is a localSpaceID it allows multiple hex grids to handled separately 
     // inner dictionary is to find UI Toolkit elements from their coordinates
     public Dictionary<string,Dictionary<Vector3, UitHex>> hexes = new Dictionary<string,Dictionary<Vector3, UitHex>>();
     
@@ -116,8 +116,6 @@ public class UitHexGrid :MonoBehaviour {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }
         
-        Debug.Log("MakeAllHexes scale: "+ scale);
-        
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
             var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
@@ -133,8 +131,9 @@ public class UitHexGrid :MonoBehaviour {
     public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
         hex.transform.position = (Vector3) location;
         hex.transform.scale = scale / veHexScale;
-        hex.style.backgroundImage = cellBackground;
+        //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
+        
         if (Random.Range(0, 2) == 1) {
             hex.style.backgroundColor = Color.red;
         }

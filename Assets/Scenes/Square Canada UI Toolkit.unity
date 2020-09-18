@@ -2416,7 +2416,7 @@ MonoBehaviour:
   isSquare: 1
   hexRadius: 25
   veHexScale: 57
-  offsetCoord: {x: 8, y: -30}
+  offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0.006
   localSpaceId: 
 --- !u!4 &404597494
@@ -8153,6 +8153,7 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   tooltip: {fileID: 0}
+  mapVEOffset: {x: 100, y: 500, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0

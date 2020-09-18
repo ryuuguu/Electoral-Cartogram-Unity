@@ -5,7 +5,8 @@ using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 public class UitHexGridMapCell : UitHex {
     public RegionList regionList;
@@ -19,10 +20,11 @@ public class UitHexGridMapCell : UitHex {
     //public UIHexGridOrdered prefabSubGrid;
     //public UIHexGridOrdered subGrid;
    // public Transform subGridHolder;
-    // public int subGridSize = 91;
+   
    // public int subGridPosition = 7;
     
-   public void SetRegion(RegionList aRegionList) {
+   public VisualElement SetRegion(RegionList aRegionList) {
+       VisualElement subGridHolder = null;
        regionList = aRegionList;
        if (regionList.isRiding) {
            uitHex.style.backgroundImage = centerRiding;
@@ -30,27 +32,54 @@ public class UitHexGridMapCell : UitHex {
             
            // need to set this style.background color 
            uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
+           //should this be a different class or shave some attribute so I can filter to find?
+           //or just store a ref in dictionary
+           
             
-            
-           // not doing sub grids yet
-           /*
-           if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
-               subGrid = Instantiate(prefabSubGrid,subGridHolder);
-               var transform1 = subGrid.transform;
-               transform1.localPosition = Vector3.zero;
-               transform1.localScale = 0.1f * Vector3.one;
-               ColorSubGrid();
+          
+           if ( !GameController.inst.isEditMode) {
+               subGridHolder = new VisualElement();
+               uitHex.Add(subGridHolder);  
+               
+               bool isSquare = true;
+               ColorSubGrid(aRegionList, subGridHolder, isSquare);
+               
            }
-           */
+           
        } else {
             
            uitHex.style.backgroundImage = centerOther;
            uitHex.style.backgroundColor = regionList.color;
        }
-        
-        
+
+       return subGridHolder;
    }
-    
+
+   public List<VisualElement> MakeSquareSubHexes(VisualElement aParent) {
+       var scale = aParent.transform.scale * 0.1f;
+       var result = new List<VisualElement>();
+       for (int i = 0;i<10;i++) {
+           for (int j = 0; j < 10; j++) {
+               var pos = new Vector3(i, j, 1);
+               pos.Scale(scale);
+               result.Add(MakeSubHex(aParent.transform.position + pos,scale));
+           }
+       }
+       return result;
+   }
+   
+   
+   public UitSubHex MakeSubHex( Vector3 location,Vector3 scale) {
+       var hex = new UitSubHex();
+       hex.EnableInClassList("HexGrid-Hex", true);
+       hex.transform.position = location;
+       hex.transform.scale = scale ;
+       hex.style.backgroundImage = null;
+       return hex;
+   }
+   
+   
+   
     //TODO: set borders
     /*
     public void SetBorder() {
@@ -84,12 +113,16 @@ public class UitHexGridMapCell : UitHex {
     
     
     //TODO: port Subgrid
-    /*
-    public void  ColorSubGrid() {
+    /// <summary>
+    /// 
+    /// </summary>
+    public void  ColorSubGrid(RegionList aRegionList, VisualElement parent, bool isSquare) {
+        int subGridSize = 91;
+        if (isSquare) subGridSize = 100;
         
         // need total votes 
         // sorted candidates 
-        var candidateResults = regionList.districtResult.candidateResults;
+        var candidateResults = aRegionList.districtResult.candidateResults;
         
         int childIndex = 0;
         int sumVotes = 0;
@@ -106,11 +139,14 @@ public class UitHexGridMapCell : UitHex {
            // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;
             for (; childIndex < maxIndex; childIndex++) {
-              subGrid.orderedCoords[childIndex].center.color = color;
+                
+                //subGrid.orderedCoords[childIndex].center.color = color;
+                //
+                //hex.style.backgroundColor = color;
             }
         }
     }
-    */
+    
     
     //TODO: buttons
     /*
