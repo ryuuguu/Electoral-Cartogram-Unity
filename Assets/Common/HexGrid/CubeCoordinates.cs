@@ -679,6 +679,8 @@ namespace Com.Ryuuguu.HexGridCC {
         /// <param name="offset"> offset used in convert to and from localSpace </param>
         /// <returns></returns>
         public static string NewLocalSpaceId(float gameScale, Vector2 scaleV2, LocalSpace.Orientation anOrientation, RectTransform aSpaceRectTransform, Vector2 offset = default) {
+            //Debug.Log("One NewLocalSpaceId: " + gameScale + " : " + scaleV2);
+            
             var result = localSpaceIndex.ToString();
             localSpaceIndex++;
             var ls = new LocalSpace {id = result,orientation = anOrientation, spaceRectTransform = aSpaceRectTransform, offset = offset };

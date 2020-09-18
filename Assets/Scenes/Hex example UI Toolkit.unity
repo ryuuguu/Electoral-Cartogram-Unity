@@ -334,11 +334,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
   isSquare: 1
-  hexRadius: 20
+  hexRadius: 10
   offsetCoord: {x: 40, y: -40}
   squareScaleHeightHack: 0
   localSpaceId: 
-  superHexRadius: 3
+  superHexRadius: 1
 --- !u!1 &1132553382
 GameObject:
   m_ObjectHideFlags: 0
