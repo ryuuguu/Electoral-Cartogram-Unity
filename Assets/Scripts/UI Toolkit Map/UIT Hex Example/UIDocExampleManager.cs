@@ -27,6 +27,7 @@ public class UIDocExampleManager : MonoBehaviour {
         //hexHolder.style.
         root.Add(hexHolder);
         uitHexGrid.Init(hexHolder);
+        
         uitHexGrid.SetupHexes();
         
         // adding borderHolder after hexHolder

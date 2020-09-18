@@ -50,7 +50,6 @@ public class UITHexGridExampleScript :MonoBehaviour {
         aHolder.Add(hex);
         hex.name = coord.ToString();
         SetupHex(hex, location);
-        hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
         return hex;
     }
     
@@ -120,17 +119,5 @@ public class UITHexGridExampleScript :MonoBehaviour {
         // Sets a basic tooltip to the button itself.
         hex.tooltip = hex.parent.name;
     }
-    
-    
-    
-    
-    private void CreateObject(string primitiveTypeName)
-    {    
-        var pt = (PrimitiveType) Enum.Parse
-            (typeof(PrimitiveType), primitiveTypeName, true);
-        var go = ObjectFactory.CreatePrimitive(pt);
-        go.transform.position = Vector3.zero;
-    }
-    
     
 }

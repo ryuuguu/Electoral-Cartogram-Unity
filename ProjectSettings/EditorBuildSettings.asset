@@ -15,9 +15,15 @@ EditorBuildSettings:
     path: Assets/Scripts/UIHexGrid/UIHexGridCanada.unity
     guid: 2fffbb11b9a924df089d0c13378688dc
   - enabled: 0
-    path: Assets/Scenes/Square Canada.unity
-    guid: cb1d68e89aff64fceb81dff6a3b01336
+    path: Assets/Scenes/Square Canada UI Toolkit.unity
+    guid: ac3966bcf741348ab9e76aaba52e1516
+  - enabled: 0
+    path: Assets/Scenes/Hex example UI Toolkit.unity
+    guid: 6ba86b2aa5b604ccd81db4d483995d6f
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scripts/UIHexGrid2/UIHexGridCanada2.unity
-    guid: 5d07e2cead30040e2b6668fa77a320fa
+    path: Assets/Scenes/empty.unity
+    guid: 22a925d5feef84bb89af69c3e2cd7c92
   m_configObjects: {}
