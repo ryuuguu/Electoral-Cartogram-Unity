@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
@@ -32,7 +33,7 @@ public class UitHexGridMapCell : UitHex {
             
            // need to set this style.background color 
            uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
-           
+           //uitHex.style.backgroundColor = Color.clear;
            //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
            
@@ -58,13 +59,15 @@ public class UitHexGridMapCell : UitHex {
    /// </summary>
    /// <returns></returns>
    public List<VisualElement> MakeSquareSubHexes() {
-       var scale = uitHex.transform.scale * 0.1f;
+       var scale = Vector3.one * 0.1f * 2f;
+       //squares seem to twice the size of thir scale so *2
        var result = new List<VisualElement>();
+       var pos = Vector3.one;
        for (int i = 0;i<10;i++) {
            for (int j = 0; j < 10; j++) {
-               var pos = new Vector3(i, j, 1);
+               pos = new Vector3(i, j, 1);
                pos.Scale(scale);
-               result.Add(MakeSubHex(uitHex.transform.position + pos,scale));
+               result.Add(MakeSubHex( pos,scale));
            }
        }
        return result;
@@ -125,7 +128,6 @@ public class UitHexGridMapCell : UitHex {
             subGridSize = 100;
             subHexes = MakeSquareSubHexes();
         }
-        
         // need total votes 
         // sorted candidates 
         var candidateResults = aRegionList.districtResult.candidateResults;
@@ -141,13 +143,18 @@ public class UitHexGridMapCell : UitHex {
             sumVotes += cr.votes;
             int maxIndex = Mathf.Min(subGridSize,Mathf.FloorToInt(subGridSize * sumVotes / totalVotes));
             
-            // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;
+            Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex + " : " + color);
+
+            var hexDebug = subHexes[childIndex];
+            
             for (; childIndex < maxIndex; childIndex++) {
                 var hex = subHexes[childIndex];
-                hex.style.backgroundColor= color;
+                hex.style.backgroundColor= Color.red;
                 aParent.Add(hex);
             }
+            Debug.Log("Subhex:" + childIndex + " : "  +hexDebug.transform.position + " : " 
+                      + hexDebug.transform.scale + " : " + hexDebug.style.backgroundColor  );
         }
     }
 

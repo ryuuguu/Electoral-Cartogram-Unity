@@ -13,10 +13,12 @@ HexGrid
 			https://stackoverflow.com/questions/5193331/is-a-point-inside-regular-hexagon
 	
 	NOW	
-		
+		color is wrong in subgrid all kinda gray green
 		make square subgrid code
 		10x10 rectangle of shape parent is 
 		create in correct order.
+		
+		subgrid not visible
 		
 			need subgrid cell template thingy
 			can just use same as supercell and scale 

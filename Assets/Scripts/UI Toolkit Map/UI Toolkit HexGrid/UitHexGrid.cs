@@ -167,7 +167,7 @@ public class UitHexGrid :MonoBehaviour {
         // Hack for initial testing
         //    tooltip is not implemented in the runtime system
         //    this might be used when I implement tooltip  
-        hex.tooltip = hex.parent.name;
+        //hex.tooltip = hex.parent.name;
     }
     
 }
