@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5e3566ea4e854d78935b6a60c92c9c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
+  cellBackground: {fileID: 0}
   isSquare: 1
   hexRadius: 20
   offsetCoord: {x: 40, y: -40}

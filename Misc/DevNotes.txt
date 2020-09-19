@@ -1,11 +1,5 @@
 HexGrid 
 	
-	Ask
-	
-	make VisualTreeAssets or Cloning VisualElement Trees
-		for subgrids
-	
-	
 	Answer
 		 how to set picking mask
 	 		ie clicking on non square visual elements
@@ -31,12 +25,9 @@ HexGrid
 		make subgrid holder than can be turned on or off
 		need to keep ref	  
 		
-		how is subhex location relative to parent?
-			ttransform is global
-			but IStyle.position  plus top and left
-			So I should not use transfor
 		what is the size of a cell?
 			either hex diameter or height width of a square
+			hex.transform.scale
 		
 		where is ref link between co-ord and cell or border   
 	

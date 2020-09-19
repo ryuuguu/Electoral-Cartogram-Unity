@@ -32,18 +32,16 @@ public class UitHexGridMapCell : UitHex {
             
            // need to set this style.background color 
            uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
-           //should this be a different class or shave some attribute so I can filter to find?
+           
+           //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
            
-            
-          
            if ( !GameController.inst.isEditMode) {
+               Debug.Log("XXX SetRegion");
                subGridHolder = new VisualElement();
-               uitHex.Add(subGridHolder);  
-               
+               uitHex.Add(subGridHolder);
                bool isSquare = true;
                ColorSubGrid(aRegionList, subGridHolder, isSquare);
-               
            }
            
        } else {
@@ -55,6 +53,10 @@ public class UitHexGridMapCell : UitHex {
        return subGridHolder;
    }
 
+   /// <summary>
+   /// Make Square sub hexes and return ordered list of subhexes
+   /// </summary>
+   /// <returns></returns>
    public List<VisualElement> MakeSquareSubHexes() {
        var scale = uitHex.transform.scale * 0.1f;
        var result = new List<VisualElement>();
@@ -116,9 +118,13 @@ public class UitHexGridMapCell : UitHex {
     /// <summary>
     /// 
     /// </summary>
-    public void  ColorSubGrid(RegionList aRegionList, VisualElement parent, bool isSquare) {
+    public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, bool isSquare) {
         int subGridSize = 91;
-        if (isSquare) subGridSize = 100;
+        List<VisualElement> subHexes = new List<VisualElement>();
+        if (isSquare) {
+            subGridSize = 100;
+            subHexes = MakeSquareSubHexes();
+        }
         
         // need total votes 
         // sorted candidates 
@@ -133,21 +139,18 @@ public class UitHexGridMapCell : UitHex {
             
         foreach (var cr in candidateResults) {
             sumVotes += cr.votes;
-            
             int maxIndex = Mathf.Min(subGridSize,Mathf.FloorToInt(subGridSize * sumVotes / totalVotes));
             
-           // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
+            // Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex );
             var color = PartyController.GetPartyData(cr.partyId).color;
             for (; childIndex < maxIndex; childIndex++) {
-                
-                //subGrid.orderedCoords[childIndex].center.color = color;
-                //
-                //hex.style.backgroundColor = color;
+                var hex = subHexes[childIndex];
+                hex.style.backgroundColor= color;
+                aParent.Add(hex);
             }
         }
     }
-    
-    
+
     //TODO: buttons
     /*
     public void ButtonPressed() {

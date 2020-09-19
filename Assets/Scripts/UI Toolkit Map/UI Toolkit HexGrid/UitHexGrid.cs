@@ -64,7 +64,7 @@ public class UitHexGrid :MonoBehaviour {
             var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x);
             var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
             var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
-            scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
+            scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
             //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
         } else {
             scale = Vector3.one * ls.gameScale;
@@ -129,15 +129,15 @@ public class UitHexGrid :MonoBehaviour {
                 var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x);
                 var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
                 var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
-                scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
+                scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
                 
-                //Debug.Log("All MakeHex scale: "+ scale.x + " : "+ scale.y);
+                Debug.Log("All MakeHex scale: "+ scale.x + " : "+ scale.y);
             } else {
                 scale = Vector3.one * ls.gameScale;
             }
             var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
-            //Debug.Log("All Hex Pos: "+ localCoord + " : "+ ls.orientation);
+            Debug.Log("All Hex Pos: "+ localCoord + " : "+ ls.orientation);
         }
        
     }
@@ -152,7 +152,7 @@ public class UitHexGrid :MonoBehaviour {
         hex.transform.scale = scale ;
         //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
-        hex.style.position = Position.Absolute;
+        //hex.style.position = Position.Absolute;
         //hex.style.top = location.x;
         //hex.style.left = location.y;
         //Shex.transform.scale = scale / veHexScale;;
