@@ -13,7 +13,12 @@ HexGrid
 			https://stackoverflow.com/questions/5193331/is-a-point-inside-regular-hexagon
 	
 	NOW	
+	
+	 try implementing subhex on example
 		color is wrong in subgrid all kinda gray green
+		subgrid seem to one row too big
+		scale problem
+		
 		make square subgrid code
 		10x10 rectangle of shape parent is 
 		create in correct order.

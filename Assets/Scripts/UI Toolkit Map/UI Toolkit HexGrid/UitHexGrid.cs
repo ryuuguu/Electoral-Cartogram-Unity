@@ -137,7 +137,7 @@ public class UitHexGrid :MonoBehaviour {
             }
             var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
-            Debug.Log("All Hex Pos: "+ localCoord + " : "+ ls.orientation);
+           
         }
        
     }

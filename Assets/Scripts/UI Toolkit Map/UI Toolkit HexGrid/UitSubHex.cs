@@ -3,6 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class UitSubHex : Box {
+public class UitSubHex : VisualElement {
    //no special class used yet
 }

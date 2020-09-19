@@ -334,8 +334,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 0}
   isSquare: 1
-  hexRadius: 20
-  offsetCoord: {x: 40, y: -40}
+  hexRadius: 50
+  offsetCoord: {x: 10, y: -10}
   squareScaleHeightHack: 0
   localSpaceId: 
   superHexRadius: 1

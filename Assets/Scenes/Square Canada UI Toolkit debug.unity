@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
   isSquare: 1
-  hexRadius: 40
+  hexRadius: 50
   offsetCoord: {x: -20, y: -20}
   squareScaleHeightHack: 0
   localSpaceId: 

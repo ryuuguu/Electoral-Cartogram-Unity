@@ -59,13 +59,16 @@ public class UitHexGridMapCell : UitHex {
    /// </summary>
    /// <returns></returns>
    public List<VisualElement> MakeSquareSubHexes() {
-       var scale = Vector3.one * 0.1f * 2f;
-       //squares seem to twice the size of thir scale so *2
+       var scale = Vector3.one * 0.1f ;
+       
        var result = new List<VisualElement>();
-       var pos = Vector3.one;
-       for (int i = 0;i<10;i++) {
-           for (int j = 0; j < 10; j++) {
-               pos = new Vector3(i, j, 1);
+       var pos = Vector3.one*2f;
+       //squares seem to twice the size of thir scale so *2
+       
+       //strange for loop settings and order are to get correct order
+       for (int j = 9; j >= 0; j--) {
+            for (int i = 0;i<10;i++) {
+                pos = new Vector3(i, j, 1)*2f;
                pos.Scale(scale);
                result.Add(MakeSubHex( pos,scale));
            }
@@ -144,17 +147,18 @@ public class UitHexGridMapCell : UitHex {
             int maxIndex = Mathf.Min(subGridSize,Mathf.FloorToInt(subGridSize * sumVotes / totalVotes));
             
             var color = PartyController.GetPartyData(cr.partyId).color;
-            Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex + " : " + color);
+            //Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex + " : " + color);
 
             var hexDebug = subHexes[childIndex];
             
             for (; childIndex < maxIndex; childIndex++) {
                 var hex = subHexes[childIndex];
-                hex.style.backgroundColor= Color.red;
                 aParent.Add(hex);
+                hex.style.backgroundColor= color;
+                
             }
-            Debug.Log("Subhex:" + childIndex + " : "  +hexDebug.transform.position + " : " 
-                      + hexDebug.transform.scale + " : " + hexDebug.style.backgroundColor  );
+            // Debug.Log("Subhex:" + childIndex + " : "  +hexDebug.transform.position + " : " 
+            //          + hexDebug.transform.scale + " : " + hexDebug.style.backgroundColor  );
         }
     }
 
