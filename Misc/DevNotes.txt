@@ -1,44 +1,31 @@
 HexGrid 
 	
-	Answer
-		 how to set picking mask
-	 		ie clicking on non square visual elements
-		ask on forum
 	
-		Hex contains
-				search for simple algo
-				worst case do 6 distance checks
-					3 distance checks
-			
-			https://stackoverflow.com/questions/5193331/is-a-point-inside-regular-hexagon
 	
 	NOW	
-	
-	 try implementing subhex on example
-		color is wrong in subgrid all kinda gray green
-		subgrid seem to one row too big
-		scale problem
+		Scaling screws everything up
+		    Use UIDocument with PanelSetting	
+		    RuntimePanelUtils.ScreenToPanel(IPanel, Vector2)  
+		    RuntimePanelUtils.ResetDynamicAtlas(IPanel) - is screen size changes
 		
-		make square subgrid code
-		10x10 rectangle of shape parent is 
-		create in correct order.
-		
-		subgrid not visible
-		
-			need subgrid cell template thingy
-			can just use same as supercell and scale 
-			  for square 0.1 0.1
-			  
-		make subgrid holder than can be turned on or off
+		goal select area of a given dimension at the center of the screen  
+		    draw inside that box  
+		    set panel to shrink
+		    then center and put at top my space
+		    need to print 
+		    screen (0,0) (X,Y)
+		    
+		    Draw the box 
+		    draw another bottom left box that stretches
+		    
+		 make subgrid holder than can be turned on or off
 		need to keep ref	  
-		
-		what is the size of a cell?
-			either hex diameter or height width of a square
-			hex.transform.scale
-		
-		where is ref link between co-ord and cell or border   
 	
-		ColorSubGrid() take a VE and then just color the kids
+	    borders
+	    
+	    global mouse to hex or square coord
+	        hex use existng code
+	        square - ?
 	
 	Redesign
 		isSquare
@@ -88,17 +75,7 @@ HexGrid
 	END NOW
 	
 	Tooltip
-	https://forum.unity.com/threads/mouseenter-vs-mouseover.927912/
-	make all hexes buttons
-	   click calls debug statement 
-	   need to hook up to map stuff
-	
-	 look at map stuff
-	   what class do I need to rewrite?
-	
-      UIHexGridMapGrid : UIHexGrid 
-      what is uit version of UIHexGrid
-	
+	 use global mouse to hex coord
 	
 	I need to separate logic and presentation classes more
 	

@@ -137,6 +137,8 @@ public class UitHexGrid :MonoBehaviour {
             }
             var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
+            Debug.Log( "loc: "+hex.transform.position + " pos: " +
+            hex.transform.scale);
            
         }
        
@@ -147,7 +149,7 @@ public class UitHexGrid :MonoBehaviour {
     /// </summary>
     /// <param name="hex"></param>
     /// <param name="location"></param>
-    public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
+    static public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
         hex.transform.position = (Vector3) location;
         hex.transform.scale = scale ;
         //hex.style.backgroundImage = cellBackground;

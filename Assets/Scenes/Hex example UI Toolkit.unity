@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e340500d71e334e6e94a18351e6391d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uitHexGrid: {fileID: 939912040}
+  uitHexGrid: {fileID: 1305230730}
   uitHexBorderGrid: {fileID: 0}
 --- !u!114 &3298882
 MonoBehaviour:
@@ -338,7 +338,7 @@ MonoBehaviour:
   offsetCoord: {x: 10, y: -10}
   squareScaleHeightHack: 0
   localSpaceId: 
-  superHexRadius: 1
+  superHexRadius: 0
 --- !u!1 &1132553382
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ MonoBehaviour:
   offsetCoord: {x: 14, y: -18}
   squareScaleHeightHack: 0.001
   localSpaceId: 
-  superHexRadius: 3
+  superHexRadius: 0
 --- !u!4 &1305230733
 Transform:
   m_ObjectHideFlags: 0
