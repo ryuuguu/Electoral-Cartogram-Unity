@@ -154,10 +154,6 @@ public class UitHexGrid :MonoBehaviour {
         hex.transform.scale = scale ;
         //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
-        //hex.style.position = Position.Absolute;
-        //hex.style.top = location.x;
-        //hex.style.left = location.y;
-        //Shex.transform.scale = scale / veHexScale;;
         
         if (Random.Range(0, 2) == 1) {
             hex.style.backgroundColor = Color.red;
@@ -165,11 +161,6 @@ public class UitHexGrid :MonoBehaviour {
         else {
             hex.style.backgroundColor = Color.green;
         }
-
-        // Hack for initial testing
-        //    tooltip is not implemented in the runtime system
-        //    this might be used when I implement tooltip  
-        //hex.tooltip = hex.parent.name;
     }
     
 }

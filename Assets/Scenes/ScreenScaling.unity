@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 725693991}
   - component: {fileID: 725693990}
   - component: {fileID: 725693992}
+  - component: {fileID: 725693993}
   m_Layer: 0
   m_Name: TestPanelScreenGameObject
   m_TagString: Untagged
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725693989}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0674ec4d9db89a48ae3a8d8c9708ae9, type: 3}
   m_Name: 
@@ -182,6 +183,20 @@ MonoBehaviour:
   m_PanelSettings: {fileID: 11400000, guid: b684e70ce3e365b44bad747ece6aa48e, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 0}
+--- !u!114 &725693993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725693989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07e2e8889e849bf418583a4e4c026822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MapRatio: {x: 3, y: 2}
+  DetailsTopRightcorner: {x: 0.3, y: 0.8}
 --- !u!1 &1875390159
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,7 +299,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.24523854, g: 0.27093717, b: 0.31132078, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
