@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class BaseUILayout : MonoBehaviour {
+public class ExampleUILayout : MonoBehaviour {
 	public Vector2 MapRatio;
     public Vector2 DetailsTopRightcorner;
     
@@ -19,14 +19,8 @@ public class BaseUILayout : MonoBehaviour {
 	        UitUtility.ScreenToPanel(screenScale, _screenCorner));
        
         var detailTopRightPos = box.transform.matrix.MultiplyPoint(DetailsTopRightcorner);
-        // detail box goes bottom left to detailTopRightPos
-        // need top left and bottom right
-        // that is (0,detailTopRightPos.y)  (detailTopRightPos.x,max)
         var rect = new Rect(0, detailTopRightPos.y,
 	        detailTopRightPos.x, _screenCorner.y - detailTopRightPos.y);
-        Debug.Log("_screenCorner " + _screenCorner);
-        Debug.Log("detailTopRightPos " + detailTopRightPos);
-        Debug.Log("rect "+ rect);
         var detailBox = NewScaledAt(rect, Color.blue);
     }
 
@@ -35,13 +29,22 @@ public class BaseUILayout : MonoBehaviour {
     /// </summary>
     private void Init() {
 	    root = GetComponent<UIDocument>().rootVisualElement;
+	    Debug.Log(root.hierarchy.parent.transform.scale);
+	    
+	    
+	    root.RegisterCallback<GeometryChangedEvent>( (evt) =>
+		    Debug.Log("Size:" + evt.newRect));
 	    _screenCorner = Screen.safeArea.max;
+	    var corner2 = RuntimePanelUtils.ScreenToPanel(root.hierarchy.parent.panel, _screenCorner);
+		Debug.Log("corner2: " + corner2);
 	    root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
 	    var quickToolVisualTree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
 	    quickToolVisualTree.CloneTree(root);
 	    screenScale = UitUtility.ResolveScale(GetComponent<UIDocument>().panelSettings,
 		    new Rect(0, 0, Screen.width, Screen.height),
-		    Screen.dpi); 
+		    Screen.dpi);
+	    Debug.Log("Size2: " + UitUtility.ScreenToPanel(screenScale, _screenCorner));
+	    Debug.Log("Size3: " + _screenCorner);
     }
     
     

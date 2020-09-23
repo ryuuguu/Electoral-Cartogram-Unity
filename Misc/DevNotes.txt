@@ -1,17 +1,11 @@
 HexGrid 
 	
+	NOW	 
 	
-	NOW	
-	 	Matrix4x4.MultiplyPoint3x4
-	 		
-	    can I make flex box the matches a certain ratio
-            also need to make the bottom left corner flex box
-		
-		goal select area of a given dimension at the center of the screen  
-		    need top right corner of details pane in map coords. 
-		    draw another bottom left box that stretches
-		    
-		 make subgrid holder than can be turned on or off
+	hexes look better
+	UitHex can't be 1 px
+	so include a base scale.  userdefined data?  
+		make subgrid holder than can be turned on or off
 		need to keep ref	  
 	
 LATER	
@@ -75,9 +69,8 @@ LATER
 	
 	I need to separate logic and presentation classes more
 	
-	
-	Preview bugs
-	    if things disappear try chaning panel setting to small reference resolution	
+Blog 
+	    if things disappear try changing panel setting to smaller reference resolution	
 		
 		ScreenToPanel does not work use temporary utilites
 		

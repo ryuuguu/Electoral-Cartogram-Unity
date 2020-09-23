@@ -1,0 +1,41 @@
+Blog 
+Intro
+ Goal of blog
+    cover development of drawing a hex map in Unity UI Toolkit from data
+    this is not a tutorial so there will be mistakes and changes as the between articles
+    Also UI Tutorial is in preview so it hs bugs and there will changes.
+    I will make this available under an MIT licence as it progresses.
+ 
+ goal of this article
+    initialize UI Toolkit panel and make map area of the correct ratio as large as possible that will be centered at the top and centered. When I checked how to do this with HTML I found answers on StackOverflow saying it is easy in JavaScript but doing it in HTML is messy and does not cover all cases. So I do it mainly in C# and later move parts to USS and UXML that those can handle easily.
+    There is also box on the lower left that covers a part of the map that is blank and should resize to be as large as possible.
+    
+    3  images of shots of layouts.
+    
+    cover 
+    Start()
+        overall logic 
+    
+    Init()
+        setup UI ToolKit objects
+    
+    NewScaledAt()
+        draw box
+    
+    ScalePositionMap()
+    
+    ScreenToPanel does not work use temporary utilites
+    UitUtility
+        ScreenToPanel()
+        ResolveScale()
+        
+        RuntimePanelUtils.ScreenToPanel  Vector2
+    
+    
+ if things disappear try changing panel setting to smaller reference resolution	
+ 		
+ 		
+ 		
+ 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
+ 
+		
