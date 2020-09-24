@@ -65,7 +65,7 @@ public class UitHexGrid :MonoBehaviour {
             var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
             var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
             scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
-            //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
+            Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
         } else {
             scale = Vector3.one * ls.gameScale;
         }
@@ -151,7 +151,7 @@ public class UitHexGrid :MonoBehaviour {
     /// <param name="location"></param>
     static public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
         hex.transform.position = (Vector3) location;
-        hex.transform.scale = scale ;
+        hex.transform.scale = scale  ;
         //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
         

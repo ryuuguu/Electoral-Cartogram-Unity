@@ -1,41 +1,101 @@
-Blog 
-Intro
- Goal of blog
-    cover development of drawing a hex map in Unity UI Toolkit from data
-    this is not a tutorial so there will be mistakes and changes as the between articles
-    Also UI Tutorial is in preview so it hs bugs and there will changes.
-    I will make this available under an MIT licence as it progresses.
+This series of posts will cover development of a hex map editor in Unity UI Toolkit. This is not a tutorial so there will be bug, fixes and design changes as needed.Also UI Toolkitis in preview so it has bugs and there will changes. I will make this available under an MIT licence as it progresses. 
+
+The goal of this post is to initialize the UI Toolkit panel and make a map area of the correct ratio as large as possible and centered at the top. When I checked how to do this with HTML I found answers on StackOverflow saying it is easy in JavaScript but doing it in HTML is messy and does not cover all cases. So I will do it mainly in C# and later move parts to USS and UXML tif that seems appropriate. There is also box on the lower left that covers a part of the map that is blank and should resize to be as large as possible.
+    
+   gif of layout
+    
+The example is in one Monobehaviour. First the declarations
+
+    public Vector2 mapRatio;
+    public Vector2 detailsTopRightCorner; //in MapHolder space
+    
+    private VisualElement _root;
+    private VisualElement _mapHolder;
+    private VisualElement _detailsHolder;
+
+detailsTopRightCorner holds the location of the top right corner  of the the details element in map holder space. In the image above it is (0.3,0.8). The next three fields hold the VisualElements so that they can be resized in after the initial creation.
  
- goal of this article
-    initialize UI Toolkit panel and make map area of the correct ratio as large as possible that will be centered at the top and centered. When I checked how to do this with HTML I found answers on StackOverflow saying it is easy in JavaScript but doing it in HTML is messy and does not cover all cases. So I do it mainly in C# and later move parts to USS and UXML that those can handle easily.
-    There is also box on the lower left that covers a part of the map that is blank and should resize to be as large as possible.
+  
+Start() just calls Init().
     
-    3  images of shots of layouts.
-    
-    cover 
-    Start()
-        overall logic 
-    
-    Init()
-        setup UI ToolKit objects
-    
-    NewScaledAt()
-        draw box
-    
-    ScalePositionMap()
-    
-    ScreenToPanel does not work use temporary utilites
-    UitUtility
-        ScreenToPanel()
-        ResolveScale()
+Init() sets up the root and a callback. The first lines lines are boiler plate setup for UI Toolkit the last line assigns the callback to layout the top level elements whenever the root of the document changes, including on app start.  
         
-        RuntimePanelUtils.ScreenToPanel  Vector2
+    private void Init() {
+    	    _root = GetComponent<UIDocument>().rootVisualElement;
+    	    //normally a style sheet would be loaded here
+    	    //_root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
+    	    //normally a tree would be loaded here
+    	    //var treeree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
+    	    //tree.CloneTree(_root);
+    	    _root.RegisterCallback<GeometryChangedEvent>( (evt) => TopLevelLayout(evt.newRect));
+        }
     
+TopLevelLayout() this does all the work and is called when screen size changes including once when the app starts. Screen changes are usually eithe mobile devices changing orientation or windows being resized. It also creates the elements if they do not exist.  First it creates the map holder if needed then scales it based on the desired ratio and root element size.  Next it creates the details holder if needed. Converts the detailsTopRightCorner from map holder space to root space. Creates a rect that goes from the bottom left corner of the screen to the just calculated point. Rescales the details holder to this rect.
+        
+    private void TopLevelLayout(Rect screenRect) {
+        if (_mapHolder == null) {
+            _mapHolder = NewHolder(Color.green);
+        }
+
+        ScalePositionMapHolder(_mapHolder, MapRatio.x / MapRatio.y,
+            screenRect.max);
+
+        if (_detailsHolder == null) {
+            _detailsHolder = NewHolder( Color.blue);
+        }
+        
+        var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(DetailsTopRightCorner);
+        var rect = new Rect(0, detailsTopRightPos.y,
+            detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
+        ScaledAt(_detailsHolder,rect);
+    }    
+        
     
- if things disappear try changing panel setting to smaller reference resolution	
- 		
- 		
- 		
- 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
+ScalePositionMapHolder() compares the ratio of the screen to desired map ratio and rescales and repositions the MapHolder.
+        
+    private void ScalePositionMapHolder(VisualElement ve,float holderRatio, Vector2 parentSize) {
+ 	    var parentRatio = parentSize.x / parentSize.y;
+ 	    var scale = parentSize; 
+ 	    if (holderRatio > parentRatio) {
+ 		   scale.y = scale.x/holderRatio;
+ 	    }
+ 	    else {
+ 		    scale.x = scale.y*holderRatio;
+ 		    ve.transform.position = new Vector2((parentSize.x - scale.x) / 2f, 0);
+ 	    }
+ 	    ve.transform.scale = scale;
+     }       
+    
+NewHolder() makes a new dummy VisualElement for this example and adds it to the root.
+        
+        private VisualElement NewHolder( Color color) {
+                var ve = new VisualElement();
+                // normally style position, width and height would be set with a class from a stylesheet
+                ve.style.position = Position.Absolute;
+                ve.style.width = 1;
+                ve.style.height = 1;
+                ve.style.backgroundColor = color;
+                _root.Add(ve);
+                return ve;
+            }
+        
+ScaledAt() rescales and repositions an element
+        
+    private void ScaledAt(VisualElement  ve,Rect rect) {
+        ScaledAt(ve,rect.position, rect.size);
+    }
+    
+   
+    private void ScaledAt(VisualElement ve, Vector3 position, Vector3 scale) {
+        ve.transform.position = position;
+        ve.transform.scale = scale;
+    }   
+    
+    The complete code is below. To test, create a new scene and add a GameObject with ExampleUILayout and a UIDocument. The UIDocument will have a PanelSetting. Set its ScaleMode to scale with screen size and MatchMode to Shrink.
+    
+    insert images
+        
+ If things disappear when you resize the panel to be very small try changing PanelSetting to a smaller reference resolution. There seems to a problem when the screen resolution is smaller than the reference resolution. Not sure if it is my bur or UI Toolkits.
+ 	I made things private so that in Unity 2020.2 compile time can be reduced. In 2020.2 If you use assmeblies and only private things change then the other assembly do not need to be recompiled. 
  
 		

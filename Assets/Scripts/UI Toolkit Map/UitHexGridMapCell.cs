@@ -38,7 +38,6 @@ public class UitHexGridMapCell : UitHex {
            //or just store a ref in dictionary
            
            if ( !GameController.inst.isEditMode) {
-               Debug.Log("XXX SetRegion");
                subGridHolder = new VisualElement();
                uitHex.Add(subGridHolder);
                bool isSquare = true;
@@ -62,10 +61,9 @@ public class UitHexGridMapCell : UitHex {
        var scale = Vector3.one * 0.1f ;
        
        var result = new List<VisualElement>();
-       var pos = Vector3.one*2f;
-       //squares seem to twice the size of thir scale so *2
-       
-       //strange for loop settings and order are to get correct order
+       var pos = Vector3.one;
+
+       //strange "for loop" settings and order are to get correct order
        for (int j = 9; j >= 0; j--) {
             for (int i = 0;i<10;i++) {
                 pos = new Vector3(i, j, 1)*2f;

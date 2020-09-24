@@ -1,90 +1,114 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class ExampleUILayout : MonoBehaviour {
-	public Vector2 MapRatio;
-    public Vector2 DetailsTopRightcorner;
+	[FormerlySerializedAs("MapRatio")] public Vector2 mapRatio;
+    [FormerlySerializedAs("DetailsTopRightCorner")] public Vector2 detailsTopRightCorner; //in MapHolder space
     
-    private VisualElement root;
-    private Vector2 _screenCorner;
-    private float screenScale;
-    
+    private VisualElement _root;
+    private VisualElement _mapHolder;
+    private VisualElement _detailsHolder;
+
     void Start() {
 	    Init();
-	    var box =NewScaledAt(Vector3.one * 0, Vector3.one * 20,
-	        Color.green);
-        ScalePositionMap(box, MapRatio.x / MapRatio.y,
-	        UitUtility.ScreenToPanel(screenScale, _screenCorner));
-       
-        var detailTopRightPos = box.transform.matrix.MultiplyPoint(DetailsTopRightcorner);
-        var rect = new Rect(0, detailTopRightPos.y,
-	        detailTopRightPos.x, _screenCorner.y - detailTopRightPos.y);
-        var detailBox = NewScaledAt(rect, Color.blue);
     }
 
     /// <summary>
-    /// Setup root and screen scale
+    /// scale and position a toplevel elements after geomtry change
+    /// create them if they do not exist.
+    /// </summary>
+    /// <param name="screenRect"></param>
+    private void TopLevelLayout(Rect screenRect) {
+	    if (_mapHolder == null) {
+		    _mapHolder = NewHolder(Color.green);
+	    }
+
+	    ScalePositionMapHolder(_mapHolder, mapRatio.x / mapRatio.y,
+		    screenRect.max);
+
+	    if (_detailsHolder == null) {
+		    _detailsHolder = NewHolder( Color.blue);
+	    }
+	    
+	    var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
+	    var rect = new Rect(0, detailsTopRightPos.y,
+		    detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
+	    ScaledAt(_detailsHolder,rect);
+    }
+
+    /// <summary>
+    /// Setup root and callbacks
     /// </summary>
     private void Init() {
-	    root = GetComponent<UIDocument>().rootVisualElement;
-	    Debug.Log(root.hierarchy.parent.transform.scale);
-	    
-	    
-	    root.RegisterCallback<GeometryChangedEvent>( (evt) =>
-		    Debug.Log("Size:" + evt.newRect));
-	    _screenCorner = Screen.safeArea.max;
-	    var corner2 = RuntimePanelUtils.ScreenToPanel(root.hierarchy.parent.panel, _screenCorner);
-		Debug.Log("corner2: " + corner2);
-	    root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
-	    var quickToolVisualTree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
-	    quickToolVisualTree.CloneTree(root);
-	    screenScale = UitUtility.ResolveScale(GetComponent<UIDocument>().panelSettings,
-		    new Rect(0, 0, Screen.width, Screen.height),
-		    Screen.dpi);
-	    Debug.Log("Size2: " + UitUtility.ScreenToPanel(screenScale, _screenCorner));
-	    Debug.Log("Size3: " + _screenCorner);
+	    _root = GetComponent<UIDocument>().rootVisualElement;
+	    //normally a style sheet would loaded here
+	    //_root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
+	    //normally a tree would loaded here
+	    //var treeree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
+	    //tree.CloneTree(_root);
+	    _root.RegisterCallback<GeometryChangedEvent>( (evt) => TopLevelLayout(evt.newRect));
     }
     
-    
-    public void ScalePositionMap(VisualElement ve,float boxRatio, Vector2 HolderSize) {
-	    var holderRatio = HolderSize.x / HolderSize.y;
-	    var scale = HolderSize; 
-	    if (boxRatio > holderRatio) {
-		   scale.y = scale.x/boxRatio;
+    /// <summary>
+    /// set scale and position of map holder
+    /// based on 
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="boxRatio"></param>
+    /// <param name="parentSize"></param>
+    private void ScalePositionMapHolder(VisualElement ve,float holderRatio, Vector2 parentSize) {
+	    var parentRatio = parentSize.x / parentSize.y;
+	    var scale = parentSize; 
+	    if (holderRatio > parentRatio) {
+		   scale.y = scale.x/holderRatio;
 	    }
 	    else {
-		    scale.x = scale.y*boxRatio;
-		    ve.transform.position = new Vector2((HolderSize.x - scale.x) / 2, 0);
+		    scale.x = scale.y*holderRatio;
+		    ve.transform.position = new Vector2((parentSize.x - scale.x) / 2f, 0);
 	    }
 	    ve.transform.scale = scale;
     }
 
-	/// <summary>
-	/// place a scaled box on the root.
+    
+    /// <summary>
+	/// place a colored box on the root.
 	/// </summary>
-	/// <param name="rect"></param>
+	/// <param name="location"></param>
+	/// <param name="scale"></param>
 	/// <param name="color"></param>
 	/// <returns></returns>
-    public VisualElement NewScaledAt(Rect rect, Color color) {
-		return NewScaledAt(rect.position, rect.size, color);
-	}
-	
-    /// <summary>
-   /// place a scaled box on the root.
-   /// </summary>
-   /// <param name="location"></param>
-   /// <param name="scale"></param>
-   /// <param name="color"></param>
-   /// <returns></returns>
-    public VisualElement NewScaledAt(Vector3 location, Vector3 scale, Color color) {
-        var ve = new UitHex();
-        ve.EnableInClassList("HexGrid-Hex", true);
-        UitHexGrid.SetupHex(ve, location, scale);
+    private VisualElement NewHolder( Color color) {
+        var ve = new VisualElement();
+        // normally style position, width and height would be set with a class from a stylesheet
+        ve.style.position = Position.Absolute;
+        ve.style.width = 1;
+        ve.style.height = 1;
         ve.style.backgroundColor = color;
-        root.Add(ve);
+        _root.Add(ve);
         return ve;
     }
 
+    /// <summary>
+    /// scale and position a box
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="rect"></param>
+    private void ScaledAt(VisualElement  ve,Rect rect) {
+	    ScaledAt(ve,rect.position, rect.size);
+    }
+    
+    /// <summary>
+    /// scale and position a box
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="position"></param>
+    /// <param name="scale"></param>
+    private void ScaledAt(VisualElement ve, Vector3 position, Vector3 scale) {
+	    ve.transform.position = position;
+	    ve.transform.scale = scale;
+    }
+    
 }

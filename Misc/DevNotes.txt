@@ -1,21 +1,28 @@
-HexGrid 
+
 	
-	NOW	 
-	
+NOW	 
+	hex(square) scaling is not working
+	something screwed between hex size and hex spacing
+	setting image size to 2px X 2px fixes but why
+	    what is hex spacin and what is hex size
+	   
+
 	hexes look better
-	UitHex can't be 1 px
+	UitHex can't be 1 px?
 	so include a base scale.  userdefined data?  
 		make subgrid holder than can be turned on or off
 		need to keep ref	  
 	
 LATER	
-	Scaling screws everything up
-    		    RuntimePanelUtils.ResetDynamicAtlas(IPanel) - is screen size changes
-	    borders
-	    
+     recheck square 
+         Make not 1px 
+            so it can be made to hex
+            
+	 Make hex instead square   
 	    global mouse to hex or square coord
-	        hex use existng code
+	        hex use existing code
 	        square - ?
+	        circle-?
 	
 	Redesign
 		isSquare
