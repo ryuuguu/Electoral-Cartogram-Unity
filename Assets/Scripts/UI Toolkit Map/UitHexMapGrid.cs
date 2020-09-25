@@ -9,9 +9,12 @@ using UnityEngine.UIElements;
 /// access visual element and region data by coord
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
+    
+    public Vector2 mapSize = new Vector2(16,9);
+    
     private List<VisualElement> subGridHolders = new List<VisualElement>();
     
-    public UitHex CreateCell(Vector3 v3, bool isrectangle = false) {
+    public UitHex CreateCell(Vector3 v3, bool isRectangle = false) {
         var cell =  MakeHex(v3); // this creates the Visual element but not the region
         return cell;
     }

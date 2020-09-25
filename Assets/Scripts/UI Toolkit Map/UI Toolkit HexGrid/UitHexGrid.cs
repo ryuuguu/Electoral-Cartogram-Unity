@@ -65,7 +65,7 @@ public class UitHexGrid :MonoBehaviour {
             var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
             var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
             scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
-            Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
+            //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
         } else {
             scale = Vector3.one * ls.gameScale;
         }

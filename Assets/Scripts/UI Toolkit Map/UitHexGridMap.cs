@@ -15,8 +15,11 @@ public class UitHexGridMap : MonoBehaviour {
     
     protected VisualElement root;
 
+    
+    protected VisualElement mapHolder;
     protected VisualElement hexHolder;
     protected VisualElement borderHolder;
+    
 
     private VisualTreeAsset dummy;
     
@@ -36,27 +39,64 @@ public class UitHexGridMap : MonoBehaviour {
         // Reference to the root of the window.
         var uiDoc= GetComponent<UIDocument>();
         root = uiDoc.rootVisualElement;
-        
+        root.RegisterCallback<GeometryChangedEvent>( (evt) => TopLevelLayout(evt.newRect));
 
         // Associates a stylesheet to our root. Thanks to inheritance, all root’s
         // children will have access to it.
         root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
 
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
-        var quickToolVisualTree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
-        quickToolVisualTree.CloneTree(root);
-
+        var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
+        tree.CloneTree(root);
+        
+        mapHolder = new VisualElement();
+        root.Add(mapHolder);
+        
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
         hexHolder.transform.position = hexHolder.transform.position + mapVEOffset;
-        root.Add(hexHolder);
+        mapHolder.Add(hexHolder);
         mapGrid.Init(hexHolder);
         
         borderHolder = new VisualElement();
         borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
-        root.Add(borderHolder);
+        mapHolder.Add(borderHolder);
+    }
+    
+    private void TopLevelLayout(Rect screenRect) {
         
+        ScalePositionMapHolder(mapHolder, mapGrid.mapSize,
+            screenRect.max);
+
         
+	    /*
+        var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
+        var rect = new Rect(0, detailsTopRightPos.y,
+            detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
+        ScaledAt(_detailsHolder,rect);
+        */
+    }
+    
+    /// <summary>
+    /// set scale and position of map holder
+    /// based on boxRatio
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="boxRatio"></param>
+    /// <param name="parentSize"></param>
+    private void ScalePositionMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
+        var parentRatio = parentSize.x / parentSize.y;
+        var holderRatio = holderSize.x / holderSize.y;
+        var scale = 1f; 
+        if (holderRatio > parentRatio) {
+            scale = parentSize.x/holderSize.x;
+        }
+        else {
+            scale = parentSize.y/holderSize.y;
+            ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
+        }
+        ve.transform.scale = scale * Vector3.one;
+        Debug.Log(scale);
     }
     
     void Update() {

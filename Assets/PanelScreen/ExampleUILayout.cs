@@ -54,7 +54,7 @@ public class ExampleUILayout : MonoBehaviour {
     
     /// <summary>
     /// set scale and position of map holder
-    /// based on 
+    /// based on boxRatio
     /// </summary>
     /// <param name="ve"></param>
     /// <param name="boxRatio"></param>
