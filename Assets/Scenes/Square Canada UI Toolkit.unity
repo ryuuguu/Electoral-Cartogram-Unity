@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   isSquare: 1
-  hexRadius: 29
+  hexRadius: 39
   offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0
   localSpaceId: 
@@ -7828,7 +7828,7 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   tooltip: {fileID: 0}
-  mapVEOffset: {x: 0, y: 500, z: 0}
+  mapVEOffset: {x: 0, y: 700, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0
