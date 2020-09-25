@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -68,13 +69,31 @@ public class UitHexGridMap : MonoBehaviour {
         ScalePositionMapHolder(mapHolder, mapGrid.mapSize,
             screenRect.max);
 
-        
-	    /*
+        DebugHexPos();
+
+        /*
         var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
         var rect = new Rect(0, detailsTopRightPos.y,
             detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
         ScaledAt(_detailsHolder,rect);
         */
+    }
+
+    private void DebugHexPos() {
+        if (mapGrid.hexes.Count != 0) {
+            var hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
+            Debug.Log(" Hex: " + hex);
+            Debug.Log(" Hex transfom: " + hex.transform.position);
+            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(11,10,-21)];
+            Debug.Log(" Hex: " + hex);
+            Debug.Log(" Hex transfom: " + hex.transform.position);
+            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,11,-21)];
+            Debug.Log(" Hex: " + hex);
+            Debug.Log(" Hex transfom: " + hex.transform.position);
+            if (hex != null) {
+                Debug.Log(" Hex transform: " +hex.transform.scale); 
+            }
+        }
     }
     
     /// <summary>

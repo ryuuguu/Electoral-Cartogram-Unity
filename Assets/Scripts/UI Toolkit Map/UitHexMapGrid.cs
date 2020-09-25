@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
     
-    public Vector2 mapSize = new Vector2(16,9);
+    public Vector2 mapSize = new Vector2(1600,900);
     
     private List<VisualElement> subGridHolders = new List<VisualElement>();
     
@@ -23,7 +23,6 @@ public class UitHexMapGrid : UitHexGrid {
         //hack to not draw WATER & USA because of speed problems
         if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
         var uitHex = CreateCell(v3, false);
-        
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell();
         mapCell.uitHex = uitHex;

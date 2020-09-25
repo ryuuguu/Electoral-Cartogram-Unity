@@ -2342,7 +2342,7 @@ MonoBehaviour:
   offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0
   localSpaceId: 
-  mapSize: {x: 1200, y: 900}
+  mapSize: {x: 1600, y: 900}
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0

@@ -3,9 +3,18 @@
 NOW	 
 	hex(square) scaling is not working
 	something screwed between hex size and hex spacing
-	setting image size to 2px X 2px fixes but why
-	    what is hex spacin and what is hex size
-	   
+	    check that hex scale and position both are not changed by rescale
+	   get a single hex and check sclae and postion
+
+    maybe I need to redo the image chache stuff
+       width and height  do not match 
+       pos diffs o  a global scale 
+       what about on local scale?
+       
+       solid maybe ok 
+       
+       
+    
 
 	hexes look better
 	UitHex can't be 1 px?

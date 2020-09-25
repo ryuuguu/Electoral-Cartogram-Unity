@@ -56,15 +56,15 @@ public class UitHexGrid :MonoBehaviour {
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
         if (isSquare) {
-            var l1= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,1,0), ls);
-            var l2= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,-1,0), ls);
-            var l3= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(1,0,0), ls);
-            var l4= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(-1,0,0), ls);
+            var l1= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,1,-1), ls);
+            var l2= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,-1,1), ls);
+            var l3= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(1,0,-1), ls);
+            var l4= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(-1,0,1), ls);
             var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x);
             var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x);
             var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
             var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
-            scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
+            scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
             //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
         } else {
             scale = Vector3.one * ls.gameScale;
@@ -88,6 +88,10 @@ public class UitHexGrid :MonoBehaviour {
         aHolder.Add(hex);
         hex.name = coord.ToString();
         SetupHex(hex, location, scale);
+        if (!hexes.ContainsKey(localSpaceId)) {
+            hexes[localSpaceId] = new Dictionary<Vector3, UitHex>();
+        }
+        hexes[localSpaceId][coord] = hex;
         // quick hack to test if this works, in later version need to assign it in a separate method
         //it worked
         //hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
@@ -121,15 +125,15 @@ public class UitHexGrid :MonoBehaviour {
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
             if (isSquare) {
-                var l1= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord + new Vector3(0,1,0), ls);
-                var l2= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(0,-1,0), ls);
-                var l3= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(1,0,0), ls);
-                var l4= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(-1,0,0), ls);
+                var l1= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord + new Vector3(0,1,-1), ls);
+                var l2= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(0,-1,1), ls);
+                var l3= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(1,0,-1), ls);
+                var l4= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(-1,0,1), ls);
                 var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x);
                 var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x);
                 var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
                 var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
-                scale = new Vector3(highX-lowX ,highY-lowY,1)/4f;
+                scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
                 
                 Debug.Log("All MakeHex scale: "+ scale.x + " : "+ scale.y);
             } else {

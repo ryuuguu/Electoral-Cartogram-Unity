@@ -66,7 +66,7 @@ public class UitHexGridMapCell : UitHex {
        //strange "for loop" settings and order are to get correct order
        for (int j = 9; j >= 0; j--) {
             for (int i = 0;i<10;i++) {
-                pos = new Vector3(i, j, 1)*2f;
+                pos = new Vector3(i, j, 1);
                pos.Scale(scale);
                result.Add(MakeSubHex( pos,scale));
            }
