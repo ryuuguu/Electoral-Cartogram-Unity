@@ -1,31 +1,20 @@
 
 	
 NOW	 
-	hex(square) scaling is not working
-	something screwed between hex size and hex spacing
-	    check that hex scale and position both are not changed by rescale
-	   get a single hex and check sclae and postion
 
-    maybe I need to redo the image chache stuff
-       width and height  do not match 
-       pos diffs o  a global scale 
-       what about on local scale?
-       
-       solid maybe ok 
-       
-       
+getting webgl shader error is it? preview 9
+how to chek what shader is causing webgl error
+
+also check on Windows
     
-
 	hexes look better
-	UitHex can't be 1 px?
-	so include a base scale.  userdefined data?  
+	
+	
 		make subgrid holder than can be turned on or off
 		need to keep ref	  
 	
 LATER	
-     recheck square 
-         Make not 1px 
-            so it can be made to hex
+     
             
 	 Make hex instead square   
 	    global mouse to hex or square coord

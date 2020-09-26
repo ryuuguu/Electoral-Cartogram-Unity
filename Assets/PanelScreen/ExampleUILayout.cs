@@ -14,6 +14,7 @@ public class ExampleUILayout : MonoBehaviour {
 
     void Start() {
 	    Init();
+	    // add first call using panel utility
     }
 
     /// <summary>
@@ -70,6 +71,7 @@ public class ExampleUILayout : MonoBehaviour {
 		    ve.transform.position = new Vector2((parentSize.x - scale.x) / 2f, 0);
 	    }
 	    ve.transform.scale = scale;
+	    //Debug.LogError("Scale: "+ scale + " : " + parentSize);
     }
 
     

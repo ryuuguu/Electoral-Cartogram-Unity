@@ -69,7 +69,9 @@ public class UitHexGridMap : MonoBehaviour {
         ScalePositionMapHolder(mapHolder, mapGrid.mapSize,
             screenRect.max);
 
+        
         DebugHexPos();
+        Debug.LogError(" screenRect.max: " + screenRect.max);
 
         /*
         var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
@@ -82,16 +84,18 @@ public class UitHexGridMap : MonoBehaviour {
     private void DebugHexPos() {
         if (mapGrid.hexes.Count != 0) {
             var hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
-            Debug.Log(" Hex: " + hex);
-            Debug.Log(" Hex transfom: " + hex.transform.position);
+            
+            Debug.LogError(" Hex transfom: " + hex.transform.position);
             hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(11,10,-21)];
-            Debug.Log(" Hex: " + hex);
-            Debug.Log(" Hex transfom: " + hex.transform.position);
+            Debug.LogError(" Hex transfom: " + hex.transform.position);
             hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,11,-21)];
-            Debug.Log(" Hex: " + hex);
-            Debug.Log(" Hex transfom: " + hex.transform.position);
+            Debug.LogError(" Hex transfom: " + hex.transform.position);
+            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(9,11,-20)];
+            Debug.LogError(" Hex transfom: " + hex.transform.position);
+            
+            Debug.LogError(" Hex: " + hex);
             if (hex != null) {
-                Debug.Log(" Hex transform: " +hex.transform.scale); 
+                Debug.LogError(" Hex transform.scale: " +hex.transform.scale); 
             }
         }
     }
