@@ -10,10 +10,14 @@ using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
 public class UitHexGridMapCell : UitHex {
+    
+    
     public RegionList regionList;
 
     public Texture2D centerRiding; 
     public Texture2D centerOther;  
+    public bool isSquare = true;
+    
     public Image targetHighlight;
     public UitHex uitHex; 
     
@@ -32,7 +36,8 @@ public class UitHexGridMapCell : UitHex {
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
             
            // need to set this style.background color 
-           uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
+           //uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
+           uitHex.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
            //uitHex.style.backgroundColor = Color.clear;
            //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
@@ -40,14 +45,13 @@ public class UitHexGridMapCell : UitHex {
            if ( !GameController.inst.isEditMode) {
                subGridHolder = new VisualElement();
                uitHex.Add(subGridHolder);
-               bool isSquare = true;
                ColorSubGrid(aRegionList, subGridHolder, isSquare);
            }
            
        } else {
             
-           uitHex.style.backgroundImage = centerOther;
-           uitHex.style.backgroundColor = regionList.color;
+           uitHex.style.backgroundImage = centerRiding;
+           uitHex.style.unityBackgroundImageTintColor = regionList.color;
        }
 
        return subGridHolder;
@@ -128,6 +132,10 @@ public class UitHexGridMapCell : UitHex {
         if (isSquare) {
             subGridSize = 100;
             subHexes = MakeSquareSubHexes();
+        }
+        else {
+            subGridSize = 91; //91 for hex
+            return; //hex subgrid not implemented yet
         }
         // need total votes 
         // sorted candidates 

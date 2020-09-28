@@ -2,23 +2,21 @@
 	
 NOW	 
 
-could make a bunch of squares and put topLevelLayout on them in separate scene
-
-
-see what happens
-
-how can goingform 16:9 to free back 19:6 cause any change?
-
-this was with expand should have been using shrink might still be a problem
-    hexes are not resizing in builds
-      how to cehck with debug numbers
-        can't they should not resize in numbers
-         but should resize in screen
-
-also check on Windows
-	hexes look better
-		make subgrid holder than can be turned on or off
-		need to keep ref	  
+    
+    Make hex instead square  
+        subhex
+            circles - not yet 
+                image radial fill needed
+            need to make them
+        global mouse to hex or square coord
+            hex use existing code
+            square - ?
+            circle-?
+    	  
+	
+	UitHexGridMapCell : UitHex 
+	    it also contains a UitHex 
+	        fixe this mess
 	
 LATER	
      

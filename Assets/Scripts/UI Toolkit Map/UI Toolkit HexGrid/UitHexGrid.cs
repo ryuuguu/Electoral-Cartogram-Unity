@@ -15,6 +15,7 @@ public class UitHexGrid :MonoBehaviour {
     public bool isSquare = true;
 
     public float hexRadius = 50f;
+    public float hexScalefactor = 1.8f; //2 would remove gap in most places but show artifact gaps
     public Vector2 offsetCoord =new Vector2(4,-3);
     public float squareScaleHeightHack = 0.004f;
     
@@ -106,7 +107,7 @@ public class UitHexGrid :MonoBehaviour {
             scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
             //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
         } else {
-            scale = Vector3.one * ls.gameScale;
+            scale = Vector3.one * ls.gameScale*hexScalefactor;
         }
         //Debug.Log("One MakeHex pos: "+ location + " : "+ ls.orientation);
         return MakeHex(coord, location, scale);
@@ -161,12 +162,14 @@ public class UitHexGrid :MonoBehaviour {
         //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
         
+        /*
         if (Random.Range(0, 2) == 1) {
             hex.style.backgroundColor = Color.red;
         }
         else {
             hex.style.backgroundColor = Color.green;
         }
+        */
     }
     
 }

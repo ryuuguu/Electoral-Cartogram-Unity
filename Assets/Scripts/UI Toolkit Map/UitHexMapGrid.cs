@@ -10,6 +10,9 @@ using UnityEngine.UIElements;
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
     
+    public Texture2D hexBackground;
+    public Texture2D squareBackgound;
+    
     public Vector2 mapSize = new Vector2(1600,900);
     
     private List<VisualElement> subGridHolders = new List<VisualElement>();
@@ -24,7 +27,10 @@ public class UitHexMapGrid : UitHexGrid {
         if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
         var uitHex = CreateCell(v3, false);
         
-        UitHexGridMapCell mapCell =  new UitHexGridMapCell();
+        UitHexGridMapCell mapCell =  new UitHexGridMapCell() {
+            centerRiding = isSquare? squareBackgound : hexBackground,
+                isSquare = isSquare
+        };
         mapCell.uitHex = uitHex;
         var subgridHolder = mapCell.SetRegion(rl);
         if (subgridHolder != null) {
