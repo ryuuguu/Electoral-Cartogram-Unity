@@ -68,8 +68,7 @@ public class UitHexGridMap : MonoBehaviour {
     }
 
     private void GeometryChange(Rect screenRect) {
-        delayMaplayout = 2;
-        layoutRect = screenRect;
+        TopLevelLayout(screenRect);
     }
 
     private void TopLevelLayout(Rect screenRect) {
@@ -78,15 +77,16 @@ public class UitHexGridMap : MonoBehaviour {
             screenRect.max);
 
         
-        DebugHexPos();
-        Debug.LogError(" screenRect.max: " + screenRect.max);
+       // DebugHexPos();
+       // Debug.LogError(" screenRect.max: " + screenRect.max);
 
         /*
-        var detailsTopRightPos = _mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
+        var detailsTopRightPos = mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
         var rect = new Rect(0, detailsTopRightPos.y,
             detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
         ScaledAt(_detailsHolder,rect);
         */
+        
     }
 
     private void DebugHexPos() {
@@ -136,10 +136,11 @@ public class UitHexGridMap : MonoBehaviour {
         var scale = 1f; 
         if (holderRatio > parentRatio) {
             scale = parentSize.x/holderSize.x;
+            ve.transform.position = Vector2.zero;
         }
         else {
             scale = parentSize.y/holderSize.y;
-            //ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
+            ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
         }
         ve.transform.scale = scale * Vector3.one;
     }
@@ -149,13 +150,13 @@ public class UitHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
-        if (delayMaplayout== 0) {
-            TopLevelLayout(layoutRect);
-        }
+        
+        /*
         if (delayMaplayout== -1) {
             DebugHexPos();
         }
         delayMaplayout--;
+        */
 
         // todo: handle mouse
         /*
