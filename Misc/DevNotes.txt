@@ -2,14 +2,21 @@
 	
 NOW	 
 
-getting webgl shader error is it? preview 9
-how to chek what shader is causing webgl error
+could make a bunch of squares and put topLevelLayout on them in separate scene
+
+
+see what happens
+
+how can goingform 16:9 to free back 19:6 cause any change?
+
+this was with expand should have been using shrink might still be a problem
+    hexes are not resizing in builds
+      how to cehck with debug numbers
+        can't they should not resize in numbers
+         but should resize in screen
 
 also check on Windows
-    
 	hexes look better
-	
-	
 		make subgrid holder than can be turned on or off
 		need to keep ref	  
 	

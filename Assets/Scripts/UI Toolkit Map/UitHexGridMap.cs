@@ -25,6 +25,8 @@ public class UitHexGridMap : MonoBehaviour {
     private VisualTreeAsset dummy;
     
     private int delayMapBuild = 1;
+    private int delayMaplayout = -2;
+    private Rect layoutRect= new Rect();
 
     bool inRiding = false;
     UIHexGridMapCell prevCell = null;
@@ -40,7 +42,8 @@ public class UitHexGridMap : MonoBehaviour {
         // Reference to the root of the window.
         var uiDoc= GetComponent<UIDocument>();
         root = uiDoc.rootVisualElement;
-        root.RegisterCallback<GeometryChangedEvent>( (evt) => TopLevelLayout(evt.newRect));
+        root.RegisterCallback<GeometryChangedEvent>( (evt) =>
+            GeometryChange(evt.newRect));
 
         // Associates a stylesheet to our root. Thanks to inheritance, all root’s
         // children will have access to it.
@@ -63,7 +66,12 @@ public class UitHexGridMap : MonoBehaviour {
         borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
         mapHolder.Add(borderHolder);
     }
-    
+
+    private void GeometryChange(Rect screenRect) {
+        delayMaplayout = 2;
+        layoutRect = screenRect;
+    }
+
     private void TopLevelLayout(Rect screenRect) {
         
         ScalePositionMapHolder(mapHolder, mapGrid.mapSize,
@@ -83,20 +91,35 @@ public class UitHexGridMap : MonoBehaviour {
 
     private void DebugHexPos() {
         if (mapGrid.hexes.Count != 0) {
-            var hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
+            var hex1 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
             
-            Debug.LogError(" Hex transfom: " + hex.transform.position);
-            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(11,10,-21)];
-            Debug.LogError(" Hex transfom: " + hex.transform.position);
-            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,11,-21)];
-            Debug.LogError(" Hex transfom: " + hex.transform.position);
-            hex = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(9,11,-20)];
-            Debug.LogError(" Hex transfom: " + hex.transform.position);
+            //Debug.LogError(" Hex1 transfom: " + hex1.transform.position);
+            var hex2 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(11,10,-21)];
+            //Debug.LogError(" Hex2 transfom: " + hex2.transform.position);
+            var hex3 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,11,-21)];
+            //Debug.LogError(" Hex3 transfom: " + hex3.transform.position);
+            var hex4 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(9,11,-20)];
+            //Debug.LogError(" Hex4 transfom: " + hex4.transform.position);
+            var xLocal =  hex2.transform.position.x - hex4.transform.position.x;
+            var yLocal =  hex1.transform.position.y - hex3.transform.position.y;
+            var xWorld =  hex2.worldBound.center - hex4.worldBound.center;
+            var yWorld =  hex1.worldBound.center - hex3.worldBound.center;
+            var worldRatio = (xWorld + yWorld) / (hex1.worldBound.size);
+            Debug.LogError("Local : " + xLocal + " : " + yLocal);
+            Debug.LogError("World : " + (xWorld + yWorld));
+            Debug.LogError(" Hex.worldBound: " + hex1.worldBound);
+            Debug.LogError("World ratio  : " 
+                           +worldRatio  + (worldRatio.x/worldRatio.y)
+                           );
             
-            Debug.LogError(" Hex: " + hex);
-            if (hex != null) {
-                Debug.LogError(" Hex transform.scale: " +hex.transform.scale); 
-            }
+            Debug.LogError(" Hex.localBound: " + hex1.localBound);
+            Debug.LogError(" Hex.layout: " + hex1.layout);
+            
+            //Debug.LogError(" Hex transform.scale: " +hex1.transform.scale); 
+            Debug.LogError(" mapHolder transform.scale: " +mapHolder.transform.scale); 
+            Debug.LogError("ratio : " + xLocal/yLocal + " : "
+                           + (xWorld.x/yWorld.y) + " : "
+                           + hex1.localBound.width/hex1.localBound.height);
         }
     }
     
@@ -119,7 +142,6 @@ public class UitHexGridMap : MonoBehaviour {
             ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
         }
         ve.transform.scale = scale * Vector3.one;
-        Debug.Log(scale);
     }
     
     void Update() {
@@ -127,8 +149,14 @@ public class UitHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
-    
-        
+        if (delayMaplayout== 0) {
+            TopLevelLayout(layoutRect);
+        }
+        if (delayMaplayout== -1) {
+            DebugHexPos();
+        }
+        delayMaplayout--;
+
         // todo: handle mouse
         /*
         var mouseCoord = mapGrid.Mouse2Coord();
