@@ -15,7 +15,7 @@ public class ExampleUILayout2 : MonoBehaviour {
 
     void Start() {
 	    Init();
-	    //TestBox();
+	    
 	    // add first call using panel utility
     }
 
@@ -26,40 +26,29 @@ public class ExampleUILayout2 : MonoBehaviour {
     /// <param name="screenRect"></param>
     private void TopLevelLayout(Rect screenRect) {
 	    if (_mapHolder == null) {
-		    _mapHolder = new VisualElement();
+		    _mapHolder = SquareVE( Color.green);
 		    _root.Add(_mapHolder);
 		     MakeGrid(_mapHolder);
 		     Debug.Log( "made");
 	    }
-
-	    // ScaleMapHolder(_mapHolder, mapRatio, screenRect.max);
-
+	    ScaleMapHolder(_mapHolder, mapRatio, screenRect.max);
     }
 
     private void MakeGrid(VisualElement parent) {
-	    
-	    for (int i = 0; i < 3; i++) {
-		   
-		    for (int j = 0; j < 2; j++) {
-			    var color = Color.red;
+	    for (int i = 0; i < mapRatio.x; i++) {
+		    for (int j = 0; j < mapRatio.y; j++) {
+			    var color = new Color(1,0,0,0.5f);
 			    if ((i + j) % 2 ==0) {
-				    color = Color.cyan;
+				    color = new Color(0,1,1,0.5f);
 			    }
 			    var ve =  SquareVE(color);
-
-			    
-			    var pos = (new Vector3(i, j , 0))*10;
-			   
+			    var pos = (new Vector3(i, j , 0))*scale;
 			    ve.transform.position = pos;
-			    ve.transform.scale = new Vector3(scale,scale,0);
-			    _root.Add(ve);
-			   
+			    ve.transform.scale =  Vector3.one*scale*0.8f;
+			    parent.Add(ve);
 		    }
 	    }
-	   
 	    
-	   
-	   
     }
     /// <summary>
     /// Setup root and callbacks
@@ -79,9 +68,10 @@ public class ExampleUILayout2 : MonoBehaviour {
 	    else {
 		    rescale = parentSize.y/holderSize.y;
 	    }
+	    Debug.Log("holderElement: "+ ve.localBound  + " _root (evt.newRect: "+ parentSize);
 	    ve.transform.scale = rescale * Vector3.one;
-	   
-	    Debug.Log("recale: "+ rescale);
+	    
+	    Debug.Log("Screen.safeArea: "+ Screen.safeArea  + " rescale: "+ rescale);
     }
 
     private VisualElement SquareVE( Color color) {
@@ -92,43 +82,4 @@ public class ExampleUILayout2 : MonoBehaviour {
         ve.style.backgroundColor = color;
         return ve;
     }
-    //==================
-    private VisualElement NewHolder( Color color) {
-	    var ve = new VisualElement();
-	    // normally style position, width and height would be set with a class from a stylesheet
-	    ve.style.position = Position.Absolute;
-	    ve.style.width = 1;
-	    ve.style.height = 1;
-	    ve.style.backgroundColor = color;
-	    _root.Add(ve);
-	    return ve;
-    }
-    
-    
-
-    private void TestBox() {
-	    if (_detailsHolder == null) {
-		    _detailsHolder = NewHolder( Color.magenta);
-	    }
-	    
-	    var rect = new Rect(0, 100,
-		    400, 400);
-	    ScaledAt(_detailsHolder, rect );
-	    MakeGrid(_root);
-    }
-    private void ScaledAt(VisualElement  ve,Rect rect) {
-	    ScaledAt(ve,rect.position, rect.size);
-    }
-    
-    /// <summary>
-    /// scale and position a box
-    /// </summary>
-    /// <param name="ve"></param>
-    /// <param name="position"></param>
-    /// <param name="scale"></param>
-    private void ScaledAt(VisualElement ve, Vector3 position, Vector3 scale) {
-	    ve.transform.position = position;
-	    ve.transform.scale = scale;
-    }
-    
 }

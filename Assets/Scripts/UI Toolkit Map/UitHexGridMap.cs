@@ -74,7 +74,7 @@ public class UitHexGridMap : MonoBehaviour {
 
     private void TopLevelLayout(Rect screenRect) {
         
-        ScalePositionMapHolder(mapHolder, mapGrid.mapSize,
+        ScaleMapHolder(mapHolder, mapGrid.mapSize,
             screenRect.max);
 
         
@@ -124,13 +124,13 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     /// <summary>
-    /// set scale and position of map holder
+    /// set scale  of map holder
     /// based on boxRatio
     /// </summary>
     /// <param name="ve"></param>
     /// <param name="boxRatio"></param>
     /// <param name="parentSize"></param>
-    private void ScalePositionMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
+    private void ScaleMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
         var parentRatio = parentSize.x / parentSize.y;
         var holderRatio = holderSize.x / holderSize.y;
         var scale = 1f; 
@@ -139,7 +139,7 @@ public class UitHexGridMap : MonoBehaviour {
         }
         else {
             scale = parentSize.y/holderSize.y;
-            ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
+            //ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
         }
         ve.transform.scale = scale * Vector3.one;
     }
