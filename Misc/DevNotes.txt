@@ -1,13 +1,15 @@
 
 	
 NOW	 
-
-    
+  
     Make hex instead square  
         subhex
             circles - not yet 
                 image radial fill needed
             need to make them
+            make super hex and fill see how it goes
+                use code from Example scene
+                         
         global mouse to hex or square coord
             hex use existing code
             square - ?

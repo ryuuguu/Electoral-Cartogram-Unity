@@ -135,6 +135,7 @@ public class UitHexGridMapCell : UitHex {
         }
         else {
             subGridSize = 91; //91 for hex
+            
             return; //hex subgrid not implemented yet
         }
         // need total votes 

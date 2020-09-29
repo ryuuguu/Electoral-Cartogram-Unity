@@ -89,7 +89,7 @@ public class UitHexGrid :MonoBehaviour {
     /// </summary>
     /// <param name="coord"></param>
     /// <returns></returns>
-    protected UitHex MakeHex(Vector3 coord) {
+    protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
@@ -110,7 +110,7 @@ public class UitHexGrid :MonoBehaviour {
             scale = Vector3.one * ls.gameScale*hexScalefactor;
         }
         //Debug.Log("One MakeHex pos: "+ location + " : "+ ls.orientation);
-        return MakeHex(coord, location, scale);
+        return MakeHex(coord, location, scale, aHolder);
     }
     /// <summary>
     /// Make All hexes in a local space
@@ -126,27 +126,8 @@ public class UitHexGrid :MonoBehaviour {
         }
         
         foreach (var coord in allCoords) {
-            var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-            if (isSquare) {
-                var l1= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord + new Vector3(0,1,-1), ls);
-                var l2= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(0,-1,1), ls);
-                var l3= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(1,0,-1), ls);
-                var l4= CubeCoordinates.ConvertPlaneToLocalPosition(localCoord+ new Vector3(-1,0,1), ls);
-                var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x);
-                var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x);
-                var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y);
-                var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y);
-                scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
-                
-                Debug.Log("All MakeHex scale: "+ scale.x + " : "+ scale.y);
-            } else {
-                scale = Vector3.one * ls.gameScale;
-            }
-            var hex = MakeHex(coord.cubeCoord, localCoord, scale, hexHolder);
+            var hex = MakeHex(coord.cubeCoord, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
-            Debug.Log( "loc: "+hex.transform.position + " pos: " +
-            hex.transform.scale);
-           
         }
        
     }

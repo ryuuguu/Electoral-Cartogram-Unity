@@ -703,6 +703,15 @@ namespace Com.Ryuuguu.HexGridCC {
             v2.Scale(ls.scaleV2);
             return ConvertOrientation(ls.orientation, v2);
         }
+        
+        public static Vector3 ConvertPlaneToLocalPosition(Vector2 planeCoord, LocalSpace ls, Vector2 offset) {
+            var calcV2 = planeCoord + offset;
+            var v2 = new Vector2();
+            v2.x = calcV2.x * ls.spacingHorizontal;
+            v2.y = -((calcV2.x * ls.spacingVertical) + (calcV2.y * ls.spacingVertical * 2.0f));
+            v2.Scale(ls.scaleV2);
+            return ConvertOrientation(ls.orientation, v2);
+        }
 
         public static Vector3 PlaneToCube(Vector2 plane) {
             return new Vector3(plane.x, plane.y, -plane.x - plane.y);

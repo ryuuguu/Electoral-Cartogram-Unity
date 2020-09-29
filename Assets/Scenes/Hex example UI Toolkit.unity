@@ -335,10 +335,12 @@ MonoBehaviour:
   cellBackground: {fileID: 0}
   isSquare: 1
   hexRadius: 50
-  offsetCoord: {x: 10, y: -10}
+  hexScalefactor: 1.8
+  offsetCoord: {x: 14, y: -14}
   squareScaleHeightHack: 0
   localSpaceId: 
   superHexRadius: 0
+  subHexRadius: 1
 --- !u!1 &1132553382
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1305230730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,11 +421,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
   isSquare: 0
-  hexRadius: 40
-  offsetCoord: {x: 14, y: -18}
+  hexRadius: 300
+  hexScalefactor: 1.8
+  offsetCoord: {x: 2, y: -2}
   squareScaleHeightHack: 0.001
   localSpaceId: 
-  superHexRadius: 0
+  superHexRadius: 2
+  subHexRadius: 3
 --- !u!4 &1305230733
 Transform:
   m_ObjectHideFlags: 0
