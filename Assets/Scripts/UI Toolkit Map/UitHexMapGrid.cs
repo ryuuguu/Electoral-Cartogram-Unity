@@ -9,6 +9,8 @@ using UnityEngine.UIElements;
 /// access visual element and region data by coord
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
+
+    public bool debugSubGridOff;
     
     public Texture2D hexBackground;
     public Texture2D squareBackgound;
@@ -29,7 +31,9 @@ public class UitHexMapGrid : UitHexGrid {
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell() {
             centerRiding = isSquare? squareBackgound : hexBackground,
-                isSquare = isSquare
+                isSquare = isSquare,
+                localSpaceId = localSpaceId,
+                debugSubGridOff = debugSubGridOff
         };
         mapCell.uitHex = uitHex;
         var subgridHolder = mapCell.SetRegion(rl);
@@ -55,7 +59,9 @@ public class UitHexMapGrid : UitHexGrid {
         if (!hexes[localSpaceId].ContainsKey(v3)) return null;
         return (UitHexGridMapCell) hexes[localSpaceId][v3];
     }
-
+    
+    
+    
    
     //TODO: subgrid
     /*

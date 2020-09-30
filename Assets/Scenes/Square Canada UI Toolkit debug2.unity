@@ -2336,12 +2336,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab4a65d59468543819a6d1a954bf9220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
-  isSquare: 1
-  hexRadius: 50
-  offsetCoord: {x: -20, y: -20}
+  cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
+  isSquare: 0
+  hexRadius: 39
+  hexScalefactor: 1.9
+  offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0
   localSpaceId: 
+  debugSubGridOff: 0
+  hexBackground: {fileID: 2800000, guid: 1caa50e96f9ce412aa5de61d419bdd13, type: 3}
+  squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
+  mapSize: {x: 1600, y: 900}
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0
@@ -4785,8 +4790,9 @@ MonoBehaviour:
   cellBackground: {fileID: 2800000, guid: e4bb82bc5b8c74420b4f2b14c40cc537, type: 3}
   isSquare: 1
   hexRadius: 50
+  hexScalefactor: 1.8
   offsetCoord: {x: 14, y: -14}
-  squareScaleHeightHack: 0.004
+  squareScaleHeightHack: 0.002
   localSpaceId: 
 --- !u!1 &944587107
 GameObject:
@@ -6534,8 +6540,9 @@ MonoBehaviour:
   cellBackground: {fileID: 2800000, guid: f0f17d0c8c6c444708903851530bd658, type: 3}
   isSquare: 1
   hexRadius: 50
+  hexScalefactor: 1.8
   offsetCoord: {x: 10, y: -15}
-  squareScaleHeightHack: 0.004
+  squareScaleHeightHack: 0.002
   localSpaceId: 
 --- !u!4 &1305230733
 Transform:
@@ -7827,7 +7834,7 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   tooltip: {fileID: 0}
-  mapVEOffset: {x: 0, y: 0, z: 0}
+  mapVEOffset: {x: -800, y: 1000, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8713,6 +8720,561 @@ MonoBehaviour:
                 votes: 12697
                 percentVotes: 39.5
               totalVotes: 32173
+          - id: 10003
+            borderType: 
+            color: {r: 1, g: 1, b: 1, a: 1}
+            names:
+            - Coast of Bays--Central--Notre Dame
+            - Coast of Bays--Central--Notre Dame
+            isRiding: 1
+            isAssigned: 0
+            subLists: []
+            population: 77680
+            districtResult:
+              regionId: 10003
+              candidateResults:
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10003
+                surname: Simms
+                middleName: 
+                givenName: Scott
+                votes: 16514
+                percentVotes: 48.3
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10003
+                surname: Bracci
+                middleName: 
+                givenName: Alex
+                votes: 12081
+                percentVotes: 35.3
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10003
+                surname: Joe
+                middleName: 
+                givenName: Noel
+                votes: 4224
+                percentVotes: 12.4
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10003
+                surname: White
+                middleName: 
+                givenName: Byron
+                votes: 1363
+                percentVotes: 4
+              rawCandidateResults:
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10003
+                surname: Bracci
+                middleName: 
+                givenName: Alex
+                votes: 11695
+                percentVotes: 35.5
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10003
+                surname: Joe
+                middleName: 
+                givenName: Noel
+                votes: 4058
+                percentVotes: 12.3
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10003
+                surname: Simms
+                middleName: 
+                givenName: Scott
+                votes: 15861
+                percentVotes: 48.2
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10003
+                surname: White
+                middleName: 
+                givenName: Byron
+                votes: 1310
+                percentVotes: 4
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10003
+                surname: Bracci
+                middleName: 
+                givenName: Alex
+                votes: 12081
+                percentVotes: 35.3
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10003
+                surname: Joe
+                middleName: 
+                givenName: Noel
+                votes: 4224
+                percentVotes: 12.4
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10003
+                surname: Simms
+                middleName: 
+                givenName: Scott
+                votes: 16514
+                percentVotes: 48.3
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10003
+                surname: White
+                middleName: 
+                givenName: Byron
+                votes: 1363
+                percentVotes: 4
+              totalVotes: 32924
+          - id: 10004
+            borderType: 
+            color: {r: 1, g: 1, b: 1, a: 1}
+            names:
+            - Labrador
+            - Labrador
+            isRiding: 1
+            isAssigned: 0
+            subLists: []
+            population: 27197
+            districtResult:
+              regionId: 10004
+              candidateResults:
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10004
+                surname: Jones
+                middleName: 
+                givenName: Yvonne
+                votes: 4821
+                percentVotes: 42.3
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10004
+                surname: Flemming
+                middleName: 
+                givenName: Larry
+                votes: 3548
+                percentVotes: 31.2
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10004
+                surname: Gray
+                middleName: 
+                givenName: Michelene
+                votes: 2796
+                percentVotes: 24.6
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10004
+                surname: Colbourne
+                middleName: 
+                givenName: Tyler
+                votes: 224
+                percentVotes: 2
+              rawCandidateResults:
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10004
+                surname: Colbourne
+                middleName: 
+                givenName: Tyler
+                votes: 224
+                percentVotes: 2
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10004
+                surname: Flemming
+                middleName: 
+                givenName: Larry
+                votes: 3548
+                percentVotes: 31.2
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10004
+                surname: Gray
+                middleName: 
+                givenName: Michelene
+                votes: 2796
+                percentVotes: 24.6
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10004
+                surname: Jones
+                middleName: 
+                givenName: Yvonne
+                votes: 4821
+                percentVotes: 42.3
+              totalVotes: 11389
+          - id: 10005
+            borderType: 
+            color: {r: 1, g: 1, b: 1, a: 1}
+            names:
+            - Long Range Mountains
+            - Long Range Mountains
+            isRiding: 1
+            isAssigned: 0
+            subLists: []
+            population: 86553
+            districtResult:
+              regionId: 10005
+              candidateResults:
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10005
+                surname: Hutchings
+                middleName: 
+                givenName: Gudie
+                votes: 18182
+                percentVotes: 47.4
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10005
+                surname: Eisses
+                middleName: 
+                givenName: Josh
+                votes: 10874
+                percentVotes: 28.3
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10005
+                surname: Pike
+                middleName: 
+                givenName: Holly
+                votes: 7594
+                percentVotes: 19.8
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10005
+                surname: Knill
+                middleName: 
+                givenName: Lucas
+                votes: 1326
+                percentVotes: 3.5
+              - partyId: VCP
+                resultType: preliminary
+                regionId: 10005
+                surname: Miles
+                middleName: 
+                givenName: Robert
+                votes: 409
+                percentVotes: 1.1
+              rawCandidateResults:
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10005
+                surname: Eisses
+                middleName: 
+                givenName: Josh
+                votes: 10874
+                percentVotes: 28.3
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10005
+                surname: Hutchings
+                middleName: 
+                givenName: Gudie
+                votes: 18182
+                percentVotes: 47.4
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10005
+                surname: Knill
+                middleName: 
+                givenName: Lucas
+                votes: 1326
+                percentVotes: 3.5
+              - partyId: VCP
+                resultType: preliminary
+                regionId: 10005
+                surname: Miles
+                middleName: 
+                givenName: Robert
+                votes: 409
+                percentVotes: 1.1
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10005
+                surname: Pike
+                middleName: 
+                givenName: Holly
+                votes: 7594
+                percentVotes: 19.8
+              totalVotes: 38385
+          - id: 10006
+            borderType: 
+            color: {r: 1, g: 1, b: 1, a: 1}
+            names:
+            - St. John's East
+            - St. John's-Est
+            isRiding: 1
+            isAssigned: 0
+            subLists: []
+            population: 85697
+            districtResult:
+              regionId: 10006
+              candidateResults:
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10006
+                surname: Harris
+                middleName: 
+                givenName: Jack
+                votes: 21148
+                percentVotes: 46.9
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10006
+                surname: Whalen
+                middleName: 
+                givenName: Nick
+                votes: 14962
+                percentVotes: 33.2
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10006
+                surname: Wall
+                middleName: 
+                givenName: Joedy
+                votes: 8141
+                percentVotes: 18.1
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10006
+                surname: Peters
+                middleName: 
+                givenName: David
+                votes: 821
+                percentVotes: 1.8
+              rawCandidateResults:
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10006
+                surname: Harris
+                middleName: 
+                givenName: Jack
+                votes: 21164
+                percentVotes: 46.9
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10006
+                surname: Peters
+                middleName: 
+                givenName: David
+                votes: 818
+                percentVotes: 1.8
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10006
+                surname: Wall
+                middleName: 
+                givenName: Joedy
+                votes: 8187
+                percentVotes: 18.1
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10006
+                surname: Whalen
+                middleName: 
+                givenName: Nick
+                votes: 14961
+                percentVotes: 33.2
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10006
+                surname: Harris
+                middleName: 
+                givenName: Jack
+                votes: 21148
+                percentVotes: 46.9
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10006
+                surname: Peters
+                middleName: 
+                givenName: David
+                votes: 821
+                percentVotes: 1.8
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10006
+                surname: Wall
+                middleName: 
+                givenName: Joedy
+                votes: 8141
+                percentVotes: 18.1
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10006
+                surname: Whalen
+                middleName: 
+                givenName: Nick
+                votes: 14962
+                percentVotes: 33.2
+              totalVotes: 45130
+          - id: 10007
+            borderType: 
+            color: {r: 1, g: 1, b: 1, a: 1}
+            names:
+            - St. John's South--Mount Pearl
+            - St. John's-Sud--Mount Pearl
+            isRiding: 1
+            isAssigned: 0
+            subLists: []
+            population: 81979
+            districtResult:
+              regionId: 10007
+              candidateResults:
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10007
+                surname: O'Regan
+                middleName: 
+                givenName: Seamus
+                votes: 20793
+                percentVotes: 51.1
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10007
+                surname: Anonsen
+                middleName: 
+                givenName: Anne Marie
+                votes: 10890
+                percentVotes: 26.8
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10007
+                surname: Martin
+                middleName: 
+                givenName: Terry
+                votes: 7767
+                percentVotes: 19.1
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10007
+                surname: Hayward
+                middleName: 
+                givenName: Alexandra
+                votes: 740
+                percentVotes: 1.8
+              - partyId: People's Party
+                resultType: validated
+                regionId: 10007
+                surname: Ruckpaul
+                middleName: 
+                givenName: Benjamin
+                votes: 335
+                percentVotes: 0.8
+              - partyId: Christian Heritage Party
+                resultType: validated
+                regionId: 10007
+                surname: Jones
+                middleName: 
+                givenName: David
+                votes: 141
+                percentVotes: 0.3
+              rawCandidateResults:
+              - partyId: NDP-New Democratic Party
+                resultType: preliminary
+                regionId: 10007
+                surname: Anonsen
+                middleName: 
+                givenName: Anne Marie
+                votes: 10703
+                percentVotes: 27.1
+              - partyId: Green Party
+                resultType: preliminary
+                regionId: 10007
+                surname: Hayward
+                middleName: 
+                givenName: Alexandra
+                votes: 717
+                percentVotes: 1.8
+              - partyId: Christian Heritage Party
+                resultType: preliminary
+                regionId: 10007
+                surname: Jones
+                middleName: 
+                givenName: David
+                votes: 137
+                percentVotes: 0.3
+              - partyId: Conservative
+                resultType: preliminary
+                regionId: 10007
+                surname: Martin
+                middleName: 
+                givenName: Terry
+                votes: 7537
+                percentVotes: 19.1
+              - partyId: Liberal
+                resultType: preliminary
+                regionId: 10007
+                surname: O'Regan
+                middleName: 
+                givenName: Seamus
+                votes: 20094
+                percentVotes: 50.9
+              - partyId: People's Party
+                resultType: preliminary
+                regionId: 10007
+                surname: Ruckpaul
+                middleName: 
+                givenName: Benjamin
+                votes: 326
+                percentVotes: 0.8
+              - partyId: NDP-New Democratic Party
+                resultType: validated
+                regionId: 10007
+                surname: Anonsen
+                middleName: 
+                givenName: Anne Marie
+                votes: 10890
+                percentVotes: 26.8
+              - partyId: Green Party
+                resultType: validated
+                regionId: 10007
+                surname: Hayward
+                middleName: 
+                givenName: Alexandra
+                votes: 740
+                percentVotes: 1.8
+              - partyId: Christian Heritage Party
+                resultType: validated
+                regionId: 10007
+                surname: Jones
+                middleName: 
+                givenName: David
+                votes: 141
+                percentVotes: 0.3
+              - partyId: Conservative
+                resultType: validated
+                regionId: 10007
+                surname: Martin
+                middleName: 
+                givenName: Terry
+                votes: 7767
+                percentVotes: 19.1
+              - partyId: Liberal
+                resultType: validated
+                regionId: 10007
+                surname: O'Regan
+                middleName: 
+                givenName: Seamus
+                votes: 20793
+                percentVotes: 51.1
+              - partyId: People's Party
+                resultType: validated
+                regionId: 10007
+                surname: Ruckpaul
+                middleName: 
+                givenName: Benjamin
+                votes: 335
+                percentVotes: 0.8
+              totalVotes: 39514
           population: 0
           districtResult:
             regionId: 

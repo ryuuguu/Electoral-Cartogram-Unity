@@ -17,6 +17,8 @@ public class UitHexGridMapCell : UitHex {
     public Texture2D centerRiding; 
     public Texture2D centerOther;  
     public bool isSquare = true;
+    public string localSpaceId;
+    public bool debugSubGridOff;
     
     public Image targetHighlight;
     public UitHex uitHex; 
@@ -42,10 +44,11 @@ public class UitHexGridMapCell : UitHex {
            //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
            
-           if ( !GameController.inst.isEditMode) {
+           if ( !GameController.inst.isEditMode && !debugSubGridOff) {
+               uitHex.style.unityBackgroundImageTintColor = Color.clear;
                subGridHolder = new VisualElement();
                uitHex.Add(subGridHolder);
-               ColorSubGrid(aRegionList, subGridHolder, isSquare);
+               ColorSubGrid(aRegionList, subGridHolder, isSquare,uitHex.transform.scale.x);
            }
            
        } else {
@@ -126,17 +129,27 @@ public class UitHexGridMapCell : UitHex {
     /// <summary>
     /// 
     /// </summary>
-    public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, bool isSquare) {
+    public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, bool isSquare, float coordScale) {
         int subGridSize = 91;
+        var holder = aParent;
         List<VisualElement> subHexes = new List<VisualElement>();
         if (isSquare) {
             subGridSize = 100;
             subHexes = MakeSquareSubHexes();
         }
         else {
-            subGridSize = 91; //91 for hex
+            holder = new VisualElement();
+            aParent.Add(holder);
+            holder.transform.rotation = Quaternion.Euler(0,0,30);
+            // need to shift holder because hex is placed using 
+            // top left not center
+            holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
             
-            return; //hex subgrid not implemented yet
+            //radius 5 gives 91 subhexes
+            subHexes = MakeSubHexes(holder, 5, coordScale);
+            //Debug.Log("aParent.transform.scale.x: "+aParent.transform.scale.x);
+            subGridSize = subHexes.Count;
+           
         }
         // need total votes 
         // sorted candidates 
@@ -160,8 +173,10 @@ public class UitHexGridMapCell : UitHex {
             
             for (; childIndex < maxIndex; childIndex++) {
                 var hex = subHexes[childIndex];
-                aParent.Add(hex);
-                hex.style.backgroundColor= color;
+                holder.Add(hex);
+                //hex.style.backgroundColor= color;
+                hex.style.backgroundImage = centerRiding;
+                hex.style.unityBackgroundImageTintColor = color;
                 
             }
             // Debug.Log("Subhex:" + childIndex + " : "  +hexDebug.transform.position + " : " 
@@ -169,6 +184,69 @@ public class UitHexGridMapCell : UitHex {
         }
     }
 
+        
+    public List<VisualElement>  ColorSubGrid( VisualElement aParent, bool isSquare) {
+        var holder = new VisualElement();
+        aParent.Add(holder);
+        holder.transform.rotation = Quaternion.Euler(0,0,30);
+        // need to shift holder because hex is placed using 
+        // top left not center
+        holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
+        List<VisualElement> subHexes = new List<VisualElement>();
+        //radius 5 gives 91 subhexes
+        subHexes = MakeSubHexes(holder, 5, aParent.transform.scale.x);
+        
+        var color = new Color(0, 1, 1, 1f);
+        foreach(var hex in subHexes){
+            holder.Add(hex);
+            hex.style.backgroundImage = centerRiding;
+            hex.style.unityBackgroundImageTintColor = color;
+        }
+
+        return subHexes;
+    }
+    
+    public List<Vector3> ConstructMegaHex(int radius) {
+        //needs to be re-ordered by rings 
+        var result = new List<Vector3>();
+        for (int y = -radius; y <= radius; y++) {
+            for (int x = -radius; x <= radius; x++) {
+            
+                for (int z = -radius; z <= radius; z++) {
+                    if ((x + y + z) == 0) {
+                        result.Add(new Vector3(x, y, z));
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    UitSubHex MakeSubHex(Vector3 coord, float hexScale, float coordScale, Vector2 offset) {
+        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
+        var location = CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls, offset);
+        return MakeSubHex( location*coordScale, Vector3.one *hexScale);
+    }
+
+    List<VisualElement> MakeSubHexes(VisualElement parent, int radius, float coordScale ) {
+        var result = new List<VisualElement>();
+        var coords = ConstructMegaHex(radius);
+        foreach (var coord in coords) {
+           var hex =MakeSubHex(coord,1f / (2 * radius + 1f),
+               1f / ((coordScale )*(2 * radius + 1)),
+               new Vector2(0,0));
+           // need to shift hexes because sub hex is placed using 
+           // top left not center
+           hex.transform.position +=  new Vector3(1,1,0) * (-0.5f/(2*radius+1) );
+           
+           result.Add(hex);
+        }
+        return result;
+    }
+    
+
+    
+    
     //TODO: buttons
     /*
     public void ButtonPressed() {

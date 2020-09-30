@@ -2,6 +2,17 @@
 	
 NOW	 
   
+  seat hex needs to be made not visible
+    when voting is visible
+    or needs to be put on a separate layer
+        separate layer is probably beter less kludgy 
+    so need make a layer with emptyhexes?
+      or just make a ridinig have a base location and then have a 
+        seat VE
+        Vote VE
+      
+  
+  
     Make hex instead square  
         subhex
             circles - not yet 
@@ -18,16 +29,16 @@ NOW
 	
 	UitHexGridMapCell : UitHex 
 	    it also contains a UitHex 
-	        fixe this mess
+	        fix this mess
+	
+	
 	
 LATER	
+     make visibile
+     switch to square
      
+     box with info
             
-	 Make hex instead square   
-	    global mouse to hex or square coord
-	        hex use existing code
-	        square - ?
-	        circle-?
 	
 	Redesign
 		isSquare
@@ -41,6 +52,9 @@ LATER
 				IStyle.display
 		
 	Bugs
+	    check isSquare map actually correct?
+	    check with colorbackground or colorTint
+	
 		why does it need regionList serialized in scene?
 			why not just use mapdata & election data?	
 			  

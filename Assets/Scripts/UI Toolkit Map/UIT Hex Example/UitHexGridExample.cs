@@ -61,8 +61,8 @@ public class UitHexGridExample : UitHexGrid {
         // top left not center
         holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
         List<VisualElement> subHexes = new List<VisualElement>();
-
         subHexes = MakeSubHexes(holder, subHexRadius, aParent.transform.scale.x);
+        Debug.Log(subHexes.Count);
         var color = new Color(0, 1, 1, 1f);
         foreach(var hex in subHexes){
             holder.Add(hex);
@@ -73,7 +73,7 @@ public class UitHexGridExample : UitHexGrid {
         return subHexes;
     }
     
-    public List<Vector3> Construct(int radius) {
+    public List<Vector3> ConstructMegaHex(int radius) {
         //needs to be re-ordered by rings 
         var result = new List<Vector3>();
         for (int x = -radius; x <= radius; x++) {
@@ -96,7 +96,7 @@ public class UitHexGridExample : UitHexGrid {
 
     List<VisualElement> MakeSubHexes(VisualElement parent, int radius, float coordScale ) {
         var result = new List<VisualElement>();
-        var coords = Construct(radius);
+        var coords = ConstructMegaHex(radius);
         foreach (var coord in coords) {
            var hex =MakeSubHex(coord,1f / (2 * radius + 1f),
                1f / ((coordScale )*(2 * radius + 1)),
