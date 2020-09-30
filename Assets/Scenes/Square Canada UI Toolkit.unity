@@ -2337,15 +2337,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
-  isSquare: 1
+  isSquare: 0
   hexRadius: 39
   hexScalefactor: 1.9
   offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0
   localSpaceId: 
+  debugSubGridOff: 0
   hexBackground: {fileID: 2800000, guid: 1caa50e96f9ce412aa5de61d419bdd13, type: 3}
   squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
-  mapSize: {x: 1600, y: 900}
+  subHexScale: 1.1
+  mapSize: {x: 1600, y: 800}
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0

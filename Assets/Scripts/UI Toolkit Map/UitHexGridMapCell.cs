@@ -18,7 +18,7 @@ public class UitHexGridMapCell : UitHex {
     public Texture2D centerOther;  
     public bool isSquare = true;
     public string localSpaceId;
-    public bool debugSubGridOff;
+    public float subHexScale;
     
     public Image targetHighlight;
     public UitHex uitHex; 
@@ -44,7 +44,7 @@ public class UitHexGridMapCell : UitHex {
            //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
            
-           if ( !GameController.inst.isEditMode && !debugSubGridOff) {
+           if ( !GameController.inst.isEditMode ) {
                uitHex.style.unityBackgroundImageTintColor = Color.clear;
                subGridHolder = new VisualElement();
                uitHex.Add(subGridHolder);
@@ -146,8 +146,7 @@ public class UitHexGridMapCell : UitHex {
             holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
             
             //radius 5 gives 91 subhexes
-            subHexes = MakeSubHexes(holder, 5, coordScale);
-            //Debug.Log("aParent.transform.scale.x: "+aParent.transform.scale.x);
+            subHexes = MakeSubHexes(holder, 5, coordScale,subHexScale);
             subGridSize = subHexes.Count;
            
         }
@@ -194,7 +193,7 @@ public class UitHexGridMapCell : UitHex {
         holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
         List<VisualElement> subHexes = new List<VisualElement>();
         //radius 5 gives 91 subhexes
-        subHexes = MakeSubHexes(holder, 5, aParent.transform.scale.x);
+        subHexes = MakeSubHexes(holder, 5, aParent.transform.scale.x,subHexScale);
         
         var color = new Color(0, 1, 1, 1f);
         foreach(var hex in subHexes){
@@ -228,12 +227,12 @@ public class UitHexGridMapCell : UitHex {
         return MakeSubHex( location*coordScale, Vector3.one *hexScale);
     }
 
-    List<VisualElement> MakeSubHexes(VisualElement parent, int radius, float coordScale ) {
+    List<VisualElement> MakeSubHexes(VisualElement parent, int radius, float coordScale,float scaleHex ) {
         var result = new List<VisualElement>();
         var coords = ConstructMegaHex(radius);
         foreach (var coord in coords) {
-           var hex =MakeSubHex(coord,1f / (2 * radius + 1f),
-               1f / ((coordScale )*(2 * radius + 1)),
+           var hex =MakeSubHex(coord,1f*scaleHex / (2 * radius + 1f),
+               1f /((coordScale )*(2 * radius + 1)),
                new Vector2(0,0));
            // need to shift hexes because sub hex is placed using 
            // top left not center

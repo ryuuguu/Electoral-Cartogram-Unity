@@ -89,7 +89,8 @@ public class UitHexGrid :MonoBehaviour {
     /// </summary>
     /// <param name="coord"></param>
     /// <returns></returns>
-    protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null) {
+    protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null, float aHexScalefactor = 0) {
+        aHexScalefactor = aHexScalefactor == 0 ? hexScalefactor : aHexScalefactor;
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
