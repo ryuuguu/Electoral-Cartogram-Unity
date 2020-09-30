@@ -36,7 +36,7 @@ public class UitHexMapGrid : UitHexGrid {
                 localSpaceId = localSpaceId,
                 subHexScale = subHexScale
         };
-        mapCell.uitHex = uitHex;
+        mapCell.uitCell = uitHex;
         var subgridHolder = mapCell.SetRegion(rl);
         if (subgridHolder != null) {
             subGridHolders.Add(subgridHolder);

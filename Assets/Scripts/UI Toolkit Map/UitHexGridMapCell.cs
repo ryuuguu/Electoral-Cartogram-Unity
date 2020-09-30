@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
+///why is this a uitHex to allow it to be store in some dictionary
+/// refactor this
 public class UitHexGridMapCell : UitHex {
     
     
@@ -21,40 +23,41 @@ public class UitHexGridMapCell : UitHex {
     public float subHexScale;
     
     public Image targetHighlight;
-    public UitHex uitHex; 
+    public UitHex uitCell; //why is this hex? to get location and scale correct
     
-    //TODO: port Subgrid
-    //public UIHexGridOrdered prefabSubGrid;
-    //public UIHexGridOrdered subGrid;
-   // public Transform subGridHolder;
-   
-   // public int subGridPosition = 7;
+    // holders are used to make graphic visible or not
+    public VisualElement voteHolder;
+    public UitSubHex seatHolder;
     
    public VisualElement SetRegion(RegionList aRegionList) {
        VisualElement subGridHolder = null;
        regionList = aRegionList;
        if (regionList.isRiding) {
-           uitHex.style.backgroundImage = centerRiding;
+           //add seat holder and 
+           // should it be sub hex?
+           seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
+           seatHolder.style.backgroundImage = centerRiding;
+           uitCell.Add(seatHolder);
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
             
            // need to set this style.background color 
            //uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
-           uitHex.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
+           seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
            //uitHex.style.backgroundColor = Color.clear;
            //should this be a different class or save some attribute so I can filter to find?
            //or just store a ref in dictionary
            
            if ( !GameController.inst.isEditMode ) {
-               uitHex.style.unityBackgroundImageTintColor = Color.clear;
-               subGridHolder = new VisualElement();
-               uitHex.Add(subGridHolder);
-               ColorSubGrid(aRegionList, subGridHolder, isSquare,uitHex.transform.scale.x);
+               seatHolder.visible = false; //testing hack
+               voteHolder = new VisualElement();
+               uitCell.Add(voteHolder);
+               ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
            }
            
        } else {
             
-           uitHex.style.backgroundImage = centerRiding;
-           uitHex.style.unityBackgroundImageTintColor = regionList.color;
+           uitCell.style.backgroundImage = centerRiding;
+           uitCell.style.unityBackgroundImageTintColor = regionList.color;
        }
 
        return subGridHolder;

@@ -2,7 +2,7 @@
 	
 NOW	 
   
-  separe 
+  still need separate layer for votes and seats 
   
   seat hex needs to be made not visible
     when voting is visible
