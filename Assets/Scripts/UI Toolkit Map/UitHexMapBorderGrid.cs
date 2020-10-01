@@ -12,7 +12,7 @@ public class UitHexMapBorderGrid : UitHexBorderGrid {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
         localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, Vector2.one, CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
-        var coordList = cubeCoordinates.Construct(2);
+        var coordList = cubeCoordinates.Construct(3);
         MakeAllHexBorders(localSpaceId);
     }
 }

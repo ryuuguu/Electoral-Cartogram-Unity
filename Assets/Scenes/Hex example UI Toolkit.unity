@@ -371,11 +371,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
-  hexRadius: 100
-  hexScaleFactor: 2
-  offsetCoord: {x: 4, y: -4}
+  hexRadius: 200
+  hexScaleFactor: 2.2
+  offsetCoord: {x: 2, y: -2}
   localSpaceId: 
-  superHexRadius: 1
+  superHexRadius: 2
 --- !u!4 &1132553384
 Transform:
   m_ObjectHideFlags: 0
@@ -421,10 +421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellBackground: {fileID: 2800000, guid: 1caa50e96f9ce412aa5de61d419bdd13, type: 3}
   isSquare: 0
-  hexRadius: 100
-  hexScalefactor: 1.9
-  offsetCoord: {x: 4, y: -4}
-  squareScaleHeightHack: 0.001
+  hexRadius: 200
+  hexScalefactor: 2
+  offsetCoord: {x: 2, y: -2}
+  squareScaleHeightHack: 0
   localSpaceId: 
   superHexRadius: 1
   subHexRadius: 1
