@@ -11,11 +11,11 @@ using Random = UnityEngine.Random;
 /// Very similar to UitHexGrid but handles placing the from 0 to 6 borders around a hex.
 /// </summary>
 public class UitHexBorderGrid :MonoBehaviour {
-
-    public Texture2D cellBackground;
+    
     public Texture2D borderImage;
     
     public float hexRadius = 50f;
+    public float hexScaleFactor = 2;
     public Vector2 offsetCoord =new Vector2(4,-3);
     protected float borderOffsetX; //calculated from hexRadius
     protected float borderOffsetY;  //calculated from hexRadius
@@ -40,12 +40,13 @@ public class UitHexBorderGrid :MonoBehaviour {
         borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
     }
     
-    private HexBorder  MakeHexBorder(Vector2 location, VisualElement aHolder) {
+    private HexBorder  MakeHexBorder(Vector2 location, Vector3 scale, VisualElement aHolder) {
         //radius is to vertex not center of an edge
         // offset needs to be distance to center of the edge
         
         HexBorder hexBorder = new HexBorder();
         hexBorder.borderholder = new VisualElement();
+        hexBorder.borderholder.transform.position = (Vector3) location;
         hexBorder.borders = new VisualElement[6];
         for (int i = 0; i < 6; i++) {
             var border1 = new VisualElement();
@@ -54,16 +55,17 @@ public class UitHexBorderGrid :MonoBehaviour {
             border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0);
             
             var border2 = new VisualElement();
+            border2.transform.scale = scale;
             border2.pickingMode = PickingMode.Ignore; // border will not receive or block mouse clicks
             border1.Add(border2);
             border2.EnableInClassList("HexGrid-Hex-Border", true);
+            border2.AddToClassList("Border");
             var image = new Image();
             border2.Add(image);
             hexBorder.borders[i] = border2;
-            //border2.style.backgroundImage = borderImage;
+            border2.style.backgroundImage = borderImage;
             border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0);
         }
-        hexBorder.borderholder.transform.position = (Vector3) location;
         return hexBorder;
     }
     
@@ -73,9 +75,10 @@ public class UitHexBorderGrid :MonoBehaviour {
         if (!borders.ContainsKey(localSpaceId)) {
             borders[aLocalSpaceId] = new Dictionary<Vector3, HexBorder>();
         }
+        var scale = Vector3.one * ls.gameScale*hexScaleFactor;
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-            var hexBorder = MakeHexBorder(localCoord, borderHolder);
+            var hexBorder = MakeHexBorder(localCoord,scale, borderHolder);
             borders[aLocalSpaceId][coord.cubeCoord] = hexBorder;
             borderHolder.Add(hexBorder.borderholder);
         }

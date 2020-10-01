@@ -62,7 +62,6 @@ public class UitHexGridExample : UitHexGrid {
         holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
         List<VisualElement> subHexes = new List<VisualElement>();
         subHexes = MakeSubHexes(holder, subHexRadius, aParent.transform.scale.x);
-        Debug.Log(subHexes.Count);
         var color = new Color(0, 1, 1, 1f);
         foreach(var hex in subHexes){
             holder.Add(hex);

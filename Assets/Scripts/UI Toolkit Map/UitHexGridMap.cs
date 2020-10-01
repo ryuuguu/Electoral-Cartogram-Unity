@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class UitHexGridMap : MonoBehaviour {
     public UitHexMapGrid mapGrid;
+    public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
@@ -65,6 +66,9 @@ public class UitHexGridMap : MonoBehaviour {
         borderHolder = new VisualElement();
         borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
         mapHolder.Add(borderHolder);
+        uitHexBorderGrid.Init(borderHolder);
+        uitHexBorderGrid.SetupHexBorders();
+        
     }
 
     private void GeometryChange(Rect screenRect) {
@@ -146,18 +150,14 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     void Update() {
+        
         if (delayMapBuild == 0) {
             MapBuild();
+            var votes = hexHolder.Query<VisualElement>(className: "Votes");
+            //votes.ForEach(element => element.visible = false);
         }
         delayMapBuild--;
         
-        /*
-        if (delayMaplayout== -1) {
-            DebugHexPos();
-        }
-        delayMaplayout--;
-        */
-
         // todo: handle mouse
         /*
         var mouseCoord = mapGrid.Mouse2Coord();
@@ -264,13 +264,6 @@ public class UitHexGridMap : MonoBehaviour {
     
     public void MakeMapFromData() {
         //todo: mapCell.SetBorder();
-       
-       
-        
-        
-        Debug.Log("Hacking mapdata here");
-        
-        
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {

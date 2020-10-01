@@ -23,13 +23,13 @@ public class UIDocExampleManager : MonoBehaviour {
         quickToolVisualTree.CloneTree(root);
 
         //this acts as visual "Layer"
-        hexHolder = new VisualElement();
-        //hexHolder.style.
-        root.Add(hexHolder);
-        uitHexGrid.Init(hexHolder);
-        
-        uitHexGrid.SetupHexes();
-        
+        if (uitHexGrid != null) {
+            hexHolder = new VisualElement();
+            root.Add(hexHolder);
+            uitHexGrid.Init(hexHolder);
+            uitHexGrid.SetupHexes();
+        }
+
         // adding borderHolder after hexHolder
         // places all borders over all hexes
         if (uitHexBorderGrid != null) {
@@ -40,4 +40,23 @@ public class UIDocExampleManager : MonoBehaviour {
         }
 
     }
+
+    public void ShowDebug() {
+        root.Query(className: "Hex").ForEach(element => Debug.Log("Hex: " + element.worldBound));
+        root.Query(className: "Border").ForEach(element => Debug.Log("Border: " + element.worldBound));
+
+    }
+    
+
+    // should on Gemotry change instead
+    private int debugDelay = 3;
+    public void Update() {
+        if (debugDelay == 0) {
+            ShowDebug();
+
+        }
+
+        debugDelay--;
+    }
+    
 }

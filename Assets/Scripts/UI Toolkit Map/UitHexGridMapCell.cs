@@ -16,11 +16,13 @@ public class UitHexGridMapCell : UitHex {
     
     public RegionList regionList;
 
-    public Texture2D centerRiding; 
-    public Texture2D centerOther;  
+    //todo: make below static
+    //below should be   ===static== 
+    public Texture2D centerRiding;
     public bool isSquare = true;
     public string localSpaceId;
     public float subHexScale;
+    //above should be   ===static== 
     
     public Image targetHighlight;
     public UitHex uitCell; //why is this hex? to get location and scale correct
@@ -33,23 +35,14 @@ public class UitHexGridMapCell : UitHex {
        VisualElement subGridHolder = null;
        regionList = aRegionList;
        if (regionList.isRiding) {
-           //add seat holder and 
-           // should it be sub hex?
            seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
            seatHolder.style.backgroundImage = centerRiding;
            uitCell.Add(seatHolder);
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
-            
-           // need to set this style.background color 
-           //uitHex.style.backgroundColor = PartyController.GetPartyData(partyId).color;
            seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
-           //uitHex.style.backgroundColor = Color.clear;
-           //should this be a different class or save some attribute so I can filter to find?
-           //or just store a ref in dictionary
-           
            if ( !GameController.inst.isEditMode ) {
-               seatHolder.visible = false; //testing hack
                voteHolder = new VisualElement();
+               voteHolder.AddToClassList("Votes");
                uitCell.Add(voteHolder);
                ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
            }

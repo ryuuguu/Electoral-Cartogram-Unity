@@ -80,6 +80,7 @@ public class UitHexGrid :MonoBehaviour {
     public UitHex MakeUitHex() {
         var hex = new UitHex();
         hex.EnableInClassList("HexGrid-Hex", true);
+        hex.AddToClassList("Hex");
         return hex;
     }
     
