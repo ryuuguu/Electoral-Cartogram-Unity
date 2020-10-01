@@ -29,7 +29,7 @@ public class UitHexBorderGrid :MonoBehaviour {
     public VisualElement borderHolder;
 
     public struct HexBorder {
-        public VisualElement borderholder;
+        public VisualElement borderCenter;
         public VisualElement[] borders;
     }
     public Dictionary<string,Dictionary<Vector3, HexBorder>> borders = new Dictionary<string,Dictionary<Vector3, HexBorder>>();
@@ -38,6 +38,7 @@ public class UitHexBorderGrid :MonoBehaviour {
         borderHolder = aHexHolder;
         borderOffsetX = -1*hexRadius / 2;
         borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
+
     }
     
     private HexBorder  MakeHexBorder(Vector2 location, Vector3 scale, VisualElement aHolder) {
@@ -45,17 +46,23 @@ public class UitHexBorderGrid :MonoBehaviour {
         // offset needs to be distance to center of the edge
         
         HexBorder hexBorder = new HexBorder();
-        hexBorder.borderholder = new VisualElement();
-        hexBorder.borderholder.transform.position = (Vector3) location;
+        hexBorder.borderCenter = new VisualElement();
+        hexBorder.borderCenter.transform.position = 
+            (Vector3) location +
+            new Vector3(hexRadius/2f,hexRadius/2f,0)*(1- hexScaleFactor/2f); ;
+        
+        
         hexBorder.borders = new VisualElement[6];
         for (int i = 0; i < 6; i++) {
             var border1 = new VisualElement();
-            hexBorder.borderholder.Add(border1);
+            hexBorder.borderCenter.Add(border1);
             border1.transform. rotation = Quaternion.Euler(0,0,60*i); 
-            border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0);
+            border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0)*(hexScaleFactor/2f);
+            
             
             var border2 = new VisualElement();
             border2.transform.scale = scale;
+            
             border2.pickingMode = PickingMode.Ignore; // border will not receive or block mouse clicks
             border1.Add(border2);
             border2.EnableInClassList("HexGrid-Hex-Border", true);
@@ -64,7 +71,7 @@ public class UitHexBorderGrid :MonoBehaviour {
             border2.Add(image);
             hexBorder.borders[i] = border2;
             border2.style.backgroundImage = borderImage;
-            border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0);
+            border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0)*(hexScaleFactor/2f);
         }
         return hexBorder;
     }
@@ -80,7 +87,7 @@ public class UitHexBorderGrid :MonoBehaviour {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
             var hexBorder = MakeHexBorder(localCoord,scale, borderHolder);
             borders[aLocalSpaceId][coord.cubeCoord] = hexBorder;
-            borderHolder.Add(hexBorder.borderholder);
+            borderHolder.Add(hexBorder.borderCenter);
         }
     }
 }

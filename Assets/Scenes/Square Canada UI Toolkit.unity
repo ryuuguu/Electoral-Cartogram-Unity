@@ -5654,9 +5654,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff5030becb5a46a08b85afd9db0762f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBackground: {fileID: 0}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   hexRadius: 50
+  hexScaleFactor: 2
   offsetCoord: {x: 15, y: -15}
   localSpaceId: 
 --- !u!4 &1132553384
@@ -7506,10 +7506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612b9198e74134390b6b6f185c1a49f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBackground: {fileID: 0}
-  borderImage: {fileID: 2800000, guid: 1caa50e96f9ce412aa5de61d419bdd13, type: 3}
+  borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   hexRadius: 39
-  offsetCoord: {x: 0, y: 0}
+  hexScaleFactor: 2
+  offsetCoord: {x: 20, y: 0}
   localSpaceId: 
 --- !u!114 &1436845647
 MonoBehaviour:

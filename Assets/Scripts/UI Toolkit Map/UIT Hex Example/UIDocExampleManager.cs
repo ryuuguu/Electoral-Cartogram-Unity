@@ -47,7 +47,7 @@ public class UIDocExampleManager : MonoBehaviour {
 
     }
     
-
+/*
     // should on Gemotry change instead
     private int debugDelay = 3;
     public void Update() {
@@ -58,5 +58,5 @@ public class UIDocExampleManager : MonoBehaviour {
 
         debugDelay--;
     }
-    
+    */
 }
