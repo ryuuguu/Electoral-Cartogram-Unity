@@ -14,6 +14,7 @@ public class UitHexMapGrid : UitHexGrid {
     
     public Texture2D hexBackground;
     public Texture2D squareBackgound;
+    public Texture2D borderImage;
     public float subHexScale;
     
     public Vector2 mapSize = new Vector2(1600,800);
@@ -34,10 +35,11 @@ public class UitHexMapGrid : UitHexGrid {
             centerRiding = isSquare? squareBackgound : hexBackground,
                 isSquare = isSquare,
                 localSpaceId = localSpaceId,
-                subHexScale = subHexScale
+                subHexScale = subHexScale,
+                borderImage = borderImage
         };
         mapCell.uitCell = uitHex;
-        var subgridHolder = mapCell.SetRegion(rl);
+        var subgridHolder = mapCell.SetRegion(rl, v3);
         if (subgridHolder != null) {
             subGridHolders.Add(subgridHolder);
         }

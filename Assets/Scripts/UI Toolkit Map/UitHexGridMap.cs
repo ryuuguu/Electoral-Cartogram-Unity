@@ -66,8 +66,8 @@ public class UitHexGridMap : MonoBehaviour {
         borderHolder = new VisualElement();
         borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
         mapHolder.Add(borderHolder);
-        uitHexBorderGrid.Init(borderHolder);
-        uitHexBorderGrid.SetupHexBorders();
+//        uitHexBorderGrid.Init(borderHolder);
+//        uitHexBorderGrid.SetupHexBorders();
         
     }
 

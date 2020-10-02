@@ -7,7 +7,6 @@ using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
-using Image = UnityEngine.UI.Image;
 
 ///why is this a uitHex to allow it to be store in some dictionary
 /// refactor this
@@ -19,29 +18,59 @@ public class UitHexGridMapCell : UitHex {
     //todo: make below static
     //below should be   ===static== 
     public Texture2D centerRiding;
+    public Texture2D borderImage;
     public bool isSquare = true;
     public string localSpaceId;
     public float subHexScale;
     //above should be   ===static== 
     
-    public Image targetHighlight;
+  
     public UitHex uitCell; //why is this hex? to get location and scale correct
     
     // holders are used to make graphic visible or not
     public VisualElement voteHolder;
     public UitSubHex seatHolder;
+    public VisualElement borderHolder;
     
-   public VisualElement SetRegion(RegionList aRegionList) {
+    //border stuff
+    //move to static  or up to top of mapgrid
+    protected float borderOffsetX; //calculated from hexRadius
+    protected float borderOffsetY;  //calculated from hexRadius
+
+    protected float hexRadius; //temp  remove later 
+    protected float borderScaleFactor = 1.1f; // should be set in map
+    
+    
+   public VisualElement SetRegion(RegionList aRegionList, Vector3 cubeCoord) {
+       //move to static
+       // or just calc from uitHex width
+       
+       
+       
+       
        VisualElement subGridHolder = null;
        regionList = aRegionList;
+       
+       //this used to be excluded when in editor
        if (regionList.isRiding) {
+           hexRadius = uitCell.transform.scale.x;
+           borderOffsetX = -1*hexRadius / 2;
+           borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
+           
+           // important border must show on top of seat & votes
+           // is creating seat here a problem
+           // maybe in edit mode
            seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
            seatHolder.style.backgroundImage = centerRiding;
            uitCell.Add(seatHolder);
+           voteHolder = new VisualElement();
+           uitCell.Add(voteHolder);
+           borderHolder = new VisualElement();
+           uitCell.Add(borderHolder);
+           
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
            seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
            if ( !GameController.inst.isEditMode ) {
-               voteHolder = new VisualElement();
                voteHolder.AddToClassList("Votes");
                uitCell.Add(voteHolder);
                ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
@@ -72,7 +101,7 @@ public class UitHexGridMapCell : UitHex {
                 pos = new Vector3(i, j, 1);
                pos.Scale(scale);
                result.Add(MakeSubHex( pos,scale));
-           }
+            }
        }
        return result;
    }
@@ -87,14 +116,12 @@ public class UitHexGridMapCell : UitHex {
        return hex;
    }
    
-   
-   
-    //TODO: set borders
-    /*
-    public void SetBorder() {
+    public List<Color> BorderList (Vector3 cubeCoord) {
         
+        var colors = new List<Color>();
         for (int i = 0;i<6;i++) {
             int border = -1;
+            colors.Add(Color.clear);
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
             var otherCell = UIHexGridMap.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
@@ -108,22 +135,61 @@ public class UitHexGridMapCell : UitHex {
             }
 
             if (border >= 0) {
-                edges[i].color = RegionController.inst.borderColors[border];
+                colors[i] = RegionController.inst.borderColors[border];
                 otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
                 //Debug.Log( "Draw: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
             }
-            edges[i].gameObject.SetActive(border >= 0);
-            otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
+           
+            // this makes a double wid border against non riding cells 
+            // is it needed?
+            //otherCell.edges[(i+3)%6].gameObject.SetActive(border >= 0);
             
+        }
+
+        return colors;
+    }
+    
+    
+    
+    private void  MakeHexBorder(Vector3 cubeCoord, Vector3 scale, VisualElement aHolder) {
+        //radius is to vertex not center of an edge
+        // offset needs to be distance to center of the edge
+        
+        
+        var borderCenter = new VisualElement();
+        aHolder.Add(borderCenter);
+        borderCenter.transform.position =     // this for centering
+            new Vector3(hexRadius / 2f, hexRadius / 2f, 0); // I think adjustment is not needed 
+        //because it was needed because hexes were a bit oof center
+        //*(1- hexScaleFactor/2f); ;
+
+        var borderList = BorderList(cubeCoord);
+        
+        for (int i = 0; i < 6; i++) {
+            if (borderList[i] == Color.clear) continue;
+            var border1 = new VisualElement();
+            borderCenter.Add(border1);
+            border1.transform. rotation = Quaternion.Euler(0,0,60*i); 
+            border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0)*borderScaleFactor;
+            
+            var border2 = new VisualElement();
+            border2.transform.scale = scale;
+            
+            border2.pickingMode = PickingMode.Ignore; // border will not receive or block mouse clicks
+            border1.Add(border2);
+            border2.EnableInClassList("HexGrid-Hex-Border", true);
+            border2.AddToClassList("Border");
+            var image = new Image();
+            border2.Add(image);
+            border2.style.backgroundImage = borderImage;
+            border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0)*borderScaleFactor;
         }
         
     }
-    */
     
     
-    //TODO: port Subgrid
     /// <summary>
-    /// 
+    /// Make a square subgrid
     /// </summary>
     public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, bool isSquare, float coordScale) {
         int subGridSize = 91;

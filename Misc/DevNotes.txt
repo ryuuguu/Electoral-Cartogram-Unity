@@ -2,15 +2,21 @@
 	
 NOW	 
   
- border size needs to be mulitpled by heax scale
- also anle is wron and positon is wrong
+border where it turns a border now
+  create border
+  need create border feature
+    need location (hex) and border side
+    if hex already exist do not create another
+  find build border feature
+
 
 next build hex vote & borders
   turn vote button on 
 
-
+why is border not on cell
+    oops
    
-border 	
+ 	
 	
 	
 LATER	
