@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class UitHexGridMap : MonoBehaviour {
     public UitHexMapGrid mapGrid;
+    public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
@@ -26,8 +27,7 @@ public class UitHexGridMap : MonoBehaviour {
     
     private int delayMapBuild = 1;
     private int delayMaplayout = -2;
-    private Rect layoutRect= new Rect();
-
+    
     bool inRiding = false;
     UIHexGridMapCell prevCell = null;
     UIHexGridMapCell prevSelectedCell = null;
@@ -64,9 +64,9 @@ public class UitHexGridMap : MonoBehaviour {
         
         borderHolder = new VisualElement();
         borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
-        mapHolder.Add(borderHolder);
-//        uitHexBorderGrid.Init(borderHolder);
-//        uitHexBorderGrid.SetupHexBorders();
+        mapHolder.Add(borderHolder); 
+        uitHexBorderGrid.Init(borderHolder);
+        uitHexBorderGrid.SetupHexBorders();
         
     }
 
@@ -276,9 +276,20 @@ public class UitHexGridMap : MonoBehaviour {
             }
         }
         mapGrid.MakeAllHexes(mapGrid.localSpaceId);
+        
         foreach (var mapCell in cellDict.Values) {
-            mapCell.MakeHexBorder();
+            var colors = mapCell.BorderList();
+            int i = 0;
+            foreach (var c in colors) {
+                if (c != Color.clear) {
+                    Debug.Log("MakeMapFromData: " + mapCell.cubeCoord + " : "+ i + " : " + c);
+                }
+
+                i++;
+            }
+            uitHexBorderGrid.MakeHexBorders(uitHexBorderGrid.localSpaceId,mapCell.cubeCoord,colors); 
         }
+        
     }
 
     public static UitHexGridMapCell GetRidingCellAt(Vector3 cubeCoord) {

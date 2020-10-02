@@ -47,19 +47,8 @@ public class UitHexGridMapCell : UitHex {
        
        regionList = aRegionList;
        cubeCoord = aCubeCoord;
-      
-       
-       
-       
-       
        //this used to be excluded when in editor
        if (regionList.isRiding) {
-           //move to static
-           // or just calc from uitHex width
-           hexRadius = uitCell.transform.scale.x;
-           borderOffsetX = -1*hexRadius / 2;
-           borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
-           
            // important border must show on top of seat & votes
            // is creating seat here a problem
            seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
@@ -80,10 +69,11 @@ public class UitHexGridMapCell : UitHex {
            uitCell.style.backgroundImage = centerRiding;
            uitCell.style.unityBackgroundImageTintColor = regionList.color;
        }
-       
+       /*
        //borderholder is assigned last so it is drawn on top 
        borderHolder = new VisualElement();
        uitCell.Add(borderHolder);
+       */
    }
 
    /// <summary>
@@ -117,8 +107,7 @@ public class UitHexGridMapCell : UitHex {
        return hex;
    }
    
-    public List<Color> BorderList (Vector3 cubeCoord) {
-        
+    public List<Color> BorderList () {
         var colors = new List<Color>();
         for (int i = 0;i<6;i++) {
             int border = -1;
@@ -151,32 +140,43 @@ public class UitHexGridMapCell : UitHex {
     }
     
     public void  MakeHexBorder() {
-        
         // is scale needed?
         //Vector3 scale,
         //radius is to vertex not center of an edge
         // offset needs to be distance to center of the edge
         
+        var borderList = BorderList();
+
+        MakeHexBorder(borderList);
+    }
+
+    public void MakeHexBorder(List<Color> borderList) {
+        //move to static
+        // or just calc from uitHex width
+        hexRadius = uitCell.transform.scale.x;
+        Debug.Log("hexRadius: "+ hexRadius);
+        borderOffsetX = -1*hexRadius / 2;
+        borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
+        
         
         var borderCenter = new VisualElement();
         borderHolder.Add(borderCenter);
-        borderCenter.transform.position =     // this for centering
+        borderCenter.transform.position = // this for centering
             new Vector3(hexRadius / 2f, hexRadius / 2f, 0); // I think adjustment is not needed 
         //because it was needed because hexes were a bit oof center
         //*(1- hexScaleFactor/2f); ;
 
-        var borderList = BorderList(cubeCoord);
-        
+
         for (int i = 0; i < 6; i++) {
             if (borderList[i] == Color.clear) continue;
             var border1 = new VisualElement();
             borderCenter.Add(border1);
-            border1.transform. rotation = Quaternion.Euler(0,0,60*i); 
-            border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0)*borderScaleFactor;
-            
+            border1.transform.rotation = Quaternion.Euler(0, 0, 60 * i);
+            border1.transform.position = new Vector3(hexRadius / 2, hexRadius / 2, 0) * borderScaleFactor;
+            Debug.Log("HexMap border1.transform.position: " +border1.transform.position);
             var border2 = new VisualElement();
             //border2.transform.scale = scale;
-            
+
             border2.pickingMode = PickingMode.Ignore; // border will not receive or block mouse clicks
             border1.Add(border2);
             border2.EnableInClassList("HexGrid-Hex-Border", true);
@@ -184,12 +184,12 @@ public class UitHexGridMapCell : UitHex {
             var image = new Image();
             border2.Add(image);
             border2.style.backgroundImage = borderImage;
-            border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0)*borderScaleFactor;
+            border2.transform.position = new Vector3(borderOffsetX, borderOffsetY, 0) * borderScaleFactor;
+            Debug.Log("HexMap border2.transform.position: " +border2.transform.position);
         }
-        
     }
-    
-    
+
+
     /// <summary>
     /// Make a square subgrid
     /// </summary>

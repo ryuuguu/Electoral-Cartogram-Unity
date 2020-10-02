@@ -41,7 +41,7 @@ public class UitHexBorderGrid :MonoBehaviour {
 
     }
     
-    private HexBorder  MakeHexBorder(Vector2 location, Vector3 scale, VisualElement aHolder) {
+    private HexBorder  MakeHexBorder(Vector2 location, Vector3 scale, VisualElement aHolder, List<Color> colors) {
         //radius is to vertex not center of an edge
         // offset needs to be distance to center of the edge
         
@@ -54,6 +54,8 @@ public class UitHexBorderGrid :MonoBehaviour {
         
         hexBorder.borders = new VisualElement[6];
         for (int i = 0; i < 6; i++) {
+            if (colors[i] == Color.clear) continue;
+            
             var border1 = new VisualElement();
             hexBorder.borderCenter.Add(border1);
             border1.transform. rotation = Quaternion.Euler(0,0,60*i); 
@@ -72,6 +74,7 @@ public class UitHexBorderGrid :MonoBehaviour {
             hexBorder.borders[i] = border2;
             border2.style.backgroundImage = borderImage;
             border2.transform.position = new Vector3(borderOffsetX, borderOffsetY,0)*(hexScaleFactor/2f);
+            border2.style.unityBackgroundImageTintColor = colors[i];
         }
         return hexBorder;
     }
@@ -83,11 +86,30 @@ public class UitHexBorderGrid :MonoBehaviour {
             borders[aLocalSpaceId] = new Dictionary<Vector3, HexBorder>();
         }
         var scale = Vector3.one * ls.gameScale*hexScaleFactor;
+        List<Color> colors = new List<Color>() {
+            Color.white, Color.white,Color.white,
+            Color.white, Color.white,Color.white};
         foreach (var coord in allCoords) {
             var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(coord.cubeCoord, ls);
-            var hexBorder = MakeHexBorder(localCoord,scale, borderHolder);
+            var hexBorder = MakeHexBorder(localCoord,scale, borderHolder,colors);
             borders[aLocalSpaceId][coord.cubeCoord] = hexBorder;
             borderHolder.Add(hexBorder.borderCenter);
         }
+    }
+    
+    public void MakeHexBorders(string aLocalSpaceId, Vector3 cubeCoord, List<Color> colors) {
+        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
+        if (!borders.ContainsKey(localSpaceId)) {
+            borders[aLocalSpaceId] = new Dictionary<Vector3, HexBorder>();
+        }
+        //todo: refactor up
+        var scale =  ls.gameScale*hexScaleFactor * Vector3.one;
+        
+        var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(cubeCoord, ls);
+        var hexBorder = MakeHexBorder(localCoord,scale, borderHolder,colors);
+        
+        borders[aLocalSpaceId][cubeCoord] = hexBorder;
+        borderHolder.Add(hexBorder.borderCenter);
+    
     }
 }
