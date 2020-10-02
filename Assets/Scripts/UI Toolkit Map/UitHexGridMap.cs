@@ -8,7 +8,6 @@ using UnityEngine.UIElements;
 
 public class UitHexGridMap : MonoBehaviour {
     public UitHexMapGrid mapGrid;
-    public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
@@ -16,13 +15,13 @@ public class UitHexGridMap : MonoBehaviour {
     public Vector3 mapVEOffset;
     
     protected VisualElement root;
-
     
     protected VisualElement mapHolder;
     protected VisualElement hexHolder;
     protected VisualElement borderHolder;
     
-
+    public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
+    
     private VisualTreeAsset dummy;
     
     private int delayMapBuild = 1;
@@ -267,20 +266,26 @@ public class UitHexGridMap : MonoBehaviour {
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {
-                mapGrid.CreateCellRegion(cd.cubeCoord, rl);
+                var mapCell = mapGrid.CreateCellRegion(cd.cubeCoord, rl);
+                if (mapCell != null) {
+                    cellDict[cd.cubeCoord] = mapCell;
+                }
             }
             else {
                 Debug.Log("Region not found: "+ cd.regionID );
             }
         }
         mapGrid.MakeAllHexes(mapGrid.localSpaceId);
-        foreach (UitHex mapCell in mapGrid.hexes[mapGrid.localSpaceId].Values) {
-            
-            // set border is not going to work on UitHex
-            // need to do this separate border class like in UIDocExampleManager
-            // mapCell.SetBorder();
-
+        foreach (var mapCell in cellDict.Values) {
+            mapCell.MakeHexBorder();
         }
+    }
+
+    public static UitHexGridMapCell GetRidingCellAt(Vector3 cubeCoord) {
+        if (!cellDict.ContainsKey(cubeCoord)) {
+            return null;
+        }
+        return cellDict[cubeCoord];
     }
     
     public static void ClearHighLight() {

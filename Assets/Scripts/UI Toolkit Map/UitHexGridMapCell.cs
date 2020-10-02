@@ -14,6 +14,7 @@ public class UitHexGridMapCell : UitHex {
     
     
     public RegionList regionList;
+    public Vector3 cubeCoord;
 
     //todo: make below static
     //below should be   ===static== 
@@ -41,33 +42,31 @@ public class UitHexGridMapCell : UitHex {
     protected float borderScaleFactor = 1.1f; // should be set in map
     
     
-   public VisualElement SetRegion(RegionList aRegionList, Vector3 cubeCoord) {
-       //move to static
-       // or just calc from uitHex width
+   public void SetRegion(RegionList aRegionList, Vector3 aCubeCoord) {
        
        
-       
-       
-       VisualElement subGridHolder = null;
        regionList = aRegionList;
+       cubeCoord = aCubeCoord;
+      
+       
+       
+       
        
        //this used to be excluded when in editor
        if (regionList.isRiding) {
+           //move to static
+           // or just calc from uitHex width
            hexRadius = uitCell.transform.scale.x;
            borderOffsetX = -1*hexRadius / 2;
            borderOffsetY = hexRadius * Mathf.Cos(Mathf.PI / 3) / 2;
            
            // important border must show on top of seat & votes
            // is creating seat here a problem
-           // maybe in edit mode
            seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
            seatHolder.style.backgroundImage = centerRiding;
            uitCell.Add(seatHolder);
            voteHolder = new VisualElement();
            uitCell.Add(voteHolder);
-           borderHolder = new VisualElement();
-           uitCell.Add(borderHolder);
-           
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
            seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
            if ( !GameController.inst.isEditMode ) {
@@ -81,8 +80,10 @@ public class UitHexGridMapCell : UitHex {
            uitCell.style.backgroundImage = centerRiding;
            uitCell.style.unityBackgroundImageTintColor = regionList.color;
        }
-
-       return subGridHolder;
+       
+       //borderholder is assigned last so it is drawn on top 
+       borderHolder = new VisualElement();
+       uitCell.Add(borderHolder);
    }
 
    /// <summary>
@@ -123,7 +124,7 @@ public class UitHexGridMapCell : UitHex {
             int border = -1;
             colors.Add(Color.clear);
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
-            var otherCell = UIHexGridMap.GetCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
+            var otherCell = UitHexGridMap.GetRidingCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
             var otherHierarchy = RegionController.inst.regionList.HierarchyList(otherCell.regionList.id);
@@ -136,7 +137,7 @@ public class UitHexGridMapCell : UitHex {
 
             if (border >= 0) {
                 colors[i] = RegionController.inst.borderColors[border];
-                otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
+                //otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
                 //Debug.Log( "Draw: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
             }
            
@@ -149,15 +150,16 @@ public class UitHexGridMapCell : UitHex {
         return colors;
     }
     
-    
-    
-    private void  MakeHexBorder(Vector3 cubeCoord, Vector3 scale, VisualElement aHolder) {
+    public void  MakeHexBorder() {
+        
+        // is scale needed?
+        //Vector3 scale,
         //radius is to vertex not center of an edge
         // offset needs to be distance to center of the edge
         
         
         var borderCenter = new VisualElement();
-        aHolder.Add(borderCenter);
+        borderHolder.Add(borderCenter);
         borderCenter.transform.position =     // this for centering
             new Vector3(hexRadius / 2f, hexRadius / 2f, 0); // I think adjustment is not needed 
         //because it was needed because hexes were a bit oof center
@@ -173,7 +175,7 @@ public class UitHexGridMapCell : UitHex {
             border1.transform.position = new Vector3(hexRadius/2,hexRadius/2,0)*borderScaleFactor;
             
             var border2 = new VisualElement();
-            border2.transform.scale = scale;
+            //border2.transform.scale = scale;
             
             border2.pickingMode = PickingMode.Ignore; // border will not receive or block mouse clicks
             border1.Add(border2);

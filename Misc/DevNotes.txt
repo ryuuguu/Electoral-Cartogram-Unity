@@ -1,6 +1,15 @@
 
 	
 NOW	 
+
+Borders draw but are a complete mess
+
+draw a border around a single give cells
+    draw all 6 borders
+    just choose a cubecoord a
+    and draw 6 
+     
+
   
 border where it turns a border now
   create border
@@ -12,9 +21,8 @@ border where it turns a border now
 
 next build hex vote & borders
   turn vote button on 
-
 why is border not on cell
-    oops
+   
    
  	
 	

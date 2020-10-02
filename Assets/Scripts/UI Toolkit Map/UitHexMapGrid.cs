@@ -26,9 +26,9 @@ public class UitHexMapGrid : UitHexGrid {
         return cell;
     }
 
-    public  void CreateCellRegion(Vector3Int v3,RegionList rl) {
+    public  UitHexGridMapCell CreateCellRegion(Vector3Int v3,RegionList rl) {
         //hack to not draw WATER & USA because of speed problems
-        if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return;
+        if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return null;
         var uitHex = CreateCell(v3, false);
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell() {
@@ -39,11 +39,8 @@ public class UitHexMapGrid : UitHexGrid {
                 borderImage = borderImage
         };
         mapCell.uitCell = uitHex;
-        var subgridHolder = mapCell.SetRegion(rl, v3);
-        if (subgridHolder != null) {
-            subGridHolders.Add(subgridHolder);
-        }
-        
+        mapCell.SetRegion(rl, v3);
+        return mapCell;
     }
     
     //TODO* highlights

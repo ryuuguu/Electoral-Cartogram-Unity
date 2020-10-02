@@ -21,6 +21,7 @@ public class UIHexGridMap : MonoBehaviour {
 
     void Awake() {
         inst = this;
+        Debug.Log("Awake UIHexGridMap");
     }
     
     void Update() {
@@ -144,6 +145,8 @@ public class UIHexGridMap : MonoBehaviour {
     }
 
     public static UIHexGridMapCell GetCellAt(Vector3 v3) {
+        Debug.Log("inst "+(inst== null));
+        Debug.Log("inst.mapGrid "+ inst.mapGrid);
         return inst.mapGrid.GetCellAt(v3);
     }
 
