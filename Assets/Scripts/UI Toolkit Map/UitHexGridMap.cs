@@ -181,7 +181,7 @@ public class UitHexGridMap : MonoBehaviour {
         }
 
         prevCell = cell;
-*/
+        */
     }
     
     public void MapBuild() {

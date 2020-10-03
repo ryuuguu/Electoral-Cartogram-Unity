@@ -2,14 +2,38 @@
 	
 NOW	 
 
-next build hex vote & borders
-  turn vote button on 
-   
+    mapGrid.Mouse2Coord()
+        needs Screen Point To Panel
+            geometry
+            Screen to Panel
+            screen, geometry and scale
+    
+   public Vector3  Mouse2Coord() {
+           RectTransformUtility.ScreenPointToLocalPointInRectangle( holder
+               , Input.mousePosition, null, out var localPoint);
+           // convert rectTrans to plane coord  & round
+           return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPoint, localSpaceId));
+       }
    
  	
 	
 	
-LATER	
+LATER
+
+
+    Buttons
+        vote
+        language
+        
+    details box 
+       list
+       scroll
+      
+    mouse over hex
+        tooltip
+        click call detail
+        
+	
      make visibile
      switch to square
      
