@@ -74,10 +74,16 @@ public class UitHexGridMap : MonoBehaviour {
 
     private void MouseOver(Vector2 localMousePosition) {
 
-        var coord = mapGrid.Position2Coord(localMousePosition);
-        
-        Debug.Log("mouse: " + localMousePosition + " : " + 
-                  mapGrid.Position2Coord(localMousePosition));
+        var cubeCoord = mapGrid.Position2Coord(localMousePosition);
+        if (cellDict.ContainsKey(cubeCoord)) {
+            var regionList = cellDict[cubeCoord].regionList;
+            if (regionList.isRiding) {
+                var name = LanguageController.ChooseName(regionList.names);
+                Debug.Log("mouse: " + localMousePosition + " : " +
+                          name);
+            }
+        }
+
         /*
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
