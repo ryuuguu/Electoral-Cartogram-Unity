@@ -29,7 +29,7 @@ public class UIHexGridMap : MonoBehaviour {
             MapBuild();
         }
         delayMapBuild--;
-       
+       /*
         var mouseCoord = mapGrid.Mouse2Coord();
         var cell = GetCellAt(mouseCoord);
         if (cell != null) {
@@ -50,7 +50,7 @@ public class UIHexGridMap : MonoBehaviour {
         }
 
         prevCell = cell;
-
+*/
     }
     
     public void MapBuild() {

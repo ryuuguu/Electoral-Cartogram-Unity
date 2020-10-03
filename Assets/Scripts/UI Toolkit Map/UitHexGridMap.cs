@@ -58,6 +58,8 @@ public class UitHexGridMap : MonoBehaviour {
         
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
+        hexHolder.RegisterCallback<MouseMoveEvent>(
+            e => MouseOver( e.localMousePosition));
         hexHolder.transform.position = hexHolder.transform.position + mapVEOffset;
         mapHolder.Add(hexHolder);
         mapGrid.Init(hexHolder);
@@ -70,10 +72,40 @@ public class UitHexGridMap : MonoBehaviour {
         
     }
 
+    private void MouseOver(Vector2 localMousePosition) {
+
+        var coord = mapGrid.Position2Coord(localMousePosition);
+        
+        Debug.Log("mouse: " + localMousePosition + " : " + 
+                  mapGrid.Position2Coord(localMousePosition));
+        /*
+        var mouseCoord = mapGrid.Mouse2Coord();
+        var cell = GetCellAt(mouseCoord);
+        if (cell != null) {
+            if (!cell.regionList.isRiding) {
+                prevCell= null;
+                tooltip.Hide("");
+            } else {
+                if (cell != prevCell) {
+                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
+                        Input.mousePosition);
+                }
+                if (Input.GetMouseButtonDown(0)) {
+                    prevSelectedCell?.SetHighLight(false);
+                    cell.ButtonPressed();
+                    prevSelectedCell = cell;
+                }
+            }
+        }
+
+        prevCell = cell;
+        */
+    }
+    
     private void GeometryChange(Rect screenRect) {
         TopLevelLayout(screenRect);
     }
-
+    
     private void TopLevelLayout(Rect screenRect) {
         
         ScaleMapHolder(mapHolder, mapGrid.mapSize,
@@ -160,28 +192,7 @@ public class UitHexGridMap : MonoBehaviour {
         delayMapBuild--;
         
         // todo: handle mouse
-        /*
-        var mouseCoord = mapGrid.Mouse2Coord();
-        var cell = GetCellAt(mouseCoord);
-        if (cell != null) {
-            if (!cell.regionList.isRiding) {
-                prevCell= null;
-                tooltip.Hide("");
-            } else {
-                if (cell != prevCell) {
-                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
-                        Input.mousePosition);
-                }
-                if (Input.GetMouseButtonDown(0)) {
-                    prevSelectedCell?.SetHighLight(false);
-                    cell.ButtonPressed();
-                    prevSelectedCell = cell;
-                }
-            }
-        }
-
-        prevCell = cell;
-        */
+        
     }
     
     public void MapBuild() {

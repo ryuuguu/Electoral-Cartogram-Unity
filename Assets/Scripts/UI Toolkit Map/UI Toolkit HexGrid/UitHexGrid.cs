@@ -9,31 +9,32 @@ using UnityEngine.UIElements;
 /// :: Retrieve UitHex hexes[aLocalSpaceId][coord.cubeCoord] 
 /// 
 /// </summary>
-public class UitHexGrid :MonoBehaviour {
+public class UitHexGrid : MonoBehaviour {
 
     public Texture2D cellBackground;
     public bool isSquare = true;
 
     public float hexRadius = 50f;
     public float hexScalefactor = 1.8f; //2 would remove gap in most places but show artifact gaps
-    public Vector2 offsetCoord =new Vector2(4,-3);
+    public Vector2 offsetCoord = new Vector2(4, -3);
     public float squareScaleHeightHack = 0.004f;
-    
+
     public string localSpaceId;
-    
+
     protected static string AllToken;
-    
+
     // CubeCoordinates manages hexes in 3 a dimensional coordinate space
     // has utility functions like finding paths and translating between cube coordinates and 2D local space for drawing
     public CubeCoordinates cubeCoordinates = new CubeCoordinates();
-    
+
     public VisualElement hexHolder;
 
     // the initial string is a localSpaceID it allows multiple hex grids to handled separately 
     // inner dictionary is to find UI Toolkit elements from their coordinates
-    public Dictionary<string,Dictionary<Vector3, UitHex>> hexes = new Dictionary<string,Dictionary<Vector3, UitHex>>();
-    
-    
+    public Dictionary<string, Dictionary<Vector3, UitHex>>
+        hexes = new Dictionary<string, Dictionary<Vector3, UitHex>>();
+
+
     /// <summary>
     /// setup a local space
     /// </summary>
@@ -42,12 +43,12 @@ public class UitHexGrid :MonoBehaviour {
         hexHolder = aHexHolder;
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, Vector2.one,
-            CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
+        localSpaceId = CubeCoordinates.NewLocalSpaceId(hexRadius / 2, Vector2.one,
+            CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
     }
 
-    
-    
+
+
     /// <summary>
     /// Makes a single UI ToolKit Hex at a given location 
     /// </summary>
@@ -55,10 +56,11 @@ public class UitHexGrid :MonoBehaviour {
     /// <param name="location"></param>
     /// <param name="aHolder"></param>
     /// <returns></returns>
-    protected UitHex  MakeHex(Vector3 coord,Vector2 location, Vector3 scale, VisualElement aHolder = null) {
+    protected UitHex MakeHex(Vector3 coord, Vector2 location, Vector3 scale, VisualElement aHolder = null) {
         if (aHolder == null) {
             aHolder = hexHolder;
-        } 
+        }
+
         var hex = MakeUitHex();
         aHolder.Add(hex);
         hex.name = coord.ToString();
@@ -66,13 +68,14 @@ public class UitHexGrid :MonoBehaviour {
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[localSpaceId] = new Dictionary<Vector3, UitHex>();
         }
+
         hexes[localSpaceId][coord] = hex;
         // quick hack to test if this works, in later version need to assign it in a separate method
         //it worked
         //hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
         return hex;
     }
-    
+
     /// <summary>
     /// returns a single new UitHex
     /// </summary>
@@ -83,7 +86,7 @@ public class UitHexGrid :MonoBehaviour {
         hex.AddToClassList("Hex");
         return hex;
     }
-    
+
     /// <summary>
     /// Makes a single UI ToolKit Hex at the correct location for its coord
     /// under the default VisualElement
@@ -93,27 +96,30 @@ public class UitHexGrid :MonoBehaviour {
     protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null, float aHexScalefactor = 0) {
         aHexScalefactor = aHexScalefactor == 0 ? hexScalefactor : aHexScalefactor;
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        var location= CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
+        var location = CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
         if (isSquare) {
-            var l1= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,1,-1), ls);
-            var l2= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(0,-1,1), ls);
-            var l3= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(1,0,-1), ls);
-            var l4= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(-1,0,1), ls);
-            var l5= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(1,-1,0), ls);
-            var l6= CubeCoordinates.ConvertPlaneToLocalPosition(coord+ new Vector3(-1,1,0), ls);
-            var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x,l5.x,l6.x);
-            var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x,l5.x,l6.x);
-            var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y,l5.y,l6.y);
-            var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y,l5.y,l6.y);
-            scale = new Vector3(highX-lowX ,highY-lowY,1)/2f;
+            var l1 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(0, 1, -1), ls);
+            var l2 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(0, -1, 1), ls);
+            var l3 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(1, 0, -1), ls);
+            var l4 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(-1, 0, 1), ls);
+            var l5 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(1, -1, 0), ls);
+            var l6 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(-1, 1, 0), ls);
+            var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x, l5.x, l6.x);
+            var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x, l5.x, l6.x);
+            var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y, l5.y, l6.y);
+            var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y, l5.y, l6.y);
+            scale = new Vector3(highX - lowX, highY - lowY, 1) / 2f;
             //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
-        } else {
-            scale = Vector3.one * ls.gameScale*hexScalefactor;
         }
+        else {
+            scale = Vector3.one * ls.gameScale * hexScalefactor;
+        }
+
         //Debug.Log("One MakeHex pos: "+ location + " : "+ ls.orientation);
         return MakeHex(coord, location, scale, aHolder);
     }
+
     /// <summary>
     /// Make All hexes in a local space
     /// </summary>
@@ -122,29 +128,29 @@ public class UitHexGrid :MonoBehaviour {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         Vector3 scale;
-        
+
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }
-        
+
         foreach (var coord in allCoords) {
             var hex = MakeHex(coord.cubeCoord, hexHolder);
             hexes[aLocalSpaceId][coord.cubeCoord] = hex;
         }
-       
+
     }
-    
+
     /// <summary>
     /// setup location specific parts of the hex
     /// </summary>
     /// <param name="hex"></param>
     /// <param name="location"></param>
-    static public void SetupHex(UitHex hex, Vector2 location,Vector3 scale) {
+    static public void SetupHex(UitHex hex, Vector2 location, Vector3 scale) {
         hex.transform.position = (Vector3) location;
-        hex.transform.scale = scale  ;
+        hex.transform.scale = scale;
         //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
-        
+
         /*
         if (Random.Range(0, 2) == 1) {
             hex.style.backgroundColor = Color.red;
@@ -154,5 +160,9 @@ public class UitHexGrid :MonoBehaviour {
         }
         */
     }
-    
+
+    public Vector3 Position2Coord(Vector2 localPosition) {
+        return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPosition, localSpaceId));
+    }
+
 }
