@@ -152,8 +152,10 @@ public class UitHexGridMap : MonoBehaviour {
         
         if (delayMapBuild == 0) {
             MapBuild();
-            var votes = hexHolder.Query<VisualElement>(className: "Votes");
-            //votes.ForEach(element => element.visible = false);
+            var votes = hexHolder.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
+            votes.ForEach(element => element.visible = true);
+            var seat = hexHolder.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
+            seat.ForEach(element => element.visible = false);
         }
         delayMapBuild--;
         

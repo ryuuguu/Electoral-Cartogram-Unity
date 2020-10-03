@@ -11,6 +11,8 @@ using UnityEngine.UIElements;
 ///why is this a uitHex to allow it to be store in some dictionary
 /// refactor this
 public class UitHexGridMapCell : UitHex {
+    public const string SEATClass = "Seat";
+    public const string VOTESClass = "Votes";
     
     
     public RegionList regionList;
@@ -53,13 +55,14 @@ public class UitHexGridMapCell : UitHex {
            // is creating seat here a problem
            seatHolder = MakeSubHex(Vector3.zero, Vector3.one);
            seatHolder.style.backgroundImage = centerRiding;
+           seatHolder.AddToClassList(SEATClass);
            uitCell.Add(seatHolder);
            voteHolder = new VisualElement();
            uitCell.Add(voteHolder);
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
            seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
            if ( !GameController.inst.isEditMode ) {
-               voteHolder.AddToClassList("Votes");
+               voteHolder.AddToClassList(VOTESClass);
                uitCell.Add(voteHolder);
                ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
            }
@@ -113,11 +116,6 @@ public class UitHexGridMapCell : UitHex {
             int border = -1;
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
 
-            var debugID = UitHexGridMap.GetRidingCellAt(cubeCoord).regionList.id;
-            if (debugID != regionList.id) {
-                Debug.Log("cubeCoord " + cubeCoord + " : " + regionList.id + " : "+ debugID );
-            }
-                
             var otherCell = UitHexGridMap.GetRidingCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
