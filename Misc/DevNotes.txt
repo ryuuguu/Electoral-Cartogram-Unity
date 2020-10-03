@@ -4,8 +4,6 @@ NOW
 
 next build hex vote & borders
   turn vote button on 
-
-make border thinner
    
    
  	

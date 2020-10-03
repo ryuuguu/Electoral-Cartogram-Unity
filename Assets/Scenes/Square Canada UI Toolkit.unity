@@ -7506,9 +7506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 612b9198e74134390b6b6f185c1a49f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
+  borderImage: {fileID: 2800000, guid: 0b87b3320217a4c0687876f299a58500, type: 3}
   hexRadius: 39
-  hexScaleFactor: 2.2
+  hexScaleFactor: 2.4
   offsetCoord: {x: 0, y: 0}
   localSpaceId: 
 --- !u!1 &1445928546
@@ -64579,7 +64579,7 @@ MonoBehaviour:
   - {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.271, g: 0.271, b: 0.271, a: 1}
+  - {r: 1, g: 0.9858491, b: 0.9858491, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   gameController: {fileID: 2053087564}
   district2016: ED-Canada_2016_utf8
