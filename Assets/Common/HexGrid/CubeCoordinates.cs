@@ -602,8 +602,6 @@ namespace Com.Ryuuguu.HexGridCC {
             public RectTransform spaceRectTransform;
             public Vector2 offset;
             
-            //public UIElements whatever is used for transform
-
             public Orientation orientation;
             
             public enum Orientation {
@@ -732,6 +730,18 @@ namespace Com.Ryuuguu.HexGridCC {
             float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
             float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
             return CubeCoordinates.RoundAxial(new Vector2(q, r)+ls.offset);
+        }
+        
+        // Converts a local transform position to the nearest plane coordinate
+        public static Vector2 ConvertLocalPositionToPlane(Vector3 wPos, string localSpaceId,Vector2 offset) {
+            var ls = localSpaces[localSpaceId];
+            var planeCoord = ConvertOrientation(ls.orientation, wPos) ;
+            var invertScaleV2 = new Vector2(1/ls.scaleV2.x,1/ls.scaleV2.y);
+            planeCoord.Scale(invertScaleV2);
+            planeCoord += offset*ls.coordinateRadius*2f;
+            float q = (planeCoord.x * (2.0f / 3.0f)) / ls.coordinateRadius;
+            float r = ((-planeCoord.x / 3.0f) + ((Mathf.Sqrt(3) / 3.0f) * planeCoord.y)) / ls.coordinateRadius;
+            return CubeCoordinates.RoundAxial(new Vector2(q, r)+ls.offset );
         }
         
         public static Vector3 ConvertLocalPositionToCube(Vector3 wPos, string localSpaceId) {

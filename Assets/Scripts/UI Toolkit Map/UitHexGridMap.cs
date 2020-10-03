@@ -60,7 +60,21 @@ public class UitHexGridMap : MonoBehaviour {
         hexHolder = new VisualElement();
         hexHolder.RegisterCallback<MouseMoveEvent>(
             e => MouseOver( e.localMousePosition));
+        hexHolder.RegisterCallback<MouseDownEvent>(
+            e => MouseDown( e.localMousePosition));
         hexHolder.transform.position = hexHolder.transform.position + mapVEOffset;
+        
+        var veDebug = new VisualElement();
+        veDebug.style.position = Position.Absolute;
+        veDebug.style.width = 1000;
+        veDebug.style.height = 1000;
+        var colorDebug = Color.green;
+        colorDebug.a = 0.5f;
+        veDebug.style.backgroundColor = colorDebug;
+        veDebug.transform.scale = Vector3.one ;
+        veDebug.transform.position = new Vector3(0,-500,0);
+        hexHolder.Add(veDebug);
+        
         mapHolder.Add(hexHolder);
         mapGrid.Init(hexHolder);
         
@@ -73,7 +87,7 @@ public class UitHexGridMap : MonoBehaviour {
     }
 
     private void MouseOver(Vector2 localMousePosition) {
-
+        /*
         var cubeCoord = mapGrid.Position2Coord(localMousePosition);
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
@@ -83,6 +97,21 @@ public class UitHexGridMap : MonoBehaviour {
                           name);
             }
         }
+        */
+    }
+    private void MouseDown(Vector2 localMousePosition) {
+
+        var cubeCoord = mapGrid.Position2Coord(localMousePosition,
+            new Vector2(-0.5f,-0.5f));//not centered cell hack
+        if (cellDict.ContainsKey(cubeCoord)) {
+            var regionList = cellDict[cubeCoord].regionList;
+            if (regionList.isRiding) {
+                var name = LanguageController.ChooseName(regionList.names);
+                Debug.Log("mouseDown: " +
+                          name);
+            }
+        }
+
 
         /*
         var mouseCoord = mapGrid.Mouse2Coord();
@@ -191,9 +220,9 @@ public class UitHexGridMap : MonoBehaviour {
         if (delayMapBuild == 0) {
             MapBuild();
             var votes = hexHolder.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
-            votes.ForEach(element => element.visible = true);
+            votes.ForEach(element => element.visible = false);
             var seat = hexHolder.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
-            seat.ForEach(element => element.visible = false);
+            seat.ForEach(element => element.visible = true);
         }
         delayMapBuild--;
         

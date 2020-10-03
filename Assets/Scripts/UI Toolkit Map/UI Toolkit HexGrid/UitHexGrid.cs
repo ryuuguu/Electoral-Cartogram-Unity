@@ -161,8 +161,9 @@ public class UitHexGrid : MonoBehaviour {
         */
     }
 
-    public Vector3 Position2Coord(Vector2 localPosition) {
-        return CubeCoordinates.PlaneToCube(CubeCoordinates.ConvertLocalPositionToPlane(localPosition, localSpaceId));
+    public Vector3 Position2Coord(Vector2 localPosition, Vector2 offsetInCubeCoord) {
+        return CubeCoordinates.PlaneToCube(CubeCoordinates.
+            ConvertLocalPositionToPlane(localPosition, localSpaceId, offsetInCubeCoord));
     }
 
 }
