@@ -108,11 +108,16 @@ public class UitHexGridMapCell : UitHex {
    }
    
     public List<Color> BorderList () {
-        var colors = new List<Color>();
+        var colors = new List<Color>(){Color.clear,Color.clear,Color.clear,Color.clear,Color.clear,Color.clear,};
         for (int i = 0;i<6;i++) {
             int border = -1;
-            colors.Add(Color.clear);
             var hierarchy = RegionController.inst.regionList.HierarchyList(regionList.id);
+
+            var debugID = UitHexGridMap.GetRidingCellAt(cubeCoord).regionList.id;
+            if (debugID != regionList.id) {
+                Debug.Log("cubeCoord " + cubeCoord + " : " + regionList.id + " : "+ debugID );
+            }
+                
             var otherCell = UitHexGridMap.GetRidingCellAt(CubeCoordinates.CubeDirections[i] + cubeCoord);
             if(otherCell == null) continue;
             //Debug.Log( "Found: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
@@ -125,7 +130,7 @@ public class UitHexGridMapCell : UitHex {
             }
 
             if (border >= 0) {
-                colors[i] = RegionController.inst.borderColors[border];
+                colors[(i+3)%6] = RegionController.inst.borderColors[border];
                 //otherCell.edges[(i+3)%6].color = RegionController.inst.borderColors[border];
                 //Debug.Log( "Draw: " + cubeCoord + ":"+i +" : "+ otherCell.cubeCoord + ":"+((i+3)%6) );
             }

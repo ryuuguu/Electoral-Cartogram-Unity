@@ -274,19 +274,11 @@ public class UitHexGridMap : MonoBehaviour {
             else {
                 Debug.Log("Region not found: "+ cd.regionID );
             }
-        }
+        } 
         mapGrid.MakeAllHexes(mapGrid.localSpaceId);
-        
+       
         foreach (var mapCell in cellDict.Values) {
             var colors = mapCell.BorderList();
-            int i = 0;
-            foreach (var c in colors) {
-                if (c != Color.clear) {
-                    Debug.Log("MakeMapFromData: " + mapCell.cubeCoord + " : "+ i + " : " + c);
-                }
-
-                i++;
-            }
             uitHexBorderGrid.MakeHexBorders(uitHexBorderGrid.localSpaceId,mapCell.cubeCoord,colors); 
         }
         

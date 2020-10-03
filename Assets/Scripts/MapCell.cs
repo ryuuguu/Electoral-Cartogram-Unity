@@ -25,7 +25,6 @@ public class MapCell : HexCell,IPointerEnterHandler,IPointerExitHandler {
                 subGrid = Instantiate<HexGrid>(prefabSubGrid,transform);
                 subGrid.transform.localPosition = Vector3.zero;
                 ColorSubGrid();
-
             }
         } else {
             center.sprite = centerOther;

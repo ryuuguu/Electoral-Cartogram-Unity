@@ -2,13 +2,10 @@
 	
 NOW	 
 
-Borders in wrong places
-  mapCell.BorderList() is proabbly screwed up
-
-
 next build hex vote & borders
   turn vote button on 
-why is border not on cell
+
+make border thinner
    
    
  	
