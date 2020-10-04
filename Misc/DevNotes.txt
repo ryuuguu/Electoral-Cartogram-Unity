@@ -1,24 +1,9 @@
 
 	
 NOW	 
-
-   mouse down 
-   localPositin2Coord
-      is off by 1/2 hex or so
-   
- 	off to upper left 0.8 hexes?
- 	look at code
-	or is localposition off?
-	    check ui toolkit code
-	    should show 
-	        a corner as 0,0
-	        put a visble it over whole hex holde and look at position in debug 
-	old code use enter GameObject/Ugui stuff
-	so could be off by 1/2 cell
-	add cell offset param to the get location code
-	
-	an offset of 1 seemed to move it about 1 hexes
-	  try 0.5,-0.5  or mabye flipped
+  
+    details box
+    
 	
 LATER
 

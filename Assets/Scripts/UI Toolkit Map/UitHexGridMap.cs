@@ -12,7 +12,7 @@ public class UitHexGridMap : MonoBehaviour {
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
-    public Tooltip tooltip;
+    
     public Vector3 mapVEOffset;
     
     protected VisualElement root;
@@ -20,6 +20,7 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement mapHolder;
     protected VisualElement hexHolder;
     protected VisualElement borderHolder;
+    protected VisualElement overlayHolder;
     
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
     
@@ -40,6 +41,7 @@ public class UitHexGridMap : MonoBehaviour {
 
     void Start() {
         // Reference to the root of the window.
+        
         var uiDoc= GetComponent<UIDocument>();
         root = uiDoc.rootVisualElement;
         root.RegisterCallback<GeometryChangedEvent>( (evt) =>
@@ -58,58 +60,72 @@ public class UitHexGridMap : MonoBehaviour {
         
         //this acts as visual "Layer"
         hexHolder = new VisualElement();
-        hexHolder.RegisterCallback<MouseMoveEvent>(
-            e => MouseOver( e.localMousePosition));
-        hexHolder.RegisterCallback<MouseDownEvent>(
-            e => MouseDown( e.localMousePosition));
-        hexHolder.transform.position = hexHolder.transform.position + mapVEOffset;
         
-        var veDebug = new VisualElement();
-        veDebug.style.position = Position.Absolute;
-        veDebug.style.width = 1000;
-        veDebug.style.height = 1000;
-        var colorDebug = Color.green;
-        colorDebug.a = 0.5f;
-        veDebug.style.backgroundColor = colorDebug;
-        veDebug.transform.scale = Vector3.one ;
-        veDebug.transform.position = new Vector3(0,-500,0);
-        hexHolder.Add(veDebug);
+        var holderPosition = hexHolder.transform.position + mapVEOffset;
+        hexHolder.transform.position = holderPosition;
+        
         
         mapHolder.Add(hexHolder);
         mapGrid.Init(hexHolder);
         
         borderHolder = new VisualElement();
-        borderHolder.transform.position = borderHolder.transform.position + mapVEOffset;
+        borderHolder.transform.position = holderPosition;
         mapHolder.Add(borderHolder); 
         uitHexBorderGrid.Init(borderHolder);
         uitHexBorderGrid.SetupHexBorders();
         
+        overlayHolder= new VisualElement();
+        overlayHolder.RegisterCallback<MouseMoveEvent>(
+            e => MouseOver( e));
+        overlayHolder.RegisterCallback<MouseDownEvent>(
+            e => MouseDown( e.localMousePosition));
+        mapHolder.Add(overlayHolder);
+        var textElement = UitTooltip.Init();
+        overlayHolder.transform.position = hexHolder.transform.position;
+        overlayHolder.transform.scale = hexHolder.transform.scale;
+        overlayHolder.Add(textElement);
+        
+        // this is a hack get all mouse events
+        var    ve = new TextElement();
+        ve.style.position = Position.Absolute;
+        ve.style.width = 4000;
+        ve.style.height = 4000;
+        ve.style.backgroundColor = Color.clear;
+        ve.transform.position = new Vector3(-2000,-2000,0);
+        overlayHolder.Add(ve);
+        
     }
 
-    private void MouseOver(Vector2 localMousePosition) {
-        /*
-        var cubeCoord = mapGrid.Position2Coord(localMousePosition);
+    private void MouseOver(MouseMoveEvent e) {
+        
+        var cubeCoord = mapGrid.Position2Coord(e.localMousePosition,
+            new Vector2(-0.5f,-0.5f));//hack: not centered cell 
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                Debug.Log("mouse: " + localMousePosition + " : " +
+                UitTooltip.Show(e.localMousePosition,e.mousePosition,name);
+                return;
+                Debug.Log("mouse: " + e.mousePosition/Screen.safeArea.max + " : " +
+                          e.localMousePosition + " : " +
                           name);
             }
         }
-        */
+        UitTooltip.Hide();
     }
+
+    
     private void MouseDown(Vector2 localMousePosition) {
 
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
-            new Vector2(-0.5f,-0.5f));//not centered cell hack
+            new Vector2(-0.5f,-0.5f));//hack: not centered cell 
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                Debug.Log("mouseDown: " +
-                          name);
+                //send message to detail display panel
             }
+            
         }
 
 
@@ -366,12 +382,4 @@ public class UitHexGridMap : MonoBehaviour {
         
     }
 
-    public static void ShowDistrictPopup(string id, Vector2 location, string message, Vector3 worldPos) {
-        
-        inst.tooltip.Show(id, location, message,worldPos);
-    }
-    
-    public static void HideDistrictPopup(string id) {
-        inst.tooltip.Hide(id);
-    }
 }
