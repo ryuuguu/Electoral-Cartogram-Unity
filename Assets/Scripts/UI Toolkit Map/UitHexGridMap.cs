@@ -17,10 +17,13 @@ public class UitHexGridMap : MonoBehaviour {
     
     protected VisualElement root;
     
-    protected VisualElement mapHolder;
-    protected VisualElement hexHolder;
-    protected VisualElement borderHolder;
-    protected VisualElement overlayHolder;
+    protected VisualElement mapLayer;
+    protected VisualElement hexLayer;
+    protected VisualElement borderLayer;
+    protected VisualElement overlayLayer;
+    protected VisualElement detailsLayer;
+    
+    protected VisualElement ridingInfo;
     
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
     
@@ -55,35 +58,38 @@ public class UitHexGridMap : MonoBehaviour {
         var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
         tree.CloneTree(root);
         
-        mapHolder = new VisualElement();
-        root.Add(mapHolder);
+        mapLayer = new VisualElement();
+        // setting size so details top right corner can be calculated
+        mapLayer.style.width = mapGrid.mapSize.x;
+        mapLayer.style.height = mapGrid.mapSize.x;
+        root.Add(mapLayer);
         
         //this acts as visual "Layer"
-        hexHolder = new VisualElement();
+        hexLayer = new VisualElement();
         
-        var holderPosition = hexHolder.transform.position + mapVEOffset;
-        hexHolder.transform.position = holderPosition;
+        var holderPosition = hexLayer.transform.position + mapVEOffset;
+        hexLayer.transform.position = holderPosition;
         
         
-        mapHolder.Add(hexHolder);
-        mapGrid.Init(hexHolder);
+        mapLayer.Add(hexLayer);
+        mapGrid.Init(hexLayer);
         
-        borderHolder = new VisualElement();
-        borderHolder.transform.position = holderPosition;
-        mapHolder.Add(borderHolder); 
-        uitHexBorderGrid.Init(borderHolder);
+        borderLayer = new VisualElement();
+        borderLayer.transform.position = holderPosition;
+        mapLayer.Add(borderLayer); 
+        uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
         
-        overlayHolder= new VisualElement();
-        overlayHolder.RegisterCallback<MouseMoveEvent>(
+        overlayLayer= new VisualElement();
+        overlayLayer.RegisterCallback<MouseMoveEvent>(
             e => MouseOver( e));
-        overlayHolder.RegisterCallback<MouseDownEvent>(
+        overlayLayer.RegisterCallback<MouseDownEvent>(
             e => MouseDown( e.localMousePosition));
-        mapHolder.Add(overlayHolder);
+        mapLayer.Add(overlayLayer);
         var textElement = UitTooltip.Init();
-        overlayHolder.transform.position = hexHolder.transform.position;
-        overlayHolder.transform.scale = hexHolder.transform.scale;
-        overlayHolder.Add(textElement);
+        overlayLayer.transform.position = hexLayer.transform.position;
+        overlayLayer.transform.scale = hexLayer.transform.scale;
+        overlayLayer.Add(textElement);
         
         // this is a hack get all mouse events
         var    ve = new TextElement();
@@ -92,8 +98,16 @@ public class UitHexGridMap : MonoBehaviour {
         ve.style.height = 4000;
         ve.style.backgroundColor = Color.clear;
         ve.transform.position = new Vector3(-2000,-2000,0);
-        overlayHolder.Add(ve);
+        overlayLayer.Add(ve);
         
+        detailsLayer = new VisualElement();
+        root.Add(detailsLayer);
+        ridingInfo = new VisualElement();
+        ridingInfo.style.position = Position.Absolute;
+        ridingInfo.style.width = 1;
+        ridingInfo.style.height = 1;
+        ridingInfo.style.backgroundColor = Color.black;
+        detailsLayer.Add(ridingInfo);
     }
 
     private void MouseOver(MouseMoveEvent e) {
@@ -106,9 +120,11 @@ public class UitHexGridMap : MonoBehaviour {
                 var name = LanguageController.ChooseName(regionList.names);
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name);
                 return;
+                /*
                 Debug.Log("mouse: " + e.mousePosition/Screen.safeArea.max + " : " +
                           e.localMousePosition + " : " +
                           name);
+                          */
             }
         }
         UitTooltip.Hide();
@@ -159,22 +175,46 @@ public class UitHexGridMap : MonoBehaviour {
     
     private void TopLevelLayout(Rect screenRect) {
         
-        ScaleMapHolder(mapHolder, mapGrid.mapSize,
+        var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
 
         
        // DebugHexPos();
        // Debug.LogError(" screenRect.max: " + screenRect.max);
-
-        /*
-        var detailsTopRightPos = mapHolder.transform.matrix.MultiplyPoint(detailsTopRightCorner);
+       
+       // maplayer is mapSize in pixels
+       // it is scaled
+       
+       //we want overlayLayer to be
+       // scale same as map Layer?? yes
+       // so we know the start pixel width in scaled size
+       // it is mapSize.scale(
+       // to have box that goes to at most to world pos of detailsTopRightPos
+       // 
+       
+       
+        var detailsTopRightPos = mapLayer.transform.matrix.MultiplyPoint(new Vector3(0.3f,0.8f,0));
         var rect = new Rect(0, detailsTopRightPos.y,
             detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
-        ScaledAt(_detailsHolder,rect);
-        */
+        ScaledAt(ridingInfo,rect);
+        Debug.Log("mapLayer.transform: "+ mapLayer.transform + " : " +mapLayer.transform.scale  
+                  + " : " +detailsTopRightPos );
+        Debug.Log("ridingInfo: "+ ridingInfo.transform + " : " +ridingInfo.transform.scale  
+                  + " : " +detailsTopRightPos );
+        
         
     }
-
+    
+    private void ScaledAt(VisualElement  ve,Rect rect) {
+        ScaledAt(ve,rect.position, rect.size);
+    }
+    
+    private void ScaledAt(VisualElement ve, Vector3 position, Vector3 scale) {
+        ve.transform.position = position;
+        ve.transform.scale = scale;
+    }
+    
+    
     private void DebugHexPos() {
         if (mapGrid.hexes.Count != 0) {
             var hex1 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
@@ -202,7 +242,7 @@ public class UitHexGridMap : MonoBehaviour {
             Debug.LogError(" Hex.layout: " + hex1.layout);
             
             //Debug.LogError(" Hex transform.scale: " +hex1.transform.scale); 
-            Debug.LogError(" mapHolder transform.scale: " +mapHolder.transform.scale); 
+            Debug.LogError(" mapHolder transform.scale: " +mapLayer.transform.scale); 
             Debug.LogError("ratio : " + xLocal/yLocal + " : "
                            + (xWorld.x/yWorld.y) + " : "
                            + hex1.localBound.width/hex1.localBound.height);
@@ -216,7 +256,7 @@ public class UitHexGridMap : MonoBehaviour {
     /// <param name="ve"></param>
     /// <param name="boxRatio"></param>
     /// <param name="parentSize"></param>
-    private void ScaleMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
+    private Vector3 ScaleMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
         var parentRatio = parentSize.x / parentSize.y;
         var holderRatio = holderSize.x / holderSize.y;
         var scale = 1f; 
@@ -229,15 +269,16 @@ public class UitHexGridMap : MonoBehaviour {
             ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
         }
         ve.transform.scale = scale * Vector3.one;
+        return ve.transform.scale;
     }
     
     void Update() {
         
         if (delayMapBuild == 0) {
             MapBuild();
-            var votes = hexHolder.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
+            var votes = hexLayer.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
             votes.ForEach(element => element.visible = false);
-            var seat = hexHolder.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
+            var seat = hexLayer.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
             seat.ForEach(element => element.visible = true);
         }
         delayMapBuild--;

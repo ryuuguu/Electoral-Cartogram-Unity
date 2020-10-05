@@ -1,12 +1,71 @@
 
-	
+
+test on edge
+test basic Canada
+    on ios
+    on safari
+    on edge
+    if all works 
+        check how to reset
+        scroll
+        make scroll work correctly
+
+Does not work on 
+    osx safari
+        resize is broken with constant pixel
+    ios safari 
+        crash on loading screen
+        abort({}) at jsStackTrace@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:16342
+        
+        stackTrace@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:16516
+        
+        abort@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:757
+        
+        http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:25359
+        
+        promiseReactionJob@[native code]
+    ios chrome
+        crash on loading screen reload loop
+    
+    	
 NOW	 
   
-    details box
-    
+  why is basic details area not drawing
+    try drawing a fixed box
+    so the maplayer has correct width & height I think
+        maybe I should use world rect width and height
+        and x & y 
+        that would give me the correct world pos
+          from there calc the right scale
+            from world pos of top right
+                how to scale 
+                have max width multiple
+                and max height multiple
+                anchor to to top right corner
+                  
+             to make what?
+             start with 1x1 then fix 
+  
+    details Area
+        make panel in layout
+            black 
+            scale same as map 
+                see what it looks like
+                then change height or width in Pixels
+                  use flex box stuff inside
+              height change by pixel count?
+              
+        add labels
+            province
+            riding
+            winner name, party color, party name, %
+            scroll box
+                list items
+                candidate name name, party color, party name, %
+        
 	
 LATER
-
+    scroll 
 
     Buttons
         vote
@@ -15,17 +74,19 @@ LATER
     details box 
        list
        scroll
-      
-    mouse over hex
-        tooltip
-        click call detail
-        
+    
+	    add text Labels overtop of hex locations
+	        should be editable
 	
      make visibile
      switch to square
      
      box with info
-            
+      
+     hex color from outside to inside
+        party getting 1% in center and 
+            always visible not blocked by border.
+                
 	
 	Redesign
 		isSquare
@@ -47,13 +108,6 @@ LATER
 		  tutorial how to use for myself.
 		  finished example code
 		    		
-			
-	END NOW
-	
-	Tooltip
-	 use global mouse to hex coord
-	
-	I need to separate logic and presentation classes more
 	
 Blog 
 	    if things disappear try changing panel setting to smaller reference resolution	
@@ -62,4 +116,4 @@ Blog
 		
 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
 		
-Name "Flip a Wahzoo and tyler too"
+Name "Flip a Wahzoo and Tyler too"
