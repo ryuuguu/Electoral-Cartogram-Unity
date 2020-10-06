@@ -1,14 +1,6 @@
 
 
-test on edge
-test basic Canada
-    on ios
-    on safari
-    on edge
-    if all works 
-        check how to reset
-        scroll
-        make scroll work correctly
+
 
 Does not work on 
     osx safari
@@ -29,6 +21,26 @@ Does not work on
     
     	
 NOW	 
+  
+  
+  make overlay layer size of map layer and put
+  details as a fixed pixel size  
+  // maplayer is mapSize in pixels
+         // it is scaled
+         
+         //we want overlayLayer to be
+         // scale same as map Layer?? yes
+         // so we know the start pixel width in scaled size
+         // it is mapSize.scale(
+         // to have box that goes to world pos of detailsTopRightPos
+         // could make overlay layer same scale & position as map layer
+         // or could make position zero and add offset for calculations
+            pixel width can increase by offset 
+               but should be limited to some max multiple of width
+            pixel height also can increase and has max to hit screen bottom
+            
+     my rescale is quit working       
+              
   
   why is basic details area not drawing
     try drawing a fixed box

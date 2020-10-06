@@ -175,34 +175,16 @@ public class UitHexGridMap : MonoBehaviour {
     
     private void TopLevelLayout(Rect screenRect) {
         
+        Debug.Log("TopLevelLayout: "+ screenRect);
+        
         var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
-
         
        // DebugHexPos();
-       // Debug.LogError(" screenRect.max: " + screenRect.max);
-       
-       // maplayer is mapSize in pixels
-       // it is scaled
-       
-       //we want overlayLayer to be
-       // scale same as map Layer?? yes
-       // so we know the start pixel width in scaled size
-       // it is mapSize.scale(
-       // to have box that goes to at most to world pos of detailsTopRightPos
-       // 
-       
-       
-        var detailsTopRightPos = mapLayer.transform.matrix.MultiplyPoint(new Vector3(0.3f,0.8f,0));
-        var rect = new Rect(0, detailsTopRightPos.y,
-            detailsTopRightPos.x, screenRect.yMax - detailsTopRightPos.y);
-        ScaledAt(ridingInfo,rect);
-        Debug.Log("mapLayer.transform: "+ mapLayer.transform + " : " +mapLayer.transform.scale  
-                  + " : " +detailsTopRightPos );
-        Debug.Log("ridingInfo: "+ ridingInfo.transform + " : " +ridingInfo.transform.scale  
-                  + " : " +detailsTopRightPos );
-        
-        
+       detailsLayer.transform.scale = mapLayer.transform.scale;
+       detailsLayer.transform.position = mapLayer.transform.position;
+
+
     }
     
     private void ScaledAt(VisualElement  ve,Rect rect) {
@@ -260,13 +242,14 @@ public class UitHexGridMap : MonoBehaviour {
         var parentRatio = parentSize.x / parentSize.y;
         var holderRatio = holderSize.x / holderSize.y;
         var scale = 1f; 
+        
         if (holderRatio > parentRatio) {
             scale = parentSize.x/holderSize.x;
             ve.transform.position = Vector2.zero;
         }
         else {
             scale = parentSize.y/holderSize.y;
-            ve.transform.position = new Vector2((parentSize.x - parentSize.x*scale) / 2f, 0);
+            ve.transform.position = new Vector2((parentSize.x - holderSize.x*scale) / 2f, 0);
         }
         ve.transform.scale = scale * Vector3.one;
         return ve.transform.scale;
