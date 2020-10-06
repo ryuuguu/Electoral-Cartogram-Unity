@@ -24,7 +24,8 @@ NOW
   
   
   make overlay layer size of map layer and put
-  details as a fixed pixel size  
+  details as a fixed pixel size
+    
   // maplayer is mapSize in pixels
          // it is scaled
          

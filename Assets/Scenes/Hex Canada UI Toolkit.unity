@@ -2348,7 +2348,7 @@ MonoBehaviour:
   squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   subHexScale: 1.1
-  mapSize: {x: 1600, y: 800}
+  mapSize: {x: 1600, y: 900}
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0
@@ -7884,7 +7884,6 @@ MonoBehaviour:
     cellDatas: []
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
-  tooltip: {fileID: 0}
   mapVEOffset: {x: 0, y: 700, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:

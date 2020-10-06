@@ -103,10 +103,12 @@ public class UitHexGridMap : MonoBehaviour {
         detailsLayer = new VisualElement();
         root.Add(detailsLayer);
         ridingInfo = new VisualElement();
+        var ridingInfoHeight = 200;
         ridingInfo.style.position = Position.Absolute;
-        ridingInfo.style.width = 1;
-        ridingInfo.style.height = 1;
+        ridingInfo.style.width = 400;
+        ridingInfo.style.height = ridingInfoHeight;
         ridingInfo.style.backgroundColor = Color.black;
+        ridingInfo.transform.position =new  Vector3(0, mapGrid.mapSize.y - ridingInfoHeight, 0);
         detailsLayer.Add(ridingInfo);
     }
 
@@ -174,16 +176,17 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     private void TopLevelLayout(Rect screenRect) {
-        
         Debug.Log("TopLevelLayout: "+ screenRect);
         
         var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
-        
-       // DebugHexPos();
-       detailsLayer.transform.scale = mapLayer.transform.scale;
-       detailsLayer.transform.position = mapLayer.transform.position;
-
+        //DebugHexPos();
+        detailsLayer.transform.scale = mapLayer.transform.scale;
+        detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
+        Debug.Log("detailsLayer: "+ detailsLayer.worldBound 
+                                  + " : "+ detailsLayer.transform.position
+                                  );
+        Debug.Log("ridingInfo: "+ ridingInfo.worldBound + " : "+ ridingInfo.transform.position);
 
     }
     
