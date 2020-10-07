@@ -2339,14 +2339,16 @@ MonoBehaviour:
   cellBackground: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   isSquare: 0
   hexRadius: 39
-  hexScalefactor: 1.9
+  hexScalefactor: 1.95
   offsetCoord: {x: 0, y: 0}
   squareScaleHeightHack: 0
   localSpaceId: 
   debugSubGridOff: 0
   hexBackground: {fileID: 2800000, guid: 1caa50e96f9ce412aa5de61d419bdd13, type: 3}
   squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
-  mapSize: {x: 1600, y: 900}
+  borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
+  subHexScale: 1.1
+  mapSize: {x: 1600, y: 850}
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0
@@ -2508,7 +2510,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.56910825, g: 0.7144011, b: 0.8207547, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5653,9 +5655,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff5030becb5a46a08b85afd9db0762f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellBackground: {fileID: 0}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   hexRadius: 50
+  hexScaleFactor: 2
   offsetCoord: {x: 15, y: -15}
   localSpaceId: 
 --- !u!4 &1132553384
@@ -7461,6 +7463,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433469048}
   m_CullTransparentMesh: 0
+--- !u!1 &1436845644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1436845645}
+  - component: {fileID: 1436845646}
+  m_Layer: 0
+  m_Name: UitHexMapBorderGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1436845645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436845644}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1493411971}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1436845646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436845644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 612b9198e74134390b6b6f185c1a49f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderImage: {fileID: 2800000, guid: 0b87b3320217a4c0687876f299a58500, type: 3}
+  hexRadius: 39
+  hexScaleFactor: 2.4
+  offsetCoord: {x: 0, y: 0}
+  localSpaceId: 
 --- !u!1 &1445928546
 GameObject:
   m_ObjectHideFlags: 0
@@ -7824,6 +7874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapGrid: {fileID: 404597493}
+  uitHexBorderGrid: {fileID: 1436845646}
   mapData:
     widthRange: {x: 0, y: 1}
     heightRange: {x: 0, y: 1}
@@ -7833,8 +7884,9 @@ MonoBehaviour:
     cellDatas: []
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
-  tooltip: {fileID: 0}
-  mapVEOffset: {x: -800, y: 1000, z: 0}
+  ridingInfoHeight: 400
+  ridingInfoWidth: 450
+  mapVEOffset: {x: 0, y: 700, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7880,6 +7932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 404597494}
+  - {fileID: 1436845645}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9355,10 +9408,10 @@ MonoBehaviour:
       rawCandidateResults: []
       totalVotes: 0
   borderColors:
-  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 1}
-  - {r: 0.271, g: 0.271, b: 0.271, a: 1}
+  - {r: 1, g: 0.9858491, b: 0.9858491, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   gameController: {fileID: 2053087564}
   district2016: ED-Canada_2016_utf8

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -297,6 +298,7 @@ public class UitHexGridMapCell : UitHex {
     List<VisualElement> MakeSubHexes(VisualElement parent, int radius, float coordScale,float scaleHex ) {
         var result = new List<VisualElement>();
         var coords = ConstructMegaHex(radius);
+        coords = ReorderSubhexes(coords, radius);
         foreach (var coord in coords) {
            var hex =MakeSubHex(coord,1f*scaleHex / (2 * radius + 1f),
                1f /((coordScale )*(2 * radius + 1)),
@@ -309,8 +311,40 @@ public class UitHexGridMapCell : UitHex {
         }
         return result;
     }
-    
 
+    /// <summary>
+    /// reorder list to clockwise inward spiral
+    /// </summary>
+    /// <param name="coords"></param>
+    /// <param name="radius"></param>
+    /// <returns></returns>
+    List<Vector3> ReorderSubhexes(List<Vector3> coords, int radius) {
+        
+        
+        var result = new List<Vector3>();
+        
+        var directions = CubeCoordinates.CubeDirections;
+        var prev = Vector3.zero;
+        for (int i = radius; i >= 0; i--) {
+            // for a ring the sum of the abs == 2 * i
+            // initial = direction 0 * i
+            prev = directions[5] * i;
+            result.Add(prev);
+            for ( int j = 5 ;j>=0;j--) {
+                var direction = directions[(i +5) % 6];
+                for (int k = 0; k < i; k++) {
+                    prev = prev + direction;
+                    result.Add(prev);
+                } 
+            }
+        }
+
+        Debug.Log("new================");
+        foreach (var c in result) {
+            Debug.Log("==: " + c);
+        }
+        return result;
+    }
     
     
     //TODO: buttons

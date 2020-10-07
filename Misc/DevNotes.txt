@@ -22,6 +22,26 @@ Does not work on
     	
 NOW	 
   
+  make ring traversal.
+    nned start point & direction
+        need clockwise direction set strting from 12 oclock 
+        
+  
+  Ring # and start point and direction
+    need s
+  
+  make button functions
+  turn turn on off votes
+  switch language
+   use LanguageController Lang_0() & Lang_1()
+  
+  
+  try making two candidate records in ui builder
+    winner
+    list record
+    
+  watch videos  
+  
   ElectoralDistrictDisplay
   details scrollView
   make VE for 
@@ -31,12 +51,6 @@ NOW
         3x Text
         1x Color square
   use existing CandidateResult
-      
-  
-    details Area
-            scroll box
-                list items
-                candidate name name, party color, party name, %
         
 	
 LATER
@@ -93,6 +107,11 @@ Blog
 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
 		
 DOTS project
+
+    want unity sample project has a couple low poly models walking around
+    
+    just make with boxes on flat ground first
+
     Swarms
     ant colony
         queen produces max amount of offspring(if enough food) then dies

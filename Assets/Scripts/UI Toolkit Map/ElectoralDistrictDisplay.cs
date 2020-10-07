@@ -11,42 +11,70 @@ public class ElectoralDistrictDisplay {
     public static Label region_1_name;  // not strings but Labels
     public static Label districtName;
 
-    public static CandidateRecord winner;
-    public static VisualElement otherCandHolder; //scrollview?
-    public static CandidateRecord prefabOtherCand; // method that returns VE?
     
-    public List<CandidateRecord> otherCandidates;
+    public static VisualElement winnerVE;
+    public static ScrollView otherCandHolder; 
+    public static VisualElement candidateVE; // method that returns VE?
     
-
     public static void SetRegionList(RegionList rl) {
         if (!rl.isRiding) return;
         regionList = rl;
         Redraw();
     }
+
+    static VisualElement MakeWinner() {
+        var winner = BaseCandidate();
+        //adjust children's
+        // position and font here
+        return winner;
+    }
+
+    /// <summary>
+    /// Dummy method till correct way is known
+    /// </summary>
+    /// <returns></returns>
+    static VisualElement MakeOtherCandidate() {
+        return new VisualElement();
+    }
+    
+    private static VisualElement BaseCandidate() {
+        var result = new VisualElement();
+        var candidateName = new Label() {name = "CandidateName"};
+        result.Add(candidateName);
+        var partyColor = new VisualElement() {name = "PartyColor"};
+        result.Add(partyColor);
+        var partyName = new Label() {name = "PartyName"};
+        result.Add(partyName);
+        var percentVote = new Label() {name = "PercentVote"};
+        result.Add(percentVote);
+        return result;
+    }
+
+
+    static void SetCandidateResult(CandidateResult cr, VisualElement ve ) {
+        ve.Q<Label>("CandidateName").text = cr.surname + " , " + cr.givenName + " , " + cr.middleName;
+        var pd = PartyController.GetPartyData(cr.partyId);
+        ve.Q<VisualElement>("PartyColor").style.backgroundColor = pd.color;
+        ve.Q<Label>("PartyName").text = LanguageController.ChooseName(pd.names);
+        ve.Q<Label>("PercentVote").text = cr.percentVotes.ToString();
+    }
+    
     
     public static void Redraw() {
         region_1_name.text =LanguageController.ChooseName(regionList.parent.names);
         districtName.text = LanguageController.ChooseName(regionList.names);
-        winner.SetCandidateResult(regionList.districtResult.candidateResults[0]); 
+        SetCandidateResult(regionList.districtResult.candidateResults[0],winnerVE);
         
-        //destroy tree below
-        /*
-        foreach (Transform child in otherCandHolder) {
-            Destroy(child.gameObject);
-        }
+        otherCandHolder.Clear(); // will children be GCed?
         
-        otherCandHolder.DetachChildren();
-        */
-        
-        //add item code from example
-        /*
         if (regionList.districtResult.candidateResults.Count > 1) {
             for (int i = 1; i < regionList.districtResult.candidateResults.Count; i++) {
-                var cr = Instantiate<CandidateRecord>(prefabOtherCand,otherCandHolder,false);
-                cr.SetCandidateResult(regionList.districtResult.candidateResults[i]);
+                var cr = MakeOtherCandidate();
+                SetCandidateResult(regionList.districtResult.candidateResults[i],cr);
+                otherCandHolder.Add(cr);
             }
         }
-        */
+        
     }
 
 }

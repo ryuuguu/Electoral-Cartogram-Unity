@@ -122,7 +122,7 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                UitTooltip.Show(e.localMousePosition,e.mousePosition,name);
+                UitTooltip.Show(e.localMousePosition,e.mousePosition,name + " " + cubeCoord);
                 return;
                 /*
                 Debug.Log("mouse: " + e.mousePosition/Screen.safeArea.max + " : " +
@@ -185,10 +185,12 @@ public class UitHexGridMap : MonoBehaviour {
         //DebugHexPos();
         detailsLayer.transform.scale = mapLayer.transform.scale;
         detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
+        /*
         Debug.Log("detailsLayer: "+ detailsLayer.worldBound 
                                   + " : "+ detailsLayer.transform.position
                                   );
         Debug.Log("ridingInfo: "+ ridingInfo.worldBound + " : "+ ridingInfo.transform.position);
+        */
 
     }
     
@@ -264,15 +266,19 @@ public class UitHexGridMap : MonoBehaviour {
         
         if (delayMapBuild == 0) {
             MapBuild();
-            var votes = hexLayer.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
-            votes.ForEach(element => element.visible = false);
-            var seat = hexLayer.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
-            seat.ForEach(element => element.visible = true);
+            ShowVotes(true);
         }
         delayMapBuild--;
         
         // todo: handle mouse
         
+    }
+
+    public void ShowVotes(bool on) {
+        var votes = hexLayer.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
+        votes.ForEach(element => element.visible = on);
+        var seat = hexLayer.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
+        seat.ForEach(element => element.visible = !on);
     }
     
     public void MapBuild() {
@@ -286,8 +292,7 @@ public class UitHexGridMap : MonoBehaviour {
     }
 
     public void HideVotes(bool val) {
-        //todo: add mapGrid.HideVotes(val)
-       // mapGrid.HideVotes(val);
+        
     }
     
     

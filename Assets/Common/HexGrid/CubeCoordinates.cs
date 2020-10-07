@@ -16,6 +16,7 @@ namespace Com.Ryuuguu.HexGridCC {
 
         public const string AllContainer = "ALL";
         
+        //counter clockwise
         public static readonly Vector3[] CubeDirections = {
             new Vector3(0,1,-1),
             new Vector3(1,0,-1),
