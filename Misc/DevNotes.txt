@@ -22,62 +22,25 @@ Does not work on
     	
 NOW	 
   
-  
-  make overlay layer size of map layer and put
-  details as a fixed pixel size
-    
-  // maplayer is mapSize in pixels
-         // it is scaled
-         
-         //we want overlayLayer to be
-         // scale same as map Layer?? yes
-         // so we know the start pixel width in scaled size
-         // it is mapSize.scale(
-         // to have box that goes to world pos of detailsTopRightPos
-         // could make overlay layer same scale & position as map layer
-         // or could make position zero and add offset for calculations
-            pixel width can increase by offset 
-               but should be limited to some max multiple of width
-            pixel height also can increase and has max to hit screen bottom
-            
-     my rescale is quit working       
-              
-  
-  why is basic details area not drawing
-    try drawing a fixed box
-    so the maplayer has correct width & height I think
-        maybe I should use world rect width and height
-        and x & y 
-        that would give me the correct world pos
-          from there calc the right scale
-            from world pos of top right
-                how to scale 
-                have max width multiple
-                and max height multiple
-                anchor to to top right corner
-                  
-             to make what?
-             start with 1x1 then fix 
+  ElectoralDistrictDisplay
+  details scrollView
+  make VE for 
+    one for winner
+    one for otherCandidates
+    VE
+        3x Text
+        1x Color square
+  use existing CandidateResult
+      
   
     details Area
-        make panel in layout
-            black 
-            scale same as map 
-                see what it looks like
-                then change height or width in Pixels
-                  use flex box stuff inside
-              height change by pixel count?
-              
-        add labels
-            province
-            riding
-            winner name, party color, party name, %
             scroll box
                 list items
                 candidate name name, party color, party name, %
         
 	
 LATER
+
     scroll 
 
     Buttons
@@ -129,4 +92,36 @@ Blog
 		
 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
 		
-Name "Flip a Wahzoo and Tyler too"
+DOTS project
+    Swarms
+    ant colony
+        queen produces max amount of offspring(if enough food) then dies
+        max amount of offspring is fixed for game
+        workers
+            physical attributes
+                cost total attributes ^1.5
+                base size 10
+                
+                attack value
+                armour value
+                movement (based on total others)
+                Carry (food) 
+                
+        
+            behaviour attributes are free
+                aggression
+                run when hurt level
+                carry sastify level
+            
+            casts are set values for attributes
+            
+        cast mix is queen attribute
+            queen-drone delay amount 
+                do not produce any queen drone untill amount has been spent on workers
+                can be set as % of total amount produceable.  
+            
+        queen
+            amount of food starts with
+        drone
+            fixed drone cost 
+            

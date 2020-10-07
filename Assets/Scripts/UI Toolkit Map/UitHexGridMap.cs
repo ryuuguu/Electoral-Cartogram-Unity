@@ -12,7 +12,8 @@ public class UitHexGridMap : MonoBehaviour {
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
-    
+    public int ridingInfoHeight = 600;
+    public int  ridingInfoWidth = 500;
     public Vector3 mapVEOffset;
     
     protected VisualElement root;
@@ -103,9 +104,10 @@ public class UitHexGridMap : MonoBehaviour {
         detailsLayer = new VisualElement();
         root.Add(detailsLayer);
         ridingInfo = new VisualElement();
-        var ridingInfoHeight = 200;
+        
+       
         ridingInfo.style.position = Position.Absolute;
-        ridingInfo.style.width = 400;
+        ridingInfo.style.width = ridingInfoWidth;
         ridingInfo.style.height = ridingInfoHeight;
         ridingInfo.style.backgroundColor = Color.black;
         ridingInfo.transform.position =new  Vector3(0, mapGrid.mapSize.y - ridingInfoHeight, 0);
