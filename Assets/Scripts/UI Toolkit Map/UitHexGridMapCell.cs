@@ -319,22 +319,33 @@ public class UitHexGridMapCell : UitHex {
     /// <param name="radius"></param>
     /// <returns></returns>
     List<Vector3> ReorderSubhexes(List<Vector3> coords, int radius) {
-        
+        var clockwiseDirection = new List<Vector3> {
+            new Vector3(1, 0, -1),
+            new Vector3(0, -1, 1),
+            new Vector3(0, 1, -1),
+
+            new Vector3(1, -1, 0),
+
+            new Vector3(-1, 0, 1),
+            new Vector3(-1, 1, 0)
+        };
         
         var result = new List<Vector3>();
         
         var directions = CubeCoordinates.CubeDirections;
         var prev = Vector3.zero;
         for (int i = radius; i >= 0; i--) {
-            // for a ring the sum of the abs == 2 * i
-            // initial = direction 0 * i
+            
             prev = directions[5] * i;
+            Debug.Log("==i: "+ i + " : "+ prev);
             result.Add(prev);
-            for ( int j = 5 ;j>=0;j--) {
-                var direction = directions[(i +5) % 6];
+            for ( int j = 0 ;j<6;j++) {
+                var direction = directions[j];
+                Debug.Log("==j: "+ j + " : "+ direction);
                 for (int k = 0; k < i; k++) {
                     prev = prev + direction;
                     result.Add(prev);
+                    Debug.Log("==k: " + k + " : " + prev);
                 } 
             }
         }
