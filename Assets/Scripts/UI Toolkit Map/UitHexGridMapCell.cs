@@ -324,10 +324,12 @@ public class UitHexGridMapCell : UitHex {
             new Vector3(1, -1, 0),
             
             new Vector3(0, -1, 1),
-            new Vector3(0, 1, -1),
+            new Vector3(-1, 0, 1),
+            
             
             new Vector3(-1, 1, 0),
-            new Vector3(-1, 0, 1)
+            new Vector3(0, 1, -1)
+            
         };
         
         var result = new List<Vector3>();
@@ -337,15 +339,15 @@ public class UitHexGridMapCell : UitHex {
         for (int i = radius; i >= 0; i--) {
             
             prev = directions[5] * i;
-            Debug.Log("==i: "+ i + " : "+ prev);
+            //Debug.Log("==i: "+ i + " : "+ prev);
             
             for ( int j = 0 ;j<6;j++) {
                 var direction = clockwiseDirection[j];
-                Debug.Log("==j: "+ j + " : "+ direction);
+                //Debug.Log("==j: "+ j + " : "+ direction);
                 for (int k = 0; k < i; k++) {
                     prev = prev + direction;
                     result.Add(prev);
-                    Debug.Log("==k: " + k + " : " + prev);
+                    //Debug.Log("==k: " + k + " : " + prev);
                 } 
             }
         }
