@@ -25,7 +25,8 @@ NOW
   make ring traversal.
     nned start point & direction
         need clockwise direction set strting from 12 oclock 
-        
+     
+     doing half hex and first hex should not be added each loop  
   
   Ring # and start point and direction
     need s
