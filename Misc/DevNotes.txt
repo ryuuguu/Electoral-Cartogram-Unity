@@ -24,21 +24,7 @@ Does not work on
     	
 NOW	 
   
-  make button functions
-  turn turn on off votes
-     make toggle group
-     check that changing the value turns off check mark
-    
-  resize topbar
-  
-  need to resize topbar 
-    but not position?
-        definately not x
-  
-     
-  switch language
-   use LanguageController Lang_0() & Lang_1()
-  
+   tooltip shoud be on top of display panel 
   
   try making two candidate records in ui builder
     winner

@@ -22,9 +22,8 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement hexLayer;
     protected VisualElement borderLayer;
     protected VisualElement overlayLayer;
-    protected VisualElement detailsLayer;
-    
-    
+
+
     protected VisualElement ridingInfo;
     
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
@@ -96,10 +95,10 @@ public class UitHexGridMap : MonoBehaviour {
         overlayLayer.RegisterCallback<MouseDownEvent>(
             e => MouseDown( e.localMousePosition));
         mapLayer.Add(overlayLayer);
-        var textElement = UitTooltip.Init();
+        
         overlayLayer.transform.position = hexLayer.transform.position;
         overlayLayer.transform.scale = hexLayer.transform.scale;
-        overlayLayer.Add(textElement);
+        
         
         // this is a hack get all mouse events
         var    ve = new TextElement();
@@ -114,8 +113,6 @@ public class UitHexGridMap : MonoBehaviour {
         topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
         overlayLayer.Add(topBar);
         
-        detailsLayer = new VisualElement();
-        root.Add(detailsLayer);
         ridingInfo = new VisualElement();
         
        
@@ -123,8 +120,11 @@ public class UitHexGridMap : MonoBehaviour {
         ridingInfo.style.width = ridingInfoWidth;
         ridingInfo.style.height = ridingInfoHeight;
         ridingInfo.style.backgroundColor = Color.black;
-        ridingInfo.transform.position =new  Vector3(0, mapGrid.mapSize.y - ridingInfoHeight, 0);
-        detailsLayer.Add(ridingInfo);
+        ridingInfo.transform.position =new  Vector3(0,  100 - ridingInfoHeight, 0);
+        overlayLayer.Add(ridingInfo);
+        
+        var toolTip = UitTooltip.Init();
+        overlayLayer.Add(toolTip);
     }
 
     private void MouseOver(MouseMoveEvent e) {
@@ -135,7 +135,7 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                UitTooltip.Show(e.localMousePosition,e.mousePosition,name + " " + cubeCoord);
+                UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
                 return;
                 /*
                 Debug.Log("mouse: " + e.mousePosition/Screen.safeArea.max + " : " +
@@ -196,14 +196,8 @@ public class UitHexGridMap : MonoBehaviour {
         var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
         //DebugHexPos();
-        detailsLayer.transform.scale = mapLayer.transform.scale;
-        detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
-        /*
-        Debug.Log("detailsLayer: "+ detailsLayer.worldBound 
-                                  + " : "+ detailsLayer.transform.position
-                                  );
-        Debug.Log("ridingInfo: "+ ridingInfo.worldBound + " : "+ ridingInfo.transform.position);
-        */
+        //detailsLayer.transform.scale = mapLayer.transform.scale;
+        //detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
 
     }
     
@@ -329,19 +323,7 @@ public class UitHexGridMap : MonoBehaviour {
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
         }
-        //mapGrid.widthRange = mapData.widthRange;
-        //mapGrid.heightRange = mapData.heightRange;
         
-        /*
-        Debug.Log(mapGrid);
-        Debug.Log(mapGrid.offsetCoord);
-        Debug.Log(mapData);
-        Debug.Log(mapData.offset);
-        Debug.Log(mapData.scale);
-        */
-        //mapGrid.offsetCoord = mapData.offset;
-        //mapGrid.gridScale = mapData.scale;
-        //mapGrid.posCellScale = mapData.posCellScale;
     }
 
     /// <summary>
@@ -369,8 +351,6 @@ public class UitHexGridMap : MonoBehaviour {
         }
         cellData.regionID = mapCell.regionList.id;
     }
-    
-    
     
     public void MakeMapFromData() {
         //todo: mapCell.SetBorder();
