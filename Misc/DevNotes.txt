@@ -20,13 +20,16 @@ Does not work on
         promiseReactionJob@[native code]
     ios chrome
         crash on loading screen reload loop
-    
-    	
+      	
 NOW	 
   
+  problem browser does not handle rescaling well even in constant pixel
+  could try moving to sepearate UIDoc
+    is it worth it or better to wait. 
+   
    
   Winner 
-        Povince
+        Province
     Riding
     candidate color party %
   
@@ -109,6 +112,36 @@ Blog
 		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
 		
 DOTS project
+
+    evolution take idea from the sapling game
+   
+    
+    let players build interesting stuff to start
+        plants 
+            KISS
+            force to not grow to close
+            no shading
+            plant does not get larger with time 
+            grows to max and stops
+                waits and then dies?
+                produces seeds when
+            just lay down zones 
+              only gentle rolling hills
+              heat zone
+              water zone
+              any point has a temperture
+              water amount
+              show with red & blue on ground
+            look old plants and simplify
+            check sapling for traits
+             
+           
+        Make simple poly shape plants
+            i.e. cones 
+                maybe rounded 
+                and just scale every thing     
+            
+        animals
 
     want unity sample project has a couple low poly models walking around
     

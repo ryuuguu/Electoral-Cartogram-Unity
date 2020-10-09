@@ -191,10 +191,12 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     private void TopLevelLayout(Rect screenRect) {
-        Debug.Log("TopLevelLayout: "+ screenRect);
+        
         
         var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
+        //Debug.Log("TopLevelLayout: "+ screenRect );
+        
         //DebugHexPos();
         //detailsLayer.transform.scale = mapLayer.transform.scale;
         //detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
@@ -390,8 +392,7 @@ public class UitHexGridMap : MonoBehaviour {
     public static UitHexGridMapCell GetCellAt(Vector3 v3) {
         return inst.mapGrid.GetCellAt(v3);
     }
-
-
+    
     public VisualElement TopBar() {
         var topBar = new VisualElement();
         var treeTopBar = Resources.Load<VisualTreeAsset>("TopBar");
