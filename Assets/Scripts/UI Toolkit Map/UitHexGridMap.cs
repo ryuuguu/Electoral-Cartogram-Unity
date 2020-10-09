@@ -109,10 +109,8 @@ public class UitHexGridMap : MonoBehaviour {
         ve.style.backgroundColor = Color.clear;
         ve.transform.position = new Vector3(-2000,-2000,0);
         overlayLayer.Add(ve);
-        
-        var topBar = new VisualElement();
-        var treeTopBar = Resources.Load<VisualTreeAsset>("Electoral");
-        treeTopBar.CloneTree(topBar);
+
+        var topBar = TopBar();
         topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
         overlayLayer.Add(topBar);
         
@@ -413,6 +411,19 @@ public class UitHexGridMap : MonoBehaviour {
         return inst.mapGrid.GetCellAt(v3);
     }
 
+
+    public VisualElement TopBar() {
+        var topBar = new VisualElement();
+        var treeTopBar = Resources.Load<VisualTreeAsset>("Electoral");
+        treeTopBar.CloneTree(topBar);
+        topBar.Query<Toggle>("Votes").First()
+            .RegisterCallback<ClickEvent>(evt => 
+                ShowVotes(((Toggle) evt.target).value));
+        topBar.Query<Toggle>("Fr").First()
+            .RegisterCallback<ClickEvent>(evt => Debug.Log("Clicked:" +((Toggle) evt.target).value));
+        return topBar;
+    }
+    
     [System.Serializable]
     public class MapData {
         public Vector2Int widthRange = Vector2Int.up;

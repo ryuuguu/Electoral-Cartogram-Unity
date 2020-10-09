@@ -351,11 +351,7 @@ public class UitHexGridMapCell : UitHex {
                 } 
             }
         }
-
-        Debug.Log("new================");
-        foreach (var c in result) {
-            Debug.Log("==: " + c);
-        }
+        
         return result;
     }
     
