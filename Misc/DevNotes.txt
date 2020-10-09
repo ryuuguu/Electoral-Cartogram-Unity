@@ -24,7 +24,19 @@ Does not work on
     	
 NOW	 
   
-   tooltip shoud be on top of display panel 
+   
+  Winner 
+        Povince
+    Riding
+    candidate color party %
+  
+  others
+   candidate color party %    
+   
+  how do I make candidate record as its own umxl
+  make them fixed size
+  for each part
+  
   
   try making two candidate records in ui builder
     winner

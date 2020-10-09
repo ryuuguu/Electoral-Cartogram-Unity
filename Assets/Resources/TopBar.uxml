@@ -6,7 +6,7 @@
         <ui:VisualElement name="ToggleVotes" style="flex-direction: row; height: auto; width: auto;">
             <ui:Toggle label="Seats" name="Seats" value="false" focusable="false" class="topbar-toggle" style="flex-basis: auto; display: none; visibility: visible;" />
             <ui:VisualElement name="Spacer" style="height: auto; width: 10px;" />
-            <ui:Toggle label="Votes" name="Votes" value="false" class="topbar-toggle" />
+            <ui:Toggle label="Votes" name="Votes" value="true" class="topbar-toggle" />
         </ui:VisualElement>
         <ui:VisualElement name="Spacer" style="height: auto; width: 40px;" />
         <ui:VisualElement name="ToggleLang" style="flex-direction: row; height: auto; width: auto;">

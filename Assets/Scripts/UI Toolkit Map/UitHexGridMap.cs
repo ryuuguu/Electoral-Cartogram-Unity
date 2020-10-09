@@ -394,7 +394,7 @@ public class UitHexGridMap : MonoBehaviour {
 
     public VisualElement TopBar() {
         var topBar = new VisualElement();
-        var treeTopBar = Resources.Load<VisualTreeAsset>("Electoral");
+        var treeTopBar = Resources.Load<VisualTreeAsset>("TopBar");
         treeTopBar.CloneTree(topBar);
         topBar.Query<Toggle>("Votes").First()
             .RegisterCallback<ClickEvent>(evt => 
