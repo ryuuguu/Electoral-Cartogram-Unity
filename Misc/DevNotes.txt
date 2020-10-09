@@ -22,17 +22,18 @@ Does not work on
     	
 NOW	 
   
-  make ring traversal.
-    nned start point & direction
-        need clockwise direction set strting from 12 oclock 
-     
-     doing half hex and first hex should not be added each loop  
-  
-  Ring # and start point and direction
-    need s
-  
   make button functions
   turn turn on off votes
+     make toggle group
+     check that changing the value turns off check mark
+    
+  resize topbar
+  
+  need to resize topbar 
+    but not position?
+        definately not x
+  
+     
   switch language
    use LanguageController Lang_0() & Lang_1()
   

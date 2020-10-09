@@ -24,6 +24,7 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement overlayLayer;
     protected VisualElement detailsLayer;
     
+    
     protected VisualElement ridingInfo;
     
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
@@ -58,6 +59,8 @@ public class UitHexGridMap : MonoBehaviour {
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
         var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
         tree.CloneTree(root);
+    
+        
         
         mapLayer = new VisualElement();
         // setting size so details top right corner can be calculated
@@ -81,7 +84,13 @@ public class UitHexGridMap : MonoBehaviour {
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
         
+        
+        
+        
         overlayLayer= new VisualElement();
+        
+        
+        
         overlayLayer.RegisterCallback<MouseMoveEvent>(
             e => MouseOver( e));
         overlayLayer.RegisterCallback<MouseDownEvent>(
@@ -100,6 +109,12 @@ public class UitHexGridMap : MonoBehaviour {
         ve.style.backgroundColor = Color.clear;
         ve.transform.position = new Vector3(-2000,-2000,0);
         overlayLayer.Add(ve);
+        
+        var topBar = new VisualElement();
+        var treeTopBar = Resources.Load<VisualTreeAsset>("Electoral");
+        treeTopBar.CloneTree(topBar);
+        topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
+        overlayLayer.Add(topBar);
         
         detailsLayer = new VisualElement();
         root.Add(detailsLayer);

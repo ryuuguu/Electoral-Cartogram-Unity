@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="TopBar" style="flex-direction: column; background-color: rgb(173, 167, 167); font-size: 20px; height: 90px; width: 220px; min-width: 220px; min-height: 90px;">
+        <Style src="Electoral.uss" />
+        <ui:Label text="Canada 2019 Election " display-tooltip-when-elided="True" name="Titile" />
+        <ui:VisualElement name="Spacer" style="height: auto; width: 40px;" />
+        <ui:VisualElement name="ToggleVotes" style="flex-direction: row; height: auto; width: auto;">
+            <ui:Toggle label="Seats" name="Seats" value="false" focusable="false" class="topbar-toggle" style="flex-basis: auto;" />
+            <ui:VisualElement name="Spacer" style="height: auto; width: 10px;" />
+            <ui:Toggle label="Votes" name="Votes" value="false" class="topbar-toggle" />
+        </ui:VisualElement>
+        <ui:VisualElement name="Spacer" style="height: auto; width: 40px;" />
+        <ui:VisualElement name="ToggleLang" style="flex-direction: row; height: auto; width: auto;">
+            <ui:Toggle label="En" name="En" value="false" focusable="false" class="topbar-toggle" style="flex-basis: auto;" />
+            <ui:VisualElement name="Spacer" style="height: auto; width: 10px;" />
+            <ui:Toggle label="Fr" name="Fr" value="false" class="topbar-toggle" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
