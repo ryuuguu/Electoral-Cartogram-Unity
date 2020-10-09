@@ -35,12 +35,12 @@ public class LanguageController : MonoBehaviour {
     }
 
     
-    public void Lang_0(bool val) {
-        if (val) LangSet(0);
+    public static void Lang_0(bool val) {
+        if (val) inst.LangSet(0);
     }
 
-    public void Lang_1(bool val) {
-        if (val) LangSet(1);
+    public static void Lang_1(bool val) {
+        if (val) inst.LangSet(1);
     }
     
     public void LangSet(int val) {
@@ -49,7 +49,7 @@ public class LanguageController : MonoBehaviour {
             languguageChanged?.Invoke();
         }
         
-            // some sorta redraw call
+        // some sorta redraw call??
     }
     
     

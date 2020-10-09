@@ -420,7 +420,7 @@ public class UitHexGridMap : MonoBehaviour {
             .RegisterCallback<ClickEvent>(evt => 
                 ShowVotes(((Toggle) evt.target).value));
         topBar.Query<Toggle>("Fr").First()
-            .RegisterCallback<ClickEvent>(evt => Debug.Log("Clicked:" +((Toggle) evt.target).value));
+            .RegisterCallback<ClickEvent>(evt => LanguageController.Lang_1(((Toggle) evt.target).value));
         return topBar;
     }
     
