@@ -650,9 +650,9 @@ MonoBehaviour:
   winnerSize: 25
   winnerSizeSmall: 15
   winnerLength: 17
-  wPartySize: 25
-  wPartySizeSmall: 14
-  wPartyLength: 15
+  wPartySize: 22
+  wPartySizeSmall: 13
+  wPartyLength: 13
 --- !u!4 &77814991
 Transform:
   m_ObjectHideFlags: 0

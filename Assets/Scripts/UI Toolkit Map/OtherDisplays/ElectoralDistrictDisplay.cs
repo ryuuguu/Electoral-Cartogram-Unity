@@ -67,6 +67,10 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         label.text = partyName;
         Shrink(label,inst.wPartySize, inst.wPartySizeSmall, inst.wPartyLength);
         
+        label = winnerVE.Query<Label>("VotePercent").First();
+        label.text = percentVote.ToString();
+        
+        // fill list of other candidates
         
         
     }
