@@ -17,7 +17,14 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
     public float ridingSize = 35;
     public float ridingSizeSmall = 17;
     public int ridingLength = 20;
+    
+    public float winnerSize = 25;
+    public float winnerSizeSmall = 15;
+    public int winnerLength = 20;
 
+    public float wPartySize = 25;
+    public float wPartySizeSmall = 15;
+    public int wPartyLength = 15;
     
     
     public static ElectoralDistrictDisplay inst;
@@ -31,13 +38,36 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         var name = LanguageController.ChooseName(rl.parent.names);
         var label = detailDisplay.Query<Label>("Region").First();
         label.text = name;
-        Shrink(label,inst.regionSize, inst.regionSizeSmall, name, inst.regionLength);
-        
+        Shrink(label,inst.regionSize, inst.regionSizeSmall, inst.regionLength);
         
         name = LanguageController.ChooseName(rl.names);
         label = detailDisplay.Query<Label>("Riding").First();
         label.text = name;
-        Shrink(label,inst.ridingSize, inst.ridingSizeSmall, name, inst.ridingLength);
+        Shrink(label,inst.ridingSize, inst.ridingSizeSmall, inst.ridingLength);
+
+        var cr = regionList.districtResult.candidateResults[0];
+        
+        var winnerVE = detailDisplay.Query<VisualElement>("WinnerRecord").First();
+
+        name = cr.surname + ", " + cr.givenName;
+        if(cr.middleName.Length > 0)  {name  += ", " + cr.middleName;}
+        var pd = PartyController.GetPartyData(cr.partyId);
+        var partyColor = pd.color;
+        var partyName = LanguageController.ChooseName(pd.names);
+        var percentVote = cr.percentVotes.ToString();
+        
+        label = winnerVE.Query<Label>("CandidateName").First();
+        label.text = name;
+        Shrink(label,inst.winnerSize, inst.winnerSizeSmall, inst.winnerLength);
+        
+        var ve = winnerVE.Query<VisualElement>("PartyColor").First();
+        ve.style.backgroundColor = partyColor;
+        
+        label = winnerVE.Query<Label>("PartyName").First();
+        label.text = partyName;
+        Shrink(label,inst.wPartySize, inst.wPartySizeSmall, inst.wPartyLength);
+        
+        
         
     }
 
@@ -45,9 +75,9 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         SetRegionList(regionList);
     }
     
-    public static void Shrink(Label label, float baseSize, float smallSize, string text, int maxSize) {
+    public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
         label.style.fontSize = baseSize;
-        if (text.Length > maxSize) {
+        if (label.text.Length > maxSize) {
             label.style.fontSize = smallSize;
         }
     }

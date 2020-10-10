@@ -24,9 +24,10 @@ Does not work on
 NOW	 
 bug turning off french does not work
 
+    region name resize -ok
     riding name resize -ok
-    candidate name resize ok 
-    party resize
+    candidate name resize -25
+    party resize  -25
     
    
   Winner 
