@@ -22,6 +22,11 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	 
+bug turning off french does not work
+
+    riding name resize -ok
+    candidate name resize ok 
+    party resize
     
    
   Winner 

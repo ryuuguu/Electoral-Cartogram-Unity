@@ -8,9 +8,16 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
     public static VisualElement detailDisplay;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
-    public float regionSize = 35;
+    public float regionSize = 40;
     public float regionSizeSmall = 20;
+    public int regionLength = 15;
+    
+    public float ridingSize = 35;
+    public float ridingSizeSmall = 17;
+    public int ridingLength = 20;
 
+    
+    
     public static ElectoralDistrictDisplay inst;
 
     void Awake() {
@@ -21,8 +28,14 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         var name = LanguageController.ChooseName(rl.parent.names);
         var label = detailDisplay.Query<Label>("Region").First();
         label.text = name;
-        Shrink(label,inst.regionSize, inst.regionSizeSmall, name, 10);
-        detailDisplay.Query<Label>("Riding").First().text = LanguageController.ChooseName(rl.names);
+        Shrink(label,inst.regionSize, inst.regionSizeSmall, name, inst.regionLength);
+        
+        
+        name = LanguageController.ChooseName(rl.names);
+        label = detailDisplay.Query<Label>("Riding").First();
+        label.text = name;
+        Shrink(label,inst.ridingSize, inst.ridingSizeSmall, name, inst.ridingLength);
+        
     }
 
     public static void Shrink(Label label, float baseSize, float smallSize, string text, int maxSize) {
