@@ -34,6 +34,8 @@ bug turning off french does not work
     Riding
     candidate color party %
   
+  Language Controller set event to redraw ElectoralDisplay
+  
   attach values to top area
   
   others
@@ -106,7 +108,8 @@ LATER
 		  tutorial how to use for myself.
 		  finished example code
 		    		
-	
+	Editing need language control event 
+	   deleted it by accident
 Blog 
 	    if things disappear try changing panel setting to smaller reference resolution	
 		

@@ -6,6 +6,8 @@ using UnityEngine.UIElements;
 public class ElectoralDistrictDisplay : MonoBehaviour {
     
     public static VisualElement detailDisplay;
+
+    public static RegionList regionList;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
     public float regionSize = 40;
@@ -24,7 +26,8 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         inst = this;
     }
     public static void SetRegionList(RegionList rl) {
-        if (!rl.isRiding || detailDisplay == null) return;
+        regionList = rl;
+        if (rl == null || !rl.isRiding || detailDisplay == null) return;
         var name = LanguageController.ChooseName(rl.parent.names);
         var label = detailDisplay.Query<Label>("Region").First();
         label.text = name;
@@ -38,6 +41,10 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         
     }
 
+    public void Redaw() {
+        SetRegionList(regionList);
+    }
+    
     public static void Shrink(Label label, float baseSize, float smallSize, string text, int maxSize) {
         label.style.fontSize = baseSize;
         if (text.Length > maxSize) {

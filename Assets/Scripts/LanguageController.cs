@@ -36,11 +36,13 @@ public class LanguageController : MonoBehaviour {
 
     
     public static void Lang_0(bool val) {
-        if (val) inst.LangSet(0);
+        var lang = val ? 0 : 1;
+        inst.LangSet(lang);
     }
 
     public static void Lang_1(bool val) {
-        if (val) inst.LangSet(1);
+        var lang = val ? 1 : 0;
+        inst.LangSet(lang);
     }
     
     public void LangSet(int val) {
