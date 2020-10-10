@@ -22,11 +22,7 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	 
-  
-  problem browser does not handle rescaling well even in constant pixel
-  could try moving to sepearate UIDoc
-    is it worth it or better to wait. 
-   
+    
    
   Winner 
         Province

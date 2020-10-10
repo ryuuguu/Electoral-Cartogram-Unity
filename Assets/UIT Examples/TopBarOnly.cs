@@ -12,6 +12,11 @@ public class TopBarOnly : MonoBehaviour
     {
         var uiDoc= GetComponent<UIDocument>();
         var root = uiDoc.rootVisualElement;   
+        root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
+
+        // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
+        var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
+        tree.CloneTree(root);
         root.RegisterCallback<GeometryChangedEvent>( (evt) =>
             GeometryChange(evt.newRect));
         var topBar = new VisualElement();
