@@ -29,6 +29,8 @@ NOW
     Riding
     candidate color party %
   
+  attach values to top area
+  
   others
    candidate color party %    
    

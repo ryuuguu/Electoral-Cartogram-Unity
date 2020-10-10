@@ -121,6 +121,8 @@ public class UitHexGridMap : MonoBehaviour {
         ridingInfo.style.height = ridingInfoHeight;
         ridingInfo.style.backgroundColor = Color.black;
         ridingInfo.transform.position =new  Vector3(0,  100 - ridingInfoHeight, 0);
+        var detailDisplay = ElectoralDistrictDisplay.MakeDetailDisplay();
+        ridingInfo.Add(detailDisplay);
         overlayLayer.Add(ridingInfo);
         
         var toolTip = UitTooltip.Init();
@@ -136,12 +138,9 @@ public class UitHexGridMap : MonoBehaviour {
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
+                
                 return;
-                /*
-                Debug.Log("mouse: " + e.mousePosition/Screen.safeArea.max + " : " +
-                          e.localMousePosition + " : " +
-                          name);
-                          */
+                
             }
         }
         UitTooltip.Hide();
@@ -155,36 +154,14 @@ public class UitHexGridMap : MonoBehaviour {
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
-                var name = LanguageController.ChooseName(regionList.names);
-                //send message to detail display panel
+                ElectoralDistrictDisplay.SetRegionList(regionList);
             }
             
         }
 
 
-        /*
-        var mouseCoord = mapGrid.Mouse2Coord();
-        var cell = GetCellAt(mouseCoord);
-        if (cell != null) {
-            if (!cell.regionList.isRiding) {
-                prevCell= null;
-                tooltip.Hide("");
-            } else {
-                if (cell != prevCell) {
-                    tooltip.Show("", Input.mousePosition, LanguageController.ChooseName(cell.regionList.names),
-                        Input.mousePosition);
-                }
-                if (Input.GetMouseButtonDown(0)) {
-                    prevSelectedCell?.SetHighLight(false);
-                    cell.ButtonPressed();
-                    prevSelectedCell = cell;
-                }
-            }
-        }
-
-        prevCell = cell;
-        */
-    }
+    
+}
     
     private void GeometryChange(Rect screenRect) {
         TopLevelLayout(screenRect);

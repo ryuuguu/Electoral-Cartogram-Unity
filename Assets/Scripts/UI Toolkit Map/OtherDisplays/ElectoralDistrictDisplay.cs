@@ -3,38 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class ElectoralDistrictDisplay {
-
-
-    public static RegionList regionList;
-
-    public static Label region_1_name;  // not strings but Labels
-    public static Label districtName;
-
+public class ElectoralDistrictDisplay : MonoBehaviour {
     
-    public static VisualElement winnerVE;
-    public static ScrollView otherCandHolder; 
-    public static VisualElement candidateVE; // method that returns VE?
+    public static VisualElement detailDisplay;
     
+    // all these sizes are hard coded as a hack until textMeshPro is supported
+    public float regionSize = 35;
+    public float regionSizeSmall = 20;
+
+    public static ElectoralDistrictDisplay inst;
+
+    void Awake() {
+        inst = this;
+    }
     public static void SetRegionList(RegionList rl) {
-        if (!rl.isRiding) return;
-        regionList = rl;
-        Redraw();
+        if (!rl.isRiding || detailDisplay == null) return;
+        var name = LanguageController.ChooseName(rl.parent.names);
+        var label = detailDisplay.Query<Label>("Region").First();
+        label.text = name;
+        Shrink(label,inst.regionSize, inst.regionSizeSmall, name, 10);
+        detailDisplay.Query<Label>("Riding").First().text = LanguageController.ChooseName(rl.names);
     }
 
-    static VisualElement MakeWinner() {
-        var winner = BaseCandidate();
-        //adjust children's
-        // position and font here
-        return winner;
+    public static void Shrink(Label label, float baseSize, float smallSize, string text, int maxSize) {
+        label.style.fontSize = baseSize;
+        if (text.Length > maxSize) {
+            label.style.fontSize = smallSize;
+        }
     }
 
-    /// <summary>
-    /// Dummy method till correct way is known
-    /// </summary>
-    /// <returns></returns>
-    static VisualElement MakeOtherCandidate() {
-        return new VisualElement();
+    public static VisualElement MakeDetailDisplay() {
+        detailDisplay = new VisualElement();
+        var treeDetailDisplay = Resources.Load<VisualTreeAsset>("RidingDisplay");
+        treeDetailDisplay.CloneTree(detailDisplay);
+        
+        
+        return detailDisplay;
     }
     
     private static VisualElement BaseCandidate() {
@@ -59,22 +63,4 @@ public class ElectoralDistrictDisplay {
         ve.Q<Label>("PercentVote").text = cr.percentVotes.ToString();
     }
     
-    
-    public static void Redraw() {
-        region_1_name.text =LanguageController.ChooseName(regionList.parent.names);
-        districtName.text = LanguageController.ChooseName(regionList.names);
-        SetCandidateResult(regionList.districtResult.candidateResults[0],winnerVE);
-        
-        otherCandHolder.Clear(); // will children be GCed?
-        
-        if (regionList.districtResult.candidateResults.Count > 1) {
-            for (int i = 1; i < regionList.districtResult.candidateResults.Count; i++) {
-                var cr = MakeOtherCandidate();
-                SetCandidateResult(regionList.districtResult.candidateResults[i],cr);
-                otherCandHolder.Add(cr);
-            }
-        }
-        
-    }
-
 }
