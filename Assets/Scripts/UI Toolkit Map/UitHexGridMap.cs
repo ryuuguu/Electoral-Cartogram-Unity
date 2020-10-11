@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Com.Ryuuguu.HexGridCC;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class UitHexGridMap : MonoBehaviour {
@@ -12,8 +13,10 @@ public class UitHexGridMap : MonoBehaviour {
     public MapData mapData;
     public RegionEditor regionEditor;
     public ElectoralDistrictPanel electoralDistrictPanel;
-    public int ridingInfoHeight = 600;
-    public int  ridingInfoWidth = 500;
+    [FormerlySerializedAs("ridingInfoWidth")] public int  leftInfoWidth = 450;
+    [FormerlySerializedAs("ridingInfoHeight")] public int leftInfoHeight = 400;
+    public int  rightInfoWidth = 600;
+    public int rightInfoHeight = 300;
     public Vector3 mapVEOffset;
     
     protected VisualElement root;
@@ -24,8 +27,9 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement regionLayer;
     protected VisualElement overlayLayer;
     
-    protected VisualElement ridingInfo;
-    
+    protected VisualElement leftInfo;
+    protected VisualElement rightInfo;
+
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
     
     private VisualTreeAsset dummy;
@@ -113,17 +117,24 @@ public class UitHexGridMap : MonoBehaviour {
         topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
         overlayLayer.Add(topBar);
         
-        ridingInfo = new VisualElement();
-        
-       
-        ridingInfo.style.position = Position.Absolute;
-        ridingInfo.style.width = ridingInfoWidth;
-        ridingInfo.style.height = ridingInfoHeight;
-        ridingInfo.style.backgroundColor = Color.black;
-        ridingInfo.transform.position =new  Vector3(0,  100 - ridingInfoHeight, 0);
+        leftInfo = new VisualElement();
+        leftInfo.style.position = Position.Absolute;
+        leftInfo.style.width = leftInfoWidth;
+        leftInfo.style.height = leftInfoHeight;
+        leftInfo.style.backgroundColor = Color.black;
+        leftInfo.transform.position =new  Vector3(0,  100 - leftInfoHeight, 0);
+
+        rightInfo = new VisualElement();
+        rightInfo.style.position = Position.Absolute;
+        rightInfo.style.width = rightInfoWidth;
+        rightInfo.style.height = rightInfoHeight;
+        rightInfo.style.backgroundColor = Color.black;
+        rightInfo.transform.position =new  Vector3(mapGrid.mapSize.x - rightInfoWidth,  100 - rightInfoHeight, 0);
+
         var detailDisplay = ElectoralDistrictDisplay.MakeDetailDisplay();
-        ridingInfo.Add(detailDisplay);
-        overlayLayer.Add(ridingInfo);
+        rightInfo.Add(detailDisplay);
+        overlayLayer.Add(leftInfo);
+        overlayLayer.Add(rightInfo);
         
         var toolTip = UitTooltip.Init();
         overlayLayer.Add(toolTip);

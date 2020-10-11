@@ -24,11 +24,24 @@ Does not work on
 NOW	         
    
 
-    list all party seat % and vote %
-    
+    list all party seat % and vote % and show number of seats that % would be
+      
+    a new area on the right with data  
+      
+    A list 
+      columns
+        party
+        color
+        seats 
+        %seats ( # of seats)
+        % of seats
+        % votes
+        
+    a graph
+       show only parties with actual seats or 1% of vote
     list with data
     
-    simple graph two columns with party and % vertical postion 
+    simple graph two columns with party and % vertical position 
     
     
 

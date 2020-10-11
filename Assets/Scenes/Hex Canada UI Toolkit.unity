@@ -4067,6 +4067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad44eac09804a4be2bec917d53e5dcde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalVotes: 0
+  totalSeats: 0
   partyDatas:
   - partyId: Conservative
     names:
@@ -4076,6 +4078,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 12178575
     totalSeats: 121
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Green Party
     names:
     - Green Party
@@ -4084,6 +4088,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 2309733
     totalSeats: 3
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Liberal
     names:
     - Liberal
@@ -4092,6 +4098,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 11748014
     totalSeats: 157
+    percentVotes: 0
+    percentSeats: 0
   - partyId: NDP-New Democratic Party
     names:
     - NDP-New Democratic Party
@@ -4100,6 +4108,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 5600735
     totalSeats: 24
+    percentVotes: 0
+    percentSeats: 0
   - partyId: People's Party
     names:
     - VCP
@@ -4108,6 +4118,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 576265
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Independent
     names:
     - Independent
@@ -4116,6 +4128,8 @@ MonoBehaviour:
     isOther: 0
     totalVotes: 143183
     totalSeats: 1
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Stop Climate Change
     names:
     - People's Party
@@ -4124,6 +4138,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 592
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: VCP
     names:
     - VCP
@@ -4132,6 +4148,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 12098
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Christian Heritage Party
     names:
     - Christian Heritage Party
@@ -4140,6 +4158,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 36671
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: National Citizens Alliance
     names:
     - National Citizens Alliance
@@ -4148,6 +4168,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 877
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Communist
     names:
     - Communist
@@ -4156,6 +4178,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 8153
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Animal Protection Party
     names:
     - Animal Protection Party
@@ -4164,6 +4188,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 8815
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: "Parti Rhinoc\xE9ros Party"
     names:
     - "Parti Rhinoc\xE9ros Party"
@@ -4172,6 +4198,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 18617
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Libertarian
     names:
     - Libertarian
@@ -4180,6 +4208,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 16648
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: "Bloc Qu\xE9b\xE9cois"
     names:
     - "Bloc Qu\xE9b\xE9cois"
@@ -4188,6 +4218,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 2708541
     totalSeats: 32
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Radical Marijuana
     names:
     - Radical Marijuana
@@ -4196,6 +4228,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 1385
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: "Pour l'Ind\xE9pendance du Qu\xE9bec"
     names:
     - "Pour l'Ind\xE9pendance du Qu\xE9bec"
@@ -4204,6 +4238,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 7402
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: ML
     names:
     - ML
@@ -4212,6 +4248,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 8499
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: No Affiliation
     names:
     - No Affiliation
@@ -4220,6 +4258,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 3402
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: PC Party
     names:
     - PC Party
@@ -4228,6 +4268,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 3090
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: Nationalist
     names:
     - Nationalist
@@ -4236,6 +4278,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 565
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: CFF - Canada's Fourth Front
     names:
     - CFF - Canada's Fourth Front
@@ -4244,6 +4288,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 1382
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   - partyId: UPC
     names:
     - UPC
@@ -4252,6 +4298,8 @@ MonoBehaviour:
     isOther: 1
     totalVotes: 1214
     totalSeats: 0
+    percentVotes: 0
+    percentSeats: 0
   otherPartyColor: {r: 0.6152106, g: 0.6226415, b: 0.31425774, a: 1}
 --- !u!4 &824909086
 Transform:
@@ -8009,8 +8057,10 @@ MonoBehaviour:
     cellDatas: []
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
-  ridingInfoHeight: 400
-  ridingInfoWidth: 450
+  leftInfoWidth: 450
+  leftInfoHeight: 400
+  rightInfoWidth: 550
+  rightInfoHeight: 300
   mapVEOffset: {x: 0, y: 700, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
