@@ -162,7 +162,7 @@ public class UitHexGridMap : MonoBehaviour {
 
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
             new Vector2(-0.5f,-0.5f));//hack: not centered cell 
-        Debug.Log("MouseDown: "+ cubeCoord + " : " + localMousePosition);
+        //Debug.Log("MouseDown: "+ cubeCoord + " : " + localMousePosition);
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
