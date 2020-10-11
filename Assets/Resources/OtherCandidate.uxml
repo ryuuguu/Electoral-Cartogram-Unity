@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="CandidateRecord" style="flex-direction: row; color: rgb(255, 255, 255);">
+        <ui:Label text="Candidate Name" display-tooltip-when-elided="True" name="CandidateName" style="font-size: 20px; color: rgb(255, 255, 255); width: 180px; padding-right: 3px; -unity-text-align: upper-center;" />
+        <ui:VisualElement name="PartyColor" style="width: 25px; height: 25px; background-color: rgb(248, 6, 6);" />
+        <ui:Label text="Party Name" display-tooltip-when-elided="True" name="PartyName" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; white-space: normal; width: 130px;" />
+        <ui:Label text="37.5" display-tooltip-when-elided="True" name="VotePercent" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px;" />
+    </ui:VisualElement>
+</ui:UXML>

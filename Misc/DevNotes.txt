@@ -24,18 +24,13 @@ Does not work on
 NOW	 
 bug turning off french does not work
 
-    region name resize -ok
-    riding name resize -ok
-    candidate name resize -25
-    party resize  -25
+    other candidate
+
+    candidate name resize -20
+    party resize  -20
     
-   
-  Winner 
-        Province
-    Riding
-    candidate color party %
+   add other candidates to list
   
-  Language Controller set event to redraw ElectoralDisplay
   
   attach values to top area
   

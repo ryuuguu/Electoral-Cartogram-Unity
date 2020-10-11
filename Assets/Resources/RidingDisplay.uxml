@@ -8,6 +8,6 @@
             <ui:Label text="Party Name" display-tooltip-when-elided="True" name="PartyName" style="font-size: 25px; color: rgb(255, 255, 255); -unity-text-align: upper-center; white-space: normal; width: 150px;" />
             <ui:Label text="37.5" display-tooltip-when-elided="True" name="VotePercent" style="font-size: 25px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px;" />
         </ui:VisualElement>
-        <ui:ListView focusable="True" name="OtherList" selection-type="None" style="width: 450px; color: rgb(255, 255, 255);" />
+        <ui:ListView focusable="True" name="OtherList" selection-type="None" style="width: 450px; color: rgb(255, 255, 255); height: 200px;" />
     </ui:VisualElement>
 </ui:UXML>
