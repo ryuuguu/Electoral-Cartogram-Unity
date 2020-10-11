@@ -22,12 +22,14 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	         
+   
 
+    list all party seat % and vote %
     
-    RegionLayer
-      put elements at correct coord
-      look at tooltip?
-      no reverse
+    list with data
+    
+    simple graph two columns with party and % vertical postion 
+    
     
 
    if I split off May lose editor stuff

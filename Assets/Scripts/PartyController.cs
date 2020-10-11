@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PartyController : MonoBehaviour {
+    public int totalVotes;
+    public int totalSeats;
     public List<PartyData> partyDatas;
     public Color otherPartyColor;
 
@@ -13,7 +15,15 @@ public class PartyController : MonoBehaviour {
         inst = this;
     }
 
+    public void TotalPartyData() {
+        foreach(var pd in partyDatas) {
+            pd.percentSeats = (pd.totalSeats*1.0f) / totalSeats;
+            pd.percentVotes = (pd.totalVotes*1.0f) / totalVotes;
+        }
+    }
+    
     public void AddPartyData(string nameE, string nameF, int votes) {
+        totalVotes += votes;
         var pd = partyDatas.Find((data => data.partyId == nameE));
         if (pd == null) {
             pd = new PartyData() {
@@ -27,7 +37,9 @@ public class PartyController : MonoBehaviour {
         pd.totalVotes += votes;
     }
     
-    public void ClearPartyVotes() {
+    public void ClearVotes() {
+        totalVotes = 0;
+        totalSeats = 0;
         foreach (var pd in partyDatas) {
             pd.totalVotes = 0;
             pd.totalSeats = 0;
@@ -35,6 +47,7 @@ public class PartyController : MonoBehaviour {
     }
 
     public static void AddPartySeat(string partyId) {
+        inst.totalSeats++;
         var pd = GetPartyData(partyId);
         if (pd != null) {
             pd.totalSeats++;
@@ -54,4 +67,6 @@ public class PartyData {
     public bool isOther;
     public int totalVotes;
     public int totalSeats;
+    public float percentVotes;
+    public float percentSeats;
 }

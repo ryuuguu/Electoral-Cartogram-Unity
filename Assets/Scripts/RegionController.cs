@@ -147,7 +147,7 @@ public class RegionController : MonoBehaviour {
     /// assumes that districtResult lists are empty.
     /// </summary>
     public void LoadElectionResults() {
-        gameController.partyController.ClearPartyVotes();
+        gameController.partyController.ClearVotes();
         
         var sourceFile = (TextAsset) Resources.Load("EventResults_2019", typeof(TextAsset));
         var temp = sourceFile.text; 
@@ -184,6 +184,7 @@ public class RegionController : MonoBehaviour {
             }
         }
         ProcessElectionResults(regionList);
+        gameController.partyController.TotalPartyData();
     }
 
     public void ProcessElectionResults(RegionList aRegionList) {
