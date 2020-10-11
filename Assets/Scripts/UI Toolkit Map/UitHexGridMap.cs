@@ -83,9 +83,6 @@ public class UitHexGridMap : MonoBehaviour {
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
         
-        
-        
-        
         overlayLayer= new VisualElement();
         
         

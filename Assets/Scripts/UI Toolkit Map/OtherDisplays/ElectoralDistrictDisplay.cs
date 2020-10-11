@@ -101,6 +101,16 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         var treeDetailDisplay = Resources.Load<VisualTreeAsset>("RidingDisplay");
         treeDetailDisplay.CloneTree(detailDisplay);
         
+        detailDisplay.Q<Label>("Region").text = "";
+        
+        detailDisplay.Q<Label>("Riding").text = "";
+        
+        var winnerVE = detailDisplay.Q<VisualElement>("WinnerRecord");
+        winnerVE.Q<Label>("CandidateName").text = "";
+        winnerVE.Q<VisualElement>("PartyColor").style.backgroundColor = Color.clear;
+        winnerVE.Q<Label>("PartyName").text= "";
+        winnerVE.Q<Label>("VotePercent").text= "";
+
         var listView = detailDisplay.Q<ListView>();
         items = new List<CandidateResult>();
         

@@ -22,10 +22,11 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	         
-Add shrink to tip	
-	
-	
-	
+
+   if I split off May lose editor stuff
+   so need copy here
+   
+   
 LATER
 
    
