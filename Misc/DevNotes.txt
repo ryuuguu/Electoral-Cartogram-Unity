@@ -22,14 +22,18 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	 
-bug turning off french does not work
+Make region and riding
+two line height
+try same with Candidate 
+and put part and color
+
+
 
     other candidate
+     name can wider
+       check every thing is fixed width
 
-    candidate name resize -20
-    party resize  -20
-    
-   add other candidates to list
+  
   
   
   attach values to top area
