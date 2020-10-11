@@ -21,9 +21,9 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement mapLayer;
     protected VisualElement hexLayer;
     protected VisualElement borderLayer;
+    protected VisualElement regionLayer;
     protected VisualElement overlayLayer;
-
-
+    
     protected VisualElement ridingInfo;
     
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
@@ -58,8 +58,6 @@ public class UitHexGridMap : MonoBehaviour {
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
         var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
         tree.CloneTree(root);
-    
-        
         
         mapLayer = new VisualElement();
         // setting size so details top right corner can be calculated
@@ -73,9 +71,8 @@ public class UitHexGridMap : MonoBehaviour {
         var holderPosition = hexLayer.transform.position + mapVEOffset;
         hexLayer.transform.position = holderPosition;
         
-        
         mapLayer.Add(hexLayer);
-        mapGrid.Init(hexLayer);
+        var localSpaceId =  mapGrid.Init(hexLayer);
         
         borderLayer = new VisualElement();
         borderLayer.transform.position = holderPosition;
@@ -83,16 +80,22 @@ public class UitHexGridMap : MonoBehaviour {
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
         
+        regionLayer = new VisualElement();
+        regionLayer.style.position = Position.Absolute;
+        regionLayer.transform.position = hexLayer.transform.position;
+        regionLayer.transform.scale = hexLayer.transform.scale;
+        mapLayer.Add(regionLayer);
+        RegionLayer.Init(localSpaceId,regionLayer);
+        RegionLayer.Redraw();
+
         overlayLayer= new VisualElement();
-        
-        
-        
         overlayLayer.RegisterCallback<MouseMoveEvent>(
             e => MouseOver( e));
         overlayLayer.RegisterCallback<MouseDownEvent>(
             e => MouseDown( e.localMousePosition));
         mapLayer.Add(overlayLayer);
-        
+
+        overlayLayer.style.position = Position.Absolute;
         overlayLayer.transform.position = hexLayer.transform.position;
         overlayLayer.transform.scale = hexLayer.transform.scale;
         
@@ -148,6 +151,7 @@ public class UitHexGridMap : MonoBehaviour {
 
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
             new Vector2(-0.5f,-0.5f));//hack: not centered cell 
+        Debug.Log("MouseDown: "+ cubeCoord + " : " + localMousePosition);
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {

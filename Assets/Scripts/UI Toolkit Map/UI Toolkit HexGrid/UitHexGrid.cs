@@ -39,12 +39,13 @@ public class UitHexGrid : MonoBehaviour {
     /// setup a local space
     /// </summary>
     /// <param name="aHexHolder"></param>
-    public void Init(VisualElement aHexHolder) {
+    public string Init(VisualElement aHexHolder) {
         hexHolder = aHexHolder;
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
         localSpaceId = CubeCoordinates.NewLocalSpaceId(hexRadius / 2, Vector2.one,
             CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
+        return localSpaceId;
     }
 
 

@@ -23,8 +23,20 @@ Does not work on
       	
 NOW	         
 
+    
+    RegionLayer
+      put elements at correct coord
+      look at tooltip?
+      no reverse
+    
+
    if I split off May lose editor stuff
    so need copy here
+   
+   Commit to keep UGUI version so I can look at editor stuff later
+   
+   remove as much Ugi stuff and all other test code
+   make build as small as possible for testing on mobile browser
    
    
 LATER
