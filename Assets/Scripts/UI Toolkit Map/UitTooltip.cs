@@ -12,6 +12,9 @@ public class UitTooltip  {
     public static TextElement textElement;
     public static float width = 250;
     public static float height = 50 ;
+    public static int maxTextLength = 30;
+    public static float regularFont = 20;
+    public static float smallFont = 15;
     
     public static TextElement Init() {
         textElement = new TextElement();
@@ -36,10 +39,18 @@ public class UitTooltip  {
         textElement.text = message;
         textElement.visible = true;
         textElement.transform.position = position + offset;
+        Shrink(textElement,regularFont, smallFont,maxTextLength);
     }
     
 
     public static void Hide() {
         textElement.visible = false;
+    }
+    
+    public static void Shrink(TextElement textElement, float baseSize, float smallSize, int maxSize) {
+        textElement.style.fontSize = baseSize;
+        if (textElement.text.Length > maxSize) {
+            textElement.style.fontSize = smallSize;
+        }
     }
 }

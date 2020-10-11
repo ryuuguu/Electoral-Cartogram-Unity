@@ -21,72 +21,26 @@ Does not work on
     ios chrome
         crash on loading screen reload loop
       	
-NOW	 
-Make region and riding
-two line height
-try same with Candidate 
-and put part and color
-
-
-
-    other candidate
-     name can wider
-       check every thing is fixed width
-
-  
-  
-  
-  attach values to top area
-  
-  others
-   candidate color party %    
-   
-  how do I make candidate record as its own umxl
-  make them fixed size
-  for each part
-  
-  
-  try making two candidate records in ui builder
-    winner
-    list record
-    
-  watch videos  
-  
-  ElectoralDistrictDisplay
-  details scrollView
-  make VE for 
-    one for winner
-    one for otherCandidates
-    VE
-        3x Text
-        1x Color square
-  use existing CandidateResult
-        
+NOW	         
+Add shrink to tip	
+	
+	
 	
 LATER
 
-    scroll 
-
-    Buttons
-        vote
-        language
-        
-    details box 
-       list
-       scroll
+   
     
-	    add text Labels overtop of hex locations
+	 add text Labels overtop of hex locations for regions
 	        should be editable
 	
      make visibile
      switch to square
      
-     box with info
-      
-     hex color from outside to inside
-        party getting 1% in center and 
-            always visible not blocked by border.
-                
+     box with info Canada wide 
+        seats per party
+        votes per party
+        
+                 
 	
 	Redesign
 		isSquare
@@ -108,7 +62,7 @@ LATER
 		  tutorial how to use for myself.
 		  finished example code
 		    		
-	Editing need language control event 
+	Editing mode need language control event 
 	   deleted it by accident
 Blog 
 	    if things disappear try changing panel setting to smaller reference resolution	
@@ -120,34 +74,18 @@ Blog
 DOTS project
 
     evolution take idea from the sapling game
+        combines with ants
+        evolution an wars
    
     
     let players build interesting stuff to start
-        plants 
-            KISS
-            force to not grow to close
-            no shading
-            plant does not get larger with time 
-            grows to max and stops
-                waits and then dies?
-                produces seeds when
-            just lay down zones 
-              only gentle rolling hills
-              heat zone
-              water zone
-              any point has a temperture
-              water amount
-              show with red & blue on ground
-            look old plants and simplify
-            check sapling for traits
-             
-           
-        Make simple poly shape plants
-            i.e. cones 
-                maybe rounded 
-                and just scale every thing     
+        Ants only 
+            check ant models
             
-        animals
+        what attributes
+            see below
+            need good visuals     
+        
 
     want unity sample project has a couple low poly models walking around
     
