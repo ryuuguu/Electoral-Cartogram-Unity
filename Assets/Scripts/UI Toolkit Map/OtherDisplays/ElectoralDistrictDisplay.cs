@@ -74,7 +74,6 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
 
         items.Clear();
         
-        
         // fill list of other candidates
         if (regionList.districtResult.candidateResults.Count > 1) {
             for (int i = 1; i < regionList.districtResult.candidateResults.Count; i++) {
@@ -156,26 +155,4 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         return detailDisplay;
     }
     
-    private static VisualElement BaseCandidate() {
-        var result = new VisualElement();
-        var candidateName = new Label() {name = "CandidateName"};
-        result.Add(candidateName);
-        var partyColor = new VisualElement() {name = "PartyColor"};
-        result.Add(partyColor);
-        var partyName = new Label() {name = "PartyName"};
-        result.Add(partyName);
-        var percentVote = new Label() {name = "PercentVote"};
-        result.Add(percentVote);
-        return result;
-    }
-
-
-    static void SetCandidateResult(CandidateResult cr, VisualElement ve ) {
-        ve.Q<Label>("CandidateName").text = cr.surname + " , " + cr.givenName + " , " + cr.middleName;
-        var pd = PartyController.GetPartyData(cr.partyId);
-        ve.Q<VisualElement>("PartyColor").style.backgroundColor = pd.color;
-        ve.Q<Label>("PartyName").text = LanguageController.ChooseName(pd.names);
-        ve.Q<Label>("PercentVote").text = cr.percentVotes.ToString();
-    }
-
 }

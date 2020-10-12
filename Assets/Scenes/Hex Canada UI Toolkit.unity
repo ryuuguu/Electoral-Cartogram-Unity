@@ -4079,7 +4079,7 @@ MonoBehaviour:
     totalVotes: 12178575
     totalSeats: 121
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Green Party
     names:
     - Green Party
@@ -4089,7 +4089,7 @@ MonoBehaviour:
     totalVotes: 2309733
     totalSeats: 3
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Liberal
     names:
     - Liberal
@@ -4099,7 +4099,7 @@ MonoBehaviour:
     totalVotes: 11748014
     totalSeats: 157
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: NDP-New Democratic Party
     names:
     - NDP-New Democratic Party
@@ -4109,7 +4109,7 @@ MonoBehaviour:
     totalVotes: 5600735
     totalSeats: 24
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: People's Party
     names:
     - VCP
@@ -4119,7 +4119,7 @@ MonoBehaviour:
     totalVotes: 576265
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Independent
     names:
     - Independent
@@ -4129,7 +4129,7 @@ MonoBehaviour:
     totalVotes: 143183
     totalSeats: 1
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Stop Climate Change
     names:
     - People's Party
@@ -4139,7 +4139,7 @@ MonoBehaviour:
     totalVotes: 592
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: VCP
     names:
     - VCP
@@ -4149,7 +4149,7 @@ MonoBehaviour:
     totalVotes: 12098
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Christian Heritage Party
     names:
     - Christian Heritage Party
@@ -4159,7 +4159,7 @@ MonoBehaviour:
     totalVotes: 36671
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: National Citizens Alliance
     names:
     - National Citizens Alliance
@@ -4169,7 +4169,7 @@ MonoBehaviour:
     totalVotes: 877
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Communist
     names:
     - Communist
@@ -4179,7 +4179,7 @@ MonoBehaviour:
     totalVotes: 8153
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Animal Protection Party
     names:
     - Animal Protection Party
@@ -4189,7 +4189,7 @@ MonoBehaviour:
     totalVotes: 8815
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: "Parti Rhinoc\xE9ros Party"
     names:
     - "Parti Rhinoc\xE9ros Party"
@@ -4199,7 +4199,7 @@ MonoBehaviour:
     totalVotes: 18617
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Libertarian
     names:
     - Libertarian
@@ -4209,7 +4209,7 @@ MonoBehaviour:
     totalVotes: 16648
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: "Bloc Qu\xE9b\xE9cois"
     names:
     - "Bloc Qu\xE9b\xE9cois"
@@ -4219,7 +4219,7 @@ MonoBehaviour:
     totalVotes: 2708541
     totalSeats: 32
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Radical Marijuana
     names:
     - Radical Marijuana
@@ -4229,7 +4229,7 @@ MonoBehaviour:
     totalVotes: 1385
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: "Pour l'Ind\xE9pendance du Qu\xE9bec"
     names:
     - "Pour l'Ind\xE9pendance du Qu\xE9bec"
@@ -4239,7 +4239,7 @@ MonoBehaviour:
     totalVotes: 7402
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: ML
     names:
     - ML
@@ -4249,7 +4249,7 @@ MonoBehaviour:
     totalVotes: 8499
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: No Affiliation
     names:
     - No Affiliation
@@ -4259,7 +4259,7 @@ MonoBehaviour:
     totalVotes: 3402
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: PC Party
     names:
     - PC Party
@@ -4269,7 +4269,7 @@ MonoBehaviour:
     totalVotes: 3090
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: Nationalist
     names:
     - Nationalist
@@ -4279,7 +4279,7 @@ MonoBehaviour:
     totalVotes: 565
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: CFF - Canada's Fourth Front
     names:
     - CFF - Canada's Fourth Front
@@ -4289,7 +4289,7 @@ MonoBehaviour:
     totalVotes: 1382
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   - partyId: UPC
     names:
     - UPC
@@ -4299,7 +4299,7 @@ MonoBehaviour:
     totalVotes: 1214
     totalSeats: 0
     percentVotes: 0
-    percentSeats: 0
+    propSeats: 0
   otherPartyColor: {r: 0.6152106, g: 0.6226415, b: 0.31425774, a: 1}
 --- !u!4 &824909086
 Transform:
@@ -66144,6 +66144,61 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1967063285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967063287}
+  - component: {fileID: 1967063286}
+  m_Layer: 0
+  m_Name: PartyTotalsDisplay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1967063286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967063285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c5f49627e3f444db502434637c344b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  regionSize: 40
+  regionSizeSmall: 20
+  regionLength: 15
+  ridingSize: 35
+  ridingSizeSmall: 17
+  ridingLength: 20
+  winnerSize: 25
+  winnerSizeSmall: 15
+  winnerLength: 20
+  wPartySize: 25
+  wPartySizeSmall: 15
+  wPartyLength: 15
+--- !u!4 &1967063287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967063285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -825.7023, y: 488.18222, z: -43.39024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2003678536
 GameObject:
   m_ObjectHideFlags: 0

@@ -133,6 +133,10 @@ public class UitHexGridMap : MonoBehaviour {
 
         var detailDisplay = ElectoralDistrictDisplay.MakeDetailDisplay();
         rightInfo.Add(detailDisplay);
+        
+        var partyTotalsDisplay = PartyTotalsDisplay.MakePartyTotalsDisplay();
+        leftInfo.Add(partyTotalsDisplay );
+        
         overlayLayer.Add(leftInfo);
         overlayLayer.Add(rightInfo);
         
@@ -288,16 +292,12 @@ public class UitHexGridMap : MonoBehaviour {
             //regionEditor.gameObject.SetActive(true);
         }
     }
-
-    public void HideVotes(bool val) {
-        
-    }
-    
     
     [ContextMenu("test makeMap in edit")]
     public void LoadMakeMap() {
         LoadMapDataResource();
         MakeMapFromData();
+        PartyTotalsDisplay.SetPartyList();
     }
     
     

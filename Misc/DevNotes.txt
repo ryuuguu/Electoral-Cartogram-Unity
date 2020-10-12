@@ -23,11 +23,15 @@ Does not work on
       	
 NOW	         
    
+   UXML
+    party, color, Seats, % seats, % vote , Seat change 
+    
+    Make list view 
+        make headings 
+        
 
     list all party seat % and vote % and show number of seats that % would be
-      
-    a new area on the right with data  
-      
+         
     A list 
       columns
         party
@@ -38,7 +42,7 @@ NOW
         % votes
         
     a graph
-       show only parties with actual seats or 1% of vote
+       show only parties with actual seats or 5% of vote  
     list with data
     
     simple graph two columns with party and % vertical position 
