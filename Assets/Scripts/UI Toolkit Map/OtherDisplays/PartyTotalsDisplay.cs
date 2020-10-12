@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class PartyTotalsDisplay : MonoBehaviour {
     
@@ -11,21 +12,11 @@ public class PartyTotalsDisplay : MonoBehaviour {
     private static List<PartyData> items;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
-    public float regionSize = 40;
-    public float regionSizeSmall = 20;
-    public int regionLength = 15;
     
-    public float ridingSize = 35;
-    public float ridingSizeSmall = 17;
-    public int ridingLength = 20;
-    
-    public float winnerSize = 25;
-    public float winnerSizeSmall = 15;
-    public int winnerLength = 20;
 
-    public float wPartySize = 25;
-    public float wPartySizeSmall = 15;
-    public int wPartyLength = 15;
+    public float partySize = 20;
+    public float partySizeSmall = 12;
+    public int   partyLength = 15;
     
     
     public static PartyTotalsDisplay inst;
@@ -34,7 +25,9 @@ public class PartyTotalsDisplay : MonoBehaviour {
         inst = this;
     }
     public static void SetPartyList() {
-        items.AddRange( PartyController.inst.partyDatas);
+        var ordered = PartyController.inst.partyDatas.OrderByDescending(partyData => partyData.totalVotes);
+        items.AddRange( ordered);
+        
         Debug.Log("SetPartyList: "+ items.Count);
         partyDisplay.Q<ListView>().Refresh();
     }
@@ -67,18 +60,17 @@ public class PartyTotalsDisplay : MonoBehaviour {
         };
         
         Action<VisualElement, int> bindItem = (e, i) => {
-            Debug.Log("SetPartyList bindItem : "+ i);
             var partyData = items[i];
             
             var partyName = LanguageController.ChooseName(partyData.names);
             var partyColor = partyData.color;
-            var percentVote = partyData.percentVotes.ToString();
+            var percentVote = partyData.percentVotes.ToString("F1");
             var seats = partyData.totalSeats.ToString();
-            var propSeats = partyData.propSeats.ToString();
+            var propSeats = partyData.propSeats.ToString("F1");
             
             var label = e.Q<Label>("PartyName");
             label.text = partyName;
-            Shrink(label,inst.wPartySize, inst.wPartySizeSmall, inst.wPartyLength);
+            Shrink(label,inst.partySize, inst.partySizeSmall, inst.partyLength);
             
             e.Q<VisualElement>("PartyColor").style.backgroundColor = partyColor;
             e.Q<Label>("Seats").text = seats;

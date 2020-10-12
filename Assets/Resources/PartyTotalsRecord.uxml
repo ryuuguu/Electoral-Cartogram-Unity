@@ -1,9 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="PartyRecord" style="flex-direction: row; color: rgb(255, 255, 255); width: 280px; align-items: center;">
-        <ui:Label text="NDP New Democratic Party" display-tooltip-when-elided="True" name="PartyName" style="font-size: 12px; color: rgb(255, 255, 255); -unity-text-align: upper-center; white-space: normal; width: 100px; height: 45px;" />
+        <ui:Label text="NDP New Democratic Party" display-tooltip-when-elided="True" name="PartyName" style="font-size: 12px; color: rgb(255, 255, 255); -unity-text-align: middle-center; white-space: normal; width: 100px; height: 45px;" />
         <ui:VisualElement name="PartyColor" style="width: 25px; height: 25px; background-color: rgb(248, 6, 6);" />
-        <ui:Label text="123" display-tooltip-when-elided="True" name="Seats" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 50px;" />
-        <ui:Label text="87.7" display-tooltip-when-elided="True" name="PropSeats" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 50px;" />
-        <ui:Label text="37.5" display-tooltip-when-elided="True" name="PercentVote" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 50px;" />
+        <ui:Label text="123" display-tooltip-when-elided="True" name="Seats" style="font-size: 16px; color: rgb(255, 255, 255); -unity-text-align: upper-right; margin-right: 0; padding-right: 4px; width: 50px;" />
+        <ui:Label text="187.7" display-tooltip-when-elided="True" name="PropSeats" style="font-size: 16px; color: rgb(255, 255, 255); -unity-text-align: upper-right; margin-right: 0; padding-right: 4px; width: 50px;" />
+        <ui:Label text="37.5" display-tooltip-when-elided="True" name="PercentVote" style="font-size: 16px; color: rgb(255, 255, 255); -unity-text-align: upper-right; margin-right: 0; padding-right: 4px; width: 50px;" />
     </ui:VisualElement>
 </ui:UXML>

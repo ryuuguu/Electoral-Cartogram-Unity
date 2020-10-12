@@ -4112,8 +4112,8 @@ MonoBehaviour:
     propSeats: 0
   - partyId: People's Party
     names:
-    - VCP
-    - CAC
+    - People's Party
+    - Parti populaire
     color: {r: 0.9811321, g: 0.38412246, b: 0.96608466, a: 1}
     isOther: 0
     totalVotes: 576265
@@ -4132,8 +4132,8 @@ MonoBehaviour:
     propSeats: 0
   - partyId: Stop Climate Change
     names:
-    - People's Party
-    - Parti populaire
+    - Stop Climate Change
+    - Stop Climate Change
     color: {r: 0.6096667, g: 0.62, b: 0.31, a: 1}
     isOther: 1
     totalVotes: 592
@@ -66173,18 +66173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c5f49627e3f444db502434637c344b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regionSize: 40
-  regionSizeSmall: 20
-  regionLength: 15
-  ridingSize: 35
-  ridingSizeSmall: 17
-  ridingLength: 20
-  winnerSize: 25
-  winnerSizeSmall: 15
-  winnerLength: 20
-  wPartySize: 25
-  wPartySizeSmall: 15
-  wPartyLength: 15
+  partySize: 20
+  partySizeSmall: 12
+  partyLength: 10
 --- !u!4 &1967063287
 Transform:
   m_ObjectHideFlags: 0

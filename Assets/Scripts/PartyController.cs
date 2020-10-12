@@ -17,8 +17,8 @@ public class PartyController : MonoBehaviour {
 
     public void TotalPartyData() {
         foreach(var pd in partyDatas) {
-            pd.percentVotes = (pd.totalVotes * 1.0f) / totalVotes;
-            pd.propSeats = (pd.totalSeats * pd.percentVotes);
+            pd.percentVotes = (pd.totalVotes * 100f) / totalVotes;
+            pd.propSeats = (totalSeats * pd.percentVotes/100f);
         }
     }
     

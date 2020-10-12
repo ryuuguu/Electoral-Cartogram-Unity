@@ -22,24 +22,18 @@ Does not work on
         crash on loading screen reload loop
       	
 NOW	         
-   
-   UXML
-    party, color, Seats, % seats, % vote , Seat change 
-    
+     
     Make list view 
         make headings 
         
+    sort by % vote
+    format propSeats to xx.x
+    format % vote to % xx.x
+    
 
     list all party seat % and vote % and show number of seats that % would be
          
-    A list 
-      columns
-        party
-        color
-        seats 
-        %seats ( # of seats)
-        % of seats
-        % votes
+   
         
     a graph
        show only parties with actual seats or 5% of vote  
