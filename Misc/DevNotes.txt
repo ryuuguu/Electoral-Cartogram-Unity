@@ -6,42 +6,13 @@ Does not work on
 
  try removing unused packages and see if it makes the size smaller
     osx safari
-        resize is broken with constant pixel
-    ios safari 
-        crash on loading screen
-        abort({}) at jsStackTrace@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:16342
+        resize is broken with constant pixel sometimes
         
-        stackTrace@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:16516
-        
-        abort@http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:757
-        
-        http://ryuuguu.com/unity/other/webgl2/Build/webgl2.framework.js.gz:2:25359
-        
-        promiseReactionJob@[native code]
-    ios chrome
-        crash on loading screen reload loop
-      	
+    
 NOW	         
      
-    Make list view 
-        make headings 
-        
-    sort by % vote
-    format propSeats to xx.x
-    format % vote to % xx.x
-    
-
-    list all party seat % and vote % and show number of seats that % would be
-         
-   
-        
-    a graph
-       show only parties with actual seats or 5% of vote  
-    list with data
-    
-    simple graph two columns with party and % vertical position 
-    
-    
+   details list is broken at bottom sometimes 
+   name sizes messed up 
 
    if I split off May lose editor stuff
    so need copy here

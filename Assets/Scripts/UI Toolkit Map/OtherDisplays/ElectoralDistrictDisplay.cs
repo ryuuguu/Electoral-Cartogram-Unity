@@ -139,12 +139,12 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
             e.Q<VisualElement>("PartyColor").style.backgroundColor = cpartyColor;
             
         
-            clabel = e.Q<Label>("PartyName");
-            clabel.text = cpartyName;
-            Shrink(clabel,inst.wPartySize*shrinkFactor, inst.wPartySizeSmall*shrinkFactor, inst.wPartyLength);
+            var clabel2 = e.Q<Label>("PartyName");
+            clabel2.text = cpartyName;
+            Shrink(clabel2,inst.wPartySize*shrinkFactor, inst.wPartySizeSmall*shrinkFactor, inst.wPartyLength);
         
-            clabel = e.Q<Label>("VotePercent");
-            clabel.text = cpercentVote.ToString();
+            e.Q<Label>("VotePercent").text = cpercentVote.ToString();
+            
 
         };
         listView.makeItem = makeItem;
