@@ -27,8 +27,6 @@ public class PartyTotalsDisplay : MonoBehaviour {
     public static void SetPartyList() {
         var ordered = PartyController.inst.partyDatas.OrderByDescending(partyData => partyData.totalVotes);
         items.AddRange( ordered);
-        
-        Debug.Log("SetPartyList: "+ items.Count);
         partyDisplay.Q<ListView>().Refresh();
     }
     

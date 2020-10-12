@@ -66173,9 +66173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c5f49627e3f444db502434637c344b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  partySize: 20
-  partySizeSmall: 12
-  partyLength: 10
+  partySize: 25
+  partySizeSmall: 15
+  partyLength: 15
 --- !u!4 &1967063287
 Transform:
   m_ObjectHideFlags: 0
