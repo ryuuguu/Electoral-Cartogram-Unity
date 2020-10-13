@@ -1,10 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <ui:VisualElement name="PartyRecordHeader" style="flex-direction: row; color: rgb(255, 255, 255); width: 540px; align-items: center;">
+        <Style src="Electoral.uss" />
         <ui:Label text="Party" display-tooltip-when-elided="True" name="Party" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: middle-center; white-space: normal; width: 250px; height: 45px; justify-content: flex-start;" />
         <ui:VisualElement name="PartyColor" style="width: 25px; height: 25px; background-color: rgba(0, 0, 0, 0); visibility: visible;" />
         <ui:Label text="Seats" display-tooltip-when-elided="True" name="Seats" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 55px;" />
         <ui:Label text="Prop seats" display-tooltip-when-elided="True" name="PropSeats" style="font-size: 15px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 55px; white-space: normal;" />
         <ui:Label text="Vote%" display-tooltip-when-elided="True" name="VotePercent" style="font-size: 14px; color: rgb(255, 255, 255); -unity-text-align: middle-center; margin-right: 0; padding-right: 4px; width: 55px;" />
     </ui:VisualElement>
-    <ui:ListView focusable="True" style="height: 400px;" />
+    <ui:ListView focusable="True" name="PartyList" style="height: 400px;">
+        <Style src="Electoral.uss" />
+    </ui:ListView>
 </ui:UXML>

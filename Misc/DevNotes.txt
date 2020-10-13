@@ -4,12 +4,17 @@
 
 Does not work on 
 
+ web browser
+
  try removing unused packages and see if it makes the size smaller
     osx safari
         resize is broken with constant pixel sometimes
         
     
 NOW	         
+    horizontal scroll bars are back in webgl
+        in details on when there is a vertical scroll bar
+    
      
    details list is broken at bottom sometimes 
    name sizes messed up 

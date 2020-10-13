@@ -270,6 +270,13 @@ public class UitHexGridMap : MonoBehaviour {
             MapBuild();
             ShowVotes(true);
         }
+        
+        
+        if (delayMapBuild == -10) {
+            //this delay is for webGL builds
+            PartyTotalsDisplay.SetPartyList();
+        }
+        
         delayMapBuild--;
         
         // todo: handle mouse
@@ -297,7 +304,7 @@ public class UitHexGridMap : MonoBehaviour {
     public void LoadMakeMap() {
         LoadMapDataResource();
         MakeMapFromData();
-        PartyTotalsDisplay.SetPartyList();
+       
     }
     
     

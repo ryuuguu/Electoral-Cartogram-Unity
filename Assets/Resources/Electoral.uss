@@ -19,3 +19,11 @@
     height: 22px;
     -unity-background-image-tint-color: rgb(247, 250, 244);
 }
+
+.OtherList .unity-scroller--horizontal {
+    display: none;
+}
+
+.PartyList .unity-scroller--horizontal {
+    display: none;
+}
