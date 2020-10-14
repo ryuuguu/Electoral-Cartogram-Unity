@@ -84,7 +84,7 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         
     }
     
-    public void Redaw() {
+    public void Redraw() {
         SetRegionList(regionList);
     }
     
@@ -138,7 +138,6 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         
             e.Q<VisualElement>("PartyColor").style.backgroundColor = cpartyColor;
             
-        
             var clabel2 = e.Q<Label>("PartyName");
             clabel2.text = cpartyName;
             Shrink(clabel2,inst.wPartySize*shrinkFactor, inst.wPartySizeSmall*shrinkFactor, inst.wPartyLength);

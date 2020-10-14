@@ -12,12 +12,14 @@ Does not work on
         
     
 NOW	         
-    horizontal scroll bars are back in webgl
-        in details on when there is a vertical scroll bar
+    switch the right window on changing to french
+    put build up
+         resaonable name
+    write blog post for 
+        gamedev
+        linkedIn
     
-     
-   details list is broken at bottom sometimes 
-   name sizes messed up 
+    
 
    if I split off May lose editor stuff
    so need copy here
