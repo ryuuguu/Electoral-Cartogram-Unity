@@ -12,22 +12,37 @@ Does not work on
         
     
 NOW	         
-    switch the right window on changing to french
+    
     put build up
          resaonable name
+         ElectoralGramV0_1_1
     write blog post for 
         gamedev
         linkedIn
     
+    Add links
+        app
+        unity video
+        gamedev
+        
+        some images of UI builder and app
+            
     
-
+    
+    next make editor in Uit
+    remove old uGUI code
+    clean bugs related to not using data
+    
+    clean code over all
+        obivously commented problems
+        remove all names from code and use constant file
+    
    if I split off May lose editor stuff
    so need copy here
    
    Commit to keep UGUI version so I can look at editor stuff later
    
-   remove as much Ugi stuff and all other test code
-   make build as small as possible for testing on mobile browser
+   consider VUE build with images and data files
    
    
 LATER

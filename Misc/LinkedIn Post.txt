@@ -3,14 +3,16 @@
 UI ToolKit Preview runtime version is still 4~6 months away by my guess, it is scheduled to be ready for Unity version 2021.1. It has already been stable for about a year for use inside the editor. For those not familiar with UI Toolkit this a good video intro from Unity. Link to YouTube 
 
 Here is a small web app to show some of the features and speed of UI Toolkit. On loading, it generates 22k+ coloured hexes from a data file. Pressing the "votes" button will turn on or off  22k UI elements which still takes a visible amount of time on most PC browsers, but no in native apps. This is meant to stress test the UI Toolkit, in a production app, one could reduce the effect by using a wait icon or making an image of the 22k hexes after they are generated, which could be turned on or off in 1 ms. The App shows the results of the 2019 Canadian election. You can mouse over any riding and click to see the results. It shows the proportion of the vote each party received using 91 coloured hexes inside each riding.
+
+Link to web App (image if possible)
  
 The general concept of Unity's new UI framework is based on XML & CSS. The Unity versions of these are UXML & USS. They are a subset plus extensions of XML & CSS, using flexbox for the layout. So will be familiar to web designers. The layout engine is cleanly separated from the main 3D layout engine so the UXML & USS can be changed well the game is running in the background without restarting the game. 
 
-There is a UI Builder window for editing UXML & USS visually that should be familiar to web designers. Linking controls to game code is done through the naming controls or assigning classes to controls. The UI Builder interface works but still lacks polish as is expected in a Beta product still 4+ months away from release.
+There is a UI Builder window for editing UXML & USS visually that should be familiar to web designers. Linking controls to game code is done through the naming controls or assigning classes to controls. In C# unity has a UQuery class based on JQuery for accessing UI elements. The UI Builder interface works but still lacks polish as is expected in a Beta product still 4+ months away from release.
 
 Features that were in use in the editor are available, with some exceptions that were implemented as native controls, such as drop-down selection controls.  There are still some bugs in new features such as rescaling the panels based on app windows size if elements scales are not 1.  Also, Text Mesh Pro SDF fonts are not yet implemented nor are auto-scaling features on regular fonts. The integration of UI Toolkit into world space is also not yet available.
 
 Overall I would say the available features are stable and mainly bug free. Writing a small app with UI Toolkit was a good way to test out the C# to UMXL & USS API and architectures. The UI Toolkit is much lighter and faster than uGUI but needs a different architecture than uGUI as it is not based on GameObjects and Monobehaviours. From a studio's perspective, I think UI Toolkit will give large productivity gains and cost reductions. It will allow web designers to build a UI with minimal assistance from a specialist Unity programmer. The UI and main program work can be done in parallel with just a single file of string constants to link control names to game actions. 
 
-More articles on Unity development including beta features are available at
+More articles on Unity development including beta features are available at Link to GameDev
  
