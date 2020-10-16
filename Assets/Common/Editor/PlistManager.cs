@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿/*
+using UnityEngine;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.iOS.Xcode;
@@ -25,4 +26,4 @@ public class PlistManager : MonoBehaviour {
     }
 #endif
 }
-
+*/

@@ -2,9 +2,11 @@
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Callbacks;
-using UnityEditor.iOS.Xcode;
+
 using UnityEngine;
 /*
+ using UnityEditor.iOS.Xcode;
+ 
 public static class IOSBuilIncr {
     [PostProcessBuild]
     public static void OnBuildComplete(BuildTarget buildTarget, string pathToBuiltProject) {

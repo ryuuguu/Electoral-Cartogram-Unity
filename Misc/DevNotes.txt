@@ -1,48 +1,81 @@
 
-
-
-
-Does not work on 
-
- web browser
-
- try removing unused packages and see if it makes the size smaller
-    osx safari
-        resize is broken with constant pixel sometimes
-        
     
 NOW	         
-    
-    put build up
-         resaonable name
-         ElectoralGramV0_1_1
-    write blog post for 
-        gamedev
-        linkedIn
-    
-    Add links
-        app
-        unity video
-        gamedev
+          
+    next make editor in Uit
         
-        some images of UI builder and app
+        first ListView
+            made EditorDisplay UXML
+            made list item UXML
+            make EditorDisplay
+                code
+                    open panel
+                    add a region list
+                    setup listview
+                    
+        
+        expanding tree display control list
+            check about what is needed to make it proper control
+                UXMLFactory
+                UXMLTrait
+            change list items
+            main problem is keeping correct position when scrolled
+                and expansion changes
+            try to keep just clicked item in same place
+                it will be the one that expands or collapse
+                
+            also when an item is used it will be removed 
+                selection should move up or down one.
+                
+        
             
     
+        editor needs to make map data
+            region levels
+            region text overlay
+                font size
+            border colors
+        
+        make hex grid given dimensions 
+            click on hex assign region
+                
+                region scroll list Panel
+                    arrow keys 
+                        move selected hex around
+                    buttons 
+                        save map ??
+                        reload map ??
+                        reset??
+                        ok - set region to selected value
+                    expand tree only when selected
+                    region ID name
+                      is constituency
+                      count of unassigned constitencies under tree
+                    
+         
+                      
+        party color data
+            include use other color
     
-    next make editor in Uit
+    
     remove old uGUI code
     clean bugs related to not using data
     
     clean code over all
-        obivously commented problems
+        obviously commented problems
         remove all names from code and use constant file
     
-   if I split off May lose editor stuff
-   so need copy here
+    if I split off may lose editor stuff
+    so need copy here
    
-   Commit to keep UGUI version so I can look at editor stuff later
+    Commit to keep UGUI version so I can look at editor stuff later
    
-   consider VUE build with images and data files
+    
+        
+        
+        
+            
+            
    
    
 LATER
@@ -83,32 +116,91 @@ LATER
 		    		
 	Editing mode need language control event 
 	   deleted it by accident
+	   
+	Website
+	    consider VUE build with images and data files
+            split web into 
+                Unity app with editing
+                typescript choose region & display only
+            consider storing user data on a game server
+                login & stuff?
+                save files to it
+                
+                so what would I need in a minimal web server
+                    maybe a no login site
+                    just server the view only web app
+                        can data come from game server?
+                        view only web server logs into app as special user
+                            limited read only privilages
 Blog 
-	    if things disappear try changing panel setting to smaller reference resolution	
-		
-		ScreenToPanel does not work use temporary utilites
-		
-		make thing private so that in unity 2020.2 compile time can be reduced. If use assmeblies and only private things change the other assembly do not need to be recompiled. 
+	    
+    reddit post 
+        endFPTP
+	    
 		
 DOTS project
 
-    evolution take idea from the sapling game
-        combines with ants
-        evolution an wars
-   
-    
-    let players build interesting stuff to start
+
+evolution take idea from the sapling game
+    combines with ants
+    evolution ant wars
+
+    minimal
+        first scenario
+            choose ratios
+                queen
+                drone
+                workers
+            choose ration switch limitS
+                after producing some mush mass switch
+                    more queen & drone
+        
+        next    
+            increase types of caste
+                carrier
+                warrior
+                    why are these needed?
+                        hunting 
+                        defending
+        next
+            subcastes
+            
+        next 
+            custom caste
+                design own caste
+                larger queens
+                    more offspring
+                    larger drone mate more queens
+        next 
+            more terrain & food sources
+                new attributes to exploit
+                foods
+                    aphids
+                    nector
+                    seeds
+                    leaves & fungi
+                    water food ??
+                        sugar water 
+                    other insects that fight back
+                    other ants
+                dessert
+                    heat resistance increase foraging in daytime
+                       
         Ants only 
-            check ant models
+            check insect models
+             
+            check again at 3d model sites
+                does not have to be free
             
         what attributes
             see below
-            need good visuals     
+            need OK visuals     
         
 
     want unity sample project has a couple low poly models walking around
     
     just make with boxes on flat ground first
+        3 jointed boxes with 6 legs jaws 
 
     Swarms
     ant colony
