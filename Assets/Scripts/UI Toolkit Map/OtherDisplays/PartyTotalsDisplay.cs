@@ -12,7 +12,6 @@ public class PartyTotalsDisplay : MonoBehaviour {
     private static List<PartyData> items;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
-    
 
     public float partySize = 20;
     public float partySizeSmall = 12;

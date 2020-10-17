@@ -1,8 +1,18 @@
 
+    put old & new side by for speed comparison 
+    unity reddit
+    
+    canada politics reddit
+    
+    
+    how to change layout inside flexbox
+    to not flex
     
 NOW	         
           
     next make editor in Uit
+    
+   
         
         first ListView
             made EditorDisplay UXML
@@ -12,6 +22,7 @@ NOW
                     open panel
                     add a region list
                     setup listview
+                        should list items be buttons?
                     
         
         expanding tree display control list
@@ -75,7 +86,7 @@ NOW
         
         
             
-            
+          
    
    
 LATER

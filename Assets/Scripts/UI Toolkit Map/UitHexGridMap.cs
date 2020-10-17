@@ -135,7 +135,8 @@ public class UitHexGridMap : MonoBehaviour {
         rightInfo.Add(detailDisplay);
         
         var partyTotalsDisplay = PartyTotalsDisplay.MakePartyTotalsDisplay();
-        leftInfo.Add(partyTotalsDisplay );
+        var debugTest = EditorRegionListDisplay.DebugTest();
+        leftInfo.Add(debugTest);
         
         overlayLayer.Add(leftInfo);
         overlayLayer.Add(rightInfo);
