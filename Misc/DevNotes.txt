@@ -11,8 +11,11 @@
 NOW	         
           
     next make editor in Uit
-    
+        traverse depthfirst
+            if parent is in current item hierachy list add to item list
+        parent is not set
    
+        need to add constituency count to RL
         
         first ListView
             made EditorDisplay UXML
@@ -81,12 +84,7 @@ NOW
    
     Commit to keep UGUI version so I can look at editor stuff later
    
-    
-        
-        
-        
-            
-          
+     
    
    
 LATER

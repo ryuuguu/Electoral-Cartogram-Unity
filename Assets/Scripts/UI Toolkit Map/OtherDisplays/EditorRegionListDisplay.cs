@@ -19,13 +19,22 @@ public class EditorRegionListDisplay : MonoBehaviour {
         public string[] names;
         public Color color;
         public int constituencyCount;
+
+        public RegionListRecord(RegionList rl) {
+            id = rl.id;
+            indent = indentIncr* (rl.hierarchyList.Count -1);
+            names = rl.names.ToArray();
+            color = rl.color;
+            constituencyCount = 0;
+        }
     }
     
     public static VisualElement regionListDisplay;
-    
+    public static float indentIncr = 10;
+
+    public static ListView listView;
     private static List<RegionListRecord> items;
-    
-    
+    private static RegionList currentExpandedRegionList;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
 
@@ -40,33 +49,46 @@ public class EditorRegionListDisplay : MonoBehaviour {
     }
 
     public static VisualElement DebugTest() {
-        var result = MakeRegionListDisplay();
-        SetRegionList();
-        return result;
+        regionListDisplay = MakeRegionListDisplay();
+        return regionListDisplay;
     }
     
     
-    public static void SetRegionList() {
+    public static void InitialRegionList() {
         //At first put single record in list
+        currentExpandedRegionList = RegionController.inst.regionList;
+        //Debug.Log("Top : "+ RegionController.inst.regionList.hierarchyList[0]);
+        resetItems();
         
-        var ordered = new List<RegionListRecord>();
-         ordered.Add(   new RegionListRecord() {
-             id = "first",
-             indent = 10,
-             color = Color.blue,
-             constituencyCount = 3,
-             names = new []{"Canada", "Canada2"}
-        });
-        items.AddRange( ordered);
-        regionListDisplay.Q<ListView>().Refresh();
     }
-    
+
+    public static void resetItems() {
+        items.Clear();
+        items.Add(new RegionListRecord(RegionController.inst.regionList) );
+        foreach (var child in RegionController.inst.regionList.subLists) {
+            AddRL( child);
+        }
+        listView.Refresh();
+    }
+
+    public static void AddRL(RegionList rl) {
+        //Debug.Log("AddRL: "+ rl.id + " : " + rl.parent.id);
+        if (currentExpandedRegionList.hierarchyList.Contains(rl.parent)) {
+            //Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
+            items.Add(new RegionListRecord(rl) );
+            foreach (var child in rl.subLists) {
+                //Debug.Log("AddRL child: "+ rl.id + " : " + rl.parent.id);
+                AddRL( child);
+            }
+        }
+    }
+
     
     /// <summary>
     /// Redraw is used after changing Language
     /// </summary>
     public void Redraw() {
-        regionListDisplay.Q<ListView>().Refresh();
+        listView.Refresh();
     }
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
@@ -82,7 +104,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         treeDetailDisplay.CloneTree(regionListDisplay);
         
 
-        var listView = regionListDisplay.Q<ListView>();
+        listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();
         
         Func<VisualElement> makeItem = () => {
@@ -97,10 +119,11 @@ public class EditorRegionListDisplay : MonoBehaviour {
             
             var label = e.Q<Label>(VERegionName);
             label.text = LanguageController.ChooseName(regionRecord.names);
-            //Shrink(label,inst.nameSize, inst.nameSizeSmall, inst.nameLength);
+            Shrink(label,inst.nameSize, inst.nameSizeSmall, inst.nameLength);
             
             e.Q<VisualElement>(VERegionColor).style.backgroundColor = regionRecord.color;
-            e.Q<Label>(VEConstituencyCount).text = regionRecord.constituencyCount.ToString();
+            var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
+            e.Q<Label>(VEConstituencyCount).text = countText;
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
             
         };

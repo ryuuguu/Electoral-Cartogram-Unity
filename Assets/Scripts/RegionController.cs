@@ -57,21 +57,23 @@ public class RegionController : MonoBehaviour {
 
     /// <summary>
     /// Make hierarchyList for each RegionList
-    /// Make rlDict 
+    /// Make rlDict
+    /// Set parent
     /// 
     /// </summary>
     public static void PrepareRegionListData() {
         inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
-        SetHierarchyLists(inst.regionList);
+        SetInternalLinks(inst.regionList);
     }
     
-    public static  void SetHierarchyLists(RegionList aRegionList) {
+    public static  void SetInternalLinks(RegionList aRegionList) {
         inst.rlDict[aRegionList.id] = aRegionList;
         if (aRegionList.subLists != null) {
             foreach (var rl in aRegionList.subLists) {
+                rl.parent = aRegionList;
                 rl.hierarchyList = aRegionList.hierarchyList.ToList();
                 rl.hierarchyList.Add(rl);
-                SetHierarchyLists(rl);
+                SetInternalLinks(rl);
             }
         }
     }

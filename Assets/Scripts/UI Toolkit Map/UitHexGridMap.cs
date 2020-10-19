@@ -276,6 +276,7 @@ public class UitHexGridMap : MonoBehaviour {
         if (delayMapBuild == -10) {
             //this delay is for webGL builds
             PartyTotalsDisplay.SetPartyList();
+            EditorRegionListDisplay.InitialRegionList();
         }
         
         delayMapBuild--;
