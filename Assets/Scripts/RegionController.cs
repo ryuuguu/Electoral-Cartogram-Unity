@@ -63,19 +63,24 @@ public class RegionController : MonoBehaviour {
     /// </summary>
     public static void PrepareRegionListData() {
         inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
-        SetInternalLinks(inst.regionList);
+        inst.regionList.constituencyCount = SetInternalLinks(inst.regionList);
     }
     
-    public static  void SetInternalLinks(RegionList aRegionList) {
+    public static  int SetInternalLinks(RegionList aRegionList) {
+        
         inst.rlDict[aRegionList.id] = aRegionList;
         if (aRegionList.subLists != null) {
             foreach (var rl in aRegionList.subLists) {
                 rl.parent = aRegionList;
                 rl.hierarchyList = aRegionList.hierarchyList.ToList();
                 rl.hierarchyList.Add(rl);
-                SetInternalLinks(rl);
+                if (rl.isRiding) {
+                    aRegionList.constituencyCount++;
+                }
+                aRegionList.constituencyCount += SetInternalLinks(rl);
             }
         }
+        return aRegionList.constituencyCount;
     }
 
     public static RegionList Find(string anId) {
@@ -209,7 +214,6 @@ public class RegionController : MonoBehaviour {
 }
 
 
-
 [System.Serializable]
 public class RegionList {
     public string id;
@@ -224,7 +228,8 @@ public class RegionList {
     public List<RegionList> hierarchyList;
     public RegionList parent;
     public int population;
-    public DistrictResult districtResult ;
+    public DistrictResult districtResult;
+    public int constituencyCount = 0;
 
     public RegionList Find(string anId) {
         var il = HierarchyList(anId);

@@ -25,7 +25,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
             indent = indentIncr* (rl.hierarchyList.Count -1);
             names = rl.names.ToArray();
             color = rl.color;
-            constituencyCount = 0;
+            constituencyCount = rl.constituencyCount;
         }
     }
     

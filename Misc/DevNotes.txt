@@ -12,12 +12,10 @@ NOW
           
     next make editor in Uit
        make tree not working on provinces
-       only showing 4 
-          check UMXL 
-          check item height
+         need to add constituency count to RL
+          when going back up 
         
-        
-        need to add constituency count to RL
+       
         do that in SetInternalLinks()
         need to update by removing set constituencies
         
