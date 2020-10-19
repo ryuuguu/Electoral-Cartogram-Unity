@@ -63,7 +63,7 @@ public class RegionController : MonoBehaviour {
     /// </summary>
     public static void PrepareRegionListData() {
         inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
-        inst.regionList.constituencyCount = SetInternalLinks(inst.regionList);
+        inst.regionList.unassignedConstituencyCount = SetInternalLinks(inst.regionList);
     }
     
     public static  int SetInternalLinks(RegionList aRegionList) {
@@ -74,13 +74,13 @@ public class RegionController : MonoBehaviour {
                 rl.parent = aRegionList;
                 rl.hierarchyList = aRegionList.hierarchyList.ToList();
                 rl.hierarchyList.Add(rl);
-                if (rl.isRiding) {
-                    aRegionList.constituencyCount++;
+                if (rl.isRiding & !rl.isAssigned) {
+                    aRegionList.unassignedConstituencyCount++;
                 }
-                aRegionList.constituencyCount += SetInternalLinks(rl);
+                aRegionList.unassignedConstituencyCount += SetInternalLinks(rl);
             }
         }
-        return aRegionList.constituencyCount;
+        return aRegionList.unassignedConstituencyCount;
     }
 
     public static RegionList Find(string anId) {
@@ -229,13 +229,25 @@ public class RegionList {
     public RegionList parent;
     public int population;
     public DistrictResult districtResult;
-    public int constituencyCount = 0;
+    public int unassignedConstituencyCount = 0;
 
     public RegionList Find(string anId) {
         var il = HierarchyList(anId);
         return il?.Last();
     }
 
+    public void AssignConstituency(bool assign) {
+        isAssigned = assign;
+        int incr = 1;
+        if (assign) {
+            incr = -1;
+        }
+
+        foreach (var hrl in hierarchyList) {
+            hrl.unassignedConstituencyCount += incr;
+        }
+    }
+    
     /// <summary>
     /// used to make a deep copy of the region list in the editor to one that does not show in the editor
     /// Editor has problem with deep trees with a larger number of nodes
@@ -272,7 +284,7 @@ public class RegionList {
     /// </summary>
     /// <param name="anId"></param>
     /// <returns></returns>
-    [Obsolete("HierarchyList is deprecated, please use SetHierarchyLists() once then use field hierarchyList instead.")]
+    [Obsolete("HierarchyList is deprecated, please use SetInternallinks() once then use field hierarchyList instead.")]
     public List<RegionList> HierarchyList(string anId) {
         if (anId == id) return new List<RegionList>() {this};
         if (subLists != null) {

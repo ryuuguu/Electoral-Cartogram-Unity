@@ -25,7 +25,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
             indent = indentIncr* (rl.hierarchyList.Count -1);
             names = rl.names.ToArray();
             color = rl.color;
-            constituencyCount = rl.constituencyCount;
+            constituencyCount = rl.unassignedConstituencyCount;
         }
     }
     
@@ -64,7 +64,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
 
     public static void resetItems() {
         items.Clear();
-        Debug.Log("reset: "+currentExpandedRegionList.id);
+        //Debug.Log("reset: "+currentExpandedRegionList.id);
         items.Add(new RegionListRecord(RegionController.inst.regionList) );
         foreach (var child in RegionController.inst.regionList.subLists) {
             AddRL( child);
@@ -74,12 +74,12 @@ public class EditorRegionListDisplay : MonoBehaviour {
 
     public static void AddRL(RegionList rl) {
         //Debug.Log("AddRL: "+ rl.id + " : " + rl.parent.id);
-        if (currentExpandedRegionList.hierarchyList.Contains(rl.parent)) {
-            Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
+        if (currentExpandedRegionList.hierarchyList.Contains(rl.parent) && !rl.isAssigned) {
+            //Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
             items.Add(new RegionListRecord(rl) );
             if (rl.subLists != null) {
                 foreach (var child in rl.subLists) {
-                    Debug.Log("AddRL child: " + child.id + " : " + child.parent.id);
+                    //Debug.Log("AddRL child: " + child.id + " : " + child.parent.id);
                     AddRL(child);
                 }
             }
@@ -99,13 +99,15 @@ public class EditorRegionListDisplay : MonoBehaviour {
         if (!rl.isRiding) {
             Debug.Log("Clicked: "+ rl.id + " =============================" );
             currentExpandedRegionList = rl;
-            resetItems();
+            
         }
         else {
-            Debug.Log("riding handling not implemented");     
+            rl.AssignConstituency(true);
+            Debug.Log("riding handling not fully implemented");     
         }
-       
+        resetItems();
     }
+    
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
         label.style.fontSize = baseSize;
