@@ -11,20 +11,21 @@
 NOW	         
           
     next make editor in Uit
-        traverse depthfirst
-            if parent is in current item hierachy list add to item list
-        parent is not set
-   
+       make tree not working on provinces
+       only showing 4 
+          check UMXL 
+          check item height
+        
+        
         need to add constituency count to RL
+        do that in SetInternalLinks()
+        need to update by removing set constituencies
         
         first ListView
-            made EditorDisplay UXML
-            made list item UXML
+          
             make EditorDisplay
                 code
-                    open panel
-                    add a region list
-                    setup listview
+                   link buttons to action
                         should list items be buttons?
                     
         
@@ -37,6 +38,9 @@ NOW
                 and expansion changes
             try to keep just clicked item in same place
                 it will be the one that expands or collapse
+                maybe can just set is aselected 
+                  probably not
+                  
                 
             also when an item is used it will be removed 
                 selection should move up or down one.

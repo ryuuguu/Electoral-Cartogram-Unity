@@ -64758,7 +64758,33 @@ MonoBehaviour:
       - Water
       isRiding: 0
       isAssigned: 0
-      subLists: []
+      subLists:
+      - id: Water
+        borderType: 
+        color: {r: 0, g: 0, b: 0, a: 0}
+        names: []
+        isRiding: 0
+        isAssigned: 0
+        subLists: []
+        population: 0
+        districtResult:
+          regionId: 
+          candidateResults: []
+          rawCandidateResults: []
+          totalVotes: 0
+      - id: Land
+        borderType: 
+        color: {r: 0, g: 0, b: 0, a: 0}
+        names: []
+        isRiding: 0
+        isAssigned: 0
+        subLists: []
+        population: 0
+        districtResult:
+          regionId: 
+          candidateResults: []
+          rawCandidateResults: []
+          totalVotes: 0
       population: 0
       districtResult:
         regionId: 

@@ -64,6 +64,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
 
     public static void resetItems() {
         items.Clear();
+        Debug.Log("reset: "+currentExpandedRegionList.id);
         items.Add(new RegionListRecord(RegionController.inst.regionList) );
         foreach (var child in RegionController.inst.regionList.subLists) {
             AddRL( child);
@@ -74,11 +75,13 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public static void AddRL(RegionList rl) {
         //Debug.Log("AddRL: "+ rl.id + " : " + rl.parent.id);
         if (currentExpandedRegionList.hierarchyList.Contains(rl.parent)) {
-            //Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
+            Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
             items.Add(new RegionListRecord(rl) );
-            foreach (var child in rl.subLists) {
-                //Debug.Log("AddRL child: "+ rl.id + " : " + rl.parent.id);
-                AddRL( child);
+            if (rl.subLists != null) {
+                foreach (var child in rl.subLists) {
+                    Debug.Log("AddRL child: " + child.id + " : " + child.parent.id);
+                    AddRL(child);
+                }
             }
         }
     }
@@ -89,6 +92,19 @@ public class EditorRegionListDisplay : MonoBehaviour {
     /// </summary>
     public void Redraw() {
         listView.Refresh();
+    }
+
+    public static void Clicked(int itemIndex) {
+        var rl = RegionController.Find(items[itemIndex].id);
+        if (!rl.isRiding) {
+            Debug.Log("Clicked: "+ rl.id + " =============================" );
+            currentExpandedRegionList = rl;
+            resetItems();
+        }
+        else {
+            Debug.Log("riding handling not implemented");     
+        }
+       
     }
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
@@ -125,7 +141,8 @@ public class EditorRegionListDisplay : MonoBehaviour {
             var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
             e.Q<Label>(VEConstituencyCount).text = countText;
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
-            
+            e.Q<Button>().clicked += () => {Clicked(i); };
+
         };
         listView.makeItem = makeItem;
         listView.bindItem = bindItem;
