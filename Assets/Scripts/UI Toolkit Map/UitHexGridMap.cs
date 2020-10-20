@@ -182,9 +182,7 @@ public class UitHexGridMap : MonoBehaviour {
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
-                
                 return;
-                
             }
         }
         UitTooltip.Hide();
@@ -378,6 +376,34 @@ public class UitHexGridMap : MonoBehaviour {
             inst.mapData.cellDatas.Add(cellData);
         }
         cellData.regionID = mapCell.regionList.id;
+    }
+    
+    
+   
+
+    /// <summary>
+    /// Change Map data in mapData & cellDict
+    /// retrun previous regionId
+    /// </summary>
+    /// <param name="cubeCoord"></param>
+    /// <param name="rl"></param>
+    /// <returns>previous region Id for cell possibly null or ""</returns>
+    public static string ChangeMapData(Vector3Int cubeCoord, RegionList rl) {
+        string result = null;
+        var cellData = inst.mapData.cellDatas.Find((data => data.cubeCoord == cubeCoord));
+        if (cellData == null) {
+            cellData = new CellData() {cubeCoord = cubeCoord, regionID = rl.id};
+            inst.mapData.cellDatas.Add(cellData);
+        }
+        else {
+            result = cellData.regionID;
+        }
+        cellData.regionID = rl.id;
+        var mapCell = inst.mapGrid.CreateCellRegion(cubeCoord, rl);
+        if (mapCell != null) {
+            cellDict[cubeCoord] = mapCell;
+        }
+        return result;
     }
     
     public void MakeMapFromData() {

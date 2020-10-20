@@ -11,27 +11,32 @@
 NOW	         
           
     next make editor in Uit
-        
-       clicks are going to wrong region  
-        scrolling cause clicks to be  mess
-        maybe listview aitems are not being cleared
-        button.clicked needs to be cleared somehow
        
-        
-       make editor VE
-       place in cent of right or left.
-     
-        first ListView
-          button action 
-            needs to do  map assignment
-          make Region listview's own panel
-           top to bottom almost complete
-           show only in edit view
-           show on right or left 
-           on top of other things 
-            probably tooltip level OK
+       need UitRegionEditor
+            based on region editor
+            need highlight/mark a cell
+            track a cell
+                just by coord?
+            assign region ID to map coord  
+                ChangeMapData() untested
+                unassigned returned value if different from set value
+          
+            on cell select
+                set coord
+                move display left or Right
+            need OK button for setting no riding regions
+            need wasd and arrow movement
+            cancel button to set to default region 
+                water?
+            
                     
-        
+          
+       make editor VE
+      
+       regionListView should only be created in edit mode
+       should be cleared on leaving edit mode
+                  
+                   
         expanding tree display control list
             check about what is needed to make it proper control
                 UXMLFactory
