@@ -1,11 +1,13 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="Electoral.uss" />
-    <ui:VisualElement style="width: 550px; height: auto;">
-        <ui:VisualElement name="EditorBar" style="flex-direction: row;">
-            <ui:Button text="Save Map" display-tooltip-when-elided="True" name="SaveMap" />
-            <ui:Button text="Reload Map" display-tooltip-when-elided="True" name="ReloadMap" />
-            <ui:Button text="Set Hex" display-tooltip-when-elided="True" name="SetHex" style="left: auto; right: auto;" />
+    <ui:VisualElement style="width: 550px; height: auto; background-color: rgba(0, 0, 2, 255);">
+        <ui:VisualElement style="background-image: url(&apos;/Assets/Icons/MIT/Square64_4.psd&apos;); -unity-slice-left: 5; -unity-slice-top: 5; -unity-slice-right: 5; -unity-slice-bottom: 5;">
+            <ui:VisualElement name="EditorBar" style="flex-direction: row;">
+                <ui:Button text="Save Map" display-tooltip-when-elided="True" name="SaveMap" />
+                <ui:Button text="Reload Map" display-tooltip-when-elided="True" name="ReloadMap" />
+                <ui:Button text="Set Hex" display-tooltip-when-elided="True" name="SetHex" style="left: auto; right: auto;" />
+            </ui:VisualElement>
+            <ui:ListView focusable="True" name="RegionList" selection-type="Single" horizontal-scrolling="false" style="width: auto; color: rgb(255, 255, 255); height: 550px; display: flex; margin-top: 20px; font-size: 16px; -unity-text-align: middle-left; white-space: nowrap;" />
         </ui:VisualElement>
-        <ui:ListView focusable="True" name="RegionList" selection-type="Single" horizontal-scrolling="false" style="width: 549px; color: rgb(255, 255, 255); height: 400px; display: flex; margin-top: 20px; font-size: 16px; -unity-text-align: middle-left; white-space: nowrap;" />
     </ui:VisualElement>
 </ui:UXML>

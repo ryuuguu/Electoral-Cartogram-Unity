@@ -17,6 +17,8 @@ public class UitHexGridMap : MonoBehaviour {
     [FormerlySerializedAs("ridingInfoHeight")] public int leftInfoHeight = 400;
     public int  rightInfoWidth = 600;
     public int rightInfoHeight = 300;
+    public int  regionListWidth = 300;
+    public int regionListHeight = 600;
     public Vector3 mapVEOffset;
     
     protected VisualElement root;
@@ -117,34 +119,60 @@ public class UitHexGridMap : MonoBehaviour {
         topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
         overlayLayer.Add(topBar);
         
-        leftInfo = new VisualElement();
-        leftInfo.style.position = Position.Absolute;
-        leftInfo.style.width = leftInfoWidth;
-        leftInfo.style.height = leftInfoHeight;
-        leftInfo.style.backgroundColor = Color.black;
-        leftInfo.transform.position =new  Vector3(0,  100 - leftInfoHeight, 0);
+        LeftInfoSetup();
 
-        rightInfo = new VisualElement();
-        rightInfo.style.position = Position.Absolute;
-        rightInfo.style.width = rightInfoWidth;
-        rightInfo.style.height = rightInfoHeight;
-        rightInfo.style.backgroundColor = Color.black;
-        rightInfo.transform.position =new  Vector3(mapGrid.mapSize.x - rightInfoWidth,  100 - rightInfoHeight, 0);
+        RightInfoSetUp();
 
         var detailDisplay = ElectoralDistrictDisplay.MakeDetailDisplay();
         rightInfo.Add(detailDisplay);
         
         var partyTotalsDisplay = PartyTotalsDisplay.MakePartyTotalsDisplay();
-        var debugTest = EditorRegionListDisplay.DebugTest();
-        leftInfo.Add(debugTest);
+        
+        leftInfo.Add(partyTotalsDisplay);
         
         overlayLayer.Add(leftInfo);
         overlayLayer.Add(rightInfo);
         
         var toolTip = UitTooltip.Init();
         overlayLayer.Add(toolTip);
+        
+        var debugTest = EditorRegionListDisplay.DebugTest();
+        MoveEditor(debugTest, false);
+        overlayLayer.Add(debugTest);
     }
 
+    private void RightInfoSetUp() {
+        rightInfo = new VisualElement();
+        rightInfo.style.position = Position.Absolute;
+        rightInfo.style.width = rightInfoWidth;
+        rightInfo.style.height = rightInfoHeight;
+        rightInfo.style.backgroundColor = Color.black;
+        rightInfo.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth, 100 - rightInfoHeight, 0);
+    }
+
+    private void LeftInfoSetup() {
+        leftInfo = new VisualElement();
+        leftInfo.style.position = Position.Absolute;
+        leftInfo.style.width = leftInfoWidth;
+        leftInfo.style.height = leftInfoHeight;
+        leftInfo.style.backgroundColor = Color.black;
+        leftInfo.transform.position = new Vector3(0, 100 - leftInfoHeight, 0);
+    }
+
+    private void MoveEditor(VisualElement ve, bool right) {
+        ve.style.position = Position.Absolute;
+        ve.style.width = regionListWidth;
+        ve.style.height = regionListHeight;
+        ve.style.backgroundColor = Color.black;
+        if (right) {
+            ve.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth - 100, 100 - regionListHeight, 0);
+        } else {
+            ve.transform.position = new Vector3(100, 100 - regionListHeight, 0);
+        }
+    }
+    
+    
+    
     private void MouseOver(MouseMoveEvent e) {
         
         var cubeCoord = mapGrid.Position2Coord(e.localMousePosition,

@@ -97,7 +97,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public static void Clicked(int itemIndex) {
         var rl = RegionController.Find(items[itemIndex].id);
         if (!rl.isRiding) {
-            Debug.Log("Clicked: "+ rl.id + " =============================" );
+            //Debug.Log("Clicked: "+ rl.id + " =============================" );
             currentExpandedRegionList = rl;
             
         }

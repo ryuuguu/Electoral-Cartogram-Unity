@@ -6,32 +6,33 @@
     
     
     how to change layout inside flexbox
-    to not flex
+        to put items at end
     
 NOW	         
           
     next make editor in Uit
-       make tree not working on provinces
-         need to add constituency count to RL
-          when going back up 
         
-       
-        do that in SetInternalLinks()
-        need to update by removing set constituencies
+       clicks are going to wrong region  
         
+       make editor VE
+       place in cent of right or left.
+     
         first ListView
-          
-            make EditorDisplay
-                code
-                   link buttons to action
-                        should list items be buttons?
+          button action 
+            needs to do  map assignment
+          make Region listview's own panel
+           top to bottom almost complete
+           show only in edit view
+           show on right or left 
+           on top of other things 
+            probably tooltip level OK
                     
         
         expanding tree display control list
             check about what is needed to make it proper control
                 UXMLFactory
                 UXMLTrait
-            change list items
+            
             main problem is keeping correct position when scrolled
                 and expansion changes
             try to keep just clicked item in same place
@@ -42,9 +43,7 @@ NOW
                 
             also when an item is used it will be removed 
                 selection should move up or down one.
-                
-        
-            
+                   
     
         editor needs to make map data
             region levels

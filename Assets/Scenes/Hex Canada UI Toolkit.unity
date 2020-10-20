@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nameSize: 20
-  nameSizeSmall: 12
-  nameLength: 15
+  nameSizeSmall: 15
+  nameLength: 30
 --- !u!4 &29798692
 Transform:
   m_ObjectHideFlags: 0
@@ -3801,6 +3801,7 @@ MonoBehaviour:
       candidateResults: []
       rawCandidateResults: []
       totalVotes: 0
+    unassignedConstituencyCount: 0
   region_1_name: {fileID: 1801641271}
   districtName: {fileID: 697271338}
   winner: {fileID: 802656847}
@@ -4520,6 +4521,7 @@ MonoBehaviour:
       candidateResults: []
       rawCandidateResults: []
       totalVotes: 0
+    unassignedConstituencyCount: 0
   showAssigned: 0
   mapCell: {fileID: 0}
   scrollRect: {fileID: 1505805338}
@@ -8107,6 +8109,8 @@ MonoBehaviour:
   leftInfoHeight: 400
   rightInfoWidth: 550
   rightInfoHeight: 300
+  regionListWidth: 500
+  regionListHeight: 600
   mapVEOffset: {x: 0, y: 700, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
@@ -8915,6 +8919,7 @@ MonoBehaviour:
                 votes: 7142
                 percentVotes: 17.3
               totalVotes: 40457
+            unassignedConstituencyCount: 0
           - id: 10002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -8994,6 +8999,7 @@ MonoBehaviour:
                 votes: 12697
                 percentVotes: 39.5
               totalVotes: 32173
+            unassignedConstituencyCount: 0
           - id: 10003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9105,6 +9111,7 @@ MonoBehaviour:
                 votes: 1363
                 percentVotes: 4
               totalVotes: 32924
+            unassignedConstituencyCount: 0
           - id: 10004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9184,6 +9191,7 @@ MonoBehaviour:
                 votes: 4821
                 percentVotes: 42.3
               totalVotes: 11389
+            unassignedConstituencyCount: 0
           - id: 10005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9279,6 +9287,7 @@ MonoBehaviour:
                 votes: 7594
                 percentVotes: 19.8
               totalVotes: 38385
+            unassignedConstituencyCount: 0
           - id: 10006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9390,6 +9399,7 @@ MonoBehaviour:
                 votes: 14962
                 percentVotes: 33.2
               totalVotes: 45130
+            unassignedConstituencyCount: 0
           - id: 10007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9549,12 +9559,14 @@ MonoBehaviour:
                 votes: 335
                 percentVotes: 0.8
               totalVotes: 39514
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: PE
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -9699,6 +9711,7 @@ MonoBehaviour:
                 votes: 1481
                 percentVotes: 6.7
               totalVotes: 21697
+            unassignedConstituencyCount: 0
           - id: 11002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9834,6 +9847,7 @@ MonoBehaviour:
                 votes: 172
                 percentVotes: 0.9
               totalVotes: 19252
+            unassignedConstituencyCount: 0
           - id: 11003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9945,6 +9959,7 @@ MonoBehaviour:
                 votes: 8016
                 percentVotes: 39.7
               totalVotes: 19058
+            unassignedConstituencyCount: 0
           - id: 11004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10056,12 +10071,14 @@ MonoBehaviour:
                 votes: 5908
                 percentVotes: 25.6
               totalVotes: 23030
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: NS
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -10198,6 +10215,7 @@ MonoBehaviour:
                 votes: 6258
                 percentVotes: 15
               totalVotes: 41857
+            unassignedConstituencyCount: 0
           - id: 12002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10381,6 +10399,7 @@ MonoBehaviour:
                 votes: 149
                 percentVotes: 0.3
               totalVotes: 44559
+            unassignedConstituencyCount: 0
           - id: 12003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10588,6 +10607,7 @@ MonoBehaviour:
                 votes: 16672
                 percentVotes: 36.7
               totalVotes: 45450
+            unassignedConstituencyCount: 0
           - id: 12004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10723,6 +10743,7 @@ MonoBehaviour:
                 votes: 14435
                 percentVotes: 27
               totalVotes: 52585
+            unassignedConstituencyCount: 0
           - id: 12005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10882,6 +10903,7 @@ MonoBehaviour:
                 votes: 222
                 percentVotes: 0.4
               totalVotes: 54489
+            unassignedConstituencyCount: 0
           - id: 12006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10993,6 +11015,7 @@ MonoBehaviour:
                 votes: 6555
                 percentVotes: 12.1
               totalVotes: 54356
+            unassignedConstituencyCount: 0
           - id: 12007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11176,6 +11199,7 @@ MonoBehaviour:
                 votes: 138
                 percentVotes: 0.3
               totalVotes: 48035
+            unassignedConstituencyCount: 0
           - id: 12008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11311,6 +11335,7 @@ MonoBehaviour:
                 votes: 11860
                 percentVotes: 23.9
               totalVotes: 49563
+            unassignedConstituencyCount: 0
           - id: 12009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11542,6 +11567,7 @@ MonoBehaviour:
                 votes: 6070
                 percentVotes: 11.6
               totalVotes: 52521
+            unassignedConstituencyCount: 0
           - id: 12010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11725,6 +11751,7 @@ MonoBehaviour:
                 votes: 11227
                 percentVotes: 27.7
               totalVotes: 40576
+            unassignedConstituencyCount: 0
           - id: 12011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11860,12 +11887,14 @@ MonoBehaviour:
                 votes: 18390
                 percentVotes: 39.3
               totalVotes: 46846
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: NB
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -11986,6 +12015,7 @@ MonoBehaviour:
                 votes: 6967
                 percentVotes: 14.5
               totalVotes: 48097
+            unassignedConstituencyCount: 0
           - id: 13002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12121,6 +12151,7 @@ MonoBehaviour:
                 votes: 14305
                 percentVotes: 26.6
               totalVotes: 53630
+            unassignedConstituencyCount: 0
           - id: 13003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12328,6 +12359,7 @@ MonoBehaviour:
                 votes: 2946
                 percentVotes: 6
               totalVotes: 46841
+            unassignedConstituencyCount: 0
           - id: 13004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12511,6 +12543,7 @@ MonoBehaviour:
                 votes: 4804
                 percentVotes: 9.9
               totalVotes: 47192
+            unassignedConstituencyCount: 0
           - id: 13005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12622,6 +12655,7 @@ MonoBehaviour:
                 votes: 9801
                 percentVotes: 28.4
               totalVotes: 34535
+            unassignedConstituencyCount: 0
           - id: 13006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12805,6 +12839,7 @@ MonoBehaviour:
                 votes: 1179
                 percentVotes: 3.4
               totalVotes: 34597
+            unassignedConstituencyCount: 0
           - id: 13007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -12988,6 +13023,7 @@ MonoBehaviour:
                 votes: 285
                 percentVotes: 0.5
               totalVotes: 51943
+            unassignedConstituencyCount: 0
           - id: 13008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13147,6 +13183,7 @@ MonoBehaviour:
                 votes: 19451
                 percentVotes: 49.1
               totalVotes: 39648
+            unassignedConstituencyCount: 0
           - id: 13009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13330,6 +13367,7 @@ MonoBehaviour:
                 votes: 14006
                 percentVotes: 34
               totalVotes: 41254
+            unassignedConstituencyCount: 0
           - id: 13010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13465,12 +13503,14 @@ MonoBehaviour:
                 votes: 5398
                 percentVotes: 14.1
               totalVotes: 38146
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: QC
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -13607,6 +13647,7 @@ MonoBehaviour:
                 votes: 311
                 percentVotes: 1.1
               totalVotes: 28925
+            unassignedConstituencyCount: 0
           - id: 24002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13766,6 +13807,7 @@ MonoBehaviour:
                 votes: 12417
                 percentVotes: 24.8
               totalVotes: 49753
+            unassignedConstituencyCount: 0
           - id: 24003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13925,6 +13967,7 @@ MonoBehaviour:
                 votes: 11974
                 percentVotes: 21.7
               totalVotes: 54152
+            unassignedConstituencyCount: 0
           - id: 24004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14132,6 +14175,7 @@ MonoBehaviour:
                 votes: 15549
                 percentVotes: 28.6
               totalVotes: 53954
+            unassignedConstituencyCount: 0
           - id: 24005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14291,6 +14335,7 @@ MonoBehaviour:
                 votes: 2411
                 percentVotes: 4.8
               totalVotes: 49623
+            unassignedConstituencyCount: 0
           - id: 24006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14474,6 +14519,7 @@ MonoBehaviour:
                 votes: 2756
                 percentVotes: 7.7
               totalVotes: 35374
+            unassignedConstituencyCount: 0
           - id: 24007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14657,6 +14703,7 @@ MonoBehaviour:
                 votes: 6971
                 percentVotes: 11.7
               totalVotes: 59125
+            unassignedConstituencyCount: 0
           - id: 24008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14840,6 +14887,7 @@ MonoBehaviour:
                 votes: 15149
                 percentVotes: 30.2
               totalVotes: 49532
+            unassignedConstituencyCount: 0
           - id: 24009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -14999,6 +15047,7 @@ MonoBehaviour:
                 votes: 8434
                 percentVotes: 16.1
               totalVotes: 52053
+            unassignedConstituencyCount: 0
           - id: 24010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -15182,6 +15231,7 @@ MonoBehaviour:
                 votes: 1925
                 percentVotes: 3
               totalVotes: 64062
+            unassignedConstituencyCount: 0
           - id: 24011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -15309,6 +15359,7 @@ MonoBehaviour:
                 votes: 4252
                 percentVotes: 6.2
               totalVotes: 68919
+            unassignedConstituencyCount: 0
           - id: 24012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -15540,6 +15591,7 @@ MonoBehaviour:
                 votes: 7796
                 percentVotes: 13.8
               totalVotes: 56148
+            unassignedConstituencyCount: 0
           - id: 24013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -15747,6 +15799,7 @@ MonoBehaviour:
                 votes: 4431
                 percentVotes: 7.6
               totalVotes: 59116
+            unassignedConstituencyCount: 0
           - id: 24014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -15906,6 +15959,7 @@ MonoBehaviour:
                 votes: 2955
                 percentVotes: 4.9
               totalVotes: 60912
+            unassignedConstituencyCount: 0
           - id: 24015
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -16113,6 +16167,7 @@ MonoBehaviour:
                 votes: 72
                 percentVotes: 0.2
               totalVotes: 39902
+            unassignedConstituencyCount: 0
           - id: 24016
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -16320,6 +16375,7 @@ MonoBehaviour:
                 votes: 456
                 percentVotes: 0.7
               totalVotes: 61098
+            unassignedConstituencyCount: 0
           - id: 24017
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -16479,6 +16535,7 @@ MonoBehaviour:
                 votes: 527
                 percentVotes: 0.9
               totalVotes: 55981
+            unassignedConstituencyCount: 0
           - id: 24018
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -16662,6 +16719,7 @@ MonoBehaviour:
                 votes: 824
                 percentVotes: 1.8
               totalVotes: 45376
+            unassignedConstituencyCount: 0
           - id: 24019
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -16821,6 +16879,7 @@ MonoBehaviour:
                 votes: 1379
                 percentVotes: 2.3
               totalVotes: 58544
+            unassignedConstituencyCount: 0
           - id: 24020
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17004,6 +17063,7 @@ MonoBehaviour:
                 votes: 1045
                 percentVotes: 2.1
               totalVotes: 50285
+            unassignedConstituencyCount: 0
           - id: 24021
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17211,6 +17271,7 @@ MonoBehaviour:
                 votes: 19479
                 percentVotes: 37.2
               totalVotes: 52749
+            unassignedConstituencyCount: 0
           - id: 24022
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17394,6 +17455,7 @@ MonoBehaviour:
                 votes: 1388
                 percentVotes: 3.2
               totalVotes: 43268
+            unassignedConstituencyCount: 0
           - id: 24023
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17577,6 +17639,7 @@ MonoBehaviour:
                 votes: 252
                 percentVotes: 0.4
               totalVotes: 57796
+            unassignedConstituencyCount: 0
           - id: 24024
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17784,6 +17847,7 @@ MonoBehaviour:
                 votes: 177
                 percentVotes: 0.3
               totalVotes: 51785
+            unassignedConstituencyCount: 0
           - id: 24025
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -17991,6 +18055,7 @@ MonoBehaviour:
                 votes: 525
                 percentVotes: 1
               totalVotes: 54315
+            unassignedConstituencyCount: 0
           - id: 24026
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -18174,6 +18239,7 @@ MonoBehaviour:
                 votes: 3022
                 percentVotes: 7.9
               totalVotes: 38380
+            unassignedConstituencyCount: 0
           - id: 24027
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -18357,6 +18423,7 @@ MonoBehaviour:
                 votes: 76
                 percentVotes: 0.1
               totalVotes: 55174
+            unassignedConstituencyCount: 0
           - id: 24028
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -18588,6 +18655,7 @@ MonoBehaviour:
                 votes: 11451
                 percentVotes: 21.6
               totalVotes: 52162
+            unassignedConstituencyCount: 0
           - id: 24029
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -18771,6 +18839,7 @@ MonoBehaviour:
                 votes: 459
                 percentVotes: 0.9
               totalVotes: 49959
+            unassignedConstituencyCount: 0
           - id: 24030
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -18978,6 +19047,7 @@ MonoBehaviour:
                 votes: 7467
                 percentVotes: 13.6
               totalVotes: 52924
+            unassignedConstituencyCount: 0
           - id: 24031
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -19161,6 +19231,7 @@ MonoBehaviour:
                 votes: 33590
                 percentVotes: 58.2
               totalVotes: 57186
+            unassignedConstituencyCount: 0
           - id: 24032
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -19320,6 +19391,7 @@ MonoBehaviour:
                 votes: 12141
                 percentVotes: 24.6
               totalVotes: 48863
+            unassignedConstituencyCount: 0
           - id: 24033
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -19527,6 +19599,7 @@ MonoBehaviour:
                 votes: 88
                 percentVotes: 0.2
               totalVotes: 54899
+            unassignedConstituencyCount: 0
           - id: 24034
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -19710,6 +19783,7 @@ MonoBehaviour:
                 votes: 393
                 percentVotes: 0.6
               totalVotes: 61306
+            unassignedConstituencyCount: 0
           - id: 24035
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -19869,6 +19943,7 @@ MonoBehaviour:
                 votes: 13633
                 percentVotes: 25.1
               totalVotes: 53971
+            unassignedConstituencyCount: 0
           - id: 24036
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -20076,6 +20151,7 @@ MonoBehaviour:
                 votes: 379
                 percentVotes: 0.6
               totalVotes: 58320
+            unassignedConstituencyCount: 0
           - id: 24037
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -20307,6 +20383,7 @@ MonoBehaviour:
                 votes: 490
                 percentVotes: 0.9
               totalVotes: 51632
+            unassignedConstituencyCount: 0
           - id: 24038
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -20514,6 +20591,7 @@ MonoBehaviour:
                 votes: 272
                 percentVotes: 0.4
               totalVotes: 65009
+            unassignedConstituencyCount: 0
           - id: 24039
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -20769,6 +20847,7 @@ MonoBehaviour:
                 votes: 1502
                 percentVotes: 2.8
               totalVotes: 51801
+            unassignedConstituencyCount: 0
           - id: 24040
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -20928,6 +21007,7 @@ MonoBehaviour:
                 votes: 8816
                 percentVotes: 16.3
               totalVotes: 52119
+            unassignedConstituencyCount: 0
           - id: 24041
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21087,6 +21167,7 @@ MonoBehaviour:
                 votes: 20114
                 percentVotes: 39
               totalVotes: 49527
+            unassignedConstituencyCount: 0
           - id: 24042
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21246,6 +21327,7 @@ MonoBehaviour:
                 votes: 4355
                 percentVotes: 6.9
               totalVotes: 63159
+            unassignedConstituencyCount: 0
           - id: 24043
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21429,6 +21511,7 @@ MonoBehaviour:
                 votes: 23061
                 percentVotes: 38.5
               totalVotes: 59239
+            unassignedConstituencyCount: 0
           - id: 24044
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21612,6 +21695,7 @@ MonoBehaviour:
                 votes: 25140
                 percentVotes: 40.5
               totalVotes: 61474
+            unassignedConstituencyCount: 0
           - id: 24045
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21771,6 +21855,7 @@ MonoBehaviour:
                 votes: 2155
                 percentVotes: 3.3
               totalVotes: 64767
+            unassignedConstituencyCount: 0
           - id: 24046
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -21930,6 +22015,7 @@ MonoBehaviour:
                 votes: 7793
                 percentVotes: 19.3
               totalVotes: 39906
+            unassignedConstituencyCount: 0
           - id: 24047
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -22137,6 +22223,7 @@ MonoBehaviour:
                 votes: 256
                 percentVotes: 0.5
               totalVotes: 46628
+            unassignedConstituencyCount: 0
           - id: 24048
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -22320,6 +22407,7 @@ MonoBehaviour:
                 votes: 16162
                 percentVotes: 24.9
               totalVotes: 62708
+            unassignedConstituencyCount: 0
           - id: 24049
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -22503,6 +22591,7 @@ MonoBehaviour:
                 votes: 211
                 percentVotes: 0.4
               totalVotes: 58629
+            unassignedConstituencyCount: 0
           - id: 24050
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -22686,6 +22775,7 @@ MonoBehaviour:
                 votes: 31791
                 percentVotes: 58
               totalVotes: 54529
+            unassignedConstituencyCount: 0
           - id: 24051
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -22845,6 +22935,7 @@ MonoBehaviour:
                 votes: 8210
                 percentVotes: 16.3
               totalVotes: 50000
+            unassignedConstituencyCount: 0
           - id: 24052
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -23028,6 +23119,7 @@ MonoBehaviour:
                 votes: 10887
                 percentVotes: 24.9
               totalVotes: 42793
+            unassignedConstituencyCount: 0
           - id: 24053
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -23235,6 +23327,7 @@ MonoBehaviour:
                 votes: 565
                 percentVotes: 1.1
               totalVotes: 48355
+            unassignedConstituencyCount: 0
           - id: 24054
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -23418,6 +23511,7 @@ MonoBehaviour:
                 votes: 369
                 percentVotes: 0.9
               totalVotes: 39201
+            unassignedConstituencyCount: 0
           - id: 24055
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -23609,6 +23703,7 @@ MonoBehaviour:
                 votes: 2095
                 percentVotes: 4.3
               totalVotes: 48451
+            unassignedConstituencyCount: 0
           - id: 24056
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -23816,6 +23911,7 @@ MonoBehaviour:
                 votes: 31305
                 percentVotes: 56.4
               totalVotes: 54699
+            unassignedConstituencyCount: 0
           - id: 24057
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24023,6 +24119,7 @@ MonoBehaviour:
                 votes: 194
                 percentVotes: 0.3
               totalVotes: 60915
+            unassignedConstituencyCount: 0
           - id: 24058
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24182,6 +24279,7 @@ MonoBehaviour:
                 votes: 12876
                 percentVotes: 19.9
               totalVotes: 63644
+            unassignedConstituencyCount: 0
           - id: 24059
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24389,6 +24487,7 @@ MonoBehaviour:
                 votes: 119
                 percentVotes: 0.2
               totalVotes: 54355
+            unassignedConstituencyCount: 0
           - id: 24060
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24572,6 +24671,7 @@ MonoBehaviour:
                 votes: 524
                 percentVotes: 0.8
               totalVotes: 64942
+            unassignedConstituencyCount: 0
           - id: 24061
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24731,6 +24831,7 @@ MonoBehaviour:
                 votes: 26553
                 percentVotes: 45.3
               totalVotes: 58495
+            unassignedConstituencyCount: 0
           - id: 24062
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -24890,6 +24991,7 @@ MonoBehaviour:
                 votes: 845
                 percentVotes: 1.5
               totalVotes: 57780
+            unassignedConstituencyCount: 0
           - id: 24063
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -25097,6 +25199,7 @@ MonoBehaviour:
                 votes: 127
                 percentVotes: 0.2
               totalVotes: 58578
+            unassignedConstituencyCount: 0
           - id: 24064
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -25328,6 +25431,7 @@ MonoBehaviour:
                 votes: 1405
                 percentVotes: 2.3
               totalVotes: 59016
+            unassignedConstituencyCount: 0
           - id: 24065
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -25511,6 +25615,7 @@ MonoBehaviour:
                 votes: 2111
                 percentVotes: 3.8
               totalVotes: 55351
+            unassignedConstituencyCount: 0
           - id: 24066
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -25670,6 +25775,7 @@ MonoBehaviour:
                 votes: 11903
                 percentVotes: 21.3
               totalVotes: 55543
+            unassignedConstituencyCount: 0
           - id: 24067
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -25853,6 +25959,7 @@ MonoBehaviour:
                 votes: 6612
                 percentVotes: 10.7
               totalVotes: 61354
+            unassignedConstituencyCount: 0
           - id: 24068
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26036,6 +26143,7 @@ MonoBehaviour:
                 votes: 7005
                 percentVotes: 17.4
               totalVotes: 39629
+            unassignedConstituencyCount: 0
           - id: 24069
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26243,6 +26351,7 @@ MonoBehaviour:
                 votes: 1183
                 percentVotes: 2.6
               totalVotes: 45000
+            unassignedConstituencyCount: 0
           - id: 24070
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26402,6 +26511,7 @@ MonoBehaviour:
                 votes: 19950
                 percentVotes: 34.2
               totalVotes: 58029
+            unassignedConstituencyCount: 0
           - id: 24071
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26585,6 +26695,7 @@ MonoBehaviour:
                 votes: 767
                 percentVotes: 1.2
               totalVotes: 62568
+            unassignedConstituencyCount: 0
           - id: 24072
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26768,6 +26879,7 @@ MonoBehaviour:
                 votes: 2814
                 percentVotes: 4.6
               totalVotes: 60552
+            unassignedConstituencyCount: 0
           - id: 24073
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -26975,6 +27087,7 @@ MonoBehaviour:
                 votes: 6362
                 percentVotes: 10.7
               totalVotes: 59850
+            unassignedConstituencyCount: 0
           - id: 24074
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -27134,6 +27247,7 @@ MonoBehaviour:
                 votes: 711
                 percentVotes: 1
               totalVotes: 67564
+            unassignedConstituencyCount: 0
           - id: 24075
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -27341,6 +27455,7 @@ MonoBehaviour:
                 votes: 260
                 percentVotes: 0.4
               totalVotes: 60579
+            unassignedConstituencyCount: 0
           - id: 24076
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -27524,6 +27639,7 @@ MonoBehaviour:
                 votes: 137
                 percentVotes: 0.2
               totalVotes: 60208
+            unassignedConstituencyCount: 0
           - id: 24077
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -27779,6 +27895,7 @@ MonoBehaviour:
                 votes: 8274
                 percentVotes: 15.8
               totalVotes: 51054
+            unassignedConstituencyCount: 0
           - id: 24078
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -27938,12 +28055,14 @@ MonoBehaviour:
                 votes: 2125
                 percentVotes: 3.8
               totalVotes: 55115
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: ON
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -28136,6 +28255,7 @@ MonoBehaviour:
                 votes: 588
                 percentVotes: 1
               totalVotes: 60377
+            unassignedConstituencyCount: 0
           - id: 35002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28247,6 +28367,7 @@ MonoBehaviour:
                 votes: 9760
                 percentVotes: 24.3
               totalVotes: 40209
+            unassignedConstituencyCount: 0
           - id: 35003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28406,6 +28527,7 @@ MonoBehaviour:
                 votes: 22508
                 percentVotes: 42.4
               totalVotes: 52162
+            unassignedConstituencyCount: 0
           - id: 35004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28541,6 +28663,7 @@ MonoBehaviour:
                 votes: 15879
                 percentVotes: 29.3
               totalVotes: 53600
+            unassignedConstituencyCount: 0
           - id: 35005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28676,6 +28799,7 @@ MonoBehaviour:
                 votes: 20981
                 percentVotes: 39
               totalVotes: 53254
+            unassignedConstituencyCount: 0
           - id: 35006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28811,6 +28935,7 @@ MonoBehaviour:
                 votes: 24099
                 percentVotes: 39.2
               totalVotes: 61953
+            unassignedConstituencyCount: 0
           - id: 35007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28946,6 +29071,7 @@ MonoBehaviour:
                 votes: 8026
                 percentVotes: 14.1
               totalVotes: 56206
+            unassignedConstituencyCount: 0
           - id: 35008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -29105,6 +29231,7 @@ MonoBehaviour:
                 votes: 1685
                 percentVotes: 4.2
               totalVotes: 39278
+            unassignedConstituencyCount: 0
           - id: 35009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -29288,6 +29415,7 @@ MonoBehaviour:
                 votes: 244
                 percentVotes: 0.5
               totalVotes: 50078
+            unassignedConstituencyCount: 0
           - id: 35010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -29423,6 +29551,7 @@ MonoBehaviour:
                 votes: 25970
                 percentVotes: 51.4
               totalVotes: 49958
+            unassignedConstituencyCount: 0
           - id: 35011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -29630,6 +29759,7 @@ MonoBehaviour:
                 votes: 68
                 percentVotes: 0.1
               totalVotes: 48171
+            unassignedConstituencyCount: 0
           - id: 35012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -29837,6 +29967,7 @@ MonoBehaviour:
                 votes: 12824
                 percentVotes: 23.9
               totalVotes: 53007
+            unassignedConstituencyCount: 0
           - id: 35013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30044,6 +30175,7 @@ MonoBehaviour:
                 votes: 1320
                 percentVotes: 2
               totalVotes: 66068
+            unassignedConstituencyCount: 0
           - id: 35014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30203,6 +30335,7 @@ MonoBehaviour:
                 votes: 5114
                 percentVotes: 8.8
               totalVotes: 57522
+            unassignedConstituencyCount: 0
           - id: 35015
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30338,6 +30471,7 @@ MonoBehaviour:
                 votes: 4750
                 percentVotes: 6.6
               totalVotes: 70888
+            unassignedConstituencyCount: 0
           - id: 35016
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30521,6 +30655,7 @@ MonoBehaviour:
                 votes: 162
                 percentVotes: 0.3
               totalVotes: 57295
+            unassignedConstituencyCount: 0
           - id: 35017
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30680,6 +30815,7 @@ MonoBehaviour:
                 votes: 8229
                 percentVotes: 15.2
               totalVotes: 53728
+            unassignedConstituencyCount: 0
           - id: 35018
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -30887,6 +31023,7 @@ MonoBehaviour:
                 votes: 86
                 percentVotes: 0.2
               totalVotes: 52303
+            unassignedConstituencyCount: 0
           - id: 35019
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31022,6 +31159,7 @@ MonoBehaviour:
                 votes: 1675
                 percentVotes: 4
               totalVotes: 41734
+            unassignedConstituencyCount: 0
           - id: 35020
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31157,6 +31295,7 @@ MonoBehaviour:
                 votes: 482
                 percentVotes: 1
               totalVotes: 45704
+            unassignedConstituencyCount: 0
           - id: 35021
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31316,6 +31455,7 @@ MonoBehaviour:
                 votes: 16304
                 percentVotes: 31.2
               totalVotes: 51017
+            unassignedConstituencyCount: 0
           - id: 35022
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31475,6 +31615,7 @@ MonoBehaviour:
                 votes: 7303
                 percentVotes: 10.6
               totalVotes: 67956
+            unassignedConstituencyCount: 0
           - id: 35023
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31610,6 +31751,7 @@ MonoBehaviour:
                 votes: 13323
                 percentVotes: 18.2
               totalVotes: 72423
+            unassignedConstituencyCount: 0
           - id: 35024
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31745,6 +31887,7 @@ MonoBehaviour:
                 votes: 586
                 percentVotes: 1
               totalVotes: 55109
+            unassignedConstituencyCount: 0
           - id: 35025
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -31928,6 +32071,7 @@ MonoBehaviour:
                 votes: 31026
                 percentVotes: 50.2
               totalVotes: 61288
+            unassignedConstituencyCount: 0
           - id: 35026
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32063,6 +32207,7 @@ MonoBehaviour:
                 votes: 23603
                 percentVotes: 34.6
               totalVotes: 67686
+            unassignedConstituencyCount: 0
           - id: 35027
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32222,6 +32367,7 @@ MonoBehaviour:
                 votes: 295
                 percentVotes: 0.5
               totalVotes: 62390
+            unassignedConstituencyCount: 0
           - id: 35028
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32381,6 +32527,7 @@ MonoBehaviour:
                 votes: 921
                 percentVotes: 1.3
               totalVotes: 68588
+            unassignedConstituencyCount: 0
           - id: 35029
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32540,6 +32687,7 @@ MonoBehaviour:
                 votes: 104
                 percentVotes: 0.2
               totalVotes: 42685
+            unassignedConstituencyCount: 0
           - id: 35030
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32675,6 +32823,7 @@ MonoBehaviour:
                 votes: 982
                 percentVotes: 1.6
               totalVotes: 62937
+            unassignedConstituencyCount: 0
           - id: 35031
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -32882,6 +33031,7 @@ MonoBehaviour:
                 votes: 6851
                 percentVotes: 10.4
               totalVotes: 63297
+            unassignedConstituencyCount: 0
           - id: 35032
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33113,6 +33263,7 @@ MonoBehaviour:
                 votes: 133
                 percentVotes: 0.2
               totalVotes: 74059
+            unassignedConstituencyCount: 0
           - id: 35033
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33296,6 +33447,7 @@ MonoBehaviour:
                 votes: 1083
                 percentVotes: 1.8
               totalVotes: 58372
+            unassignedConstituencyCount: 0
           - id: 35034
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33431,6 +33583,7 @@ MonoBehaviour:
                 votes: 32257
                 percentVotes: 49.1
               totalVotes: 65015
+            unassignedConstituencyCount: 0
           - id: 35035
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33662,6 +33815,7 @@ MonoBehaviour:
                 votes: 85
                 percentVotes: 0.2
               totalVotes: 43528
+            unassignedConstituencyCount: 0
           - id: 35036
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33797,6 +33951,7 @@ MonoBehaviour:
                 votes: 2902
                 percentVotes: 5.6
               totalVotes: 51639
+            unassignedConstituencyCount: 0
           - id: 35037
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -33980,6 +34135,7 @@ MonoBehaviour:
                 votes: 3115
                 percentVotes: 5.9
               totalVotes: 52273
+            unassignedConstituencyCount: 0
           - id: 35038
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34139,6 +34295,7 @@ MonoBehaviour:
                 votes: 30214
                 percentVotes: 46.6
               totalVotes: 64131
+            unassignedConstituencyCount: 0
           - id: 35039
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34274,6 +34431,7 @@ MonoBehaviour:
                 votes: 3114
                 percentVotes: 5.9
               totalVotes: 51321
+            unassignedConstituencyCount: 0
           - id: 35040
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34409,6 +34567,7 @@ MonoBehaviour:
                 votes: 2665
                 percentVotes: 4.4
               totalVotes: 60330
+            unassignedConstituencyCount: 0
           - id: 35041
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34544,6 +34703,7 @@ MonoBehaviour:
                 votes: 4387
                 percentVotes: 6.6
               totalVotes: 64613
+            unassignedConstituencyCount: 0
           - id: 35042
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34655,6 +34815,7 @@ MonoBehaviour:
                 votes: 7781
                 percentVotes: 28.5
               totalVotes: 27304
+            unassignedConstituencyCount: 0
           - id: 35043
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34790,6 +34951,7 @@ MonoBehaviour:
                 votes: 731
                 percentVotes: 1.1
               totalVotes: 63199
+            unassignedConstituencyCount: 0
           - id: 35044
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -34925,6 +35087,7 @@ MonoBehaviour:
                 votes: 13304
                 percentVotes: 19.5
               totalVotes: 66672
+            unassignedConstituencyCount: 0
           - id: 35045
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35084,6 +35247,7 @@ MonoBehaviour:
                 votes: 13191
                 percentVotes: 23.8
               totalVotes: 54659
+            unassignedConstituencyCount: 0
           - id: 35046
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35219,6 +35383,7 @@ MonoBehaviour:
                 votes: 790
                 percentVotes: 1.5
               totalVotes: 50763
+            unassignedConstituencyCount: 0
           - id: 35047
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35402,6 +35567,7 @@ MonoBehaviour:
                 votes: 5671
                 percentVotes: 10.9
               totalVotes: 51694
+            unassignedConstituencyCount: 0
           - id: 35048
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35561,6 +35727,7 @@ MonoBehaviour:
                 votes: 28651
                 percentVotes: 49
               totalVotes: 57864
+            unassignedConstituencyCount: 0
           - id: 35049
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35696,6 +35863,7 @@ MonoBehaviour:
                 votes: 8835
                 percentVotes: 14.1
               totalVotes: 60868
+            unassignedConstituencyCount: 0
           - id: 35050
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35831,6 +35999,7 @@ MonoBehaviour:
                 votes: 8201
                 percentVotes: 14
               totalVotes: 57799
+            unassignedConstituencyCount: 0
           - id: 35051
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -35990,6 +36159,7 @@ MonoBehaviour:
                 votes: 13770
                 percentVotes: 24.8
               totalVotes: 54933
+            unassignedConstituencyCount: 0
           - id: 35052
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36149,6 +36319,7 @@ MonoBehaviour:
                 votes: 137
                 percentVotes: 0.2
               totalVotes: 59777
+            unassignedConstituencyCount: 0
           - id: 35053
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36308,6 +36479,7 @@ MonoBehaviour:
                 votes: 30622
                 percentVotes: 43
               totalVotes: 70234
+            unassignedConstituencyCount: 0
           - id: 35054
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36467,6 +36639,7 @@ MonoBehaviour:
                 votes: 13340
                 percentVotes: 20.7
               totalVotes: 63654
+            unassignedConstituencyCount: 0
           - id: 35055
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36626,6 +36799,7 @@ MonoBehaviour:
                 votes: 15474
                 percentVotes: 34.6
               totalVotes: 44330
+            unassignedConstituencyCount: 0
           - id: 35056
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36761,6 +36935,7 @@ MonoBehaviour:
                 votes: 26133
                 percentVotes: 48.9
               totalVotes: 52464
+            unassignedConstituencyCount: 0
           - id: 35057
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -36896,6 +37071,7 @@ MonoBehaviour:
                 votes: 30882
                 percentVotes: 51.7
               totalVotes: 59005
+            unassignedConstituencyCount: 0
           - id: 35058
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37055,6 +37231,7 @@ MonoBehaviour:
                 votes: 5173
                 percentVotes: 9.6
               totalVotes: 52948
+            unassignedConstituencyCount: 0
           - id: 35059
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37214,6 +37391,7 @@ MonoBehaviour:
                 votes: 4643
                 percentVotes: 8.8
               totalVotes: 51079
+            unassignedConstituencyCount: 0
           - id: 35060
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37349,6 +37527,7 @@ MonoBehaviour:
                 votes: 19050
                 percentVotes: 32.7
               totalVotes: 57954
+            unassignedConstituencyCount: 0
           - id: 35061
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37508,6 +37687,7 @@ MonoBehaviour:
                 votes: 717
                 percentVotes: 1.2
               totalVotes: 60129
+            unassignedConstituencyCount: 0
           - id: 35062
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37691,6 +37871,7 @@ MonoBehaviour:
                 votes: 12528
                 percentVotes: 25.8
               totalVotes: 47893
+            unassignedConstituencyCount: 0
           - id: 35063
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -37850,6 +38031,7 @@ MonoBehaviour:
                 votes: 243
                 percentVotes: 0.4
               totalVotes: 57899
+            unassignedConstituencyCount: 0
           - id: 35064
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38009,6 +38191,7 @@ MonoBehaviour:
                 votes: 160
                 percentVotes: 0.2
               totalVotes: 68191
+            unassignedConstituencyCount: 0
           - id: 35065
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38192,6 +38375,7 @@ MonoBehaviour:
                 votes: 26488
                 percentVotes: 43.1
               totalVotes: 60468
+            unassignedConstituencyCount: 0
           - id: 35066
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38375,6 +38559,7 @@ MonoBehaviour:
                 votes: 77
                 percentVotes: 0.1
               totalVotes: 57510
+            unassignedConstituencyCount: 0
           - id: 35067
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38558,6 +38743,7 @@ MonoBehaviour:
                 votes: 968
                 percentVotes: 1.4
               totalVotes: 68111
+            unassignedConstituencyCount: 0
           - id: 35068
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38717,6 +38903,7 @@ MonoBehaviour:
                 votes: 3620
                 percentVotes: 6.7
               totalVotes: 52682
+            unassignedConstituencyCount: 0
           - id: 35069
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38852,6 +39039,7 @@ MonoBehaviour:
                 votes: 19046
                 percentVotes: 39
               totalVotes: 48524
+            unassignedConstituencyCount: 0
           - id: 35070
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -38987,6 +39175,7 @@ MonoBehaviour:
                 votes: 19352
                 percentVotes: 40.5
               totalVotes: 45173
+            unassignedConstituencyCount: 0
           - id: 35071
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39122,6 +39311,7 @@ MonoBehaviour:
                 votes: 5524
                 percentVotes: 8
               totalVotes: 68268
+            unassignedConstituencyCount: 0
           - id: 35072
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39281,6 +39471,7 @@ MonoBehaviour:
                 votes: 25561
                 percentVotes: 39.1
               totalVotes: 61882
+            unassignedConstituencyCount: 0
           - id: 35073
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39416,6 +39607,7 @@ MonoBehaviour:
                 votes: 26484
                 percentVotes: 38
               totalVotes: 68452
+            unassignedConstituencyCount: 0
           - id: 35074
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39575,6 +39767,7 @@ MonoBehaviour:
                 votes: 112
                 percentVotes: 0.2
               totalVotes: 61614
+            unassignedConstituencyCount: 0
           - id: 35075
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39854,6 +40047,7 @@ MonoBehaviour:
                 votes: 65
                 percentVotes: 0.1
               totalVotes: 75448
+            unassignedConstituencyCount: 0
           - id: 35076
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -39989,6 +40183,7 @@ MonoBehaviour:
                 votes: 9428
                 percentVotes: 11.6
               totalVotes: 80198
+            unassignedConstituencyCount: 0
           - id: 35077
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -40196,6 +40391,7 @@ MonoBehaviour:
                 votes: 99
                 percentVotes: 0.2
               totalVotes: 63752
+            unassignedConstituencyCount: 0
           - id: 35078
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -40451,6 +40647,7 @@ MonoBehaviour:
                 votes: 115
                 percentVotes: 0.2
               totalVotes: 62185
+            unassignedConstituencyCount: 0
           - id: 35079
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -40682,6 +40879,7 @@ MonoBehaviour:
                 votes: 28378
                 percentVotes: 45.6
               totalVotes: 60699
+            unassignedConstituencyCount: 0
           - id: 35080
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -40841,6 +41039,7 @@ MonoBehaviour:
                 votes: 1774
                 percentVotes: 2.9
               totalVotes: 60469
+            unassignedConstituencyCount: 0
           - id: 35081
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41048,6 +41247,7 @@ MonoBehaviour:
                 votes: 643
                 percentVotes: 1.1
               totalVotes: 59952
+            unassignedConstituencyCount: 0
           - id: 35082
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41183,6 +41383,7 @@ MonoBehaviour:
                 votes: 6417
                 percentVotes: 11.7
               totalVotes: 54080
+            unassignedConstituencyCount: 0
           - id: 35083
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41342,6 +41543,7 @@ MonoBehaviour:
                 votes: 4949
                 percentVotes: 9
               totalVotes: 54921
+            unassignedConstituencyCount: 0
           - id: 35084
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41525,6 +41727,7 @@ MonoBehaviour:
                 votes: 24357
                 percentVotes: 34.9
               totalVotes: 68854
+            unassignedConstituencyCount: 0
           - id: 35085
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41660,6 +41863,7 @@ MonoBehaviour:
                 votes: 32387
                 percentVotes: 51
               totalVotes: 62751
+            unassignedConstituencyCount: 0
           - id: 35086
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -41915,6 +42119,7 @@ MonoBehaviour:
                 votes: 3230
                 percentVotes: 5.5
               totalVotes: 57506
+            unassignedConstituencyCount: 0
           - id: 35087
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42074,6 +42279,7 @@ MonoBehaviour:
                 votes: 126
                 percentVotes: 0.3
               totalVotes: 50249
+            unassignedConstituencyCount: 0
           - id: 35088
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42209,6 +42415,7 @@ MonoBehaviour:
                 votes: 26518
                 percentVotes: 38.2
               totalVotes: 67935
+            unassignedConstituencyCount: 0
           - id: 35089
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42344,6 +42551,7 @@ MonoBehaviour:
                 votes: 18978
                 percentVotes: 31.6
               totalVotes: 59370
+            unassignedConstituencyCount: 0
           - id: 35090
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42479,6 +42687,7 @@ MonoBehaviour:
                 votes: 12933
                 percentVotes: 21.6
               totalVotes: 58850
+            unassignedConstituencyCount: 0
           - id: 35091
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42638,6 +42847,7 @@ MonoBehaviour:
                 votes: 2490
                 percentVotes: 4.3
               totalVotes: 57084
+            unassignedConstituencyCount: 0
           - id: 35092
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42773,6 +42983,7 @@ MonoBehaviour:
                 votes: 741
                 percentVotes: 1.8
               totalVotes: 41267
+            unassignedConstituencyCount: 0
           - id: 35093
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -42908,6 +43119,7 @@ MonoBehaviour:
                 votes: 21115
                 percentVotes: 50.5
               totalVotes: 41247
+            unassignedConstituencyCount: 0
           - id: 35094
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43067,6 +43279,7 @@ MonoBehaviour:
                 votes: 25695
                 percentVotes: 55.2
               totalVotes: 46076
+            unassignedConstituencyCount: 0
           - id: 35095
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43322,6 +43535,7 @@ MonoBehaviour:
                 votes: 9553
                 percentVotes: 22.4
               totalVotes: 42219
+            unassignedConstituencyCount: 0
           - id: 35096
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43481,6 +43695,7 @@ MonoBehaviour:
                 votes: 796
                 percentVotes: 2
               totalVotes: 38492
+            unassignedConstituencyCount: 0
           - id: 35097
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43640,6 +43855,7 @@ MonoBehaviour:
                 votes: 353
                 percentVotes: 0.7
               totalVotes: 50305
+            unassignedConstituencyCount: 0
           - id: 35098
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43799,6 +44015,7 @@ MonoBehaviour:
                 votes: 7865
                 percentVotes: 15.5
               totalVotes: 50106
+            unassignedConstituencyCount: 0
           - id: 35099
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -43958,6 +44175,7 @@ MonoBehaviour:
                 votes: 1416
                 percentVotes: 1.9
               totalVotes: 74226
+            unassignedConstituencyCount: 0
           - id: 35100
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44117,6 +44335,7 @@ MonoBehaviour:
                 votes: 27241
                 percentVotes: 43.4
               totalVotes: 62302
+            unassignedConstituencyCount: 0
           - id: 35101
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44276,6 +44495,7 @@ MonoBehaviour:
                 votes: 12188
                 percentVotes: 20.1
               totalVotes: 59648
+            unassignedConstituencyCount: 0
           - id: 35102
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44411,6 +44631,7 @@ MonoBehaviour:
                 votes: 1168
                 percentVotes: 2.2
               totalVotes: 53258
+            unassignedConstituencyCount: 0
           - id: 35103
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44618,6 +44839,7 @@ MonoBehaviour:
                 votes: 135
                 percentVotes: 0.3
               totalVotes: 47708
+            unassignedConstituencyCount: 0
           - id: 35104
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44777,6 +44999,7 @@ MonoBehaviour:
                 votes: 1600
                 percentVotes: 3
               totalVotes: 53432
+            unassignedConstituencyCount: 0
           - id: 35105
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -44912,6 +45135,7 @@ MonoBehaviour:
                 votes: 11944
                 percentVotes: 29.1
               totalVotes: 40541
+            unassignedConstituencyCount: 0
           - id: 35106
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45071,6 +45295,7 @@ MonoBehaviour:
                 votes: 140
                 percentVotes: 0.3
               totalVotes: 42178
+            unassignedConstituencyCount: 0
           - id: 35107
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45166,6 +45391,7 @@ MonoBehaviour:
                 votes: 1244
                 percentVotes: 3.4
               totalVotes: 36068
+            unassignedConstituencyCount: 0
           - id: 35108
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45397,6 +45623,7 @@ MonoBehaviour:
                 votes: 126
                 percentVotes: 0.2
               totalVotes: 53299
+            unassignedConstituencyCount: 0
           - id: 35109
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45604,6 +45831,7 @@ MonoBehaviour:
                 votes: 3761
                 percentVotes: 6.5
               totalVotes: 56990
+            unassignedConstituencyCount: 0
           - id: 35110
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45835,6 +46063,7 @@ MonoBehaviour:
                 votes: 159
                 percentVotes: 0.3
               totalVotes: 54604
+            unassignedConstituencyCount: 0
           - id: 35111
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -45994,6 +46223,7 @@ MonoBehaviour:
                 votes: 25810
                 percentVotes: 51.3
               totalVotes: 50010
+            unassignedConstituencyCount: 0
           - id: 35112
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46129,6 +46359,7 @@ MonoBehaviour:
                 votes: 15615
                 percentVotes: 24.5
               totalVotes: 62791
+            unassignedConstituencyCount: 0
           - id: 35113
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46264,6 +46495,7 @@ MonoBehaviour:
                 votes: 8851
                 percentVotes: 12.7
               totalVotes: 68760
+            unassignedConstituencyCount: 0
           - id: 35114
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46399,6 +46631,7 @@ MonoBehaviour:
                 votes: 30182
                 percentVotes: 43.7
               totalVotes: 68059
+            unassignedConstituencyCount: 0
           - id: 35115
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46582,6 +46815,7 @@ MonoBehaviour:
                 votes: 71
                 percentVotes: 0.2
               totalVotes: 44639
+            unassignedConstituencyCount: 0
           - id: 35116
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46741,6 +46975,7 @@ MonoBehaviour:
                 votes: 19046
                 percentVotes: 33.4
               totalVotes: 56512
+            unassignedConstituencyCount: 0
           - id: 35117
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -46900,6 +47135,7 @@ MonoBehaviour:
                 votes: 76
                 percentVotes: 0.1
               totalVotes: 51539
+            unassignedConstituencyCount: 0
           - id: 35118
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47011,6 +47247,7 @@ MonoBehaviour:
                 votes: 1403
                 percentVotes: 3.2
               totalVotes: 42588
+            unassignedConstituencyCount: 0
           - id: 35119
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47170,6 +47407,7 @@ MonoBehaviour:
                 votes: 14407
                 percentVotes: 26.8
               totalVotes: 53303
+            unassignedConstituencyCount: 0
           - id: 35120
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47305,6 +47543,7 @@ MonoBehaviour:
                 votes: 1633
                 percentVotes: 3.7
               totalVotes: 44788
+            unassignedConstituencyCount: 0
           - id: 35121
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47488,12 +47727,14 @@ MonoBehaviour:
                 votes: 114
                 percentVotes: 0.3
               totalVotes: 37636
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: MB
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -47710,6 +47951,7 @@ MonoBehaviour:
                 votes: 2984
                 percentVotes: 7.2
               totalVotes: 40536
+            unassignedConstituencyCount: 0
           - id: 46002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47893,6 +48135,7 @@ MonoBehaviour:
                 votes: 6556
                 percentVotes: 14.2
               totalVotes: 45510
+            unassignedConstituencyCount: 0
           - id: 46003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47988,6 +48231,7 @@ MonoBehaviour:
                 votes: 1109
                 percentVotes: 5
               totalVotes: 22311
+            unassignedConstituencyCount: 0
           - id: 46004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48147,6 +48391,7 @@ MonoBehaviour:
                 votes: 2214
                 percentVotes: 5.5
               totalVotes: 38686
+            unassignedConstituencyCount: 0
           - id: 46005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48282,6 +48527,7 @@ MonoBehaviour:
                 votes: 16240
                 percentVotes: 37.5
               totalVotes: 43532
+            unassignedConstituencyCount: 0
           - id: 46006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48465,6 +48711,7 @@ MonoBehaviour:
                 votes: 1777
                 percentVotes: 4
               totalVotes: 43768
+            unassignedConstituencyCount: 0
           - id: 46007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48576,6 +48823,7 @@ MonoBehaviour:
                 votes: 4721
                 percentVotes: 10.7
               totalVotes: 44227
+            unassignedConstituencyCount: 0
           - id: 46008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48711,6 +48959,7 @@ MonoBehaviour:
                 votes: 1066
                 percentVotes: 2.2
               totalVotes: 48023
+            unassignedConstituencyCount: 0
           - id: 46009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -48870,6 +49119,7 @@ MonoBehaviour:
                 votes: 20300
                 percentVotes: 42.9
               totalVotes: 46724
+            unassignedConstituencyCount: 0
           - id: 46010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49005,6 +49255,7 @@ MonoBehaviour:
                 votes: 8873
                 percentVotes: 17.9
               totalVotes: 48974
+            unassignedConstituencyCount: 0
           - id: 46011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49164,6 +49415,7 @@ MonoBehaviour:
                 votes: 1661
                 percentVotes: 5.2
               totalVotes: 31066
+            unassignedConstituencyCount: 0
           - id: 46012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49371,6 +49623,7 @@ MonoBehaviour:
                 votes: 125
                 percentVotes: 0.4
               totalVotes: 31528
+            unassignedConstituencyCount: 0
           - id: 46013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49506,6 +49759,7 @@ MonoBehaviour:
                 votes: 419
                 percentVotes: 0.9
               totalVotes: 47199
+            unassignedConstituencyCount: 0
           - id: 46014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49665,12 +49919,14 @@ MonoBehaviour:
                 votes: 8965
                 percentVotes: 17.7
               totalVotes: 48952
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: SK
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -49815,6 +50071,7 @@ MonoBehaviour:
                 votes: 4098
                 percentVotes: 11.4
               totalVotes: 35189
+            unassignedConstituencyCount: 0
           - id: 47002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49974,6 +50231,7 @@ MonoBehaviour:
                 votes: 3666
                 percentVotes: 9.5
               totalVotes: 38048
+            unassignedConstituencyCount: 0
           - id: 47003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50069,6 +50327,7 @@ MonoBehaviour:
                 votes: 10816
                 percentVotes: 41.7
               totalVotes: 25924
+            unassignedConstituencyCount: 0
           - id: 47004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50228,6 +50487,7 @@ MonoBehaviour:
                 votes: 344
                 percentVotes: 0.8
               totalVotes: 44217
+            unassignedConstituencyCount: 0
           - id: 47005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50363,6 +50623,7 @@ MonoBehaviour:
                 votes: 1201
                 percentVotes: 2.7
               totalVotes: 43273
+            unassignedConstituencyCount: 0
           - id: 47006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50522,6 +50783,7 @@ MonoBehaviour:
                 votes: 839
                 percentVotes: 2.1
               totalVotes: 39201
+            unassignedConstituencyCount: 0
           - id: 47007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50705,6 +50967,7 @@ MonoBehaviour:
                 votes: 573
                 percentVotes: 1.1
               totalVotes: 50772
+            unassignedConstituencyCount: 0
           - id: 47008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -50912,6 +51175,7 @@ MonoBehaviour:
                 votes: 78
                 percentVotes: 0.2
               totalVotes: 38057
+            unassignedConstituencyCount: 0
           - id: 47009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51071,6 +51335,7 @@ MonoBehaviour:
                 votes: 450
                 percentVotes: 1
               totalVotes: 44767
+            unassignedConstituencyCount: 0
           - id: 47010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51206,6 +51471,7 @@ MonoBehaviour:
                 votes: 26336
                 percentVotes: 53.3
               totalVotes: 48466
+            unassignedConstituencyCount: 0
           - id: 47011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51365,6 +51631,7 @@ MonoBehaviour:
                 votes: 305
                 percentVotes: 0.6
               totalVotes: 46372
+            unassignedConstituencyCount: 0
           - id: 47012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51500,6 +51767,7 @@ MonoBehaviour:
                 votes: 1042
                 percentVotes: 2.7
               totalVotes: 38189
+            unassignedConstituencyCount: 0
           - id: 47013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51659,6 +51927,7 @@ MonoBehaviour:
                 votes: 702
                 percentVotes: 1.7
               totalVotes: 40180
+            unassignedConstituencyCount: 0
           - id: 47014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -51794,12 +52063,14 @@ MonoBehaviour:
                 votes: 1070
                 percentVotes: 2.8
               totalVotes: 37850
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: AB
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -51944,6 +52215,7 @@ MonoBehaviour:
                 votes: 8185
                 percentVotes: 10.5
               totalVotes: 76595
+            unassignedConstituencyCount: 0
           - id: 48002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52079,6 +52351,7 @@ MonoBehaviour:
                 votes: 1689
                 percentVotes: 2.7
               totalVotes: 61404
+            unassignedConstituencyCount: 0
           - id: 48003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52238,6 +52511,7 @@ MonoBehaviour:
                 votes: 826
                 percentVotes: 1.5
               totalVotes: 54357
+            unassignedConstituencyCount: 0
           - id: 48004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52445,6 +52719,7 @@ MonoBehaviour:
                 votes: 138
                 percentVotes: 0.2
               totalVotes: 63934
+            unassignedConstituencyCount: 0
           - id: 48005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52628,6 +52903,7 @@ MonoBehaviour:
                 votes: 36312
                 percentVotes: 55.1
               totalVotes: 64345
+            unassignedConstituencyCount: 0
           - id: 48006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52859,6 +53135,7 @@ MonoBehaviour:
                 votes: 134
                 percentVotes: 0.3
               totalVotes: 39431
+            unassignedConstituencyCount: 0
           - id: 48007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53042,6 +53319,7 @@ MonoBehaviour:
                 votes: 2027
                 percentVotes: 3.5
               totalVotes: 55202
+            unassignedConstituencyCount: 0
           - id: 48008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53177,6 +53455,7 @@ MonoBehaviour:
                 votes: 1992
                 percentVotes: 2.9
               totalVotes: 66717
+            unassignedConstituencyCount: 0
           - id: 48009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53336,6 +53615,7 @@ MonoBehaviour:
                 votes: 8703
                 percentVotes: 15.7
               totalVotes: 54281
+            unassignedConstituencyCount: 0
           - id: 48010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53495,6 +53775,7 @@ MonoBehaviour:
                 votes: 2011
                 percentVotes: 2.8
               totalVotes: 69258
+            unassignedConstituencyCount: 0
           - id: 48011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53630,6 +53911,7 @@ MonoBehaviour:
                 votes: 2345
                 percentVotes: 3
               totalVotes: 76885
+            unassignedConstituencyCount: 0
           - id: 48012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -53813,6 +54095,7 @@ MonoBehaviour:
                 votes: 1130
                 percentVotes: 1.8
               totalVotes: 61870
+            unassignedConstituencyCount: 0
           - id: 48013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54020,6 +54303,7 @@ MonoBehaviour:
                 votes: 26533
                 percentVotes: 52.5
               totalVotes: 49874
+            unassignedConstituencyCount: 0
           - id: 48014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54227,6 +54511,7 @@ MonoBehaviour:
                 votes: 10959
                 percentVotes: 20.6
               totalVotes: 51745
+            unassignedConstituencyCount: 0
           - id: 48015
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54458,6 +54743,7 @@ MonoBehaviour:
                 votes: 1074
                 percentVotes: 2.3
               totalVotes: 45977
+            unassignedConstituencyCount: 0
           - id: 48016
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54641,6 +54927,7 @@ MonoBehaviour:
                 votes: 68
                 percentVotes: 0.1
               totalVotes: 51125
+            unassignedConstituencyCount: 0
           - id: 48017
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54800,6 +55087,7 @@ MonoBehaviour:
                 votes: 953
                 percentVotes: 1.8
               totalVotes: 52417
+            unassignedConstituencyCount: 0
           - id: 48018
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -54935,6 +55223,7 @@ MonoBehaviour:
                 votes: 9332
                 percentVotes: 15.3
               totalVotes: 59661
+            unassignedConstituencyCount: 0
           - id: 48019
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55118,6 +55407,7 @@ MonoBehaviour:
                 votes: 125
                 percentVotes: 0.2
               totalVotes: 55381
+            unassignedConstituencyCount: 0
           - id: 48020
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55253,6 +55543,7 @@ MonoBehaviour:
                 votes: 8537
                 percentVotes: 14.6
               totalVotes: 57589
+            unassignedConstituencyCount: 0
           - id: 48021
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55412,6 +55703,7 @@ MonoBehaviour:
                 votes: 10802
                 percentVotes: 12.4
               totalVotes: 85093
+            unassignedConstituencyCount: 0
           - id: 48022
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55547,6 +55839,7 @@ MonoBehaviour:
                 votes: 3856
                 percentVotes: 5.9
               totalVotes: 64290
+            unassignedConstituencyCount: 0
           - id: 48023
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55682,6 +55975,7 @@ MonoBehaviour:
                 votes: 40706
                 percentVotes: 79.9
               totalVotes: 49680
+            unassignedConstituencyCount: 0
           - id: 48024
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -55817,6 +56111,7 @@ MonoBehaviour:
                 votes: 51198
                 percentVotes: 84
               totalVotes: 59936
+            unassignedConstituencyCount: 0
           - id: 48025
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56000,6 +56295,7 @@ MonoBehaviour:
                 votes: 2565
                 percentVotes: 4.5
               totalVotes: 56573
+            unassignedConstituencyCount: 0
           - id: 48026
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56159,6 +56455,7 @@ MonoBehaviour:
                 votes: 1939
                 percentVotes: 3.1
               totalVotes: 63339
+            unassignedConstituencyCount: 0
           - id: 48027
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56318,6 +56615,7 @@ MonoBehaviour:
                 votes: 4639
                 percentVotes: 8.7
               totalVotes: 52334
+            unassignedConstituencyCount: 0
           - id: 48028
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56453,6 +56751,7 @@ MonoBehaviour:
                 votes: 3886
                 percentVotes: 7.5
               totalVotes: 50945
+            unassignedConstituencyCount: 0
           - id: 48029
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56588,6 +56887,7 @@ MonoBehaviour:
                 votes: 3795
                 percentVotes: 5.6
               totalVotes: 67277
+            unassignedConstituencyCount: 0
           - id: 48030
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56723,6 +57023,7 @@ MonoBehaviour:
                 votes: 2453
                 percentVotes: 3.6
               totalVotes: 65950
+            unassignedConstituencyCount: 0
           - id: 48031
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -56882,6 +57183,7 @@ MonoBehaviour:
                 votes: 12477
                 percentVotes: 19.2
               totalVotes: 63850
+            unassignedConstituencyCount: 0
           - id: 48032
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57041,6 +57343,7 @@ MonoBehaviour:
                 votes: 1334
                 percentVotes: 1.8
               totalVotes: 71938
+            unassignedConstituencyCount: 0
           - id: 48033
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57200,6 +57503,7 @@ MonoBehaviour:
                 votes: 1745
                 percentVotes: 2.5
               totalVotes: 67231
+            unassignedConstituencyCount: 0
           - id: 48034
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57383,12 +57687,14 @@ MonoBehaviour:
                 votes: 45964
                 percentVotes: 82.1
               totalVotes: 54961
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: BC
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -57557,6 +57863,7 @@ MonoBehaviour:
                 votes: 8257
                 percentVotes: 16.9
               totalVotes: 48548
+            unassignedConstituencyCount: 0
           - id: 59002
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57740,6 +58047,7 @@ MonoBehaviour:
                 votes: 271
                 percentVotes: 0.5
               totalVotes: 48988
+            unassignedConstituencyCount: 0
           - id: 59003
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57923,6 +58231,7 @@ MonoBehaviour:
                 votes: 2477
                 percentVotes: 5.5
               totalVotes: 44701
+            unassignedConstituencyCount: 0
           - id: 59004
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58082,6 +58391,7 @@ MonoBehaviour:
                 votes: 1206
                 percentVotes: 2.2
               totalVotes: 54126
+            unassignedConstituencyCount: 0
           - id: 59005
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58241,6 +58551,7 @@ MonoBehaviour:
                 votes: 213
                 percentVotes: 0.3
               totalVotes: 63436
+            unassignedConstituencyCount: 0
           - id: 59006
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58424,6 +58735,7 @@ MonoBehaviour:
                 votes: 10848
                 percentVotes: 20.2
               totalVotes: 53272
+            unassignedConstituencyCount: 0
           - id: 59007
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58559,6 +58871,7 @@ MonoBehaviour:
                 votes: 3572
                 percentVotes: 6.4
               totalVotes: 55058
+            unassignedConstituencyCount: 0
           - id: 59008
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58718,6 +59031,7 @@ MonoBehaviour:
                 votes: 703
                 percentVotes: 1.2
               totalVotes: 56634
+            unassignedConstituencyCount: 0
           - id: 59009
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -58853,6 +59167,7 @@ MonoBehaviour:
                 votes: 9762
                 percentVotes: 13.5
               totalVotes: 71173
+            unassignedConstituencyCount: 0
           - id: 59010
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59012,6 +59327,7 @@ MonoBehaviour:
                 votes: 202
                 percentVotes: 0.3
               totalVotes: 63802
+            unassignedConstituencyCount: 0
           - id: 59011
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59195,6 +59511,7 @@ MonoBehaviour:
                 votes: 22257
                 percentVotes: 41.2
               totalVotes: 53288
+            unassignedConstituencyCount: 0
           - id: 59012
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59330,6 +59647,7 @@ MonoBehaviour:
                 votes: 16646
                 percentVotes: 33.8
               totalVotes: 48194
+            unassignedConstituencyCount: 0
           - id: 59013
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59513,6 +59831,7 @@ MonoBehaviour:
                 votes: 32415
                 percentVotes: 44.7
               totalVotes: 71703
+            unassignedConstituencyCount: 0
           - id: 59014
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59696,6 +60015,7 @@ MonoBehaviour:
                 votes: 67
                 percentVotes: 0.1
               totalVotes: 67865
+            unassignedConstituencyCount: 0
           - id: 59015
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -59855,6 +60175,7 @@ MonoBehaviour:
                 votes: 1378
                 percentVotes: 2
               totalVotes: 66327
+            unassignedConstituencyCount: 0
           - id: 59016
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60014,6 +60335,7 @@ MonoBehaviour:
                 votes: 10690
                 percentVotes: 16.8
               totalVotes: 61537
+            unassignedConstituencyCount: 0
           - id: 59017
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60125,6 +60447,7 @@ MonoBehaviour:
                 votes: 74
                 percentVotes: 0.2
               totalVotes: 45743
+            unassignedConstituencyCount: 0
           - id: 59018
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60356,6 +60679,7 @@ MonoBehaviour:
                 votes: 71
                 percentVotes: 0.1
               totalVotes: 71134
+            unassignedConstituencyCount: 0
           - id: 59019
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60563,6 +60887,7 @@ MonoBehaviour:
                 votes: 4378
                 percentVotes: 8.3
               totalVotes: 52108
+            unassignedConstituencyCount: 0
           - id: 59020
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60698,6 +61023,7 @@ MonoBehaviour:
                 votes: 11353
                 percentVotes: 15.3
               totalVotes: 73273
+            unassignedConstituencyCount: 0
           - id: 59021
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60833,6 +61159,7 @@ MonoBehaviour:
                 votes: 26979
                 percentVotes: 42.9
               totalVotes: 61874
+            unassignedConstituencyCount: 0
           - id: 59022
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -60992,6 +61319,7 @@ MonoBehaviour:
                 votes: 16125
                 percentVotes: 29.7
               totalVotes: 53707
+            unassignedConstituencyCount: 0
           - id: 59023
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -61151,6 +61479,7 @@ MonoBehaviour:
                 votes: 16702
                 percentVotes: 30.9
               totalVotes: 52929
+            unassignedConstituencyCount: 0
           - id: 59024
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -61246,6 +61575,7 @@ MonoBehaviour:
                 votes: 38157
                 percentVotes: 69.9
               totalVotes: 54597
+            unassignedConstituencyCount: 0
           - id: 59025
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -61405,6 +61735,7 @@ MonoBehaviour:
                 votes: 197
                 percentVotes: 0.5
               totalVotes: 38142
+            unassignedConstituencyCount: 0
           - id: 59026
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -61660,6 +61991,7 @@ MonoBehaviour:
                 votes: 111
                 percentVotes: 0.2
               totalVotes: 69003
+            unassignedConstituencyCount: 0
           - id: 59027
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -61795,6 +62127,7 @@ MonoBehaviour:
                 votes: 11326
                 percentVotes: 16.6
               totalVotes: 66309
+            unassignedConstituencyCount: 0
           - id: 59028
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62002,6 +62335,7 @@ MonoBehaviour:
                 votes: 1350
                 percentVotes: 3.3
               totalVotes: 40795
+            unassignedConstituencyCount: 0
           - id: 59029
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62161,6 +62495,7 @@ MonoBehaviour:
                 votes: 1638
                 percentVotes: 2.4
               totalVotes: 66761
+            unassignedConstituencyCount: 0
           - id: 59030
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62296,6 +62631,7 @@ MonoBehaviour:
                 votes: 852
                 percentVotes: 1.5
               totalVotes: 57120
+            unassignedConstituencyCount: 0
           - id: 59031
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62431,6 +62767,7 @@ MonoBehaviour:
                 votes: 14731
                 percentVotes: 35.1
               totalVotes: 41084
+            unassignedConstituencyCount: 0
           - id: 59032
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62638,6 +62975,7 @@ MonoBehaviour:
                 votes: 2558
                 percentVotes: 6.2
               totalVotes: 40825
+            unassignedConstituencyCount: 0
           - id: 59033
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62773,6 +63111,7 @@ MonoBehaviour:
                 votes: 653
                 percentVotes: 1.6
               totalVotes: 40658
+            unassignedConstituencyCount: 0
           - id: 59034
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -62980,6 +63319,7 @@ MonoBehaviour:
                 votes: 38
                 percentVotes: 0.1
               totalVotes: 52950
+            unassignedConstituencyCount: 0
           - id: 59035
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63187,6 +63527,7 @@ MonoBehaviour:
                 votes: 177
                 percentVotes: 0.3
               totalVotes: 54222
+            unassignedConstituencyCount: 0
           - id: 59036
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63346,6 +63687,7 @@ MonoBehaviour:
                 votes: 17265
                 percentVotes: 32.6
               totalVotes: 51202
+            unassignedConstituencyCount: 0
           - id: 59037
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63473,6 +63815,7 @@ MonoBehaviour:
                 votes: 8899
                 percentVotes: 14.3
               totalVotes: 62126
+            unassignedConstituencyCount: 0
           - id: 59038
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63656,6 +63999,7 @@ MonoBehaviour:
                 votes: 427
                 percentVotes: 1
               totalVotes: 43251
+            unassignedConstituencyCount: 0
           - id: 59039
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63815,6 +64159,7 @@ MonoBehaviour:
                 votes: 6308
                 percentVotes: 12.4
               totalVotes: 49314
+            unassignedConstituencyCount: 0
           - id: 59040
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -63950,6 +64295,7 @@ MonoBehaviour:
                 votes: 2451
                 percentVotes: 5.7
               totalVotes: 42407
+            unassignedConstituencyCount: 0
           - id: 59041
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -64181,6 +64527,7 @@ MonoBehaviour:
                 votes: 111
                 percentVotes: 0.2
               totalVotes: 70073
+            unassignedConstituencyCount: 0
           - id: 59042
             borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -64364,12 +64711,14 @@ MonoBehaviour:
                 votes: 9027
                 percentVotes: 13.9
               totalVotes: 63501
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: YT
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -64514,12 +64863,14 @@ MonoBehaviour:
                 votes: 284
                 percentVotes: 1.4
               totalVotes: 20490
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: NT
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -64624,12 +64975,14 @@ MonoBehaviour:
                 votes: 295
                 percentVotes: 1.8
               totalVotes: 16588
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         - id: NU
           borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -64718,18 +65071,21 @@ MonoBehaviour:
                 votes: 189
                 percentVotes: 2.1
               totalVotes: 9031
+            unassignedConstituencyCount: 0
           population: 0
           districtResult:
             regionId: 
             candidateResults: []
             rawCandidateResults: []
             totalVotes: 0
+          unassignedConstituencyCount: 0
         population: 0
         districtResult:
           regionId: 
           candidateResults: []
           rawCandidateResults: []
           totalVotes: 0
+        unassignedConstituencyCount: 0
       - id: USA
         borderType: 
         color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
@@ -64745,12 +65101,14 @@ MonoBehaviour:
           candidateResults: []
           rawCandidateResults: []
           totalVotes: 0
+        unassignedConstituencyCount: 0
       population: 0
       districtResult:
         regionId: 
         candidateResults: []
         rawCandidateResults: []
         totalVotes: 0
+      unassignedConstituencyCount: 0
     - id: Water
       borderType: 
       color: {r: 0.5855287, g: 0.92050815, b: 0.9622642, a: 1}
@@ -64765,12 +65123,14 @@ MonoBehaviour:
         candidateResults: []
         rawCandidateResults: []
         totalVotes: 0
+      unassignedConstituencyCount: 0
     population: 0
     districtResult:
       regionId: 
       candidateResults: []
       rawCandidateResults: []
       totalVotes: 0
+    unassignedConstituencyCount: 0
   borderColors:
   - {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -66080,6 +66440,7 @@ MonoBehaviour:
       candidateResults: []
       rawCandidateResults: []
       totalVotes: 0
+    unassignedConstituencyCount: 0
   regionName: {fileID: 673816978}
   colourIcon: {fileID: 45764361}
   ridingIcon: {fileID: 2082298958}
