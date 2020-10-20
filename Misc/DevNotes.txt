@@ -13,6 +13,10 @@ NOW
     next make editor in Uit
         
        clicks are going to wrong region  
+        scrolling cause clicks to be  mess
+        maybe listview aitems are not being cleared
+        button.clicked needs to be cleared somehow
+       
         
        make editor VE
        place in cent of right or left.

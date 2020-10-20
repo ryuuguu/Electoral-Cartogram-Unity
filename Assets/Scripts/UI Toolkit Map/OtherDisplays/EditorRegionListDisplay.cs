@@ -94,14 +94,16 @@ public class EditorRegionListDisplay : MonoBehaviour {
         listView.Refresh();
     }
 
-    public static void Clicked(int itemIndex) {
-        var rl = RegionController.Find(items[itemIndex].id);
+    public static void Clicked(string id) {
+        var rl = RegionController.Find(id);
         if (!rl.isRiding) {
-            //Debug.Log("Clicked: "+ rl.id + " =============================" );
+            Debug.Log("Clicked: "+ id +  " : "+ items.Count +  " : "+
+                       " : " + rl.id + " =============================" );
             currentExpandedRegionList = rl;
-            
         }
         else {
+            Debug.Log("Clicked riding: "+ id +  " : "+items.Count +  " : "+
+                     " : " + rl.id + " =============================" );
             rl.AssignConstituency(true);
             Debug.Log("riding handling not fully implemented");     
         }
@@ -127,14 +129,18 @@ public class EditorRegionListDisplay : MonoBehaviour {
         
         Func<VisualElement> makeItem = () => {
             var result = new VisualElement();
-            var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>(VTARegionListRecord);
-            treePartyRecordlDisplay.CloneTree(result);
+           
             return result;
         };
         
         Action<VisualElement, int> bindItem = (e, i) => {
             var regionRecord = items[i];
-            
+            // it is not possible to change e.Q<Button>().clicked because it is a action & event
+            // it can only be added to
+            // whole button must be cleared and recreated
+            e.Clear();
+            var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>(VTARegionListRecord);
+            treePartyRecordlDisplay.CloneTree(e);
             var label = e.Q<Label>(VERegionName);
             label.text = LanguageController.ChooseName(regionRecord.names);
             Shrink(label,inst.nameSize, inst.nameSizeSmall, inst.nameLength);
@@ -143,7 +149,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
             var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
             e.Q<Label>(VEConstituencyCount).text = countText;
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
-            e.Q<Button>().clicked += () => {Clicked(i); };
+            e.Q<Button>().clicked += () => {Clicked(items[i].id); };
 
         };
         listView.makeItem = makeItem;
