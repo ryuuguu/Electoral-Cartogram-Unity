@@ -31,6 +31,7 @@ public class UitHexGridMap : MonoBehaviour {
     
     protected VisualElement leftInfo;
     protected VisualElement rightInfo;
+    protected VisualElement hexMarker;
 
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
     
@@ -79,12 +80,20 @@ public class UitHexGridMap : MonoBehaviour {
         
         mapLayer.Add(hexLayer);
         var localSpaceId =  mapGrid.Init(hexLayer);
+        hexMarker = HexMarker.MakeHexMarker(localSpaceId);
         
         borderLayer = new VisualElement();
         borderLayer.transform.position = holderPosition;
         mapLayer.Add(borderLayer); 
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
+        
+        var markerLayer = new VisualElement();
+        markerLayer.transform.position = holderPosition;
+        mapLayer.Add(markerLayer); 
+        markerLayer.Add(hexMarker);
+        HexMarker.MoveTo(new Vector3(29,-8,-21)); 
+        
         
         regionLayer = new VisualElement();
         regionLayer.style.position = Position.Absolute;
@@ -139,6 +148,8 @@ public class UitHexGridMap : MonoBehaviour {
         var debugTest = EditorRegionListDisplay.DebugTest();
         MoveEditor(debugTest, false);
         overlayLayer.Add(debugTest);
+
+        
     }
 
     private void RightInfoSetUp() {
@@ -181,6 +192,7 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
+                name += cubeCoord;
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
                 return;
             }
@@ -333,6 +345,7 @@ public class UitHexGridMap : MonoBehaviour {
         LoadMapDataResource();
         MakeMapFromData();
        
+        
     }
     
     

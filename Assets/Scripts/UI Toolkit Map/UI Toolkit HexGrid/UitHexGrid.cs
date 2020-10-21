@@ -71,9 +71,6 @@ public class UitHexGrid : MonoBehaviour {
         }
 
         hexes[localSpaceId][coord] = hex;
-        // quick hack to test if this works, in later version need to assign it in a separate method
-        //it worked
-        //hex.clickable.clicked += () => Debug.Log("Clicked! " + coord);
         return hex;
     }
 
@@ -94,8 +91,7 @@ public class UitHexGrid : MonoBehaviour {
     /// </summary>
     /// <param name="coord"></param>
     /// <returns></returns>
-    protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null, float aHexScalefactor = 0) {
-        aHexScalefactor = aHexScalefactor == 0 ? hexScalefactor : aHexScalefactor;
+    protected UitHex MakeHex(Vector3 coord, VisualElement aHolder = null) {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location = CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
@@ -117,7 +113,10 @@ public class UitHexGrid : MonoBehaviour {
             scale = Vector3.one * ls.gameScale * hexScalefactor;
         }
 
-        //Debug.Log("One MakeHex pos: "+ location + " : "+ ls.orientation);
+        if (coord == new Vector3(29, -8, -21)) {
+            Debug.Log("One MakeHex pos: "+coord +" : " + location + " : "+ scale); 
+        }
+        
         return MakeHex(coord, location, scale, aHolder);
     }
 
@@ -149,17 +148,7 @@ public class UitHexGrid : MonoBehaviour {
     static public void SetupHex(UitHex hex, Vector2 location, Vector3 scale) {
         hex.transform.position = (Vector3) location;
         hex.transform.scale = scale;
-        //hex.style.backgroundImage = cellBackground;
         hex.style.backgroundImage = null;
-
-        /*
-        if (Random.Range(0, 2) == 1) {
-            hex.style.backgroundColor = Color.red;
-        }
-        else {
-            hex.style.backgroundColor = Color.green;
-        }
-        */
     }
 
     public Vector3 Position2Coord(Vector2 localPosition, Vector2 offsetInCubeCoord) {

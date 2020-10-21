@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Electoral.uss" />
+    <ui:VisualElement style="width: 1px; height: 1px; background-image: url(&apos;/Assets/Icons/MIT/Circle64_4.psd&apos;); background-color: rgba(0, 0, 0, 0); position: absolute;" />
+</ui:UXML>

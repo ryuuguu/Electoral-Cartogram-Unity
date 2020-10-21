@@ -21,10 +21,7 @@ public class UitRegionEditor : MonoBehaviour {
     //Uit Version
 
     public Vector3Int selectedCoord;
-    //public the selected marker 
-    // a class that has the VE and can 
-    // toogle on off
-    // move to coord
+    
     
     //will call static EditorRegionListDisplay??
     // maybe just called by it

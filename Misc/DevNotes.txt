@@ -9,6 +9,12 @@
         to put items at end
     
 NOW	         
+   hexmarker
+    check init map
+    use localSpaceId to get size and reposition
+      why is position offset
+           
+      
           
     next make editor in Uit
        
