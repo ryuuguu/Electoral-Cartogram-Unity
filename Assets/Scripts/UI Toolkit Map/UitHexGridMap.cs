@@ -192,7 +192,7 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                name += cubeCoord;
+                //name += cubeCoord;
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
                 return;
             }
@@ -212,6 +212,10 @@ public class UitHexGridMap : MonoBehaviour {
                 ElectoralDistrictDisplay.SetRegionList(regionList);
             }
             
+        }
+
+        if (GameController.inst.isEditMode) {
+            UitRegionEditor.SetMapCellActive(cubeCoord);
         }
 
 

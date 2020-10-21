@@ -26,7 +26,9 @@ public class UIHexGridMapCell : HexUI {
             center.sprite = centerRiding;
             var partyId =  regionList.districtResult.candidateResults[0].partyId;
             center.color = PartyController.GetPartyData(partyId).color;
-            if (!(prefabSubGrid is null) && !GameController.inst.isEditMode) {
+            
+            //removed && !GameController.inst.isEditMode
+            if (!(prefabSubGrid is null) ) {
                 subGrid = Instantiate(prefabSubGrid,subGridHolder);
                 var transform1 = subGrid.transform;
                 transform1.localPosition = Vector3.zero;

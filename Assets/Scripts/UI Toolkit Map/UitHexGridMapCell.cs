@@ -62,11 +62,11 @@ public class UitHexGridMapCell : UitHex {
            uitCell.Add(voteHolder);
            var partyId =  regionList.districtResult.candidateResults[0].partyId;
            seatHolder.style.unityBackgroundImageTintColor = PartyController.GetPartyData(partyId).color;
-           if ( !GameController.inst.isEditMode ) {
+           //if ( !GameController.inst.isEditMode ) {
                voteHolder.AddToClassList(VOTESClass);
                uitCell.Add(voteHolder);
                ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
-           }
+           //}
            
        } else {
             

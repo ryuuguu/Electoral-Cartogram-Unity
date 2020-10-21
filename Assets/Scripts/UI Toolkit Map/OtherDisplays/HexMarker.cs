@@ -15,6 +15,7 @@ public class HexMarker : MonoBehaviour {
         marker = new VisualElement();
         var treeDetailDisplay = Resources.Load<VisualTreeAsset>(VTAHexMarker);
         treeDetailDisplay.CloneTree(marker);
+        Show(false);
         return marker;
     }
 
@@ -22,6 +23,9 @@ public class HexMarker : MonoBehaviour {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         marker.transform.position = CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         marker.transform.scale = Vector3.one * ls.gameScale*2; //*2 because gamescale uses radius not diameter
-        Debug.Log("marker pos: "+coord +" : " + marker.transform.position + " : "+ marker.transform.scale); 
+    }
+
+    public static void Show(bool val) {
+        marker.visible = val;
     }
 }

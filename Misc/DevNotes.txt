@@ -9,11 +9,10 @@
         to put items at end
     
 NOW	         
-   hexmarker
-    check init map
-    use localSpaceId to get size and reposition
-      why is position offset
-           
+   in edit mode place pace hex marker near center
+   on cell select
+         set coord
+         move display left or Right
       
           
     next make editor in Uit

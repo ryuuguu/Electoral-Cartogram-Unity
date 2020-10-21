@@ -112,11 +112,6 @@ public class UitHexGrid : MonoBehaviour {
         else {
             scale = Vector3.one * ls.gameScale * hexScalefactor;
         }
-
-        if (coord == new Vector3(29, -8, -21)) {
-            Debug.Log("One MakeHex pos: "+coord +" : " + location + " : "+ scale); 
-        }
-        
         return MakeHex(coord, location, scale, aHolder);
     }
 

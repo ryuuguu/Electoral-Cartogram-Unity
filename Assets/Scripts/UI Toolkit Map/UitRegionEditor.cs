@@ -6,21 +6,11 @@ using UnityEngine.UI;
 
 public class UitRegionEditor : MonoBehaviour {
     public float indent;
-    public RegionEditLine topLine;
-    public Text mapRegionName;
-    public Text selectedRegionName;
     public RegionList selectedRegionList;
-    public bool showAssigned;
-    public MapCell mapCell;
-    public ScrollRect scrollRect;
-    public Transform[] locations;
-
-    public List<RegionList> debugInvertedRegionLists;
-
     
     //Uit Version
 
-    public Vector3Int selectedCoord;
+    public Vector3 selectedCoord;
     
     
     //will call static EditorRegionListDisplay??
@@ -44,6 +34,7 @@ public class UitRegionEditor : MonoBehaviour {
     }
 
     void Update() {
+        /*
         if ( mapCell != null && ((transform.localPosition.x > 0 &&  ((RectTransform)mapCell.transform).anchoredPosition.x > 50) ||
             (transform.localPosition.x < 0 && ((RectTransform)mapCell.transform).anchoredPosition.x < -50))) {
             Debug.Log("Loc: " + transform.localPosition);
@@ -65,9 +56,11 @@ public class UitRegionEditor : MonoBehaviour {
         if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow)) {
             MoveToMapCell(1);
         }
+        */
     }
 
     public void ButtonOK() {
+        /*
         if (!GameController.inst.isEditMode) return;
          if (mapCell.regionList.isRiding) {
              mapCell.regionList.isAssigned = false;
@@ -79,14 +72,17 @@ public class UitRegionEditor : MonoBehaviour {
          Map.SetMapData(mapCell);
          mapRegionName.text = selectedRegionName.text;
          Redraw();
+         */
      }
 
      public void ButtonCancel() {
+         /*
          if (!GameController.inst.isEditMode) return;
          if (inst.mapCell.regionList != RegionController.inst.regionList) {
              inst.selectedRegionList = inst.mapCell.regionList;
              inst.Redraw();
          }
+         */
      }
 
      public void SetShowAssigned() {
@@ -94,29 +90,31 @@ public class UitRegionEditor : MonoBehaviour {
      }
 
      public static void MoveToMapCell(int edgeDirection) {
+         /*
          var cc = inst.mapCell.cubeCoord ;
          MapCell target = null;
          for (int i = 0; i < MapGrid.edgeDirections.Count; i++) {
-             var targetCC = cc + MapGrid.edgeDirections[(edgeDirection+i)%MapGrid.edgeDirections.Count];
-             target = Map.inst.mapGrid.GetCellAt(targetCC);
-             if (target != null) break;
+             var targetCC = cc + MapGrid.edgeDirections[(edgeDirection + i) % MapGrid.edgeDirections.Count];
+             //check if targerCC is in bounds of map
+             //target = Map.inst.mapGrid.GetCellAt(targetCC);
+             //if (target != null){
+                //SetMapCellActive(targerCC);
+                //break;
+             // }
          }
-         if (target != null) {
-             Map.ClearHighLight();
-             target.SetHighLight(true);
-             SetMapCellActive(target);
-             
-         }
+         */
      }
+         
      
-     public static void SetMapCellActive(MapCell aMapCell) {
-         if (!GameController.inst.isEditMode) return;
-         inst.mapCell = aMapCell;
-         inst.mapRegionName.text = LanguageController.ChooseName(inst.mapCell.regionList.names);
-         inst.Redraw();
+     
+     public static void SetMapCellActive(Vector3 coord) {
+         HexMarker.Show(true);
+         HexMarker.MoveTo(coord);
+         inst.selectedCoord = coord;
      }
      
      public void Redraw() {
+         /*
          if (!GameController.inst.isEditMode) return;
          var hList =topLine.regionList.hierarchyList;
          if (hList == null) return;
@@ -134,14 +132,9 @@ public class UitRegionEditor : MonoBehaviour {
          }
 
          SetPos(currentRel);
+         */
      }
 
-     public void SetPos(RegionEditLine currentRel) {
-        // Debug.Log("SetPos: "+ currentRel.regionName);
-         var pos = currentRel.transform.localPosition * -1;
-         var startPos = scrollRect.content.localPosition;
-         startPos.y = pos.y;
-         scrollRect.content.localPosition = startPos;
-     }
+    
      
 }

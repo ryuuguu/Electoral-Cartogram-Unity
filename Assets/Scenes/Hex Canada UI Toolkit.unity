@@ -385,8 +385,9 @@ GameObject:
   m_Component:
   - component: {fileID: 29798692}
   - component: {fileID: 29798691}
+  - component: {fileID: 29798693}
   m_Layer: 0
-  m_Name: EditorRegionListDisplay
+  m_Name: RegionEditor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,6 +422,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29798693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29798690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a669a95c328be45efabe9395137426fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indent: 0
+  selectedRegionList:
+    id: 
+    borderType: 
+    color: {r: 0, g: 0, b: 0, a: 0}
+    names: []
+    isRiding: 0
+    isAssigned: 0
+    subLists: []
+    population: 0
+    districtResult:
+      regionId: 
+      candidateResults: []
+      rawCandidateResults: []
+      totalVotes: 0
+    unassignedConstituencyCount: 0
+  selectedCoord: {x: 0, y: 0, z: 0}
 --- !u!1 &45764359
 GameObject:
   m_ObjectHideFlags: 0
@@ -66929,7 +66959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd5698b129434b2fbaaf3e5090f2e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEditMode: 0
+  isEditMode: 1
   isPreloaded: 0
   partyController: {fileID: 824909085}
   languageController: {fileID: 2119715963}
