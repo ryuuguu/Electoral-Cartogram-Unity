@@ -32,6 +32,7 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement leftInfo;
     protected VisualElement rightInfo;
     protected VisualElement hexMarker;
+    protected VisualElement editorRegionList;
 
     public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
     
@@ -145,9 +146,9 @@ public class UitHexGridMap : MonoBehaviour {
         var toolTip = UitTooltip.Init();
         overlayLayer.Add(toolTip);
         
-        var debugTest = EditorRegionListDisplay.DebugTest();
-        MoveEditor(debugTest, false);
-        overlayLayer.Add(debugTest);
+        editorRegionList = EditorRegionListDisplay.DebugTest();
+        MoveEditor(editorRegionList, false);
+        overlayLayer.Add(editorRegionList);
 
         
     }
@@ -216,11 +217,20 @@ public class UitHexGridMap : MonoBehaviour {
 
         if (GameController.inst.isEditMode) {
             UitRegionEditor.SetMapCellActive(cubeCoord);
+            float mapSpaceX =  localMousePosition.x / mapGrid.mapSize.x;
+
+            if (mapSpaceX > 0.55f) {
+                MoveEditor(editorRegionList,false);
+            }
+
+            if (mapSpaceX < 0.45f) {
+                MoveEditor(editorRegionList,true);
+            }
         }
 
 
     
-}
+    }    
     
     private void GeometryChange(Rect screenRect) {
         TopLevelLayout(screenRect);

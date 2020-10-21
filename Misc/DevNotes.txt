@@ -11,8 +11,9 @@
 NOW	         
    in edit mode place pace hex marker near center
    on cell select
-         set coord
+         
          move display left or Right
+         check is is over 1/2  on map container
       
           
     next make editor in Uit
