@@ -123,7 +123,6 @@ public class EditorRegionListDisplay : MonoBehaviour {
         
         Func<VisualElement> makeItem = () => {
             var result = new VisualElement();
-           
             return result;
         };
         
@@ -146,10 +145,16 @@ public class EditorRegionListDisplay : MonoBehaviour {
             e.Q<Button>().clicked += () => {Clicked(items[i].id); };
 
         };
+
+        void OnSelectionChange(IEnumerable<object> x) {
+            Debug.Log("listView selected: " + listView.selectedIndex);
+        }
+
         listView.makeItem = makeItem;
         listView.bindItem = bindItem;
         listView.itemHeight = 30;
         listView.itemsSource = items;
+        listView.onSelectionChange += OnSelectionChange;
         listView.Refresh();
         return regionListDisplay;
     }

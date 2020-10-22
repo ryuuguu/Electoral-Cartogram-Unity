@@ -54,21 +54,9 @@ public class UitRegionEditor : MonoBehaviour {
     }
 
     
-    public void ButtonOK() {
-        /*
-        if (!GameController.inst.isEditMode) return;
-         if (mapCell.regionList.isRiding) {
-             mapCell.regionList.isAssigned = false;
-         }
-         mapCell.SetRegion(selectedRegionList);
-         if (mapCell.regionList.isRiding) {
-             mapCell.regionList.isAssigned = true;
-         }
-         Map.SetMapData(mapCell);
-         mapRegionName.text = selectedRegionName.text;
-         Redraw();
-         */
-     }
+    public static void ButtonOK() {
+        AssignRegion(inst.selectedRegionList);
+    }
 
      public void ButtonCancel() {
          /*
@@ -95,14 +83,7 @@ public class UitRegionEditor : MonoBehaviour {
              oldRL.AssignConstituency(false);
          }
 
-         
      }
-     
-     public void SetShowAssigned() {
-         Redraw();
-     }
-
-     
      
      public static void MoveToMapCell(int edgeDirection) {
          /*

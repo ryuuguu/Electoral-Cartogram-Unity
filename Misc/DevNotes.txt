@@ -10,31 +10,22 @@
     
 NOW	         
        
-    on loading map set isassigned  
+    Set selected reigon in UitRegionEditor
     "OK" assgins region
         used for non-ridings
        
     next make editor in Uit
        
         need UitRegionEditor
-            based on region editor
-            need highlight/mark a cell
-            track a cell
-                just by coord?
-            assign region ID to map coord  
-                ChangeMapData() untested
-                unassigned returned value if different from set value          
+            based on region editor         
             need OK button for setting no riding regions
             need wasd and arrow movement
             cancel button to set to default region 
                 water?
-            
-        onload map set is riding assigned
         savemap button
             save map to file
+        restore map
             
-                    
-          
        make editor VE
       
        regionListView should only be created in edit mode
