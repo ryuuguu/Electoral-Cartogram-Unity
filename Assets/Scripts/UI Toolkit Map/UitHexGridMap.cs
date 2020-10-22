@@ -492,7 +492,7 @@ public class UitHexGridMap : MonoBehaviour {
     [System.Serializable]
     public class CellData {
         public string regionID;
-        public Vector3Int cubeCoord;
+        public Vector3 cubeCoord;
         
     }
 
