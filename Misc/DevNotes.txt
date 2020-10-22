@@ -9,31 +9,25 @@
         to put items at end
     
 NOW	         
-   in edit mode place pace hex marker near center
-   on cell select
          
-         move display left or Right
-         check is is over 1/2  on map container
-      
-          
     next make editor in Uit
        
-       need UitRegionEditor
+        need UitRegionEditor
             based on region editor
             need highlight/mark a cell
             track a cell
                 just by coord?
             assign region ID to map coord  
                 ChangeMapData() untested
-                unassigned returned value if different from set value
-          
-            on cell select
-                set coord
-                move display left or Right
+                unassigned returned value if different from set value          
             need OK button for setting no riding regions
             need wasd and arrow movement
             cancel button to set to default region 
                 water?
+            
+        onload map set is riding assigned
+        savemap button
+            save map to file
             
                     
           

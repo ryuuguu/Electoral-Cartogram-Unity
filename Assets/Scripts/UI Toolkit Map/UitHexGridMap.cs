@@ -227,9 +227,6 @@ public class UitHexGridMap : MonoBehaviour {
                 MoveEditor(editorRegionList,true);
             }
         }
-
-
-    
     }    
     
     private void GeometryChange(Rect screenRect) {
@@ -237,8 +234,6 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     private void TopLevelLayout(Rect screenRect) {
-        
-        
         var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
             screenRect.max);
         //Debug.Log("TopLevelLayout: "+ screenRect );
@@ -434,7 +429,6 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     public void MakeMapFromData() {
-        //todo: mapCell.SetBorder();
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {

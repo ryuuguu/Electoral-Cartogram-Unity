@@ -97,19 +97,13 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public static void Clicked(string id) {
         var rl = RegionController.Find(id);
         if (!rl.isRiding) {
-            Debug.Log("Clicked: "+ id +  " : "+ items.Count +  " : "+
-                       " : " + rl.id + " =============================" );
             currentExpandedRegionList = rl;
         }
         else {
-            Debug.Log("Clicked riding: "+ id +  " : "+items.Count +  " : "+
-                     " : " + rl.id + " =============================" );
-            rl.AssignConstituency(true);
-            Debug.Log("riding handling not fully implemented");     
+            UitRegionEditor.AssignRegion(rl);
         }
         resetItems();
     }
-    
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
         label.style.fontSize = baseSize;

@@ -121,9 +121,7 @@ public class UitHexGrid : MonoBehaviour {
     /// <param name="aLocalSpaceId"></param>
     public void MakeAllHexes(string aLocalSpaceId) {
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
-        var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
-        Vector3 scale;
-
+        
         if (!hexes.ContainsKey(localSpaceId)) {
             hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
         }

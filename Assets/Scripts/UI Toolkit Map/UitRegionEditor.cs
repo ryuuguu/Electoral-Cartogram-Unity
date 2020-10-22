@@ -12,12 +12,6 @@ public class UitRegionEditor : MonoBehaviour {
 
     public Vector3 selectedCoord;
     
-    
-    //will call static EditorRegionListDisplay??
-    // maybe just called by it
-    //   
-    
-    
     public static UitRegionEditor inst;
 
     private void Awake() {
@@ -59,6 +53,7 @@ public class UitRegionEditor : MonoBehaviour {
         */
     }
 
+    
     public void ButtonOK() {
         /*
         if (!GameController.inst.isEditMode) return;
@@ -85,10 +80,25 @@ public class UitRegionEditor : MonoBehaviour {
          */
      }
 
+     public static void AssignRegion(RegionList rl) {
+         if (rl.isRiding) {
+             rl.AssignConstituency(true);
+         }
+
+         // assign to map data
+         // unassign existing map data
+         // change VE on screen
+         // 
+        // UitHexGridMap.ChangeMapData(new Vector3Int(inst.selectedCoord),rl);
+         Debug.Log("riding handling not fully implemented");  
+     }
+     
      public void SetShowAssigned() {
          Redraw();
      }
 
+     
+     
      public static void MoveToMapCell(int edgeDirection) {
          /*
          var cc = inst.mapCell.cubeCoord ;
@@ -109,7 +119,6 @@ public class UitRegionEditor : MonoBehaviour {
      
      public static void SetMapCellActive(Vector3 coord) {
          HexMarker.Show(true);
-         //if(localPosition.x > 0.6) 
          HexMarker.MoveTo(coord);
          inst.selectedCoord = coord;
      }
