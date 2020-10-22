@@ -143,18 +143,21 @@ public class EditorRegionListDisplay : MonoBehaviour {
             e.Q<Label>(VEConstituencyCount).text = countText;
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
             e.Q<Button>().clicked += () => {Clicked(items[i].id); };
-
         };
-
+        /*
+         // not using listview selection of change because they do not block triple clicks
         void OnSelectionChange(IEnumerable<object> x) {
             Debug.Log("listView selected: " + listView.selectedIndex);
+            Clicked(items[listView.selectedIndex].id);
         }
-
+        listView.onSelectionChange += OnSelectionChange;
+        listView.onItemsChosen += OnSelectionChange;
+        */
         listView.makeItem = makeItem;
         listView.bindItem = bindItem;
         listView.itemHeight = 30;
         listView.itemsSource = items;
-        listView.onSelectionChange += OnSelectionChange;
+        
         listView.Refresh();
         return regionListDisplay;
     }

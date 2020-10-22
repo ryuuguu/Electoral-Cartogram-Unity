@@ -1,4 +1,6 @@
 
+ListView does not intercept triple clicks  
+
     put old & new side by for speed comparison 
     unity reddit
     
@@ -9,6 +11,8 @@
         to put items at end
     
 NOW	         
+      
+    ListView does not intercept triple clicks   
        
     Set selected reigon in UitRegionEditor
     "OK" assgins region

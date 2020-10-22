@@ -1,10 +1,10 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement name="RegionListRecord" style="flex-direction: row; color: rgb(255, 255, 255); width: auto; align-items: center;">
+    <ui:VisualElement name="RegionListRecord" focusable="true" style="flex-direction: row; color: rgb(255, 255, 255); width: auto; align-items: center;">
         <ui:Button display-tooltip-when-elided="false" focusable="true" style="background-color: rgba(0, 0, 0, 0); flex-direction: row; align-items: center; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0;">
-            <ui:VisualElement name="Indent" style="width: 1px; height: 25px; min-width: 0;" />
-            <ui:VisualElement name="RegionColor" style="width: 25px; height: 25px; -unity-background-image-tint-color: rgb(250, 250, 250); background-image: url(&apos;/Assets/Icons/MIT/Square64_4.psd&apos;);" />
-            <ui:Label text="238" display-tooltip-when-elided="True" name="ConstituencyCount" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-right; margin-right: 0; padding-right: 2px; width: 50px; border-left-width: 0; border-right-width: 5px;" />
-            <ui:Label text="Canada" display-tooltip-when-elided="True" name="RegionName" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: middle-left; white-space: normal; width: auto; height: 30px;" />
+            <ui:VisualElement name="RegionColor" focusable="true" style="width: 25px; height: 25px; -unity-background-image-tint-color: rgb(250, 250, 250); background-image: url(&apos;/Assets/Icons/MIT/Square64_4.psd&apos;);" />
+            <ui:Label text="238" display-tooltip-when-elided="True" name="ConstituencyCount" focusable="true" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: upper-right; margin-right: 0; padding-right: 2px; width: 50px; border-left-width: 0; border-right-width: 5px;" />
+            <ui:Label text="Canada" display-tooltip-when-elided="True" name="RegionName" focusable="true" style="font-size: 20px; color: rgb(255, 255, 255); -unity-text-align: middle-left; white-space: normal; width: auto; height: 30px;" />
+            <ui:VisualElement name="Indent" focusable="true" style="width: 1px; height: 25px; min-width: 0;" />
         </ui:Button>
     </ui:VisualElement>
 </ui:UXML>
