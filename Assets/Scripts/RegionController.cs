@@ -230,12 +230,20 @@ public class RegionList {
     public int population;
     public DistrictResult districtResult;
     public int unassignedConstituencyCount = 0;
-
+    
     public RegionList Find(string anId) {
-        var il = HierarchyList(anId);
-        return il?.Last();
+        if (anId == id) return this;
+        if (subLists != null) {
+            foreach (var rl in subLists) {
+                var il = rl.Find(anId);
+                if (il != null) {
+                    return il;
+                }
+            }
+        }
+        return null;
     }
-
+    
     public void AssignConstituency(bool assign) {
         isAssigned = assign;
         int incr = 1;

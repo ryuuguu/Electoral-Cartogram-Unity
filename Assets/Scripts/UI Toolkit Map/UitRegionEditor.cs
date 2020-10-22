@@ -89,8 +89,13 @@ public class UitRegionEditor : MonoBehaviour {
          // unassign existing map data
          // change VE on screen
          // 
-        // UitHexGridMap.ChangeMapData(new Vector3Int(inst.selectedCoord),rl);
-         Debug.Log("riding handling not fully implemented");  
+         var regionId = UitHexGridMap.ChangeMapData(inst.selectedCoord, rl);
+         var oldRL = RegionController.inst.regionList.Find(regionId);
+         if (oldRL.isRiding && regionId != rl.id) {
+             oldRL.AssignConstituency(false);
+         }
+
+         
      }
      
      public void SetShowAssigned() {

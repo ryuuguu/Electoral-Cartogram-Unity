@@ -43,18 +43,6 @@ public class UitHexMapGrid : UitHexGrid {
         return mapCell;
     }
     
-    //TODO* highlights
-   
-    /*
-    public void ClearHighLight() {
-        
-        foreach (UitHexGridMapCell mapCell in hexes[localSpaceId].Values) {
-            mapCell.SetHighLight(false);
-        }
-        
-    }
-    */
-    
     public UitHexGridMapCell GetCellAt(Vector3 v3) {
         if (!hexes[localSpaceId].ContainsKey(v3)) return null;
         return (UitHexGridMapCell) hexes[localSpaceId][v3];

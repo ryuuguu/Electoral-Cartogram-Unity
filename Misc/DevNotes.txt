@@ -9,7 +9,11 @@
         to put items at end
     
 NOW	         
-         
+       
+    on loading map set isassigned  
+    "OK" assgins region
+        used for non-ridings
+       
     next make editor in Uit
        
         need UitRegionEditor

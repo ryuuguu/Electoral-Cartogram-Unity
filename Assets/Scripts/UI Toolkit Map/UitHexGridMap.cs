@@ -410,7 +410,7 @@ public class UitHexGridMap : MonoBehaviour {
     /// <param name="cubeCoord"></param>
     /// <param name="rl"></param>
     /// <returns>previous region Id for cell possibly null or ""</returns>
-    public static string ChangeMapData(Vector3Int cubeCoord, RegionList rl) {
+    public static string ChangeMapData(Vector3 cubeCoord, RegionList rl) {
         string result = null;
         var cellData = inst.mapData.cellDatas.Find((data => data.cubeCoord == cubeCoord));
         if (cellData == null) {
@@ -425,6 +425,8 @@ public class UitHexGridMap : MonoBehaviour {
         if (mapCell != null) {
             cellDict[cubeCoord] = mapCell;
         }
+        
+        Debug.Log("Map data is changed but not saved"); 
         return result;
     }
     
@@ -435,6 +437,9 @@ public class UitHexGridMap : MonoBehaviour {
                 var mapCell = mapGrid.CreateCellRegion(cd.cubeCoord, rl);
                 if (mapCell != null) {
                     cellDict[cd.cubeCoord] = mapCell;
+                    if (rl.isRiding) {
+                        rl.AssignConstituency(true);
+                    }
                 }
             }
             else {
