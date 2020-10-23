@@ -10,6 +10,8 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public const string VERegionName = "RegionName";
     public const string VERegionColor = "RegionColor";
     public const string VEConstituencyCount = "ConstituencyCount";
+    public const string VECurrentRegion = "CurrentRegion";
+    
     public const string VTARegionListDisplay = "EditorRegionListDisplay";
     public const string VTARegionListRecord = "RegionListRecord";
 
@@ -35,6 +37,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public static ListView listView;
     private static List<RegionListRecord> items;
     private static RegionList currentExpandedRegionList;
+    public static VisualElement currentRegionDisplay;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
 
@@ -47,19 +50,10 @@ public class EditorRegionListDisplay : MonoBehaviour {
     void Awake() {
         inst = this;
     }
-
-    public static VisualElement DebugTest() {
-        regionListDisplay = MakeRegionListDisplay();
-        return regionListDisplay;
-    }
-    
     
     public static void InitialRegionList() {
-        //At first put single record in list
         currentExpandedRegionList = RegionController.inst.regionList;
-        //Debug.Log("Top : "+ RegionController.inst.regionList.hierarchyList[0]);
         resetItems();
-        
     }
 
     public static void resetItems() {
@@ -94,8 +88,9 @@ public class EditorRegionListDisplay : MonoBehaviour {
         listView.Refresh();
     }
 
-    public static void Clicked(string id) {
-        var rl = RegionController.Find(id);
+    public static void Clicked(RegionListRecord rlr) {
+        bindRegionRecord(currentRegionDisplay, rlr);
+        var rl = RegionController.Find(rlr.id);
         if (!rl.isRiding) {
             currentExpandedRegionList = rl;
         }
@@ -117,7 +112,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         var treeDetailDisplay = Resources.Load<VisualTreeAsset>(VTARegionListDisplay);
         treeDetailDisplay.CloneTree(regionListDisplay);
         
-
+        currentRegionDisplay = regionListDisplay.Q(VECurrentRegion);
         listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();
         
@@ -131,19 +126,11 @@ public class EditorRegionListDisplay : MonoBehaviour {
             // it is not possible to change e.Q<Button>().clicked because it is a action & event
             // it can only be added to
             // whole button must be cleared and recreated
-            e.Clear();
-            var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>(VTARegionListRecord);
-            treePartyRecordlDisplay.CloneTree(e);
-            var label = e.Q<Label>(VERegionName);
-            label.text = LanguageController.ChooseName(regionRecord.names);
-            Shrink(label,inst.nameSize, inst.nameSizeSmall, inst.nameLength);
-            
-            e.Q<VisualElement>(VERegionColor).style.backgroundColor = regionRecord.color;
-            var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
-            e.Q<Label>(VEConstituencyCount).text = countText;
+            bindRegionRecord(e, regionRecord);
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
-            e.Q<Button>().clicked += () => {Clicked(items[i].id); };
+            e.Q<Button>().clicked += () => {Clicked(items[i]); };
         };
+        
         /*
          // not using listview selection of change because they do not block triple clicks
         void OnSelectionChange(IEnumerable<object> x) {
@@ -153,6 +140,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         listView.onSelectionChange += OnSelectionChange;
         listView.onItemsChosen += OnSelectionChange;
         */
+        
         listView.makeItem = makeItem;
         listView.bindItem = bindItem;
         listView.itemHeight = 30;
@@ -161,5 +149,17 @@ public class EditorRegionListDisplay : MonoBehaviour {
         listView.Refresh();
         return regionListDisplay;
     }
-    
+
+    private static void bindRegionRecord(VisualElement e, RegionListRecord regionRecord) {
+        e.Clear();
+        var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>(VTARegionListRecord);
+        treePartyRecordlDisplay.CloneTree(e);
+        var label = e.Q<Label>(VERegionName);
+        label.text = LanguageController.ChooseName(regionRecord.names);
+        Shrink(label, inst.nameSize, inst.nameSizeSmall, inst.nameLength);
+
+        e.Q<VisualElement>(VERegionColor).style.backgroundColor = regionRecord.color;
+        var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
+        e.Q<Label>(VEConstituencyCount).text = countText;
+    }
 }

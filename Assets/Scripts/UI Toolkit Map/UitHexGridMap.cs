@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Com.Ryuuguu.HexGridCC;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
@@ -146,7 +147,7 @@ public class UitHexGridMap : MonoBehaviour {
         var toolTip = UitTooltip.Init();
         overlayLayer.Add(toolTip);
         
-        editorRegionList = EditorRegionListDisplay.DebugTest();
+        editorRegionList = EditorRegionListDisplay.MakeRegionListDisplay();
         MoveEditor(editorRegionList, false);
         overlayLayer.Add(editorRegionList);
 
@@ -182,8 +183,19 @@ public class UitHexGridMap : MonoBehaviour {
             ve.transform.position = new Vector3(100, 100 - regionListHeight, 0);
         }
     }
-    
-    
+
+
+    public void SetEditMode(bool val) {
+        Debug.Log("setEditMode: "+ val);
+        GameController.inst.isEditMode = val;
+        editorRegionList.visible = val;
+        if (val) {
+            MouseDown((inst.mapGrid.mapSize / 2)-(Vector2)overlayLayer.transform.position);
+        }
+        else {
+            HexMarker.Show(false);
+        }
+    }
     
     private void MouseOver(MouseMoveEvent e) {
         
@@ -216,7 +228,10 @@ public class UitHexGridMap : MonoBehaviour {
         }
 
         if (GameController.inst.isEditMode) {
+            
             UitRegionEditor.SetMapCellActive(cubeCoord);
+            Debug.Log("MouseDown GameController.inst.isEditMode" + cubeCoord +" : "+ localMousePosition +
+                      " : " + overlayLayer.transform.position) ;
             float mapSpaceX =  localMousePosition.x / mapGrid.mapSize.x;
 
             if (mapSpaceX > 0.55f) {
@@ -475,11 +490,13 @@ public class UitHexGridMap : MonoBehaviour {
         var topBar = new VisualElement();
         var treeTopBar = Resources.Load<VisualTreeAsset>("TopBar");
         treeTopBar.CloneTree(topBar);
-        topBar.Query<Toggle>("Votes").First()
+        topBar.Q<Toggle>("Votes")
             .RegisterCallback<ClickEvent>(evt => 
                 ShowVotes(((Toggle) evt.target).value));
-        topBar.Query<Toggle>("Fr").First()
+        topBar.Q<Toggle>("Fr")
             .RegisterCallback<ClickEvent>(evt => LanguageController.Lang_1(((Toggle) evt.target).value));
+        topBar.Q<Toggle>("Edit")
+            .RegisterCallback<ClickEvent>(evt => SetEditMode(((Toggle) evt.target).value));
         return topBar;
     }
     
