@@ -149,6 +149,7 @@ public class UitHexGridMap : MonoBehaviour {
         
         editorRegionList = EditorRegionListDisplay.MakeRegionListDisplay();
         MoveEditor(editorRegionList, false);
+        SetEditMode(false);
         overlayLayer.Add(editorRegionList);
 
         
@@ -186,7 +187,6 @@ public class UitHexGridMap : MonoBehaviour {
 
 
     public void SetEditMode(bool val) {
-        Debug.Log("setEditMode: "+ val);
         GameController.inst.isEditMode = val;
         editorRegionList.visible = val;
         if (val) {
@@ -230,8 +230,6 @@ public class UitHexGridMap : MonoBehaviour {
         if (GameController.inst.isEditMode) {
             
             UitRegionEditor.SetMapCellActive(cubeCoord);
-            Debug.Log("MouseDown GameController.inst.isEditMode" + cubeCoord +" : "+ localMousePosition +
-                      " : " + overlayLayer.transform.position) ;
             float mapSpaceX =  localMousePosition.x / mapGrid.mapSize.x;
 
             if (mapSpaceX > 0.55f) {

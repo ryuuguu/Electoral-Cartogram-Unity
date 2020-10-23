@@ -6,10 +6,9 @@
         to put items at end
     
 NOW	         
-     
-    Add edit mode toggle to topline 
-        
-    find hex at center of map and make current to start 
+   
+   start not in edit mode  
+   
     Set selected reigon in UitRegionEditor
         on button click
     

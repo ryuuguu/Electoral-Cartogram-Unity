@@ -17,7 +17,7 @@
             </ui:VisualElement>
             <ui:VisualElement name="Spacer" style="height: auto; width: 40px;" />
             <ui:VisualElement name="ToggleEdit" style="flex-direction: row; height: auto; width: auto; align-items: auto; justify-content: flex-start;">
-                <ui:Toggle label="Edit" name="Edit" value="true" class="topbar-toggle" />
+                <ui:Toggle label="Edit" name="Edit" value="false" class="topbar-toggle" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
