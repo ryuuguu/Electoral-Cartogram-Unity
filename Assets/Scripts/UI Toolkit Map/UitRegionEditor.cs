@@ -21,10 +21,7 @@ public class UitRegionEditor : MonoBehaviour {
     void Start() {
         if(!GameController.inst.isEditMode) this.gameObject.SetActive(false);
         
-        // is for setting up 
-        // EditorRegionListDisplay
         
-        //topLine.SetUp(RegionController.inst.regionList, null);
     }
 
     void Update() {

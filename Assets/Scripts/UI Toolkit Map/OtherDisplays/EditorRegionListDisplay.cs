@@ -88,6 +88,10 @@ public class EditorRegionListDisplay : MonoBehaviour {
     /// </summary>
     public void Redraw() {
         listView.Refresh();
+        if (UitRegionEditor.currentRegionList != null) {
+            var rlr=  items.Find((record =>  UitRegionEditor.currentRegionList.id == record.id));
+            bindRegionRecord(currentRegionDisplay, rlr);
+        }
     }
 
     public static void Clicked(RegionListRecord rlr) {
@@ -127,6 +131,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         currentRegionDisplay = regionListDisplay.Q(VECurrentRegion);
         setHexButton = regionListDisplay.Q<Button>(VESetHex);
         setHexButton.clicked += UitRegionEditor.ButtonSetHex;
+        setHexButton.SetEnabled(false);
         
         listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();

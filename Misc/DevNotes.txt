@@ -7,8 +7,7 @@
     
 NOW	     
   
- land should & canada should not beassigned able 
- Make new property for that
+  set inital area to null and disable sethex button
   
    
   can not assign land water 
