@@ -5,16 +5,16 @@
     how to change layout inside flexbox
         to put items at end
     
-NOW	     
+NOW	   
+    reloadmap
+        clear old map
+        hexes
+        borders
+        constinuentcy count
   
-  set inital area to null and disable sethex button
-  
-   
-  can not assign land water 
-        should be able to assign water
-        need to show can not assign others
-            disable button?
-    
+    Save alternate file names
+    load alternate file names
+          
     next make editor in Uit
 
         savemap button
@@ -38,14 +38,12 @@ NOW
                     buttons 
                         save map ??
                         reload map ??
-                       
-                 
-                    
-         
-                      
+                                             
         party color data
             include use other color
     
+    
+    when editor and same map done
     
     remove old uGUI code
     clean bugs related to not using data
@@ -58,9 +56,7 @@ NOW
     so need copy here
    
     Commit to keep UGUI version so I can look at editor stuff later
-   
-     
-   
+    
    
 LATER
 

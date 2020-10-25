@@ -20,8 +20,6 @@ public class UitRegionEditor : MonoBehaviour {
 
     void Start() {
         if(!GameController.inst.isEditMode) this.gameObject.SetActive(false);
-        
-        
     }
 
     void Update() {
@@ -50,7 +48,14 @@ public class UitRegionEditor : MonoBehaviour {
         */
     }
 
+    public static void ButtonReloadMap() {
+        UitHexGridMap.inst.LoadMakeMap();
+    }
 
+    public static void ButtonSaveMap() {
+        UitHexGridMap.inst.SaveMapData();
+    }
+    
     public static void ButtonSetHex() {
         AssignRegion(currentRegionList);
     }

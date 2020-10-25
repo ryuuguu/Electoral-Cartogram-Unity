@@ -355,11 +355,6 @@ public class UitHexGridMap : MonoBehaviour {
     public void MapBuild() {
         LoadMakeMap();
         
-        if (GameController.inst.isEditMode) {
-            //TODO fix region editor commented out code 2 lines
-            //regionEditor.mapCell = (MapCell) mapGrid.cells[0];
-            //regionEditor.gameObject.SetActive(true);
-        }
     }
     
     [ContextMenu("test makeMap in edit")]

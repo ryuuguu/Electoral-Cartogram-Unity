@@ -12,6 +12,8 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public const string VEConstituencyCount = "ConstituencyCount";
     public const string VECurrentRegion = "CurrentRegion";
     public const string VESetHex = "SetHex";
+    public const string VEReloadMap = "ReloadMap";
+    public const string VESaveMap = "SaveMap";
     
     public const string VTARegionListDisplay = "EditorRegionListDisplay";
     public const string VTARegionListRecord = "RegionListRecord";
@@ -112,7 +114,6 @@ public class EditorRegionListDisplay : MonoBehaviour {
             setHexButton.SetEnabled(false);
         }
         
-        
         resetItems();
     }
     
@@ -129,9 +130,14 @@ public class EditorRegionListDisplay : MonoBehaviour {
         treeDetailDisplay.CloneTree(regionListDisplay);
         
         currentRegionDisplay = regionListDisplay.Q(VECurrentRegion);
+        
         setHexButton = regionListDisplay.Q<Button>(VESetHex);
         setHexButton.clicked += UitRegionEditor.ButtonSetHex;
         setHexButton.SetEnabled(false);
+        
+        regionListDisplay.Q<Button>(VEReloadMap).clicked += UitRegionEditor.ButtonReloadMap;
+        regionListDisplay.Q<Button>(VESaveMap).clicked += UitRegionEditor.ButtonSaveMap;
+
         
         listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();
