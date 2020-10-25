@@ -462,6 +462,7 @@ public class UitHexGridMap : MonoBehaviour {
             }
         } 
         mapGrid.MakeAllHexes(mapGrid.localSpaceId);
+        uitHexBorderGrid.borderHolder.Clear();
        
         foreach (var mapCell in cellDict.Values) {
             var colors = mapCell.BorderList();

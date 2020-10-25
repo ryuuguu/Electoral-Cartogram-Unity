@@ -9,7 +9,9 @@ NOW
     reloadmap
         clear old map
         hexes
-        borders
+            clear hexholder VE
+            clear localSpace CubeCoord
+            clear UitHexGrid
         constinuentcy count
   
     Save alternate file names

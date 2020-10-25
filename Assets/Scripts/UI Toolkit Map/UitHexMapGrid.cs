@@ -19,7 +19,7 @@ public class UitHexMapGrid : UitHexGrid {
     
     public Vector2 mapSize = new Vector2(1600,800);
     
-    private List<VisualElement> subGridHolders = new List<VisualElement>();
+    //private List<VisualElement> subGridHolders = new List<VisualElement>();
     
     public UitHex CreateCell(Vector3 v3, bool isRectangle = false) {
         var cell =  MakeHex(v3); // this creates the Visual element but not the region
@@ -48,23 +48,4 @@ public class UitHexMapGrid : UitHexGrid {
         return (UitHexGridMapCell) hexes[localSpaceId][v3];
     }
     
-    
-    
-   
-    //TODO: subgrid
-    /*
-    public void HideVotes(bool val) {
-        foreach (UitHexGridMapCell mapCell in hexes[localSpaceId].Values) {
-            if (!(mapCell.subGrid is null)) {
-                if (val) {
-                    mapCell.subGridHolder.SetSiblingIndex(mapCell.subGridPosition);  
-                }
-                else {
-                    mapCell.subGridHolder.SetSiblingIndex(0);
-                }
-                //mapCell.subGrid.gameObject.SetActive(val);
-            }
-        }
-    }
-    */
 }
