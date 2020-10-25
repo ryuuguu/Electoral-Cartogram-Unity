@@ -418,7 +418,7 @@ public class UitHexGridMap : MonoBehaviour {
 
     /// <summary>
     /// Change Map data in mapData & cellDict
-    /// retrun previous regionId
+    /// return previous regionId
     /// </summary>
     /// <param name="cubeCoord"></param>
     /// <param name="rl"></param>
@@ -437,6 +437,13 @@ public class UitHexGridMap : MonoBehaviour {
         var mapCell = inst.mapGrid.CreateCellRegion(cubeCoord, rl);
         if (mapCell != null) {
             cellDict[cubeCoord] = mapCell;
+        }
+        
+        inst.uitHexBorderGrid.borderHolder.Clear();
+        
+        foreach (var mapCellB in cellDict.Values) {
+            var colors = mapCellB.BorderList();
+            inst.uitHexBorderGrid.MakeHexBorders(inst.uitHexBorderGrid.localSpaceId,mapCellB.cubeCoord,colors); 
         }
         
         Debug.Log("Map data is changed but not saved"); 

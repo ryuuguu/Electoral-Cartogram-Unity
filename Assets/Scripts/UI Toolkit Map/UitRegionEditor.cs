@@ -72,17 +72,14 @@ public class UitRegionEditor : MonoBehaviour {
          if (rl.isRiding) {
              rl.AssignConstituency(true);
          }
-
-         // assign to map data
-         // unassign existing map data
-         // change VE on screen
-         // 
          var regionId = UitHexGridMap.ChangeMapData(inst.selectedCoord, rl);
          var oldRL = RegionController.inst.regionList.Find(regionId);
          if (oldRL != null && oldRL.isRiding && regionId != rl.id) {
              oldRL.AssignConstituency(false);
          }
-
+            
+         
+         
      }
      
      public static void MoveToMapCell(int edgeDirection) {

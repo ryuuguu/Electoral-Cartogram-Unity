@@ -5,42 +5,22 @@
     how to change layout inside flexbox
         to put items at end
     
-NOW	         
+NOW	     
+  
+  is region list bordertype used?
+   
+  can not assign land water 
+        should be able to assign water
+        need to show can not assign others
+            disable button?
     
-    Set selected region in UitRegionEditor
-        on button click
-    
-    "set" assigns region
-        just clicking on riding is assigning
-        things are appearing white
-        
-       
     next make editor in Uit
-       
-        need UitRegionEditor
-            based on region editor         
-            need OK button for setting no riding regions
-            need wasd and arrow movement
-            cancel button to set to default region 
-                water?
+
         savemap button
             save map to file
         restore map
-            
-       make editor VE
-      
-       regionListView should only be created in edit mode
-       should be cleared on leaving edit mode
-                  
-                   
-        expanding tree display control list
-            check about what is needed to make it proper control
-                UXMLFactory
-                UXMLTrait
-                
-            also when an item is used it will be removed 
-                selection should move up or down one.
-                   
+            load map from file
+                                
     
         editor needs to make map data
             region levels
@@ -57,12 +37,8 @@ NOW
                     buttons 
                         save map ??
                         reload map ??
-                        reset??
-                        ok - set region to selected value
-                    expand tree only when selected
-                    region ID name
-                      is constituency
-                      count of unassigned constitencies under tree
+                       
+                 
                     
          
                       

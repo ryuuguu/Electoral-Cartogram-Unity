@@ -80,6 +80,7 @@ public class UitHexBorderGrid :MonoBehaviour {
     }
     
     public void MakeAllHexBorders(string aLocalSpaceId) {
+        
         var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         if (!borders.ContainsKey(localSpaceId)) {
@@ -102,7 +103,7 @@ public class UitHexBorderGrid :MonoBehaviour {
         if (!borders.ContainsKey(localSpaceId)) {
             borders[aLocalSpaceId] = new Dictionary<Vector3, HexBorder>();
         }
-        //todo: refactor up
+        
         var scale =  ls.gameScale*hexScaleFactor * Vector3.one;
         
         var localCoord = CubeCoordinates.ConvertPlaneToLocalPosition(cubeCoord, ls);
