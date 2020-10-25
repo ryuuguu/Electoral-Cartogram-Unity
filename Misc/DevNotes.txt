@@ -7,7 +7,9 @@
     
 NOW	     
   
-  is region list bordertype used?
+ land should & canada should not beassigned able 
+ Make new property for that
+  
    
   can not assign land water 
         should be able to assign water

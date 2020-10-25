@@ -27,8 +27,8 @@ public class UitHexMapGrid : UitHexGrid {
     }
 
     public  UitHexGridMapCell CreateCellRegion(Vector3 v3,RegionList rl) {
-        //hack to not draw WATER & USA because of speed problems
-        if (rl.id == "Water" || rl.id == "USA" || rl.id == "Land") return null;
+        //Do not draw unnassignable region types
+        if (!rl.isAssignable) return null;
         var uitHex = CreateCell(v3, false);
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell() {

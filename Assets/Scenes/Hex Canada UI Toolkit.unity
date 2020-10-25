@@ -435,21 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 0
-  selectedRegionList:
-    id: 
-    borderType: 
-    color: {r: 0, g: 0, b: 0, a: 0}
-    names: []
-    isRiding: 0
-    isAssigned: 0
-    subLists: []
-    population: 0
-    districtResult:
-      regionId: 
-      candidateResults: []
-      rawCandidateResults: []
-      totalVotes: 0
-    unassignedConstituencyCount: 0
   selectedCoord: {x: 0, y: 0, z: 0}
 --- !u!1 &45764359
 GameObject:
@@ -3819,9 +3804,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionList:
     id: 
-    borderType: 
     color: {r: 0, g: 0, b: 0, a: 0}
     names: []
+    isAssignable: 1
     isRiding: 0
     isAssigned: 0
     subLists: []
@@ -4539,9 +4524,9 @@ MonoBehaviour:
   selectedRegionName: {fileID: 968169162}
   selectedRegionList:
     id: 
-    borderType: 
     color: {r: 0, g: 0, b: 0, a: 0}
     names: []
+    isAssignable: 1
     isRiding: 0
     isAssigned: 0
     subLists: []
@@ -8803,47 +8788,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionList:
     id: Map
-    borderType: 
     color: {r: 0.90826476, g: 0.39101997, b: 0.9528302, a: 1}
     names:
     - Map
     - Carte
+    isAssignable: 0
     isRiding: 0
     isAssigned: 0
     subLists:
     - id: Land
-      borderType: 
       color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
       names:
       - Land
       - Land
+      isAssignable: 0
       isRiding: 0
       isAssigned: 0
       subLists:
       - id: Canada
-        borderType: 
         color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
         names:
         - Canada
         - Canada
+        isAssignable: 0
         isRiding: 0
         isAssigned: 0
         subLists:
         - id: NL
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - NEWFOUNDLAND AND LABRADOR
           - TERRE-NEUVE-ET-LABRADOR
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 10001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Avalon
             - Avalon
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -8951,11 +8936,11 @@ MonoBehaviour:
               totalVotes: 40457
             unassignedConstituencyCount: 0
           - id: 10002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Bonavista--Burin--Trinity
             - Bonavista--Burin--Trinity
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9031,11 +9016,11 @@ MonoBehaviour:
               totalVotes: 32173
             unassignedConstituencyCount: 0
           - id: 10003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Coast of Bays--Central--Notre Dame
             - Coast of Bays--Central--Notre Dame
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9143,11 +9128,11 @@ MonoBehaviour:
               totalVotes: 32924
             unassignedConstituencyCount: 0
           - id: 10004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Labrador
             - Labrador
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9223,11 +9208,11 @@ MonoBehaviour:
               totalVotes: 11389
             unassignedConstituencyCount: 0
           - id: 10005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Long Range Mountains
             - Long Range Mountains
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9319,11 +9304,11 @@ MonoBehaviour:
               totalVotes: 38385
             unassignedConstituencyCount: 0
           - id: 10006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - St. John's East
             - St. John's-Est
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9431,11 +9416,11 @@ MonoBehaviour:
               totalVotes: 45130
             unassignedConstituencyCount: 0
           - id: 10007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - St. John's South--Mount Pearl
             - St. John's-Sud--Mount Pearl
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9598,20 +9583,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: PE
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - PRINCE EDWARD ISLAND
           - "\xCELE-DU-PRINCE-\xC9DOUARD"
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 11001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cardigan
             - Cardigan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9743,11 +9728,11 @@ MonoBehaviour:
               totalVotes: 21697
             unassignedConstituencyCount: 0
           - id: 11002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Charlottetown
             - Charlottetown
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9879,11 +9864,11 @@ MonoBehaviour:
               totalVotes: 19252
             unassignedConstituencyCount: 0
           - id: 11003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Egmont
             - Egmont
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -9991,11 +9976,11 @@ MonoBehaviour:
               totalVotes: 19058
             unassignedConstituencyCount: 0
           - id: 11004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Malpeque
             - Malpeque
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10110,20 +10095,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: NS
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - NOVA SCOTIA
           - "NOUVELLE-\xC9COSSE"
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 12001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cape Breton--Canso
             - Cape Breton--Canso
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10247,11 +10232,11 @@ MonoBehaviour:
               totalVotes: 41857
             unassignedConstituencyCount: 0
           - id: 12002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Central Nova
             - Nova-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10431,11 +10416,11 @@ MonoBehaviour:
               totalVotes: 44559
             unassignedConstituencyCount: 0
           - id: 12003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cumberland--Colchester
             - Cumberland--Colchester
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10639,11 +10624,11 @@ MonoBehaviour:
               totalVotes: 45450
             unassignedConstituencyCount: 0
           - id: 12004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Dartmouth--Cole Harbour
             - Dartmouth--Cole Harbour
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10775,11 +10760,11 @@ MonoBehaviour:
               totalVotes: 52585
             unassignedConstituencyCount: 0
           - id: 12005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Halifax
             - Halifax
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -10935,11 +10920,11 @@ MonoBehaviour:
               totalVotes: 54489
             unassignedConstituencyCount: 0
           - id: 12006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Halifax West
             - Halifax-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11047,11 +11032,11 @@ MonoBehaviour:
               totalVotes: 54356
             unassignedConstituencyCount: 0
           - id: 12007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kings--Hants
             - Kings--Hants
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11231,11 +11216,11 @@ MonoBehaviour:
               totalVotes: 48035
             unassignedConstituencyCount: 0
           - id: 12008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sackville--Preston--Chezzetcook
             - Sackville--Preston--Chezzetcook
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11367,11 +11352,11 @@ MonoBehaviour:
               totalVotes: 49563
             unassignedConstituencyCount: 0
           - id: 12009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - South Shore--St. Margarets
             - South Shore--St. Margarets
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11599,11 +11584,11 @@ MonoBehaviour:
               totalVotes: 52521
             unassignedConstituencyCount: 0
           - id: 12010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sydney--Victoria
             - Sydney--Victoria
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11783,11 +11768,11 @@ MonoBehaviour:
               totalVotes: 40576
             unassignedConstituencyCount: 0
           - id: 12011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - West Nova
             - Nova-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -11926,20 +11911,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: NB
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - NEW BRUNSWICK
           - NOUVEAU-BRUNSWICK
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 13001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Acadie--Bathurst
             - Acadie--Bathurst
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12047,11 +12032,11 @@ MonoBehaviour:
               totalVotes: 48097
             unassignedConstituencyCount: 0
           - id: 13002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Beaus\xE9jour"
             - "Beaus\xE9jour"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12183,11 +12168,11 @@ MonoBehaviour:
               totalVotes: 53630
             unassignedConstituencyCount: 0
           - id: 13003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Fredericton
             - Fredericton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12391,11 +12376,11 @@ MonoBehaviour:
               totalVotes: 46841
             unassignedConstituencyCount: 0
           - id: 13004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Fundy Royal
             - Fundy Royal
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12575,11 +12560,11 @@ MonoBehaviour:
               totalVotes: 47192
             unassignedConstituencyCount: 0
           - id: 13005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Madawaska--Restigouche
             - Madawaska--Restigouche
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12687,11 +12672,11 @@ MonoBehaviour:
               totalVotes: 34535
             unassignedConstituencyCount: 0
           - id: 13006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Miramichi--Grand Lake
             - Miramichi--Grand Lake
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -12871,11 +12856,11 @@ MonoBehaviour:
               totalVotes: 34597
             unassignedConstituencyCount: 0
           - id: 13007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Moncton--Riverview--Dieppe
             - Moncton--Riverview--Dieppe
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13055,11 +13040,11 @@ MonoBehaviour:
               totalVotes: 51943
             unassignedConstituencyCount: 0
           - id: 13008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - New Brunswick Southwest
             - Nouveau-Brunswick-Sud-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13215,11 +13200,11 @@ MonoBehaviour:
               totalVotes: 39648
             unassignedConstituencyCount: 0
           - id: 13009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint John--Rothesay
             - Saint John--Rothesay
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13399,11 +13384,11 @@ MonoBehaviour:
               totalVotes: 41254
             unassignedConstituencyCount: 0
           - id: 13010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Tobique--Mactaquac
             - Tobique--Mactaquac
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13542,20 +13527,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: QC
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - QUEBEC
           - "QU\xC9BEC"
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 24001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Abitibi--Baie-James--Nunavik--Eeyou
             - Abitibi--Baie-James--Nunavik--Eeyou
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13679,11 +13664,11 @@ MonoBehaviour:
               totalVotes: 28925
             unassignedConstituencyCount: 0
           - id: 24002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Abitibi--T\xE9miscamingue"
             - "Abitibi--T\xE9miscamingue"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13839,11 +13824,11 @@ MonoBehaviour:
               totalVotes: 49753
             unassignedConstituencyCount: 0
           - id: 24003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ahuntsic-Cartierville
             - Ahuntsic-Cartierville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -13999,11 +13984,11 @@ MonoBehaviour:
               totalVotes: 54152
             unassignedConstituencyCount: 0
           - id: 24004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Alfred-Pellan
             - Alfred-Pellan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -14207,11 +14192,11 @@ MonoBehaviour:
               totalVotes: 53954
             unassignedConstituencyCount: 0
           - id: 24005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Argenteuil--La Petite-Nation
             - Argenteuil--La Petite-Nation
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -14367,11 +14352,11 @@ MonoBehaviour:
               totalVotes: 49623
             unassignedConstituencyCount: 0
           - id: 24006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Avignon--La Mitis--Matane--Matap\xE9dia"
             - "Avignon--La Mitis--Matane--Matap\xE9dia"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -14551,11 +14536,11 @@ MonoBehaviour:
               totalVotes: 35374
             unassignedConstituencyCount: 0
           - id: 24007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Beauce
             - Beauce
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -14735,11 +14720,11 @@ MonoBehaviour:
               totalVotes: 59125
             unassignedConstituencyCount: 0
           - id: 24008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Beauport--Limoilou
             - Beauport--Limoilou
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -14919,11 +14904,11 @@ MonoBehaviour:
               totalVotes: 49532
             unassignedConstituencyCount: 0
           - id: 24009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "B\xE9cancour--Nicolet--Saurel"
             - "B\xE9cancour--Nicolet--Saurel"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15079,11 +15064,11 @@ MonoBehaviour:
               totalVotes: 52053
             unassignedConstituencyCount: 0
           - id: 24010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Bellechasse--Les Etchemins--L\xE9vis"
             - "Bellechasse--Les Etchemins--L\xE9vis"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15263,11 +15248,11 @@ MonoBehaviour:
               totalVotes: 64062
             unassignedConstituencyCount: 0
           - id: 24011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Beloeil--Chambly
             - Beloeil--Chambly
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15391,11 +15376,11 @@ MonoBehaviour:
               totalVotes: 68919
             unassignedConstituencyCount: 0
           - id: 24012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Berthier--Maskinong\xE9"
             - "Berthier--Maskinong\xE9"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15623,11 +15608,11 @@ MonoBehaviour:
               totalVotes: 56148
             unassignedConstituencyCount: 0
           - id: 24013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Th\xE9r\xE8se-De Blainville"
             - "Th\xE9r\xE8se-De Blainville"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15831,11 +15816,11 @@ MonoBehaviour:
               totalVotes: 59116
             unassignedConstituencyCount: 0
           - id: 24014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Pierre-Boucher--Les Patriotes--Verch\xE8res"
             - "Pierre-Boucher--Les Patriotes--Verch\xE8res"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -15991,11 +15976,11 @@ MonoBehaviour:
               totalVotes: 60912
             unassignedConstituencyCount: 0
           - id: 24015
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Bourassa
             - Bourassa
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -16199,11 +16184,11 @@ MonoBehaviour:
               totalVotes: 39902
             unassignedConstituencyCount: 0
           - id: 24016
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brome--Missisquoi
             - Brome--Missisquoi
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -16407,11 +16392,11 @@ MonoBehaviour:
               totalVotes: 61098
             unassignedConstituencyCount: 0
           - id: 24017
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brossard--Saint-Lambert
             - Brossard--Saint-Lambert
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -16567,11 +16552,11 @@ MonoBehaviour:
               totalVotes: 55981
             unassignedConstituencyCount: 0
           - id: 24018
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Rimouski-Neigette--T\xE9miscouata--Les Basques"
             - "Rimouski-Neigette--T\xE9miscouata--Les Basques"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -16751,11 +16736,11 @@ MonoBehaviour:
               totalVotes: 45376
             unassignedConstituencyCount: 0
           - id: 24019
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Charlesbourg--Haute-Saint-Charles
             - Charlesbourg--Haute-Saint-Charles
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -16911,11 +16896,11 @@ MonoBehaviour:
               totalVotes: 58544
             unassignedConstituencyCount: 0
           - id: 24020
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Beauport-C\xF4te-de-Beaupr\xE9-\xCEle d'Orl\xE9ans-Charlevoix"
             - "Beauport-C\xF4te-de-Beaupr\xE9-\xCEle d'Orl\xE9ans-Charlevoix"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -17095,11 +17080,11 @@ MonoBehaviour:
               totalVotes: 50285
             unassignedConstituencyCount: 0
           - id: 24021
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Ch\xE2teauguay--Lacolle"
             - "Ch\xE2teauguay--Lacolle"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -17303,11 +17288,11 @@ MonoBehaviour:
               totalVotes: 52749
             unassignedConstituencyCount: 0
           - id: 24022
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Chicoutimi--Le Fjord
             - Chicoutimi--Le Fjord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -17487,11 +17472,11 @@ MonoBehaviour:
               totalVotes: 43268
             unassignedConstituencyCount: 0
           - id: 24023
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Compton--Stanstead
             - Compton--Stanstead
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -17671,11 +17656,11 @@ MonoBehaviour:
               totalVotes: 57796
             unassignedConstituencyCount: 0
           - id: 24024
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Dorval--Lachine--LaSalle
             - Dorval--Lachine--LaSalle
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -17879,11 +17864,11 @@ MonoBehaviour:
               totalVotes: 51785
             unassignedConstituencyCount: 0
           - id: 24025
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Drummond
             - Drummond
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -18087,11 +18072,11 @@ MonoBehaviour:
               totalVotes: 54315
             unassignedConstituencyCount: 0
           - id: 24026
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Gasp\xE9sie--Les \xCEles-de-la-Madeleine"
             - "Gasp\xE9sie--Les \xCEles-de-la-Madeleine"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -18271,11 +18256,11 @@ MonoBehaviour:
               totalVotes: 38380
             unassignedConstituencyCount: 0
           - id: 24027
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Gatineau
             - Gatineau
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -18455,11 +18440,11 @@ MonoBehaviour:
               totalVotes: 55174
             unassignedConstituencyCount: 0
           - id: 24028
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hochelaga
             - Hochelaga
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -18687,11 +18672,11 @@ MonoBehaviour:
               totalVotes: 52162
             unassignedConstituencyCount: 0
           - id: 24029
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Honor\xE9-Mercier"
             - "Honor\xE9-Mercier"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -18871,11 +18856,11 @@ MonoBehaviour:
               totalVotes: 49959
             unassignedConstituencyCount: 0
           - id: 24030
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hull--Aylmer
             - Hull--Aylmer
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19079,11 +19064,11 @@ MonoBehaviour:
               totalVotes: 52924
             unassignedConstituencyCount: 0
           - id: 24031
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Joliette
             - Joliette
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19263,11 +19248,11 @@ MonoBehaviour:
               totalVotes: 57186
             unassignedConstituencyCount: 0
           - id: 24032
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Jonqui\xE8re"
             - "Jonqui\xE8re"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19423,11 +19408,11 @@ MonoBehaviour:
               totalVotes: 48863
             unassignedConstituencyCount: 0
           - id: 24033
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "La Pointe-de-l'\xCEle"
             - "La Pointe-de-l'\xCEle"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19631,11 +19616,11 @@ MonoBehaviour:
               totalVotes: 54899
             unassignedConstituencyCount: 0
           - id: 24034
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - La Prairie
             - La Prairie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19815,11 +19800,11 @@ MonoBehaviour:
               totalVotes: 61306
             unassignedConstituencyCount: 0
           - id: 24035
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lac-Saint-Jean
             - Lac-Saint-Jean
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -19975,11 +19960,11 @@ MonoBehaviour:
               totalVotes: 53971
             unassignedConstituencyCount: 0
           - id: 24036
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lac-Saint-Louis
             - Lac-Saint-Louis
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -20183,11 +20168,11 @@ MonoBehaviour:
               totalVotes: 58320
             unassignedConstituencyCount: 0
           - id: 24037
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "LaSalle--\xC9mard--Verdun"
             - "LaSalle--\xC9mard--Verdun"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -20415,11 +20400,11 @@ MonoBehaviour:
               totalVotes: 51632
             unassignedConstituencyCount: 0
           - id: 24038
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Laurentides--Labelle
             - Laurentides--Labelle
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -20623,11 +20608,11 @@ MonoBehaviour:
               totalVotes: 65009
             unassignedConstituencyCount: 0
           - id: 24039
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Laurier--Sainte-Marie
             - Laurier--Sainte-Marie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -20879,11 +20864,11 @@ MonoBehaviour:
               totalVotes: 51801
             unassignedConstituencyCount: 0
           - id: 24040
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Laval--Les \xCEles"
             - "Laval--Les \xCEles"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21039,11 +21024,11 @@ MonoBehaviour:
               totalVotes: 52119
             unassignedConstituencyCount: 0
           - id: 24041
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Longueuil--Charles-LeMoyne
             - Longueuil--Charles-LeMoyne
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21199,11 +21184,11 @@ MonoBehaviour:
               totalVotes: 49527
             unassignedConstituencyCount: 0
           - id: 24042
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "L\xE9vis--Lotbini\xE8re"
             - "L\xE9vis--Lotbini\xE8re"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21359,11 +21344,11 @@ MonoBehaviour:
               totalVotes: 63159
             unassignedConstituencyCount: 0
           - id: 24043
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Longueuil--Saint-Hubert
             - Longueuil--Saint-Hubert
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21543,11 +21528,11 @@ MonoBehaviour:
               totalVotes: 59239
             unassignedConstituencyCount: 0
           - id: 24044
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Louis-H\xE9bert"
             - "Louis-H\xE9bert"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21727,11 +21712,11 @@ MonoBehaviour:
               totalVotes: 61474
             unassignedConstituencyCount: 0
           - id: 24045
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Louis-Saint-Laurent
             - Louis-Saint-Laurent
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -21887,11 +21872,11 @@ MonoBehaviour:
               totalVotes: 64767
             unassignedConstituencyCount: 0
           - id: 24046
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Manicouagan
             - Manicouagan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22047,11 +22032,11 @@ MonoBehaviour:
               totalVotes: 39906
             unassignedConstituencyCount: 0
           - id: 24047
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "M\xE9gantic--L'\xC9rable"
             - "M\xE9gantic--L'\xC9rable"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22255,11 +22240,11 @@ MonoBehaviour:
               totalVotes: 46628
             unassignedConstituencyCount: 0
           - id: 24048
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mirabel
             - Mirabel
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22439,11 +22424,11 @@ MonoBehaviour:
               totalVotes: 62708
             unassignedConstituencyCount: 0
           - id: 24049
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Montarville
             - Montarville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22623,11 +22608,11 @@ MonoBehaviour:
               totalVotes: 58629
             unassignedConstituencyCount: 0
           - id: 24050
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Montcalm
             - Montcalm
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22807,11 +22792,11 @@ MonoBehaviour:
               totalVotes: 54529
             unassignedConstituencyCount: 0
           - id: 24051
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Montmagny--L'Islet--Kamouraska--Rivi\xE8re-du-Loup"
             - "Montmagny--L'Islet--Kamouraska--Rivi\xE8re-du-Loup"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -22967,11 +22952,11 @@ MonoBehaviour:
               totalVotes: 50000
             unassignedConstituencyCount: 0
           - id: 24052
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mount Royal
             - Mont-Royal
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -23151,11 +23136,11 @@ MonoBehaviour:
               totalVotes: 42793
             unassignedConstituencyCount: 0
           - id: 24053
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Notre-Dame-de-Gr\xE2ce--Westmount"
             - "Notre-Dame-de-Gr\xE2ce--Westmount"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -23359,11 +23344,11 @@ MonoBehaviour:
               totalVotes: 48355
             unassignedConstituencyCount: 0
           - id: 24054
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Outremont
             - Outremont
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -23543,11 +23528,11 @@ MonoBehaviour:
               totalVotes: 39201
             unassignedConstituencyCount: 0
           - id: 24055
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Papineau
             - Papineau
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -23735,11 +23720,11 @@ MonoBehaviour:
               totalVotes: 48451
             unassignedConstituencyCount: 0
           - id: 24056
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Pierrefonds--Dollard
             - Pierrefonds--Dollard
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -23943,11 +23928,11 @@ MonoBehaviour:
               totalVotes: 54699
             unassignedConstituencyCount: 0
           - id: 24057
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Pontiac
             - Pontiac
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -24151,11 +24136,11 @@ MonoBehaviour:
               totalVotes: 60915
             unassignedConstituencyCount: 0
           - id: 24058
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Portneuf--Jacques-Cartier
             - Portneuf--Jacques-Cartier
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -24311,11 +24296,11 @@ MonoBehaviour:
               totalVotes: 63644
             unassignedConstituencyCount: 0
           - id: 24059
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Qu\xE9bec"
             - "Qu\xE9bec"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -24519,11 +24504,11 @@ MonoBehaviour:
               totalVotes: 54355
             unassignedConstituencyCount: 0
           - id: 24060
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Repentigny
             - Repentigny
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -24703,11 +24688,11 @@ MonoBehaviour:
               totalVotes: 64942
             unassignedConstituencyCount: 0
           - id: 24061
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Richmond--Arthabaska
             - Richmond--Arthabaska
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -24863,11 +24848,11 @@ MonoBehaviour:
               totalVotes: 58495
             unassignedConstituencyCount: 0
           - id: 24062
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Rivi\xE8re-des-Mille-\xCEles"
             - "Rivi\xE8re-des-Mille-\xCEles"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25023,11 +25008,11 @@ MonoBehaviour:
               totalVotes: 57780
             unassignedConstituencyCount: 0
           - id: 24063
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Rivi\xE8re-du-Nord"
             - "Rivi\xE8re-du-Nord"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25231,11 +25216,11 @@ MonoBehaviour:
               totalVotes: 58578
             unassignedConstituencyCount: 0
           - id: 24064
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Rosemont--La Petite-Patrie
             - Rosemont--La Petite-Patrie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25463,11 +25448,11 @@ MonoBehaviour:
               totalVotes: 59016
             unassignedConstituencyCount: 0
           - id: 24065
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Marc-Aur\xE8le-Fortin"
             - "Marc-Aur\xE8le-Fortin"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25647,11 +25632,11 @@ MonoBehaviour:
               totalVotes: 55351
             unassignedConstituencyCount: 0
           - id: 24066
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint-Hyacinthe--Bagot
             - Saint-Hyacinthe--Bagot
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25807,11 +25792,11 @@ MonoBehaviour:
               totalVotes: 55543
             unassignedConstituencyCount: 0
           - id: 24067
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint-Jean
             - Saint-Jean
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -25991,11 +25976,11 @@ MonoBehaviour:
               totalVotes: 61354
             unassignedConstituencyCount: 0
           - id: 24068
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint-Laurent
             - Saint-Laurent
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -26175,11 +26160,11 @@ MonoBehaviour:
               totalVotes: 39629
             unassignedConstituencyCount: 0
           - id: 24069
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Saint-L\xE9onard--Saint-Michel"
             - "Saint-L\xE9onard--Saint-Michel"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -26383,11 +26368,11 @@ MonoBehaviour:
               totalVotes: 45000
             unassignedConstituencyCount: 0
           - id: 24070
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint-Maurice--Champlain
             - Saint-Maurice--Champlain
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -26543,11 +26528,11 @@ MonoBehaviour:
               totalVotes: 58029
             unassignedConstituencyCount: 0
           - id: 24071
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Salaberry--Suro\xEEt"
             - "Salaberry--Suro\xEEt"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -26727,11 +26712,11 @@ MonoBehaviour:
               totalVotes: 62568
             unassignedConstituencyCount: 0
           - id: 24072
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Shefford
             - Shefford
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -26911,11 +26896,11 @@ MonoBehaviour:
               totalVotes: 60552
             unassignedConstituencyCount: 0
           - id: 24073
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sherbrooke
             - Sherbrooke
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -27119,11 +27104,11 @@ MonoBehaviour:
               totalVotes: 59850
             unassignedConstituencyCount: 0
           - id: 24074
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vaudreuil--Soulanges
             - Vaudreuil--Soulanges
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -27279,11 +27264,11 @@ MonoBehaviour:
               totalVotes: 67564
             unassignedConstituencyCount: 0
           - id: 24075
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Terrebonne
             - Terrebonne
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -27487,11 +27472,11 @@ MonoBehaviour:
               totalVotes: 60579
             unassignedConstituencyCount: 0
           - id: 24076
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Trois-Rivi\xE8res"
             - "Trois-Rivi\xE8res"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -27671,11 +27656,11 @@ MonoBehaviour:
               totalVotes: 60208
             unassignedConstituencyCount: 0
           - id: 24077
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Ville-Marie--Le Sud-Ouest--\xCEle-des-Soeurs"
             - "Ville-Marie--Le Sud-Ouest--\xCEle-des-Soeurs"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -27927,11 +27912,11 @@ MonoBehaviour:
               totalVotes: 51054
             unassignedConstituencyCount: 0
           - id: 24078
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vimy
             - Vimy
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28094,20 +28079,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: ON
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - ONTARIO
           - ONTARIO
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 35001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ajax
             - Ajax
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28287,11 +28272,11 @@ MonoBehaviour:
               totalVotes: 60377
             unassignedConstituencyCount: 0
           - id: 35002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Algoma--Manitoulin--Kapuskasing
             - Algoma--Manitoulin--Kapuskasing
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28399,11 +28384,11 @@ MonoBehaviour:
               totalVotes: 40209
             unassignedConstituencyCount: 0
           - id: 35003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Aurora--Oak Ridges--Richmond Hill
             - Aurora--Oak Ridges--Richmond Hill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28559,11 +28544,11 @@ MonoBehaviour:
               totalVotes: 52162
             unassignedConstituencyCount: 0
           - id: 35004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Barrie--Innisfil
             - Barrie--Innisfil
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28695,11 +28680,11 @@ MonoBehaviour:
               totalVotes: 53600
             unassignedConstituencyCount: 0
           - id: 35005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Barrie--Springwater--Oro-Medonte
             - Barrie--Springwater--Oro-Medonte
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28831,11 +28816,11 @@ MonoBehaviour:
               totalVotes: 53254
             unassignedConstituencyCount: 0
           - id: 35006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Bay of Quinte
             - Baie de Quinte
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -28967,11 +28952,11 @@ MonoBehaviour:
               totalVotes: 61953
             unassignedConstituencyCount: 0
           - id: 35007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Beaches--East York
             - Beaches--East York
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29103,11 +29088,11 @@ MonoBehaviour:
               totalVotes: 56206
             unassignedConstituencyCount: 0
           - id: 35008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brampton Centre
             - Brampton-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29263,11 +29248,11 @@ MonoBehaviour:
               totalVotes: 39278
             unassignedConstituencyCount: 0
           - id: 35009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brampton East
             - Brampton-Est
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29447,11 +29432,11 @@ MonoBehaviour:
               totalVotes: 50078
             unassignedConstituencyCount: 0
           - id: 35010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brampton North
             - Brampton-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29583,11 +29568,11 @@ MonoBehaviour:
               totalVotes: 49958
             unassignedConstituencyCount: 0
           - id: 35011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brampton South
             - Brampton-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29791,11 +29776,11 @@ MonoBehaviour:
               totalVotes: 48171
             unassignedConstituencyCount: 0
           - id: 35012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brampton West
             - Brampton-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -29999,11 +29984,11 @@ MonoBehaviour:
               totalVotes: 53007
             unassignedConstituencyCount: 0
           - id: 35013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brantford--Brant
             - Brantford--Brant
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -30207,11 +30192,11 @@ MonoBehaviour:
               totalVotes: 66068
             unassignedConstituencyCount: 0
           - id: 35014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Bruce--Grey--Owen Sound
             - Bruce--Grey--Owen Sound
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -30367,11 +30352,11 @@ MonoBehaviour:
               totalVotes: 57522
             unassignedConstituencyCount: 0
           - id: 35015
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Burlington
             - Burlington
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -30503,11 +30488,11 @@ MonoBehaviour:
               totalVotes: 70888
             unassignedConstituencyCount: 0
           - id: 35016
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cambridge
             - Cambridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -30687,11 +30672,11 @@ MonoBehaviour:
               totalVotes: 57295
             unassignedConstituencyCount: 0
           - id: 35017
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Chatham-Kent--Leamington
             - Chatham-Kent--Leamington
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -30847,11 +30832,11 @@ MonoBehaviour:
               totalVotes: 53728
             unassignedConstituencyCount: 0
           - id: 35018
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Davenport
             - Davenport
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31055,11 +31040,11 @@ MonoBehaviour:
               totalVotes: 52303
             unassignedConstituencyCount: 0
           - id: 35019
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Don Valley East
             - Don Valley-Est
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31191,11 +31176,11 @@ MonoBehaviour:
               totalVotes: 41734
             unassignedConstituencyCount: 0
           - id: 35020
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Don Valley North
             - Don Valley-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31327,11 +31312,11 @@ MonoBehaviour:
               totalVotes: 45704
             unassignedConstituencyCount: 0
           - id: 35021
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Don Valley West
             - Don Valley-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31487,11 +31472,11 @@ MonoBehaviour:
               totalVotes: 51017
             unassignedConstituencyCount: 0
           - id: 35022
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Dufferin--Caledon
             - Dufferin--Caledon
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31647,11 +31632,11 @@ MonoBehaviour:
               totalVotes: 67956
             unassignedConstituencyCount: 0
           - id: 35023
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Durham
             - Durham
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31783,11 +31768,11 @@ MonoBehaviour:
               totalVotes: 72423
             unassignedConstituencyCount: 0
           - id: 35024
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Eglinton--Lawrence
             - Eglinton--Lawrence
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -31919,11 +31904,11 @@ MonoBehaviour:
               totalVotes: 55109
             unassignedConstituencyCount: 0
           - id: 35025
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Elgin--Middlesex--London
             - Elgin--Middlesex--London
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32103,11 +32088,11 @@ MonoBehaviour:
               totalVotes: 61288
             unassignedConstituencyCount: 0
           - id: 35026
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Essex
             - Essex
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32239,11 +32224,11 @@ MonoBehaviour:
               totalVotes: 67686
             unassignedConstituencyCount: 0
           - id: 35027
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Etobicoke Centre
             - Etobicoke-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32399,11 +32384,11 @@ MonoBehaviour:
               totalVotes: 62390
             unassignedConstituencyCount: 0
           - id: 35028
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Etobicoke--Lakeshore
             - Etobicoke--Lakeshore
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32559,11 +32544,11 @@ MonoBehaviour:
               totalVotes: 68588
             unassignedConstituencyCount: 0
           - id: 35029
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Etobicoke North
             - Etobicoke-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32719,11 +32704,11 @@ MonoBehaviour:
               totalVotes: 42685
             unassignedConstituencyCount: 0
           - id: 35030
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Flamborough--Glanbrook
             - Flamborough--Glanbrook
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -32855,11 +32840,11 @@ MonoBehaviour:
               totalVotes: 62937
             unassignedConstituencyCount: 0
           - id: 35031
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Glengarry--Prescott--Russell
             - Glengarry--Prescott--Russell
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33063,11 +33048,11 @@ MonoBehaviour:
               totalVotes: 63297
             unassignedConstituencyCount: 0
           - id: 35032
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Guelph
             - Guelph
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33295,11 +33280,11 @@ MonoBehaviour:
               totalVotes: 74059
             unassignedConstituencyCount: 0
           - id: 35033
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Haldimand--Norfolk
             - Haldimand--Norfolk
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33479,11 +33464,11 @@ MonoBehaviour:
               totalVotes: 58372
             unassignedConstituencyCount: 0
           - id: 35034
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Haliburton--Kawartha Lakes--Brock
             - Haliburton--Kawartha Lakes--Brock
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33615,11 +33600,11 @@ MonoBehaviour:
               totalVotes: 65015
             unassignedConstituencyCount: 0
           - id: 35035
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hamilton Centre
             - Hamilton-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33847,11 +33832,11 @@ MonoBehaviour:
               totalVotes: 43528
             unassignedConstituencyCount: 0
           - id: 35036
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hamilton East--Stoney Creek
             - Hamilton-Est--Stoney Creek
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -33983,11 +33968,11 @@ MonoBehaviour:
               totalVotes: 51639
             unassignedConstituencyCount: 0
           - id: 35037
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hamilton Mountain
             - Hamilton Mountain
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34167,11 +34152,11 @@ MonoBehaviour:
               totalVotes: 52273
             unassignedConstituencyCount: 0
           - id: 35038
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hamilton West--Ancaster--Dundas
             - Hamilton-Ouest--Ancaster--Dundas
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34327,11 +34312,11 @@ MonoBehaviour:
               totalVotes: 64131
             unassignedConstituencyCount: 0
           - id: 35039
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Hastings--Lennox and Addington
             - Hastings--Lennox and Addington
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34463,11 +34448,11 @@ MonoBehaviour:
               totalVotes: 51321
             unassignedConstituencyCount: 0
           - id: 35040
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Huron--Bruce
             - Huron--Bruce
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34599,11 +34584,11 @@ MonoBehaviour:
               totalVotes: 60330
             unassignedConstituencyCount: 0
           - id: 35041
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kanata--Carleton
             - Kanata--Carleton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34735,11 +34720,11 @@ MonoBehaviour:
               totalVotes: 64613
             unassignedConstituencyCount: 0
           - id: 35042
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kenora
             - Kenora
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34847,11 +34832,11 @@ MonoBehaviour:
               totalVotes: 27304
             unassignedConstituencyCount: 0
           - id: 35043
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - King--Vaughan
             - King--Vaughan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -34983,11 +34968,11 @@ MonoBehaviour:
               totalVotes: 63199
             unassignedConstituencyCount: 0
           - id: 35044
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kingston and the Islands
             - "Kingston et les \xCEles"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35119,11 +35104,11 @@ MonoBehaviour:
               totalVotes: 66672
             unassignedConstituencyCount: 0
           - id: 35045
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kitchener Centre
             - Kitchener-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35279,11 +35264,11 @@ MonoBehaviour:
               totalVotes: 54659
             unassignedConstituencyCount: 0
           - id: 35046
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kitchener--Conestoga
             - Kitchener--Conestoga
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35415,11 +35400,11 @@ MonoBehaviour:
               totalVotes: 50763
             unassignedConstituencyCount: 0
           - id: 35047
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kitchener South--Hespeler
             - Kitchener-Sud--Hespeler
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35599,11 +35584,11 @@ MonoBehaviour:
               totalVotes: 51694
             unassignedConstituencyCount: 0
           - id: 35048
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lambton--Kent--Middlesex
             - Lambton--Kent--Middlesex
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35759,11 +35744,11 @@ MonoBehaviour:
               totalVotes: 57864
             unassignedConstituencyCount: 0
           - id: 35049
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lanark--Frontenac--Kingston
             - Lanark--Frontenac--Kingston
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -35895,11 +35880,11 @@ MonoBehaviour:
               totalVotes: 60868
             unassignedConstituencyCount: 0
           - id: 35050
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Leeds-Grenville-Thousand Islands and Rideau Lakes
             - Leeds-Grenville-Thousand Islands et Rideau Lakes
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36031,11 +36016,11 @@ MonoBehaviour:
               totalVotes: 57799
             unassignedConstituencyCount: 0
           - id: 35051
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - London--Fanshawe
             - London--Fanshawe
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36191,11 +36176,11 @@ MonoBehaviour:
               totalVotes: 54933
             unassignedConstituencyCount: 0
           - id: 35052
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - London North Centre
             - London-Centre-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36351,11 +36336,11 @@ MonoBehaviour:
               totalVotes: 59777
             unassignedConstituencyCount: 0
           - id: 35053
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - London West
             - London-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36511,11 +36496,11 @@ MonoBehaviour:
               totalVotes: 70234
             unassignedConstituencyCount: 0
           - id: 35054
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Markham--Stouffville
             - Markham--Stouffville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36671,11 +36656,11 @@ MonoBehaviour:
               totalVotes: 63654
             unassignedConstituencyCount: 0
           - id: 35055
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Markham--Thornhill
             - Markham--Thornhill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36831,11 +36816,11 @@ MonoBehaviour:
               totalVotes: 44330
             unassignedConstituencyCount: 0
           - id: 35056
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Markham--Unionville
             - Markham--Unionville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -36967,11 +36952,11 @@ MonoBehaviour:
               totalVotes: 52464
             unassignedConstituencyCount: 0
           - id: 35057
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Milton
             - Milton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37103,11 +37088,11 @@ MonoBehaviour:
               totalVotes: 59005
             unassignedConstituencyCount: 0
           - id: 35058
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga Centre
             - Mississauga-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37263,11 +37248,11 @@ MonoBehaviour:
               totalVotes: 52948
             unassignedConstituencyCount: 0
           - id: 35059
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga East--Cooksville
             - Mississauga-Est--Cooksville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37423,11 +37408,11 @@ MonoBehaviour:
               totalVotes: 51079
             unassignedConstituencyCount: 0
           - id: 35060
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga--Erin Mills
             - Mississauga--Erin Mills
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37559,11 +37544,11 @@ MonoBehaviour:
               totalVotes: 57954
             unassignedConstituencyCount: 0
           - id: 35061
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga--Lakeshore
             - Mississauga--Lakeshore
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37719,11 +37704,11 @@ MonoBehaviour:
               totalVotes: 60129
             unassignedConstituencyCount: 0
           - id: 35062
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga--Malton
             - Mississauga--Malton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -37903,11 +37888,11 @@ MonoBehaviour:
               totalVotes: 47893
             unassignedConstituencyCount: 0
           - id: 35063
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mississauga--Streetsville
             - Mississauga--Streetsville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38063,11 +38048,11 @@ MonoBehaviour:
               totalVotes: 57899
             unassignedConstituencyCount: 0
           - id: 35064
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Nepean
             - Nepean
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38223,11 +38208,11 @@ MonoBehaviour:
               totalVotes: 68191
             unassignedConstituencyCount: 0
           - id: 35065
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Newmarket--Aurora
             - Newmarket--Aurora
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38407,11 +38392,11 @@ MonoBehaviour:
               totalVotes: 60468
             unassignedConstituencyCount: 0
           - id: 35066
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Niagara Centre
             - Niagara-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38591,11 +38576,11 @@ MonoBehaviour:
               totalVotes: 57510
             unassignedConstituencyCount: 0
           - id: 35067
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Niagara Falls
             - Niagara Falls
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38775,11 +38760,11 @@ MonoBehaviour:
               totalVotes: 68111
             unassignedConstituencyCount: 0
           - id: 35068
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Niagara West
             - Niagara-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -38935,11 +38920,11 @@ MonoBehaviour:
               totalVotes: 52682
             unassignedConstituencyCount: 0
           - id: 35069
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Nickel Belt
             - Nickel Belt
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39071,11 +39056,11 @@ MonoBehaviour:
               totalVotes: 48524
             unassignedConstituencyCount: 0
           - id: 35070
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Nipissing--Timiskaming
             - Nipissing--Timiskaming
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39207,11 +39192,11 @@ MonoBehaviour:
               totalVotes: 45173
             unassignedConstituencyCount: 0
           - id: 35071
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Northumberland--Peterborough South
             - Northumberland--Peterborough-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39343,11 +39328,11 @@ MonoBehaviour:
               totalVotes: 68268
             unassignedConstituencyCount: 0
           - id: 35072
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Oakville
             - Oakville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39503,11 +39488,11 @@ MonoBehaviour:
               totalVotes: 61882
             unassignedConstituencyCount: 0
           - id: 35073
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Oakville North--Burlington
             - Oakville-Nord--Burlington
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39639,11 +39624,11 @@ MonoBehaviour:
               totalVotes: 68452
             unassignedConstituencyCount: 0
           - id: 35074
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Oshawa
             - Oshawa
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -39799,11 +39784,11 @@ MonoBehaviour:
               totalVotes: 61614
             unassignedConstituencyCount: 0
           - id: 35075
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ottawa Centre
             - Ottawa-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -40079,11 +40064,11 @@ MonoBehaviour:
               totalVotes: 75448
             unassignedConstituencyCount: 0
           - id: 35076
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Orl\xE9ans"
             - "Orl\xE9ans"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -40215,11 +40200,11 @@ MonoBehaviour:
               totalVotes: 80198
             unassignedConstituencyCount: 0
           - id: 35077
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ottawa South
             - Ottawa-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -40423,11 +40408,11 @@ MonoBehaviour:
               totalVotes: 63752
             unassignedConstituencyCount: 0
           - id: 35078
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ottawa--Vanier
             - Ottawa--Vanier
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -40679,11 +40664,11 @@ MonoBehaviour:
               totalVotes: 62185
             unassignedConstituencyCount: 0
           - id: 35079
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Ottawa West--Nepean
             - Ottawa-Ouest--Nepean
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -40911,11 +40896,11 @@ MonoBehaviour:
               totalVotes: 60699
             unassignedConstituencyCount: 0
           - id: 35080
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Oxford
             - Oxford
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41071,11 +41056,11 @@ MonoBehaviour:
               totalVotes: 60469
             unassignedConstituencyCount: 0
           - id: 35081
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Parkdale--High Park
             - Parkdale--High Park
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41279,11 +41264,11 @@ MonoBehaviour:
               totalVotes: 59952
             unassignedConstituencyCount: 0
           - id: 35082
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Parry Sound--Muskoka
             - Parry Sound--Muskoka
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41415,11 +41400,11 @@ MonoBehaviour:
               totalVotes: 54080
             unassignedConstituencyCount: 0
           - id: 35083
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Perth--Wellington
             - Perth--Wellington
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41575,11 +41560,11 @@ MonoBehaviour:
               totalVotes: 54921
             unassignedConstituencyCount: 0
           - id: 35084
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Peterborough--Kawartha
             - Peterborough--Kawartha
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41759,11 +41744,11 @@ MonoBehaviour:
               totalVotes: 68854
             unassignedConstituencyCount: 0
           - id: 35085
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Pickering--Uxbridge
             - Pickering--Uxbridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -41895,11 +41880,11 @@ MonoBehaviour:
               totalVotes: 62751
             unassignedConstituencyCount: 0
           - id: 35086
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Renfrew--Nipissing--Pembroke
             - Renfrew--Nipissing--Pembroke
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42151,11 +42136,11 @@ MonoBehaviour:
               totalVotes: 57506
             unassignedConstituencyCount: 0
           - id: 35087
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Richmond Hill
             - Richmond Hill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42311,11 +42296,11 @@ MonoBehaviour:
               totalVotes: 50249
             unassignedConstituencyCount: 0
           - id: 35088
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Carleton
             - Carleton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42447,11 +42432,11 @@ MonoBehaviour:
               totalVotes: 67935
             unassignedConstituencyCount: 0
           - id: 35089
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - St. Catharines
             - St. Catharines
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42583,11 +42568,11 @@ MonoBehaviour:
               totalVotes: 59370
             unassignedConstituencyCount: 0
           - id: 35090
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Toronto--St. Paul's
             - Toronto--St. Paul's
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42719,11 +42704,11 @@ MonoBehaviour:
               totalVotes: 58850
             unassignedConstituencyCount: 0
           - id: 35091
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sarnia--Lambton
             - Sarnia--Lambton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -42879,11 +42864,11 @@ MonoBehaviour:
               totalVotes: 57084
             unassignedConstituencyCount: 0
           - id: 35092
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sault Ste. Marie
             - Sault Ste. Marie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43015,11 +43000,11 @@ MonoBehaviour:
               totalVotes: 41267
             unassignedConstituencyCount: 0
           - id: 35093
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough--Agincourt
             - Scarborough--Agincourt
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43151,11 +43136,11 @@ MonoBehaviour:
               totalVotes: 41247
             unassignedConstituencyCount: 0
           - id: 35094
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough Centre
             - Scarborough-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43311,11 +43296,11 @@ MonoBehaviour:
               totalVotes: 46076
             unassignedConstituencyCount: 0
           - id: 35095
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough--Guildwood
             - Scarborough--Guildwood
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43567,11 +43552,11 @@ MonoBehaviour:
               totalVotes: 42219
             unassignedConstituencyCount: 0
           - id: 35096
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough North
             - Scarborough-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43727,11 +43712,11 @@ MonoBehaviour:
               totalVotes: 38492
             unassignedConstituencyCount: 0
           - id: 35097
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough--Rouge Park
             - Scarborough--Rouge Park
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -43887,11 +43872,11 @@ MonoBehaviour:
               totalVotes: 50305
             unassignedConstituencyCount: 0
           - id: 35098
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Scarborough Southwest
             - Scarborough-Sud-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44047,11 +44032,11 @@ MonoBehaviour:
               totalVotes: 50106
             unassignedConstituencyCount: 0
           - id: 35099
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Simcoe--Grey
             - Simcoe--Grey
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44207,11 +44192,11 @@ MonoBehaviour:
               totalVotes: 74226
             unassignedConstituencyCount: 0
           - id: 35100
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Simcoe North
             - Simcoe-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44367,11 +44352,11 @@ MonoBehaviour:
               totalVotes: 62302
             unassignedConstituencyCount: 0
           - id: 35101
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Spadina--Fort York
             - Spadina--Fort York
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44527,11 +44512,11 @@ MonoBehaviour:
               totalVotes: 59648
             unassignedConstituencyCount: 0
           - id: 35102
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Stormont--Dundas--South Glengarry
             - Stormont--Dundas--South Glengarry
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44663,11 +44648,11 @@ MonoBehaviour:
               totalVotes: 53258
             unassignedConstituencyCount: 0
           - id: 35103
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sudbury
             - Sudbury
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -44871,11 +44856,11 @@ MonoBehaviour:
               totalVotes: 47708
             unassignedConstituencyCount: 0
           - id: 35104
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Thornhill
             - Thornhill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45031,11 +45016,11 @@ MonoBehaviour:
               totalVotes: 53432
             unassignedConstituencyCount: 0
           - id: 35105
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Thunder Bay--Rainy River
             - Thunder Bay--Rainy River
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45167,11 +45152,11 @@ MonoBehaviour:
               totalVotes: 40541
             unassignedConstituencyCount: 0
           - id: 35106
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Thunder Bay--Superior North
             - "Thunder Bay--Sup\xE9rieur-Nord"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45327,11 +45312,11 @@ MonoBehaviour:
               totalVotes: 42178
             unassignedConstituencyCount: 0
           - id: 35107
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Timmins--James Bay
             - Timmins--Baie James
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45423,11 +45408,11 @@ MonoBehaviour:
               totalVotes: 36068
             unassignedConstituencyCount: 0
           - id: 35108
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Toronto Centre
             - Toronto-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45655,11 +45640,11 @@ MonoBehaviour:
               totalVotes: 53299
             unassignedConstituencyCount: 0
           - id: 35109
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Toronto--Danforth
             - Toronto--Danforth
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -45863,11 +45848,11 @@ MonoBehaviour:
               totalVotes: 56990
             unassignedConstituencyCount: 0
           - id: 35110
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - University--Rosedale
             - University--Rosedale
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46095,11 +46080,11 @@ MonoBehaviour:
               totalVotes: 54604
             unassignedConstituencyCount: 0
           - id: 35111
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vaughan--Woodbridge
             - Vaughan--Woodbridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46255,11 +46240,11 @@ MonoBehaviour:
               totalVotes: 50010
             unassignedConstituencyCount: 0
           - id: 35112
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Waterloo
             - Waterloo
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46391,11 +46376,11 @@ MonoBehaviour:
               totalVotes: 62791
             unassignedConstituencyCount: 0
           - id: 35113
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Wellington--Halton Hills
             - Wellington--Halton Hills
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46527,11 +46512,11 @@ MonoBehaviour:
               totalVotes: 68760
             unassignedConstituencyCount: 0
           - id: 35114
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Whitby
             - Whitby
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46663,11 +46648,11 @@ MonoBehaviour:
               totalVotes: 68059
             unassignedConstituencyCount: 0
           - id: 35115
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Willowdale
             - Willowdale
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -46847,11 +46832,11 @@ MonoBehaviour:
               totalVotes: 44639
             unassignedConstituencyCount: 0
           - id: 35116
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Windsor--Tecumseh
             - Windsor--Tecumseh
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47007,11 +46992,11 @@ MonoBehaviour:
               totalVotes: 56512
             unassignedConstituencyCount: 0
           - id: 35117
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Windsor West
             - Windsor-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47167,11 +47152,11 @@ MonoBehaviour:
               totalVotes: 51539
             unassignedConstituencyCount: 0
           - id: 35118
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - York Centre
             - York-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47279,11 +47264,11 @@ MonoBehaviour:
               totalVotes: 42588
             unassignedConstituencyCount: 0
           - id: 35119
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - York--Simcoe
             - York--Simcoe
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47439,11 +47424,11 @@ MonoBehaviour:
               totalVotes: 53303
             unassignedConstituencyCount: 0
           - id: 35120
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - York South--Weston
             - York-Sud--Weston
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47575,11 +47560,11 @@ MonoBehaviour:
               totalVotes: 44788
             unassignedConstituencyCount: 0
           - id: 35121
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Humber River--Black Creek
             - Humber River--Black Creek
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47766,20 +47751,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: MB
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - MANITOBA
           - MANITOBA
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 46001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Brandon--Souris
             - Brandon--Souris
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -47983,11 +47968,11 @@ MonoBehaviour:
               totalVotes: 40536
             unassignedConstituencyCount: 0
           - id: 46002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Charleswood--St. James--Assiniboia--Headingley
             - Charleswood--St. James--Assiniboia--Headingley
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48167,11 +48152,11 @@ MonoBehaviour:
               totalVotes: 45510
             unassignedConstituencyCount: 0
           - id: 46003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Churchill--Keewatinook Aski
             - Churchill--Keewatinook Aski
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48263,11 +48248,11 @@ MonoBehaviour:
               totalVotes: 22311
             unassignedConstituencyCount: 0
           - id: 46004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Dauphin--Swan River--Neepawa
             - Dauphin--Swan River--Neepawa
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48423,11 +48408,11 @@ MonoBehaviour:
               totalVotes: 38686
             unassignedConstituencyCount: 0
           - id: 46005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Elmwood--Transcona
             - Elmwood--Transcona
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48559,11 +48544,11 @@ MonoBehaviour:
               totalVotes: 43532
             unassignedConstituencyCount: 0
           - id: 46006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kildonan--St. Paul
             - Kildonan--St. Paul
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48743,11 +48728,11 @@ MonoBehaviour:
               totalVotes: 43768
             unassignedConstituencyCount: 0
           - id: 46007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Portage--Lisgar
             - Portage--Lisgar
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48855,11 +48840,11 @@ MonoBehaviour:
               totalVotes: 44227
             unassignedConstituencyCount: 0
           - id: 46008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Provencher
             - Provencher
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -48991,11 +48976,11 @@ MonoBehaviour:
               totalVotes: 48023
             unassignedConstituencyCount: 0
           - id: 46009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saint Boniface--Saint Vital
             - Saint-Boniface--Saint-Vital
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49151,11 +49136,11 @@ MonoBehaviour:
               totalVotes: 46724
             unassignedConstituencyCount: 0
           - id: 46010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Selkirk--Interlake--Eastman
             - Selkirk--Interlake--Eastman
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49287,11 +49272,11 @@ MonoBehaviour:
               totalVotes: 48974
             unassignedConstituencyCount: 0
           - id: 46011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Winnipeg Centre
             - Winnipeg-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49447,11 +49432,11 @@ MonoBehaviour:
               totalVotes: 31066
             unassignedConstituencyCount: 0
           - id: 46012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Winnipeg North
             - Winnipeg-Nord
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49655,11 +49640,11 @@ MonoBehaviour:
               totalVotes: 31528
             unassignedConstituencyCount: 0
           - id: 46013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Winnipeg South
             - Winnipeg-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49791,11 +49776,11 @@ MonoBehaviour:
               totalVotes: 47199
             unassignedConstituencyCount: 0
           - id: 46014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Winnipeg South Centre
             - Winnipeg-Centre-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -49958,20 +49943,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: SK
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - SASKATCHEWAN
           - SASKATCHEWAN
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 47001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Battlefords--Lloydminster
             - Battlefords--Lloydminster
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50103,11 +50088,11 @@ MonoBehaviour:
               totalVotes: 35189
             unassignedConstituencyCount: 0
           - id: 47002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cypress Hills--Grasslands
             - Cypress Hills--Grasslands
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50263,11 +50248,11 @@ MonoBehaviour:
               totalVotes: 38048
             unassignedConstituencyCount: 0
           - id: 47003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - "Desneth\xE9--Missinippi--Churchill River"
             - "Desneth\xE9--Missinippi--Rivi\xE8re Churchill"
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50359,11 +50344,11 @@ MonoBehaviour:
               totalVotes: 25924
             unassignedConstituencyCount: 0
           - id: 47004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Carlton Trail--Eagle Creek
             - Sentier Carlton--Eagle Creek
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50519,11 +50504,11 @@ MonoBehaviour:
               totalVotes: 44217
             unassignedConstituencyCount: 0
           - id: 47005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Moose Jaw--Lake Centre--Lanigan
             - Moose Jaw--Lake Centre--Lanigan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50655,11 +50640,11 @@ MonoBehaviour:
               totalVotes: 43273
             unassignedConstituencyCount: 0
           - id: 47006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Prince Albert
             - Prince Albert
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50815,11 +50800,11 @@ MonoBehaviour:
               totalVotes: 39201
             unassignedConstituencyCount: 0
           - id: 47007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Regina--Lewvan
             - Regina--Lewvan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -50999,11 +50984,11 @@ MonoBehaviour:
               totalVotes: 50772
             unassignedConstituencyCount: 0
           - id: 47008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Regina--Qu'Appelle
             - Regina--Qu'Appelle
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51207,11 +51192,11 @@ MonoBehaviour:
               totalVotes: 38057
             unassignedConstituencyCount: 0
           - id: 47009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Regina--Wascana
             - Regina--Wascana
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51367,11 +51352,11 @@ MonoBehaviour:
               totalVotes: 44767
             unassignedConstituencyCount: 0
           - id: 47010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saskatoon--Grasswood
             - Saskatoon--Grasswood
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51503,11 +51488,11 @@ MonoBehaviour:
               totalVotes: 48466
             unassignedConstituencyCount: 0
           - id: 47011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saskatoon--University
             - Saskatoon--University
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51663,11 +51648,11 @@ MonoBehaviour:
               totalVotes: 46372
             unassignedConstituencyCount: 0
           - id: 47012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saskatoon West
             - Saskatoon-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51799,11 +51784,11 @@ MonoBehaviour:
               totalVotes: 38189
             unassignedConstituencyCount: 0
           - id: 47013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Souris--Moose Mountain
             - Souris--Moose Mountain
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -51959,11 +51944,11 @@ MonoBehaviour:
               totalVotes: 40180
             unassignedConstituencyCount: 0
           - id: 47014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Yorkton--Melville
             - Yorkton--Melville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52102,20 +52087,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: AB
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - ALBERTA
           - ALBERTA
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 48001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Banff--Airdrie
             - Banff--Airdrie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52247,11 +52232,11 @@ MonoBehaviour:
               totalVotes: 76595
             unassignedConstituencyCount: 0
           - id: 48002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Battle River--Crowfoot
             - Battle River--Crowfoot
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52383,11 +52368,11 @@ MonoBehaviour:
               totalVotes: 61404
             unassignedConstituencyCount: 0
           - id: 48003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Bow River
             - Bow River
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52543,11 +52528,11 @@ MonoBehaviour:
               totalVotes: 54357
             unassignedConstituencyCount: 0
           - id: 48004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Centre
             - Calgary-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52751,11 +52736,11 @@ MonoBehaviour:
               totalVotes: 63934
             unassignedConstituencyCount: 0
           - id: 48005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Confederation
             - Calgary Confederation
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -52935,11 +52920,11 @@ MonoBehaviour:
               totalVotes: 64345
             unassignedConstituencyCount: 0
           - id: 48006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Forest Lawn
             - Calgary Forest Lawn
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53167,11 +53152,11 @@ MonoBehaviour:
               totalVotes: 39431
             unassignedConstituencyCount: 0
           - id: 48007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Heritage
             - Calgary Heritage
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53351,11 +53336,11 @@ MonoBehaviour:
               totalVotes: 55202
             unassignedConstituencyCount: 0
           - id: 48008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Midnapore
             - Calgary Midnapore
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53487,11 +53472,11 @@ MonoBehaviour:
               totalVotes: 66717
             unassignedConstituencyCount: 0
           - id: 48009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Nose Hill
             - Calgary Nose Hill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53647,11 +53632,11 @@ MonoBehaviour:
               totalVotes: 54281
             unassignedConstituencyCount: 0
           - id: 48010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Rocky Ridge
             - Calgary Rocky Ridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53807,11 +53792,11 @@ MonoBehaviour:
               totalVotes: 69258
             unassignedConstituencyCount: 0
           - id: 48011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Shepard
             - Calgary Shepard
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -53943,11 +53928,11 @@ MonoBehaviour:
               totalVotes: 76885
             unassignedConstituencyCount: 0
           - id: 48012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Signal Hill
             - Calgary Signal Hill
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -54127,11 +54112,11 @@ MonoBehaviour:
               totalVotes: 61870
             unassignedConstituencyCount: 0
           - id: 48013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Calgary Skyview
             - Calgary Skyview
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -54335,11 +54320,11 @@ MonoBehaviour:
               totalVotes: 49874
             unassignedConstituencyCount: 0
           - id: 48014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Centre
             - Edmonton-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -54543,11 +54528,11 @@ MonoBehaviour:
               totalVotes: 51745
             unassignedConstituencyCount: 0
           - id: 48015
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Griesbach
             - Edmonton Griesbach
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -54775,11 +54760,11 @@ MonoBehaviour:
               totalVotes: 45977
             unassignedConstituencyCount: 0
           - id: 48016
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Manning
             - Edmonton Manning
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -54959,11 +54944,11 @@ MonoBehaviour:
               totalVotes: 51125
             unassignedConstituencyCount: 0
           - id: 48017
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Mill Woods
             - Edmonton Mill Woods
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55119,11 +55104,11 @@ MonoBehaviour:
               totalVotes: 52417
             unassignedConstituencyCount: 0
           - id: 48018
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Riverbend
             - Edmonton Riverbend
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55255,11 +55240,11 @@ MonoBehaviour:
               totalVotes: 59661
             unassignedConstituencyCount: 0
           - id: 48019
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton Strathcona
             - Edmonton Strathcona
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55439,11 +55424,11 @@ MonoBehaviour:
               totalVotes: 55381
             unassignedConstituencyCount: 0
           - id: 48020
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton West
             - Edmonton-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55575,11 +55560,11 @@ MonoBehaviour:
               totalVotes: 57589
             unassignedConstituencyCount: 0
           - id: 48021
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Edmonton--Wetaskiwin
             - Edmonton--Wetaskiwin
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55735,11 +55720,11 @@ MonoBehaviour:
               totalVotes: 85093
             unassignedConstituencyCount: 0
           - id: 48022
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Foothills
             - Foothills
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -55871,11 +55856,11 @@ MonoBehaviour:
               totalVotes: 64290
             unassignedConstituencyCount: 0
           - id: 48023
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Fort McMurray--Cold Lake
             - Fort McMurray--Cold Lake
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56007,11 +55992,11 @@ MonoBehaviour:
               totalVotes: 49680
             unassignedConstituencyCount: 0
           - id: 48024
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Grande Prairie--Mackenzie
             - Grande Prairie--Mackenzie
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56143,11 +56128,11 @@ MonoBehaviour:
               totalVotes: 59936
             unassignedConstituencyCount: 0
           - id: 48025
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lakeland
             - Lakeland
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56327,11 +56312,11 @@ MonoBehaviour:
               totalVotes: 56573
             unassignedConstituencyCount: 0
           - id: 48026
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Lethbridge
             - Lethbridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56487,11 +56472,11 @@ MonoBehaviour:
               totalVotes: 63339
             unassignedConstituencyCount: 0
           - id: 48027
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Medicine Hat--Cardston--Warner
             - Medicine Hat--Cardston--Warner
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56647,11 +56632,11 @@ MonoBehaviour:
               totalVotes: 52334
             unassignedConstituencyCount: 0
           - id: 48028
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Peace River--Westlock
             - Peace River--Westlock
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56783,11 +56768,11 @@ MonoBehaviour:
               totalVotes: 50945
             unassignedConstituencyCount: 0
           - id: 48029
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Red Deer--Mountain View
             - Red Deer--Mountain View
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -56919,11 +56904,11 @@ MonoBehaviour:
               totalVotes: 67277
             unassignedConstituencyCount: 0
           - id: 48030
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Red Deer--Lacombe
             - Red Deer--Lacombe
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57055,11 +57040,11 @@ MonoBehaviour:
               totalVotes: 65950
             unassignedConstituencyCount: 0
           - id: 48031
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - St. Albert--Edmonton
             - St. Albert--Edmonton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57215,11 +57200,11 @@ MonoBehaviour:
               totalVotes: 63850
             unassignedConstituencyCount: 0
           - id: 48032
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sherwood Park--Fort Saskatchewan
             - Sherwood Park--Fort Saskatchewan
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57375,11 +57360,11 @@ MonoBehaviour:
               totalVotes: 71938
             unassignedConstituencyCount: 0
           - id: 48033
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Sturgeon River--Parkland
             - Sturgeon River--Parkland
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57535,11 +57520,11 @@ MonoBehaviour:
               totalVotes: 67231
             unassignedConstituencyCount: 0
           - id: 48034
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Yellowhead
             - Yellowhead
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57726,20 +57711,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: BC
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - BRITISH COLUMBIA
           - COLOMBIE-BRITANNIQUE
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 59001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Abbotsford
             - Abbotsford
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -57895,11 +57880,11 @@ MonoBehaviour:
               totalVotes: 48548
             unassignedConstituencyCount: 0
           - id: 59002
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Burnaby North--Seymour
             - Burnaby-Nord--Seymour
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58079,11 +58064,11 @@ MonoBehaviour:
               totalVotes: 48988
             unassignedConstituencyCount: 0
           - id: 59003
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Burnaby South
             - Burnaby-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58263,11 +58248,11 @@ MonoBehaviour:
               totalVotes: 44701
             unassignedConstituencyCount: 0
           - id: 59004
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cariboo--Prince George
             - Cariboo--Prince George
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58423,11 +58408,11 @@ MonoBehaviour:
               totalVotes: 54126
             unassignedConstituencyCount: 0
           - id: 59005
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Central Okanagan--Similkameen--Nicola
             - Central Okanagan--Similkameen--Nicola
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58583,11 +58568,11 @@ MonoBehaviour:
               totalVotes: 63436
             unassignedConstituencyCount: 0
           - id: 59006
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Chilliwack--Hope
             - Chilliwack--Hope
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58767,11 +58752,11 @@ MonoBehaviour:
               totalVotes: 53272
             unassignedConstituencyCount: 0
           - id: 59007
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cloverdale--Langley City
             - Cloverdale--Langley City
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -58903,11 +58888,11 @@ MonoBehaviour:
               totalVotes: 55058
             unassignedConstituencyCount: 0
           - id: 59008
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Coquitlam--Port Coquitlam
             - Coquitlam--Port Coquitlam
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59063,11 +59048,11 @@ MonoBehaviour:
               totalVotes: 56634
             unassignedConstituencyCount: 0
           - id: 59009
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Courtenay--Alberni
             - Courtenay--Alberni
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59199,11 +59184,11 @@ MonoBehaviour:
               totalVotes: 71173
             unassignedConstituencyCount: 0
           - id: 59010
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Cowichan--Malahat--Langford
             - Cowichan--Malahat--Langford
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59359,11 +59344,11 @@ MonoBehaviour:
               totalVotes: 63802
             unassignedConstituencyCount: 0
           - id: 59011
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Delta
             - Delta
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59543,11 +59528,11 @@ MonoBehaviour:
               totalVotes: 53288
             unassignedConstituencyCount: 0
           - id: 59012
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Fleetwood--Port Kells
             - Fleetwood--Port Kells
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59679,11 +59664,11 @@ MonoBehaviour:
               totalVotes: 48194
             unassignedConstituencyCount: 0
           - id: 59013
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kamloops--Thompson--Cariboo
             - Kamloops--Thompson--Cariboo
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -59863,11 +59848,11 @@ MonoBehaviour:
               totalVotes: 71703
             unassignedConstituencyCount: 0
           - id: 59014
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kelowna--Lake Country
             - Kelowna--Lake Country
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60047,11 +60032,11 @@ MonoBehaviour:
               totalVotes: 67865
             unassignedConstituencyCount: 0
           - id: 59015
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Kootenay--Columbia
             - Kootenay--Columbia
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60207,11 +60192,11 @@ MonoBehaviour:
               totalVotes: 66327
             unassignedConstituencyCount: 0
           - id: 59016
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Langley--Aldergrove
             - Langley--Aldergrove
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60367,11 +60352,11 @@ MonoBehaviour:
               totalVotes: 61537
             unassignedConstituencyCount: 0
           - id: 59017
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Mission--Matsqui--Fraser Canyon
             - Mission--Matsqui--Fraser Canyon
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60479,11 +60464,11 @@ MonoBehaviour:
               totalVotes: 45743
             unassignedConstituencyCount: 0
           - id: 59018
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Nanaimo--Ladysmith
             - Nanaimo--Ladysmith
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60711,11 +60696,11 @@ MonoBehaviour:
               totalVotes: 71134
             unassignedConstituencyCount: 0
           - id: 59019
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - New Westminster--Burnaby
             - New Westminster--Burnaby
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -60919,11 +60904,11 @@ MonoBehaviour:
               totalVotes: 52108
             unassignedConstituencyCount: 0
           - id: 59020
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - North Okanagan--Shuswap
             - North Okanagan--Shuswap
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61055,11 +61040,11 @@ MonoBehaviour:
               totalVotes: 73273
             unassignedConstituencyCount: 0
           - id: 59021
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - North Vancouver
             - North Vancouver
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61191,11 +61176,11 @@ MonoBehaviour:
               totalVotes: 61874
             unassignedConstituencyCount: 0
           - id: 59022
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Pitt Meadows--Maple Ridge
             - Pitt Meadows--Maple Ridge
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61351,11 +61336,11 @@ MonoBehaviour:
               totalVotes: 53707
             unassignedConstituencyCount: 0
           - id: 59023
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Port Moody--Coquitlam
             - Port Moody--Coquitlam
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61511,11 +61496,11 @@ MonoBehaviour:
               totalVotes: 52929
             unassignedConstituencyCount: 0
           - id: 59024
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Prince George--Peace River--Northern Rockies
             - Prince George--Peace River--Northern Rockies
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61607,11 +61592,11 @@ MonoBehaviour:
               totalVotes: 54597
             unassignedConstituencyCount: 0
           - id: 59025
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Richmond Centre
             - Richmond-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -61767,11 +61752,11 @@ MonoBehaviour:
               totalVotes: 38142
             unassignedConstituencyCount: 0
           - id: 59026
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Esquimalt--Saanich--Sooke
             - Esquimalt--Saanich--Sooke
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62023,11 +62008,11 @@ MonoBehaviour:
               totalVotes: 69003
             unassignedConstituencyCount: 0
           - id: 59027
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Saanich--Gulf Islands
             - Saanich--Gulf Islands
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62159,11 +62144,11 @@ MonoBehaviour:
               totalVotes: 66309
             unassignedConstituencyCount: 0
           - id: 59028
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Skeena--Bulkley Valley
             - Skeena--Bulkley Valley
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62367,11 +62352,11 @@ MonoBehaviour:
               totalVotes: 40795
             unassignedConstituencyCount: 0
           - id: 59029
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - South Okanagan--West Kootenay
             - Okanagan-Sud--Kootenay-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62527,11 +62512,11 @@ MonoBehaviour:
               totalVotes: 66761
             unassignedConstituencyCount: 0
           - id: 59030
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - South Surrey--White Rock
             - Surrey-Sud--White Rock
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62663,11 +62648,11 @@ MonoBehaviour:
               totalVotes: 57120
             unassignedConstituencyCount: 0
           - id: 59031
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Steveston--Richmond East
             - Steveston--Richmond-Est
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -62799,11 +62784,11 @@ MonoBehaviour:
               totalVotes: 41084
             unassignedConstituencyCount: 0
           - id: 59032
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Surrey Centre
             - Surrey-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63007,11 +62992,11 @@ MonoBehaviour:
               totalVotes: 40825
             unassignedConstituencyCount: 0
           - id: 59033
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Surrey--Newton
             - Surrey--Newton
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63143,11 +63128,11 @@ MonoBehaviour:
               totalVotes: 40658
             unassignedConstituencyCount: 0
           - id: 59034
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver Centre
             - Vancouver-Centre
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63351,11 +63336,11 @@ MonoBehaviour:
               totalVotes: 52950
             unassignedConstituencyCount: 0
           - id: 59035
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver East
             - Vancouver-Est
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63559,11 +63544,11 @@ MonoBehaviour:
               totalVotes: 54222
             unassignedConstituencyCount: 0
           - id: 59036
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver Granville
             - Vancouver Granville
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63719,11 +63704,11 @@ MonoBehaviour:
               totalVotes: 51202
             unassignedConstituencyCount: 0
           - id: 59037
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - North Island--Powell River
             - North Island--Powell River
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -63847,11 +63832,11 @@ MonoBehaviour:
               totalVotes: 62126
             unassignedConstituencyCount: 0
           - id: 59038
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver Kingsway
             - Vancouver Kingsway
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64031,11 +64016,11 @@ MonoBehaviour:
               totalVotes: 43251
             unassignedConstituencyCount: 0
           - id: 59039
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver Quadra
             - Vancouver Quadra
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64191,11 +64176,11 @@ MonoBehaviour:
               totalVotes: 49314
             unassignedConstituencyCount: 0
           - id: 59040
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Vancouver South
             - Vancouver-Sud
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64327,11 +64312,11 @@ MonoBehaviour:
               totalVotes: 42407
             unassignedConstituencyCount: 0
           - id: 59041
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Victoria
             - Victoria
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64559,11 +64544,11 @@ MonoBehaviour:
               totalVotes: 70073
             unassignedConstituencyCount: 0
           - id: 59042
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - West Vancouver--Sunshine Coast--Sea to Sky Country
             - West Vancouver--Sunshine Coast--Sea to Sky Country
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64750,20 +64735,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: YT
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - Yukon
           - Yukon
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 60001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Yukon
             - Yukon
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -64902,20 +64887,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: NT
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - THE NORTHWEST TERRITORIES
           - Territoires du Nord-Ouest
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 61001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Northwest Territories
             - Territoires du Nord-Ouest
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -65014,20 +64999,20 @@ MonoBehaviour:
             totalVotes: 0
           unassignedConstituencyCount: 0
         - id: NU
-          borderType: 
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
           - Nunavut
           - Nunavut
+          isAssignable: 1
           isRiding: 0
           isAssigned: 0
           subLists:
           - id: 62001
-            borderType: 
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
             - Nunavut
             - Nunavut
+            isAssignable: 1
             isRiding: 1
             isAssigned: 0
             subLists: []
@@ -65117,11 +65102,11 @@ MonoBehaviour:
           totalVotes: 0
         unassignedConstituencyCount: 0
       - id: USA
-        borderType: 
         color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
         names:
         - U.S.A.
         - U.S.A.
+        isAssignable: 1
         isRiding: 0
         isAssigned: 0
         subLists: []
@@ -65140,10 +65125,10 @@ MonoBehaviour:
         totalVotes: 0
       unassignedConstituencyCount: 0
     - id: Water
-      borderType: 
       color: {r: 0.5855287, g: 0.92050815, b: 0.9622642, a: 1}
       names:
       - Water
+      isAssignable: 1
       isRiding: 0
       isAssigned: 0
       subLists: []
@@ -65162,7 +65147,7 @@ MonoBehaviour:
       totalVotes: 0
     unassignedConstituencyCount: 0
   borderColors:
-  - {r: 0.49803925, g: 0.49803925, b: 0.49803925, a: 0}
+  - {r: 0.027634397, g: 0.028301895, b: 0.027711416, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 1}
   - {r: 1, g: 0.9858491, b: 0.9858491, a: 1}
@@ -66458,9 +66443,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   regionList:
     id: 
-    borderType: 
     color: {r: 0, g: 0, b: 0, a: 0}
     names: []
+    isAssignable: 1
     isRiding: 0
     isAssigned: 0
     subLists: []

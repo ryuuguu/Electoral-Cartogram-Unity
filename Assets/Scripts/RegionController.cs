@@ -217,9 +217,10 @@ public class RegionController : MonoBehaviour {
 [System.Serializable]
 public class RegionList {
     public string id;
-    public string borderType;
+    //public string borderType;
     public Color color;
     public List<string> names;
+    public bool isAssignable = true; 
     public bool isRiding;
     public bool isAssigned;
     public List<RegionList> subLists;
@@ -255,7 +256,7 @@ public class RegionList {
             hrl.unassignedConstituencyCount += incr;
         }
     }
-    
+    /*
     /// <summary>
     /// used to make a deep copy of the region list in the editor to one that does not show in the editor
     /// Editor has problem with deep trees with a larger number of nodes
@@ -270,7 +271,7 @@ public class RegionList {
         // then shallow copy sublists
         RegionList result = new RegionList();
         result.id = rl.id;
-        result.borderType = rl.borderType;
+        //result.borderType = rl.borderType;
         result.color = rl.color;
         result.names = rl.names;
         result.isRiding = rl.isRiding;
@@ -285,6 +286,7 @@ public class RegionList {
         }
         return result;
     }
+    */
     
     /// <summary>
     /// Makes a HierarchyList from anId

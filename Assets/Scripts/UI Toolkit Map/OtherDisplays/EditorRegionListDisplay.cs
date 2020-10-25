@@ -33,6 +33,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     }
     
     public static VisualElement regionListDisplay;
+    public static Button setHexButton;
     public static float indentIncr = 10;
 
     public static ListView listView;
@@ -90,12 +91,24 @@ public class EditorRegionListDisplay : MonoBehaviour {
     }
 
     public static void Clicked(RegionListRecord rlr) {
-        bindRegionRecord(currentRegionDisplay, rlr);
+
         var rl = RegionController.Find(rlr.id);
         if (!rl.isRiding) {
             currentExpandedRegionList = rl;
         }
-        UitRegionEditor.currentRegionList = currentExpandedRegionList;
+
+        if (rl.isAssignable) {
+            UitRegionEditor.currentRegionList = rl;
+            bindRegionRecord(currentRegionDisplay, rlr);
+            setHexButton.SetEnabled(true);
+        }
+        else {
+            UitRegionEditor.currentRegionList = null;
+            currentRegionDisplay.Clear();
+            setHexButton.SetEnabled(false);
+        }
+        
+        
         resetItems();
     }
     
@@ -112,7 +125,8 @@ public class EditorRegionListDisplay : MonoBehaviour {
         treeDetailDisplay.CloneTree(regionListDisplay);
         
         currentRegionDisplay = regionListDisplay.Q(VECurrentRegion);
-        regionListDisplay.Q<Button>(VESetHex).clicked += () => { UitRegionEditor.ButtonSetHex(); };
+        setHexButton = regionListDisplay.Q<Button>(VESetHex);
+        setHexButton.clicked += UitRegionEditor.ButtonSetHex;
         
         listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();
