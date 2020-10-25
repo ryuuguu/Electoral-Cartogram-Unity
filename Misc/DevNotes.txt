@@ -6,13 +6,13 @@
         to put items at end
     
 NOW	         
-   
-   start not in edit mode  
-   
-    Set selected reigon in UitRegionEditor
+    
+    Set selected region in UitRegionEditor
         on button click
     
-    "OK" assigns region
+    "set" assigns region
+        just clicking on riding is assigning
+        things are appearing white
         
        
     next make editor in Uit

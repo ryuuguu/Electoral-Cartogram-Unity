@@ -11,6 +11,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public const string VERegionColor = "RegionColor";
     public const string VEConstituencyCount = "ConstituencyCount";
     public const string VECurrentRegion = "CurrentRegion";
+    public const string VESetHex = "SetHex";
     
     public const string VTARegionListDisplay = "EditorRegionListDisplay";
     public const string VTARegionListRecord = "RegionListRecord";
@@ -94,9 +95,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         if (!rl.isRiding) {
             currentExpandedRegionList = rl;
         }
-        else {
-            UitRegionEditor.AssignRegion(rl);
-        }
+        UitRegionEditor.currentRegionList = currentExpandedRegionList;
         resetItems();
     }
     
@@ -113,6 +112,8 @@ public class EditorRegionListDisplay : MonoBehaviour {
         treeDetailDisplay.CloneTree(regionListDisplay);
         
         currentRegionDisplay = regionListDisplay.Q(VECurrentRegion);
+        regionListDisplay.Q<Button>(VESetHex).clicked += () => { UitRegionEditor.ButtonSetHex(); };
+        
         listView = regionListDisplay.Q<ListView>();
         items = new List<RegionListRecord>();
         

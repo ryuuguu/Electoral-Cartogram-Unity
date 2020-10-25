@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UitRegionEditor : MonoBehaviour {
     public float indent;
-    public RegionList selectedRegionList;
+    public static RegionList currentRegionList;
     
     //Uit Version
 
@@ -54,8 +54,8 @@ public class UitRegionEditor : MonoBehaviour {
     }
 
     
-    public static void ButtonOK() {
-        AssignRegion(inst.selectedRegionList);
+    public static void ButtonSetHex() {
+        AssignRegion(currentRegionList);
     }
 
      public void ButtonCancel() {
@@ -79,7 +79,7 @@ public class UitRegionEditor : MonoBehaviour {
          // 
          var regionId = UitHexGridMap.ChangeMapData(inst.selectedCoord, rl);
          var oldRL = RegionController.inst.regionList.Find(regionId);
-         if (oldRL.isRiding && regionId != rl.id) {
+         if (oldRL != null && oldRL.isRiding && regionId != rl.id) {
              oldRL.AssignConstituency(false);
          }
 
@@ -108,29 +108,5 @@ public class UitRegionEditor : MonoBehaviour {
          HexMarker.MoveTo(coord);
          inst.selectedCoord = coord;
      }
-     
-     public void Redraw() {
-         /*
-         if (!GameController.inst.isEditMode) return;
-         var hList =topLine.regionList.hierarchyList;
-         if (hList == null) return;
-         RegionEditLine currentRel = null;
-         var parent = topLine.transform.parent;
-         foreach (var rl in hList) {
-             var rels = transform.parent.GetComponentsInChildren<RegionEditLine>();
-             for (int i = 0; i < rels.Length; i++) {
-                 var rel = rels[i];
-                 if (rel.regionList == rl) {
-                     currentRel = rel;
-                     currentRel.ButtonPressed();
-                 }
-             }
-         }
-
-         SetPos(currentRel);
-         */
-     }
-
-    
      
 }
