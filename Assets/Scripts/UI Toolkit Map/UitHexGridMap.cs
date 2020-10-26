@@ -358,6 +358,7 @@ public class UitHexGridMap : MonoBehaviour {
     
     [ContextMenu("test makeMap in edit")]
     public void LoadMakeMap() {
+        RegionController.inst.LoadRegionData();
         LoadMapDataResource();
         MakeMapFromData();
     }

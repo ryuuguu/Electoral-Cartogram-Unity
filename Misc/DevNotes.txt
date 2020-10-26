@@ -7,12 +7,14 @@
     
 NOW	   
     reloadmap
-        clear old map
-        hexes
-            clear hexholder VE
-            clear localSpace CubeCoord
-            clear UitHexGrid
         constinuentcy count
+        
+    still not working 
+        for some reason canda Land and map increas in     
+        
+    need someway to not load regional data but use data in monobehaviour
+        or write editor code to make regional data
+        combined with reading from file from pre-election data  
   
     Save alternate file names
     load alternate file names

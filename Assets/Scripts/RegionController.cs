@@ -32,10 +32,12 @@ public class RegionController : MonoBehaviour {
         //regionList = null;
     }
 
+    /*
     private void Start() {
         if (GameController.inst.isPreloaded) return;
         LoadRegionData();
     }
+    */
     
     [ContextMenu("loadAlldata")]
     public void EditorLoadAlldata() {
@@ -44,7 +46,9 @@ public class RegionController : MonoBehaviour {
     }
     
     public void LoadRegionData() {
-        
+
+
+        ClearInternalLinks(regionList);
         ClearRidings();
         LoadElectoralDistricts();
         PrepareRegionListData();
@@ -61,13 +65,24 @@ public class RegionController : MonoBehaviour {
     /// Set parent
     /// 
     /// </summary>
-    public static void PrepareRegionListData() {
-        inst.regionList.hierarchyList = new List<RegionList>(){inst.regionList};
-        inst.regionList.unassignedConstituencyCount = SetInternalLinks(inst.regionList);
+    public void PrepareRegionListData() {
+        regionList.hierarchyList = new List<RegionList>(){regionList};
+        regionList.unassignedConstituencyCount = SetInternalLinks(regionList);
+    }
+    
+    public static  void ClearInternalLinks(RegionList aRegionList) {
+        inst.rlDict.Clear();
+        if (aRegionList.subLists != null) {
+            foreach (var rl in aRegionList.subLists) {
+                rl.parent = aRegionList;
+                rl.hierarchyList = new List<RegionList>();
+                aRegionList.unassignedConstituencyCount=0;
+                ClearInternalLinks(rl);
+            }
+        }
     }
     
     public static  int SetInternalLinks(RegionList aRegionList) {
-        
         inst.rlDict[aRegionList.id] = aRegionList;
         if (aRegionList.subLists != null) {
             foreach (var rl in aRegionList.subLists) {
@@ -223,7 +238,6 @@ public class RegionList {
     public bool isAssignable = true; 
     public bool isRiding;
     public bool isAssigned;
-    public List<RegionList> subLists;
     //causes loop errors with inspector
     [NonSerialized]
     public List<RegionList> hierarchyList;
@@ -231,6 +245,7 @@ public class RegionList {
     public int population;
     public DistrictResult districtResult;
     public int unassignedConstituencyCount = 0;
+    public List<RegionList> subLists;
     
     public RegionList Find(string anId) {
         if (anId == id) return this;
@@ -246,6 +261,7 @@ public class RegionList {
     }
     
     public void AssignConstituency(bool assign) {
+        Debug.Log("AssignConstituency: " + id + " : " + assign);
         isAssigned = assign;
         int incr = 1;
         if (assign) {
