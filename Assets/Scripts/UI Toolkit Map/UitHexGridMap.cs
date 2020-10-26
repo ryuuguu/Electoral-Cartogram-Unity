@@ -94,6 +94,7 @@ public class UitHexGridMap : MonoBehaviour {
         markerLayer.transform.position = holderPosition;
         mapLayer.Add(markerLayer); 
         markerLayer.Add(hexMarker);
+        
         HexMarker.MoveTo(new Vector3(29,-8,-21)); 
         
         
@@ -189,12 +190,11 @@ public class UitHexGridMap : MonoBehaviour {
     public void SetEditMode(bool val) {
         GameController.inst.isEditMode = val;
         editorRegionList.visible = val;
+        /*
         if (val) {
             MouseDown((inst.mapGrid.mapSize / 2)-(Vector2)overlayLayer.transform.position);
         }
-        else {
-            HexMarker.Show(false);
-        }
+       */
     }
     
     private void MouseOver(MouseMoveEvent e) {
@@ -218,19 +218,18 @@ public class UitHexGridMap : MonoBehaviour {
 
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
             new Vector2(-0.5f,-0.5f));//hack: not centered cell 
-        //Debug.Log("MouseDown: "+ cubeCoord + " : " + localMousePosition);
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 ElectoralDistrictDisplay.SetRegionList(regionList);
             }
-            
         }
-
+        HexMarker.MoveTo(cubeCoord);
         if (GameController.inst.isEditMode) {
             
             UitRegionEditor.SetMapCellActive(cubeCoord);
-            float mapSpaceX =  localMousePosition.x / mapGrid.mapSize.x;
+            // offset is not implemented so reseult is off by a hex row
+            float mapSpaceX =  mapGrid.Coord2Position(cubeCoord,Vector2.zero).x/ mapGrid.mapSize.x;
 
             if (mapSpaceX > 0.55f) {
                 MoveEditor(editorRegionList,false);
@@ -330,6 +329,7 @@ public class UitHexGridMap : MonoBehaviour {
         if (delayMapBuild == 0) {
             MapBuild();
             ShowVotes(true);
+            MouseDown((inst.mapGrid.mapSize / 2)-(Vector2)overlayLayer.transform.position);
         }
         
         

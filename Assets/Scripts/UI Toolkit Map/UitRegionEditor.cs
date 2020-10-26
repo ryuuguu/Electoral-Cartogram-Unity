@@ -92,7 +92,6 @@ public class UitRegionEditor : MonoBehaviour {
      
      
      public static void SetMapCellActive(Vector3 coord) {
-         HexMarker.Show(true);
          HexMarker.MoveTo(coord);
          inst.selectedCoord = coord;
      }

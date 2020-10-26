@@ -10,6 +10,11 @@ NOW
     show hex marker in non edit mode
     select center hax
       
+    in UitHexGridMap.Moveto(coord)
+        reverse Position2Coord(localMousePosition
+        to mouseposti0n from Coord  
+           deciding if on right or left side of the board
+      
     arrow keys 
        move selected hex around   
         
