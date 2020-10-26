@@ -6,11 +6,10 @@
         to put items at end
     
 NOW	   
-    reloadmap
-        constinuentcy count
+    
         
-    still not working 
-        for some reason canda Land and map increas in     
+    Constituency not up date on screen after assigning a hex
+    need to refresh     
         
     need someway to not load regional data but use data in monobehaviour
         or write editor code to make regional data

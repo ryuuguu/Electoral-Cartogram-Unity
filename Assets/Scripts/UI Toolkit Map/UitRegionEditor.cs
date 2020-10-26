@@ -50,6 +50,7 @@ public class UitRegionEditor : MonoBehaviour {
 
     public static void ButtonReloadMap() {
         UitHexGridMap.inst.LoadMakeMap();
+        EditorRegionListDisplay.resetItems();
     }
 
     public static void ButtonSaveMap() {
@@ -58,6 +59,7 @@ public class UitRegionEditor : MonoBehaviour {
     
     public static void ButtonSetHex() {
         AssignRegion(currentRegionList);
+        EditorRegionListDisplay.resetItems();
     }
 
     public static void AssignRegion(RegionList rl) {

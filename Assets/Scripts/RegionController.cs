@@ -261,7 +261,6 @@ public class RegionList {
     }
     
     public void AssignConstituency(bool assign) {
-        Debug.Log("AssignConstituency: " + id + " : " + assign);
         isAssigned = assign;
         int incr = 1;
         if (assign) {
