@@ -5,27 +5,30 @@
     how to change layout inside flexbox
         to put items at end
     
-NOW	   
-    
+NOW	 
+
+    show hex marker in non edit mode
+    select center hax
+      
+    arrow keys 
+       move selected hex around   
         
-    Constituency not up date on screen after assigning a hex
-    need to refresh     
-        
-    need someway to not load regional data but use data in monobehaviour
-        or write editor code to make regional data
-        combined with reading from file from pre-election data  
-  
     Save alternate file names
+        get list of filenames from method
+                    struct name plus fixed path
+                show list
+                select name struct 
+                or enter new name
     load alternate file names
+        get list of filenames from method
+            struct name plus fixed path
+        show list
+        select name struct 
+            save to there
+            
           
     next make editor in Uit
-
-        savemap button
-            save map to file
-        restore map
-            load map from file
-                                
-    
+                             
         editor needs to make map data
             region levels
             region text overlay
@@ -38,9 +41,7 @@ NOW
                 region scroll list Panel
                     arrow keys 
                         move selected hex around
-                    buttons 
-                        save map ??
-                        reload map ??
+
                                              
         party color data
             include use other color
@@ -48,18 +49,17 @@ NOW
     
     when editor and same map done
     
-    remove old uGUI code
-    clean bugs related to not using data
-    
-    clean code over all
-        obviously commented problems
-        remove all names from code and use constant file
-    
-    if I split off may lose editor stuff
-    so need copy here
-   
-    Commit to keep UGUI version so I can look at editor stuff later
-    
+        remove old uGUI code
+        clean bugs related to not using data
+        
+        clean code over all
+            obviously commented problems
+            remove all names from code and use constant file
+        
+        if I split off may lose editor stuff
+        so need copy here
+       
+        
    
 LATER
 
