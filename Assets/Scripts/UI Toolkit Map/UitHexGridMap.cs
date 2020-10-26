@@ -354,15 +354,12 @@ public class UitHexGridMap : MonoBehaviour {
     
     public void MapBuild() {
         LoadMakeMap();
-        
     }
     
     [ContextMenu("test makeMap in edit")]
     public void LoadMakeMap() {
         LoadMapDataResource();
         MakeMapFromData();
-       
-        
     }
     
     
@@ -444,8 +441,19 @@ public class UitHexGridMap : MonoBehaviour {
         Debug.Log("Map data is changed but not saved"); 
         return result;
     }
+
+    public void ClearMap() {
+        //clear hexholder VE
+        hexLayer.Clear();
+        borderLayer.Clear();
+        
+        //clear UitHexGrid 
+        mapGrid.hexes.Clear();
+        
+    }
     
     public void MakeMapFromData() {
+        ClearMap();
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {
@@ -460,8 +468,7 @@ public class UitHexGridMap : MonoBehaviour {
             else {
                 Debug.Log("Region not found: "+ cd.regionID );
             }
-        } 
-        mapGrid.MakeAllHexes(mapGrid.localSpaceId);
+        }
         uitHexBorderGrid.borderHolder.Clear();
        
         foreach (var mapCell in cellDict.Values) {

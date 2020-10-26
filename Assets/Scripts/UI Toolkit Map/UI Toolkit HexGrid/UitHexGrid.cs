@@ -115,24 +115,7 @@ public class UitHexGrid : MonoBehaviour {
         return MakeHex(coord, location, scale, aHolder);
     }
 
-    /// <summary>
-    /// Make All hexes in a local space
-    /// </summary>
-    /// <param name="aLocalSpaceId"></param>
-    public void MakeAllHexes(string aLocalSpaceId) {
-        var allCoords = cubeCoordinates.GetCoordinatesFromContainer(AllToken);
-        
-        if (!hexes.ContainsKey(localSpaceId)) {
-            hexes[aLocalSpaceId] = new Dictionary<Vector3, UitHex>();
-        }
-
-        foreach (var coord in allCoords) {
-            var hex = MakeHex(coord.cubeCoord, hexHolder);
-            hexes[aLocalSpaceId][coord.cubeCoord] = hex;
-        }
-
-    }
-
+    
     /// <summary>
     /// setup location specific parts of the hex
     /// </summary>

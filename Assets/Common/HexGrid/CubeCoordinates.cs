@@ -78,7 +78,7 @@ namespace Com.Ryuuguu.HexGridCC {
         }
 
         // Destroys all coordinates and entries
-        protected void Clear() {
+        public void Clear() {
             ClearAllCoordinateContainers();
         }
 

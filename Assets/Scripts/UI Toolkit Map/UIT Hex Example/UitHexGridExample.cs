@@ -21,7 +21,7 @@ public class UitHexGridExample : UitHexGrid {
         //make a hex or hexes 
         // FYI Construct returns a list of the hexes it makes as well as storing them in the local space
         cubeCoordinates.Construct(superHexRadius);
-        MakeAllHexes(localSpaceId);
+        
         foreach (var hex in hexes[localSpaceId].Values) {
             hex.style.backgroundImage = cellBackground;
             hex.style.unityBackgroundImageTintColor = Color.red;
