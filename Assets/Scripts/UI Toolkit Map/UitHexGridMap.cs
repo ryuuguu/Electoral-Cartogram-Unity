@@ -37,9 +37,9 @@ public class UitHexGridMap : MonoBehaviour {
     protected VisualElement hexMarker;
     protected VisualElement editorRegionList;
 
-    public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>(); 
-    
-    private VisualTreeAsset dummy;
+    public static Dictionary<Vector3,UitHexGridMapCell> cellDict = new Dictionary<Vector3, UitHexGridMapCell>();
+
+    protected bool currentVotes;
     
     private int delayMapBuild = 1;
     private int delayMaplayout = -2;
@@ -352,6 +352,7 @@ public class UitHexGridMap : MonoBehaviour {
         votes.ForEach(element => element.visible = on);
         var seat = hexLayer.Query<VisualElement>(className:  UitHexGridMapCell.SEATClass);
         seat.ForEach(element => element.visible = !on);
+        currentVotes = on;
     }
     
     public void MapBuild() {
@@ -363,6 +364,7 @@ public class UitHexGridMap : MonoBehaviour {
         RegionController.inst.LoadRegionData();
         LoadMapDataResource();
         MakeMapFromData();
+        ShowVotes(currentVotes);
     }
     
     
