@@ -10,19 +10,12 @@ NOW
     put arrow key stuff in input class    
     arrow keys 
        move selected hex around 
+       use bounds
        
-    how to check if cell is in bounds
-        how to define bounds
-        rectangular bounds
-        check cubeCoord in rectangular bounds
-        
-    what are bounds for Canada map
-        where are they stored
+    if out of bounds do not draw?
+        if in bounds setto defualt?
       
-    in UitHexGridMap.Moveto(coord)
-        reverse Position2Coord(localMousePosition
-        to mouseposti0n from Coord  
-           deciding if on right or left side of the board
+   
       
   
         

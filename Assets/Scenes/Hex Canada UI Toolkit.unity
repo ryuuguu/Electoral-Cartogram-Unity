@@ -435,7 +435,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 0
-  selectedCoord: {x: 0, y: 0, z: 0}
 --- !u!1 &45764359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,6 +2534,12 @@ MonoBehaviour:
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   subHexScale: 1.1
   mapSize: {x: 1600, y: 850}
+  mapCubeRect:
+    serializedVersion: 2
+    x: 0
+    y: -3
+    width: 55
+    height: 23
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0
@@ -3809,7 +3814,6 @@ MonoBehaviour:
     isAssignable: 1
     isRiding: 0
     isAssigned: 0
-    subLists: []
     population: 0
     districtResult:
       regionId: 
@@ -3817,6 +3821,7 @@ MonoBehaviour:
       rawCandidateResults: []
       totalVotes: 0
     unassignedConstituencyCount: 0
+    subLists: []
   region_1_name: {fileID: 1801641271}
   districtName: {fileID: 697271338}
   winner: {fileID: 802656847}
@@ -4529,7 +4534,6 @@ MonoBehaviour:
     isAssignable: 1
     isRiding: 0
     isAssigned: 0
-    subLists: []
     population: 0
     districtResult:
       regionId: 
@@ -4537,6 +4541,7 @@ MonoBehaviour:
       rawCandidateResults: []
       totalVotes: 0
     unassignedConstituencyCount: 0
+    subLists: []
   showAssigned: 0
   mapCell: {fileID: 0}
   scrollRect: {fileID: 1505805338}
@@ -8127,6 +8132,8 @@ MonoBehaviour:
   regionListWidth: 500
   regionListHeight: 600
   mapVEOffset: {x: 0, y: 700, z: 0}
+  selectedCoord: {x: 0, y: 0, z: 0}
+  showDebugToolTip: 1
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8795,6 +8802,13 @@ MonoBehaviour:
     isAssignable: 0
     isRiding: 0
     isAssigned: 0
+    population: 0
+    districtResult:
+      regionId: 
+      candidateResults: []
+      rawCandidateResults: []
+      totalVotes: 0
+    unassignedConstituencyCount: 0
     subLists:
     - id: Land
       color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
@@ -8804,6 +8818,13 @@ MonoBehaviour:
       isAssignable: 0
       isRiding: 0
       isAssigned: 0
+      population: 0
+      districtResult:
+        regionId: 
+        candidateResults: []
+        rawCandidateResults: []
+        totalVotes: 0
+      unassignedConstituencyCount: 0
       subLists:
       - id: Canada
         color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -8813,6 +8834,13 @@ MonoBehaviour:
         isAssignable: 0
         isRiding: 0
         isAssigned: 0
+        population: 0
+        districtResult:
+          regionId: 
+          candidateResults: []
+          rawCandidateResults: []
+          totalVotes: 0
+        unassignedConstituencyCount: 0
         subLists:
         - id: NL
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
@@ -8822,6 +8850,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 10001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -8831,7 +8866,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 86494
             districtResult:
               regionId: 10001
@@ -8935,6 +8969,7 @@ MonoBehaviour:
                 percentVotes: 17.3
               totalVotes: 40457
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -8943,7 +8978,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 74116
             districtResult:
               regionId: 10002
@@ -9015,6 +9049,7 @@ MonoBehaviour:
                 percentVotes: 39.5
               totalVotes: 32173
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9023,7 +9058,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 77680
             districtResult:
               regionId: 10003
@@ -9127,6 +9161,7 @@ MonoBehaviour:
                 percentVotes: 4
               totalVotes: 32924
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9135,7 +9170,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 27197
             districtResult:
               regionId: 10004
@@ -9207,6 +9241,7 @@ MonoBehaviour:
                 percentVotes: 42.3
               totalVotes: 11389
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9215,7 +9250,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 86553
             districtResult:
               regionId: 10005
@@ -9303,6 +9337,7 @@ MonoBehaviour:
                 percentVotes: 19.8
               totalVotes: 38385
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9311,7 +9346,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 85697
             districtResult:
               regionId: 10006
@@ -9415,6 +9449,7 @@ MonoBehaviour:
                 percentVotes: 33.2
               totalVotes: 45130
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 10007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9423,7 +9458,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 81979
             districtResult:
               regionId: 10007
@@ -9575,13 +9609,7 @@ MonoBehaviour:
                 percentVotes: 0.8
               totalVotes: 39514
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: PE
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -9590,6 +9618,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 11001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -9599,7 +9634,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 36615
             districtResult:
               regionId: 11001
@@ -9727,6 +9761,7 @@ MonoBehaviour:
                 percentVotes: 6.7
               totalVotes: 21697
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 11002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9735,7 +9770,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 36094
             districtResult:
               regionId: 11002
@@ -9863,6 +9897,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 19252
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 11003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9871,7 +9906,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 34168
             districtResult:
               regionId: 11003
@@ -9975,6 +10009,7 @@ MonoBehaviour:
                 percentVotes: 39.7
               totalVotes: 19058
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 11004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -9983,7 +10018,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 36030
             districtResult:
               regionId: 11004
@@ -10087,13 +10121,7 @@ MonoBehaviour:
                 percentVotes: 25.6
               totalVotes: 23030
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: NS
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -10102,6 +10130,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 12001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -10111,7 +10146,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 71913
             districtResult:
               regionId: 12001
@@ -10231,6 +10265,7 @@ MonoBehaviour:
                 percentVotes: 15
               totalVotes: 41857
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -10239,7 +10274,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 71962
             districtResult:
               regionId: 12002
@@ -10415,6 +10449,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 44559
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -10423,7 +10458,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 80590
             districtResult:
               regionId: 12003
@@ -10623,6 +10657,7 @@ MonoBehaviour:
                 percentVotes: 36.7
               totalVotes: 45450
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -10631,7 +10666,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 92301
             districtResult:
               regionId: 12004
@@ -10759,6 +10793,7 @@ MonoBehaviour:
                 percentVotes: 27
               totalVotes: 52585
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -10767,7 +10802,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94610
             districtResult:
               regionId: 12005
@@ -10919,6 +10953,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 54489
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -10927,7 +10962,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 96255
             districtResult:
               regionId: 12006
@@ -11031,6 +11065,7 @@ MonoBehaviour:
                 percentVotes: 12.1
               totalVotes: 54356
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -11039,7 +11074,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 83465
             districtResult:
               regionId: 12007
@@ -11215,6 +11249,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 48035
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -11223,7 +11258,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 86498
             districtResult:
               regionId: 12008
@@ -11351,6 +11385,7 @@ MonoBehaviour:
                 percentVotes: 23.9
               totalVotes: 49563
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -11359,7 +11394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 91830
             districtResult:
               regionId: 12009
@@ -11583,6 +11617,7 @@ MonoBehaviour:
                 percentVotes: 11.6
               totalVotes: 52521
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -11591,7 +11626,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 72148
             districtResult:
               regionId: 12010
@@ -11767,6 +11801,7 @@ MonoBehaviour:
                 percentVotes: 27.7
               totalVotes: 40576
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 12011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -11775,7 +11810,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82026
             districtResult:
               regionId: 12011
@@ -11903,13 +11937,7 @@ MonoBehaviour:
                 percentVotes: 39.3
               totalVotes: 46846
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: NB
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -11918,6 +11946,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 13001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -11927,7 +11962,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 77791
             districtResult:
               regionId: 13001
@@ -12031,6 +12065,7 @@ MonoBehaviour:
                 percentVotes: 14.5
               totalVotes: 48097
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12039,7 +12074,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82292
             districtResult:
               regionId: 13002
@@ -12167,6 +12201,7 @@ MonoBehaviour:
                 percentVotes: 26.6
               totalVotes: 53630
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12175,7 +12210,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 83303
             districtResult:
               regionId: 13003
@@ -12375,6 +12409,7 @@ MonoBehaviour:
                 percentVotes: 6
               totalVotes: 46841
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12383,7 +12418,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 79943
             districtResult:
               regionId: 13004
@@ -12559,6 +12593,7 @@ MonoBehaviour:
                 percentVotes: 9.9
               totalVotes: 47192
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12567,7 +12602,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 60378
             districtResult:
               regionId: 13005
@@ -12671,6 +12705,7 @@ MonoBehaviour:
                 percentVotes: 28.4
               totalVotes: 34535
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12679,7 +12714,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 57405
             districtResult:
               regionId: 13006
@@ -12855,6 +12889,7 @@ MonoBehaviour:
                 percentVotes: 3.4
               totalVotes: 34597
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -12863,7 +12898,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 92666
             districtResult:
               regionId: 13007
@@ -13039,6 +13073,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 51943
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13047,7 +13082,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 65287
             districtResult:
               regionId: 13008
@@ -13199,6 +13233,7 @@ MonoBehaviour:
                 percentVotes: 49.1
               totalVotes: 39648
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13207,7 +13242,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 79363
             districtResult:
               regionId: 13009
@@ -13383,6 +13417,7 @@ MonoBehaviour:
                 percentVotes: 34
               totalVotes: 41254
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 13010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13391,7 +13426,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 68673
             districtResult:
               regionId: 13010
@@ -13519,13 +13553,7 @@ MonoBehaviour:
                 percentVotes: 14.1
               totalVotes: 38146
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: QC
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -13534,6 +13562,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 24001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -13543,7 +13578,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 87787
             districtResult:
               regionId: 24001
@@ -13663,6 +13697,7 @@ MonoBehaviour:
                 percentVotes: 1.1
               totalVotes: 28925
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13671,7 +13706,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103491
             districtResult:
               regionId: 24002
@@ -13823,6 +13857,7 @@ MonoBehaviour:
                 percentVotes: 24.8
               totalVotes: 49753
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13831,7 +13866,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117447
             districtResult:
               regionId: 24003
@@ -13983,6 +14017,7 @@ MonoBehaviour:
                 percentVotes: 21.7
               totalVotes: 54152
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -13991,7 +14026,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101373
             districtResult:
               regionId: 24004
@@ -14191,6 +14225,7 @@ MonoBehaviour:
                 percentVotes: 28.6
               totalVotes: 53954
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -14199,7 +14234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 95781
             districtResult:
               regionId: 24005
@@ -14351,6 +14385,7 @@ MonoBehaviour:
                 percentVotes: 4.8
               totalVotes: 49623
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -14359,7 +14394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 71897
             districtResult:
               regionId: 24006
@@ -14535,6 +14569,7 @@ MonoBehaviour:
                 percentVotes: 7.7
               totalVotes: 35374
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -14543,7 +14578,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108746
             districtResult:
               regionId: 24007
@@ -14719,6 +14753,7 @@ MonoBehaviour:
                 percentVotes: 11.7
               totalVotes: 59125
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -14727,7 +14762,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 96029
             districtResult:
               regionId: 24008
@@ -14903,6 +14937,7 @@ MonoBehaviour:
                 percentVotes: 30.2
               totalVotes: 49532
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -14911,7 +14946,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94588
             districtResult:
               regionId: 24009
@@ -15063,6 +15097,7 @@ MonoBehaviour:
                 percentVotes: 16.1
               totalVotes: 52053
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15071,7 +15106,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114966
             districtResult:
               regionId: 24010
@@ -15247,6 +15281,7 @@ MonoBehaviour:
                 percentVotes: 3
               totalVotes: 64062
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15255,7 +15290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117343
             districtResult:
               regionId: 24011
@@ -15375,6 +15409,7 @@ MonoBehaviour:
                 percentVotes: 6.2
               totalVotes: 68919
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15383,7 +15418,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100371
             districtResult:
               regionId: 24012
@@ -15607,6 +15641,7 @@ MonoBehaviour:
                 percentVotes: 13.8
               totalVotes: 56148
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15615,7 +15650,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101840
             districtResult:
               regionId: 24013
@@ -15815,6 +15849,7 @@ MonoBehaviour:
                 percentVotes: 7.6
               totalVotes: 59116
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15823,7 +15858,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 99787
             districtResult:
               regionId: 24014
@@ -15975,6 +16009,7 @@ MonoBehaviour:
                 percentVotes: 4.9
               totalVotes: 60912
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24015
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -15983,7 +16018,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101032
             districtResult:
               regionId: 24015
@@ -16183,6 +16217,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 39902
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24016
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -16191,7 +16226,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103457
             districtResult:
               regionId: 24016
@@ -16391,6 +16425,7 @@ MonoBehaviour:
                 percentVotes: 0.7
               totalVotes: 61098
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24017
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -16399,7 +16434,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107582
             districtResult:
               regionId: 24017
@@ -16551,6 +16585,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 55981
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24018
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -16559,7 +16594,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 84918
             districtResult:
               regionId: 24018
@@ -16735,6 +16769,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 45376
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24019
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -16743,7 +16778,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107254
             districtResult:
               regionId: 24019
@@ -16895,6 +16929,7 @@ MonoBehaviour:
                 percentVotes: 2.3
               totalVotes: 58544
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24020
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -16903,7 +16938,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 93674
             districtResult:
               regionId: 24020
@@ -17079,6 +17113,7 @@ MonoBehaviour:
                 percentVotes: 2.1
               totalVotes: 50285
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24021
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -17087,7 +17122,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 97887
             districtResult:
               regionId: 24021
@@ -17287,6 +17321,7 @@ MonoBehaviour:
                 percentVotes: 37.2
               totalVotes: 52749
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24022
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -17295,7 +17330,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 81639
             districtResult:
               regionId: 24022
@@ -17471,6 +17505,7 @@ MonoBehaviour:
                 percentVotes: 3.2
               totalVotes: 43268
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24023
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -17479,7 +17514,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105459
             districtResult:
               regionId: 24023
@@ -17655,6 +17689,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 57796
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24024
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -17663,7 +17698,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112866
             districtResult:
               regionId: 24024
@@ -17863,6 +17897,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 51785
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24025
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -17871,7 +17906,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103397
             districtResult:
               regionId: 24025
@@ -18071,6 +18105,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 54315
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24026
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -18079,7 +18114,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 75850
             districtResult:
               regionId: 24026
@@ -18255,6 +18289,7 @@ MonoBehaviour:
                 percentVotes: 7.9
               totalVotes: 38380
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24027
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -18263,7 +18298,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107464
             districtResult:
               regionId: 24027
@@ -18439,6 +18473,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 55174
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24028
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -18447,7 +18482,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106496
             districtResult:
               regionId: 24028
@@ -18671,6 +18705,7 @@ MonoBehaviour:
                 percentVotes: 21.6
               totalVotes: 52162
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24029
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -18679,7 +18714,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103592
             districtResult:
               regionId: 24029
@@ -18855,6 +18889,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 49959
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24030
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -18863,7 +18898,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105419
             districtResult:
               regionId: 24030
@@ -19063,6 +19097,7 @@ MonoBehaviour:
                 percentVotes: 13.6
               totalVotes: 52924
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24031
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19071,7 +19106,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104136
             districtResult:
               regionId: 24031
@@ -19247,6 +19281,7 @@ MonoBehaviour:
                 percentVotes: 58.2
               totalVotes: 57186
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24032
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19255,7 +19290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 89818
             districtResult:
               regionId: 24032
@@ -19407,6 +19441,7 @@ MonoBehaviour:
                 percentVotes: 24.6
               totalVotes: 48863
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24033
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19415,7 +19450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106336
             districtResult:
               regionId: 24033
@@ -19615,6 +19649,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 54899
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24034
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19623,7 +19658,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105496
             districtResult:
               regionId: 24034
@@ -19799,6 +19833,7 @@ MonoBehaviour:
                 percentVotes: 0.6
               totalVotes: 61306
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24035
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19807,7 +19842,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104911
             districtResult:
               regionId: 24035
@@ -19959,6 +19993,7 @@ MonoBehaviour:
                 percentVotes: 25.1
               totalVotes: 53971
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24036
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -19967,7 +20002,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108579
             districtResult:
               regionId: 24036
@@ -20167,6 +20201,7 @@ MonoBehaviour:
                 percentVotes: 0.6
               totalVotes: 58320
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24037
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -20175,7 +20210,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106766
             districtResult:
               regionId: 24037
@@ -20399,6 +20433,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 51632
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24038
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -20407,7 +20442,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113815
             districtResult:
               regionId: 24038
@@ -20607,6 +20641,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 65009
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24039
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -20615,7 +20650,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111835
             districtResult:
               regionId: 24039
@@ -20863,6 +20897,7 @@ MonoBehaviour:
                 percentVotes: 2.8
               totalVotes: 51801
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24040
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -20871,7 +20906,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108003
             districtResult:
               regionId: 24040
@@ -21023,6 +21057,7 @@ MonoBehaviour:
                 percentVotes: 16.3
               totalVotes: 52119
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24041
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21031,7 +21066,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106583
             districtResult:
               regionId: 24041
@@ -21183,6 +21217,7 @@ MonoBehaviour:
                 percentVotes: 39
               totalVotes: 49527
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24042
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21191,7 +21226,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113528
             districtResult:
               regionId: 24042
@@ -21343,6 +21377,7 @@ MonoBehaviour:
                 percentVotes: 6.9
               totalVotes: 63159
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24043
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21351,7 +21386,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108703
             districtResult:
               regionId: 24043
@@ -21527,6 +21561,7 @@ MonoBehaviour:
                 percentVotes: 38.5
               totalVotes: 59239
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24044
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21535,7 +21570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103346
             districtResult:
               regionId: 24044
@@ -21711,6 +21745,7 @@ MonoBehaviour:
                 percentVotes: 40.5
               totalVotes: 61474
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24045
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21719,7 +21754,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117238
             districtResult:
               regionId: 24045
@@ -21871,6 +21905,7 @@ MonoBehaviour:
                 percentVotes: 3.3
               totalVotes: 64767
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24046
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -21879,7 +21914,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 92518
             districtResult:
               regionId: 24046
@@ -22031,6 +22065,7 @@ MonoBehaviour:
                 percentVotes: 19.3
               totalVotes: 39906
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24047
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22039,7 +22074,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 87233
             districtResult:
               regionId: 24047
@@ -22239,6 +22273,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 46628
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24048
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22247,7 +22282,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117652
             districtResult:
               regionId: 24048
@@ -22423,6 +22457,7 @@ MonoBehaviour:
                 percentVotes: 24.9
               totalVotes: 62708
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24049
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22431,7 +22466,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 97811
             districtResult:
               regionId: 24049
@@ -22607,6 +22641,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 58629
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24050
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22615,7 +22650,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107981
             districtResult:
               regionId: 24050
@@ -22791,6 +22825,7 @@ MonoBehaviour:
                 percentVotes: 58
               totalVotes: 54529
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24051
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22799,7 +22834,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 95527
             districtResult:
               regionId: 24051
@@ -22951,6 +22985,7 @@ MonoBehaviour:
                 percentVotes: 16.3
               totalVotes: 50000
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24052
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -22959,7 +22994,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103320
             districtResult:
               regionId: 24052
@@ -23135,6 +23169,7 @@ MonoBehaviour:
                 percentVotes: 24.9
               totalVotes: 42793
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24053
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -23143,7 +23178,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104974
             districtResult:
               regionId: 24053
@@ -23343,6 +23377,7 @@ MonoBehaviour:
                 percentVotes: 1.1
               totalVotes: 48355
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24054
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -23351,7 +23386,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102088
             districtResult:
               regionId: 24054
@@ -23527,6 +23561,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 39201
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24055
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -23535,7 +23570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110750
             districtResult:
               regionId: 24055
@@ -23719,6 +23753,7 @@ MonoBehaviour:
                 percentVotes: 4.3
               totalVotes: 48451
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24056
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -23727,7 +23762,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108587
             districtResult:
               regionId: 24056
@@ -23927,6 +23961,7 @@ MonoBehaviour:
                 percentVotes: 56.4
               totalVotes: 54699
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24057
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -23935,7 +23970,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115531
             districtResult:
               regionId: 24057
@@ -24135,6 +24169,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 60915
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24058
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -24143,7 +24178,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115313
             districtResult:
               regionId: 24058
@@ -24295,6 +24329,7 @@ MonoBehaviour:
                 percentVotes: 19.9
               totalVotes: 63644
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24059
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -24303,7 +24338,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 97143
             districtResult:
               regionId: 24059
@@ -24503,6 +24537,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 54355
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24060
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -24511,7 +24546,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 116066
             districtResult:
               regionId: 24060
@@ -24687,6 +24721,7 @@ MonoBehaviour:
                 percentVotes: 0.8
               totalVotes: 64942
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24061
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -24695,7 +24730,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107242
             districtResult:
               regionId: 24061
@@ -24847,6 +24881,7 @@ MonoBehaviour:
                 percentVotes: 45.3
               totalVotes: 58495
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24062
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -24855,7 +24890,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102346
             districtResult:
               regionId: 24062
@@ -25007,6 +25041,7 @@ MonoBehaviour:
                 percentVotes: 1.5
               totalVotes: 57780
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24063
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25015,7 +25050,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112156
             districtResult:
               regionId: 24063
@@ -25215,6 +25249,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 58578
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24064
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25223,7 +25258,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110677
             districtResult:
               regionId: 24064
@@ -25447,6 +25481,7 @@ MonoBehaviour:
                 percentVotes: 2.3
               totalVotes: 59016
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24065
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25455,7 +25490,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101750
             districtResult:
               regionId: 24065
@@ -25631,6 +25665,7 @@ MonoBehaviour:
                 percentVotes: 3.8
               totalVotes: 55351
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24066
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25639,7 +25674,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102693
             districtResult:
               regionId: 24066
@@ -25791,6 +25825,7 @@ MonoBehaviour:
                 percentVotes: 21.3
               totalVotes: 55543
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24067
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25799,7 +25834,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111190
             districtResult:
               regionId: 24067
@@ -25975,6 +26009,7 @@ MonoBehaviour:
                 percentVotes: 10.7
               totalVotes: 61354
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24068
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -25983,7 +26018,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 98828
             districtResult:
               regionId: 24068
@@ -26159,6 +26193,7 @@ MonoBehaviour:
                 percentVotes: 17.4
               totalVotes: 39629
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24069
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -26167,7 +26202,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113212
             districtResult:
               regionId: 24069
@@ -26367,6 +26401,7 @@ MonoBehaviour:
                 percentVotes: 2.6
               totalVotes: 45000
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24070
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -26375,7 +26410,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110264
             districtResult:
               regionId: 24070
@@ -26527,6 +26561,7 @@ MonoBehaviour:
                 percentVotes: 34.2
               totalVotes: 58029
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24071
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -26535,7 +26570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112826
             districtResult:
               regionId: 24071
@@ -26711,6 +26745,7 @@ MonoBehaviour:
                 percentVotes: 1.2
               totalVotes: 62568
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24072
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -26719,7 +26754,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111139
             districtResult:
               regionId: 24072
@@ -26895,6 +26929,7 @@ MonoBehaviour:
                 percentVotes: 4.6
               totalVotes: 60552
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24073
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -26903,7 +26938,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111176
             districtResult:
               regionId: 24073
@@ -27103,6 +27137,7 @@ MonoBehaviour:
                 percentVotes: 10.7
               totalVotes: 59850
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24074
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -27111,7 +27146,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119227
             districtResult:
               regionId: 24074
@@ -27263,6 +27297,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 67564
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24075
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -27271,7 +27306,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111575
             districtResult:
               regionId: 24075
@@ -27471,6 +27505,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 60579
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24076
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -27479,7 +27514,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110515
             districtResult:
               regionId: 24076
@@ -27655,6 +27689,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 60208
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24077
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -27663,7 +27698,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114659
             districtResult:
               regionId: 24077
@@ -27911,6 +27945,7 @@ MonoBehaviour:
                 percentVotes: 15.8
               totalVotes: 51054
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 24078
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -27919,7 +27954,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111867
             districtResult:
               regionId: 24078
@@ -28071,13 +28105,7 @@ MonoBehaviour:
                 percentVotes: 3.8
               totalVotes: 55115
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: ON
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -28086,6 +28114,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 35001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -28095,7 +28130,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119677
             districtResult:
               regionId: 35001
@@ -28271,6 +28305,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 60377
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28279,7 +28314,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 79483
             districtResult:
               regionId: 35002
@@ -28383,6 +28417,7 @@ MonoBehaviour:
                 percentVotes: 24.3
               totalVotes: 40209
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28391,7 +28426,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115227
             districtResult:
               regionId: 35003
@@ -28543,6 +28577,7 @@ MonoBehaviour:
                 percentVotes: 42.4
               totalVotes: 52162
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28551,7 +28586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109286
             districtResult:
               regionId: 35004
@@ -28679,6 +28713,7 @@ MonoBehaviour:
                 percentVotes: 29.3
               totalVotes: 53600
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28687,7 +28722,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100788
             districtResult:
               regionId: 35005
@@ -28815,6 +28849,7 @@ MonoBehaviour:
                 percentVotes: 39
               totalVotes: 53254
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28823,7 +28858,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109735
             districtResult:
               regionId: 35006
@@ -28951,6 +28985,7 @@ MonoBehaviour:
                 percentVotes: 39.2
               totalVotes: 61953
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -28959,7 +28994,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109468
             districtResult:
               regionId: 35007
@@ -29087,6 +29121,7 @@ MonoBehaviour:
                 percentVotes: 14.1
               totalVotes: 56206
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29095,7 +29130,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102270
             districtResult:
               regionId: 35008
@@ -29247,6 +29281,7 @@ MonoBehaviour:
                 percentVotes: 4.2
               totalVotes: 39278
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29255,7 +29290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122000
             districtResult:
               regionId: 35009
@@ -29431,6 +29465,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 50078
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29439,7 +29474,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118180
             districtResult:
               regionId: 35010
@@ -29567,6 +29601,7 @@ MonoBehaviour:
                 percentVotes: 51.4
               totalVotes: 49958
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29575,7 +29610,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121188
             districtResult:
               regionId: 35011
@@ -29775,6 +29809,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 48171
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29783,7 +29818,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 130000
             districtResult:
               regionId: 35012
@@ -29983,6 +30017,7 @@ MonoBehaviour:
                 percentVotes: 23.9
               totalVotes: 53007
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -29991,7 +30026,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 130296
             districtResult:
               regionId: 35013
@@ -30191,6 +30225,7 @@ MonoBehaviour:
                 percentVotes: 2
               totalVotes: 66068
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -30199,7 +30234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107679
             districtResult:
               regionId: 35014
@@ -30351,6 +30385,7 @@ MonoBehaviour:
                 percentVotes: 8.8
               totalVotes: 57522
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35015
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -30359,7 +30394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 123180
             districtResult:
               regionId: 35015
@@ -30487,6 +30521,7 @@ MonoBehaviour:
                 percentVotes: 6.6
               totalVotes: 70888
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35016
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -30495,7 +30530,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115463
             districtResult:
               regionId: 35016
@@ -30671,6 +30705,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 57295
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35017
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -30679,7 +30714,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109619
             districtResult:
               regionId: 35017
@@ -30831,6 +30865,7 @@ MonoBehaviour:
                 percentVotes: 15.2
               totalVotes: 53728
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35018
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -30839,7 +30874,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108473
             districtResult:
               regionId: 35018
@@ -31039,6 +31073,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 52303
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35019
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31047,7 +31082,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94579
             districtResult:
               regionId: 35019
@@ -31175,6 +31209,7 @@ MonoBehaviour:
                 percentVotes: 4
               totalVotes: 41734
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35020
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31183,7 +31218,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110076
             districtResult:
               regionId: 35020
@@ -31311,6 +31345,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 45704
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35021
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31319,7 +31354,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102508
             districtResult:
               regionId: 35021
@@ -31471,6 +31505,7 @@ MonoBehaviour:
                 percentVotes: 31.2
               totalVotes: 51017
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35022
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31479,7 +31514,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 128237
             districtResult:
               regionId: 35022
@@ -31631,6 +31665,7 @@ MonoBehaviour:
                 percentVotes: 10.6
               totalVotes: 67956
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35023
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31639,7 +31674,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 130872
             districtResult:
               regionId: 35023
@@ -31767,6 +31801,7 @@ MonoBehaviour:
                 percentVotes: 18.2
               totalVotes: 72423
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35024
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31775,7 +31810,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114395
             districtResult:
               regionId: 35024
@@ -31903,6 +31937,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 55109
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35025
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -31911,7 +31946,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115052
             districtResult:
               regionId: 35025
@@ -32087,6 +32121,7 @@ MonoBehaviour:
                 percentVotes: 50.2
               totalVotes: 61288
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35026
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32095,7 +32130,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 125442
             districtResult:
               regionId: 35026
@@ -32223,6 +32257,7 @@ MonoBehaviour:
                 percentVotes: 34.6
               totalVotes: 67686
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35027
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32231,7 +32266,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118022
             districtResult:
               regionId: 35027
@@ -32383,6 +32417,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 62390
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35028
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32391,7 +32426,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 129081
             districtResult:
               regionId: 35028
@@ -32543,6 +32577,7 @@ MonoBehaviour:
                 percentVotes: 1.3
               totalVotes: 68588
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35029
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32551,7 +32586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118040
             districtResult:
               regionId: 35029
@@ -32703,6 +32737,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 42685
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35030
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32711,7 +32746,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111065
             districtResult:
               regionId: 35030
@@ -32839,6 +32873,7 @@ MonoBehaviour:
                 percentVotes: 1.6
               totalVotes: 62937
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35031
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -32847,7 +32882,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109975
             districtResult:
               regionId: 35031
@@ -33047,6 +33081,7 @@ MonoBehaviour:
                 percentVotes: 10.4
               totalVotes: 63297
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35032
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33055,7 +33090,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 131794
             districtResult:
               regionId: 35032
@@ -33279,6 +33313,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 74059
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35033
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33287,7 +33322,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109652
             districtResult:
               regionId: 35033
@@ -33463,6 +33497,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 58372
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35034
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33471,7 +33506,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113956
             districtResult:
               regionId: 35034
@@ -33599,6 +33633,7 @@ MonoBehaviour:
                 percentVotes: 49.1
               totalVotes: 65015
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35035
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33607,7 +33642,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100103
             districtResult:
               regionId: 35035
@@ -33831,6 +33865,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 43528
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35036
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33839,7 +33874,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107848
             districtResult:
               regionId: 35036
@@ -33967,6 +34001,7 @@ MonoBehaviour:
                 percentVotes: 5.6
               totalVotes: 51639
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35037
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -33975,7 +34010,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104877
             districtResult:
               regionId: 35037
@@ -34151,6 +34185,7 @@ MonoBehaviour:
                 percentVotes: 5.9
               totalVotes: 52273
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35038
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34159,7 +34194,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113024
             districtResult:
               regionId: 35038
@@ -34311,6 +34345,7 @@ MonoBehaviour:
                 percentVotes: 46.6
               totalVotes: 64131
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35039
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34319,7 +34354,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94333
             districtResult:
               regionId: 35039
@@ -34447,6 +34481,7 @@ MonoBehaviour:
                 percentVotes: 5.9
               totalVotes: 51321
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35040
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34455,7 +34490,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106570
             districtResult:
               regionId: 35040
@@ -34583,6 +34617,7 @@ MonoBehaviour:
                 percentVotes: 4.4
               totalVotes: 60330
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35041
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34591,7 +34626,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110960
             districtResult:
               regionId: 35041
@@ -34719,6 +34753,7 @@ MonoBehaviour:
                 percentVotes: 6.6
               totalVotes: 64613
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35042
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34727,7 +34762,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 62556
             districtResult:
               regionId: 35042
@@ -34831,6 +34865,7 @@ MonoBehaviour:
                 percentVotes: 28.5
               totalVotes: 27304
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35043
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34839,7 +34874,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 131995
             districtResult:
               regionId: 35043
@@ -34967,6 +35001,7 @@ MonoBehaviour:
                 percentVotes: 1.1
               totalVotes: 63199
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35044
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -34975,7 +35010,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117543
             districtResult:
               regionId: 35044
@@ -35103,6 +35137,7 @@ MonoBehaviour:
                 percentVotes: 19.5
               totalVotes: 66672
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35045
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35111,7 +35146,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105258
             districtResult:
               regionId: 35045
@@ -35263,6 +35297,7 @@ MonoBehaviour:
                 percentVotes: 23.8
               totalVotes: 54659
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35046
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35271,7 +35306,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100709
             districtResult:
               regionId: 35046
@@ -35399,6 +35433,7 @@ MonoBehaviour:
                 percentVotes: 1.5
               totalVotes: 50763
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35047
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35407,7 +35442,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105309
             districtResult:
               regionId: 35047
@@ -35583,6 +35617,7 @@ MonoBehaviour:
                 percentVotes: 10.9
               totalVotes: 51694
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35048
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35591,7 +35626,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105331
             districtResult:
               regionId: 35048
@@ -35743,6 +35777,7 @@ MonoBehaviour:
                 percentVotes: 49
               totalVotes: 57864
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35049
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35751,7 +35786,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101630
             districtResult:
               regionId: 35049
@@ -35879,6 +35913,7 @@ MonoBehaviour:
                 percentVotes: 14.1
               totalVotes: 60868
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35050
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -35887,7 +35922,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100546
             districtResult:
               regionId: 35050
@@ -36015,6 +36049,7 @@ MonoBehaviour:
                 percentVotes: 14
               totalVotes: 57799
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35051
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36023,7 +36058,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119467
             districtResult:
               regionId: 35051
@@ -36175,6 +36209,7 @@ MonoBehaviour:
                 percentVotes: 24.8
               totalVotes: 54933
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35052
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36183,7 +36218,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 125362
             districtResult:
               regionId: 35052
@@ -36335,6 +36369,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 59777
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35053
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36343,7 +36378,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 126110
             districtResult:
               regionId: 35053
@@ -36495,6 +36529,7 @@ MonoBehaviour:
                 percentVotes: 43
               totalVotes: 70234
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35054
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36503,7 +36538,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 126064
             districtResult:
               regionId: 35054
@@ -36655,6 +36689,7 @@ MonoBehaviour:
                 percentVotes: 20.7
               totalVotes: 63654
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35055
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36663,7 +36698,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 99078
             districtResult:
               regionId: 35055
@@ -36815,6 +36849,7 @@ MonoBehaviour:
                 percentVotes: 34.6
               totalVotes: 44330
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35056
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36823,7 +36858,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 123318
             districtResult:
               regionId: 35056
@@ -36951,6 +36985,7 @@ MonoBehaviour:
                 percentVotes: 48.9
               totalVotes: 52464
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35057
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -36959,7 +36994,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114093
             districtResult:
               regionId: 35057
@@ -37087,6 +37121,7 @@ MonoBehaviour:
                 percentVotes: 51.7
               totalVotes: 59005
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35058
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37095,7 +37130,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 124849
             districtResult:
               regionId: 35058
@@ -37247,6 +37281,7 @@ MonoBehaviour:
                 percentVotes: 9.6
               totalVotes: 52948
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35059
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37255,7 +37290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120205
             districtResult:
               regionId: 35059
@@ -37407,6 +37441,7 @@ MonoBehaviour:
                 percentVotes: 8.8
               totalVotes: 51079
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35060
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37415,7 +37450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122560
             districtResult:
               regionId: 35060
@@ -37543,6 +37577,7 @@ MonoBehaviour:
                 percentVotes: 32.7
               totalVotes: 57954
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35061
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37551,7 +37586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117444
             districtResult:
               regionId: 35061
@@ -37703,6 +37737,7 @@ MonoBehaviour:
                 percentVotes: 1.2
               totalVotes: 60129
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35062
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37711,7 +37746,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118240
             districtResult:
               regionId: 35062
@@ -37887,6 +37921,7 @@ MonoBehaviour:
                 percentVotes: 25.8
               totalVotes: 47893
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35063
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -37895,7 +37930,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118301
             districtResult:
               regionId: 35063
@@ -38047,6 +38081,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 57899
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35064
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38055,7 +38090,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119110
             districtResult:
               regionId: 35064
@@ -38207,6 +38241,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 68191
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35065
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38215,7 +38250,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117418
             districtResult:
               regionId: 35065
@@ -38391,6 +38425,7 @@ MonoBehaviour:
                 percentVotes: 43.1
               totalVotes: 60468
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35066
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38399,7 +38434,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109067
             districtResult:
               regionId: 35066
@@ -38575,6 +38609,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 57510
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35067
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38583,7 +38618,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 136292
             districtResult:
               regionId: 35067
@@ -38759,6 +38793,7 @@ MonoBehaviour:
                 percentVotes: 1.4
               totalVotes: 68111
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35068
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38767,7 +38802,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 90838
             districtResult:
               regionId: 35068
@@ -38919,6 +38953,7 @@ MonoBehaviour:
                 percentVotes: 6.7
               totalVotes: 52682
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35069
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -38927,7 +38962,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 93772
             districtResult:
               regionId: 35069
@@ -39055,6 +39089,7 @@ MonoBehaviour:
                 percentVotes: 39
               totalVotes: 48524
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35070
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39063,7 +39098,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 88813
             districtResult:
               regionId: 35070
@@ -39191,6 +39225,7 @@ MonoBehaviour:
                 percentVotes: 40.5
               totalVotes: 45173
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35071
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39199,7 +39234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112412
             districtResult:
               regionId: 35071
@@ -39327,6 +39361,7 @@ MonoBehaviour:
                 percentVotes: 8
               totalVotes: 68268
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35072
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39335,7 +39370,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120923
             districtResult:
               regionId: 35072
@@ -39487,6 +39521,7 @@ MonoBehaviour:
                 percentVotes: 39.1
               totalVotes: 61882
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35073
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39495,7 +39530,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 129078
             districtResult:
               regionId: 35073
@@ -39623,6 +39657,7 @@ MonoBehaviour:
                 percentVotes: 38
               totalVotes: 68452
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35074
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39631,7 +39666,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 126764
             districtResult:
               regionId: 35074
@@ -39783,6 +39817,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 61614
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35075
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -39791,7 +39826,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118038
             districtResult:
               regionId: 35075
@@ -40063,6 +40097,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 75448
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35076
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -40071,7 +40106,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 128281
             districtResult:
               regionId: 35076
@@ -40199,6 +40233,7 @@ MonoBehaviour:
                 percentVotes: 11.6
               totalVotes: 80198
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35077
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -40207,7 +40242,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121058
             districtResult:
               regionId: 35077
@@ -40407,6 +40441,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 63752
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35078
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -40415,7 +40450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111508
             districtResult:
               regionId: 35078
@@ -40663,6 +40697,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 62185
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35079
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -40671,7 +40706,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111837
             districtResult:
               regionId: 35079
@@ -40895,6 +40929,7 @@ MonoBehaviour:
                 percentVotes: 45.6
               totalVotes: 60699
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35080
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -40903,7 +40938,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113790
             districtResult:
               regionId: 35080
@@ -41055,6 +41089,7 @@ MonoBehaviour:
                 percentVotes: 2.9
               totalVotes: 60469
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35081
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41063,7 +41098,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108805
             districtResult:
               regionId: 35081
@@ -41263,6 +41297,7 @@ MonoBehaviour:
                 percentVotes: 1.1
               totalVotes: 59952
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35082
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41271,7 +41306,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94398
             districtResult:
               regionId: 35082
@@ -41399,6 +41433,7 @@ MonoBehaviour:
                 percentVotes: 11.7
               totalVotes: 54080
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35083
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41407,7 +41442,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107908
             districtResult:
               regionId: 35083
@@ -41559,6 +41593,7 @@ MonoBehaviour:
                 percentVotes: 9
               totalVotes: 54921
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35084
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41567,7 +41602,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118176
             districtResult:
               regionId: 35084
@@ -41743,6 +41777,7 @@ MonoBehaviour:
                 percentVotes: 34.9
               totalVotes: 68854
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35085
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41751,7 +41786,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112947
             districtResult:
               regionId: 35085
@@ -41879,6 +41913,7 @@ MonoBehaviour:
                 percentVotes: 51
               totalVotes: 62751
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35086
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -41887,7 +41922,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103495
             districtResult:
               regionId: 35086
@@ -42135,6 +42169,7 @@ MonoBehaviour:
                 percentVotes: 5.5
               totalVotes: 57506
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35087
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42143,7 +42178,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110177
             districtResult:
               regionId: 35087
@@ -42295,6 +42329,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 50249
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35088
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42303,7 +42338,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102918
             districtResult:
               regionId: 35088
@@ -42431,6 +42465,7 @@ MonoBehaviour:
                 percentVotes: 38.2
               totalVotes: 67935
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35089
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42439,7 +42474,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111691
             districtResult:
               regionId: 35089
@@ -42567,6 +42601,7 @@ MonoBehaviour:
                 percentVotes: 31.6
               totalVotes: 59370
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35090
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42575,7 +42610,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107900
             districtResult:
               regionId: 35090
@@ -42703,6 +42737,7 @@ MonoBehaviour:
                 percentVotes: 21.6
               totalVotes: 58850
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35091
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42711,7 +42746,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105337
             districtResult:
               regionId: 35091
@@ -42863,6 +42897,7 @@ MonoBehaviour:
                 percentVotes: 4.3
               totalVotes: 57084
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35092
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -42871,7 +42906,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 80371
             districtResult:
               regionId: 35092
@@ -42999,6 +43033,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 41267
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35093
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43007,7 +43042,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105542
             districtResult:
               regionId: 35093
@@ -43135,6 +43169,7 @@ MonoBehaviour:
                 percentVotes: 50.5
               totalVotes: 41247
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35094
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43143,7 +43178,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112603
             districtResult:
               regionId: 35094
@@ -43295,6 +43329,7 @@ MonoBehaviour:
                 percentVotes: 55.2
               totalVotes: 46076
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35095
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43303,7 +43338,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102386
             districtResult:
               regionId: 35095
@@ -43551,6 +43585,7 @@ MonoBehaviour:
                 percentVotes: 22.4
               totalVotes: 42219
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35096
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43559,7 +43594,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 98800
             districtResult:
               regionId: 35096
@@ -43711,6 +43745,7 @@ MonoBehaviour:
                 percentVotes: 2
               totalVotes: 38492
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35097
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43719,7 +43754,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102275
             districtResult:
               regionId: 35097
@@ -43871,6 +43905,7 @@ MonoBehaviour:
                 percentVotes: 0.7
               totalVotes: 50305
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35098
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -43879,7 +43914,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110278
             districtResult:
               regionId: 35098
@@ -44031,6 +44065,7 @@ MonoBehaviour:
                 percentVotes: 15.5
               totalVotes: 50106
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35099
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44039,7 +44074,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 129944
             districtResult:
               regionId: 35099
@@ -44191,6 +44225,7 @@ MonoBehaviour:
                 percentVotes: 1.9
               totalVotes: 74226
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35100
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44199,7 +44234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111332
             districtResult:
               regionId: 35100
@@ -44351,6 +44385,7 @@ MonoBehaviour:
                 percentVotes: 43.4
               totalVotes: 62302
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35101
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44359,7 +44394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115506
             districtResult:
               regionId: 35101
@@ -44511,6 +44545,7 @@ MonoBehaviour:
                 percentVotes: 20.1
               totalVotes: 59648
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35102
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44519,7 +44554,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103320
             districtResult:
               regionId: 35102
@@ -44647,6 +44681,7 @@ MonoBehaviour:
                 percentVotes: 2.2
               totalVotes: 53258
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35103
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44655,7 +44690,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 91532
             districtResult:
               regionId: 35103
@@ -44855,6 +44889,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 47708
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35104
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -44863,7 +44898,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112719
             districtResult:
               regionId: 35104
@@ -45015,6 +45049,7 @@ MonoBehaviour:
                 percentVotes: 3
               totalVotes: 53432
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35105
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45023,7 +45058,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82805
             districtResult:
               regionId: 35105
@@ -45151,6 +45185,7 @@ MonoBehaviour:
                 percentVotes: 29.1
               totalVotes: 40541
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35106
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45159,7 +45194,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82651
             districtResult:
               regionId: 35106
@@ -45311,6 +45345,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 42178
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35107
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45319,7 +45354,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 83257
             districtResult:
               regionId: 35107
@@ -45407,6 +45441,7 @@ MonoBehaviour:
                 percentVotes: 3.4
               totalVotes: 36068
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35108
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45415,7 +45450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103805
             districtResult:
               regionId: 35108
@@ -45639,6 +45673,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 53299
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35109
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45647,7 +45682,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106875
             districtResult:
               regionId: 35109
@@ -45847,6 +45881,7 @@ MonoBehaviour:
                 percentVotes: 6.5
               totalVotes: 56990
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35110
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -45855,7 +45890,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104311
             districtResult:
               regionId: 35110
@@ -46079,6 +46113,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 54604
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35111
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46087,7 +46122,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105228
             districtResult:
               regionId: 35111
@@ -46239,6 +46273,7 @@ MonoBehaviour:
                 percentVotes: 51.3
               totalVotes: 50010
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35112
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46247,7 +46282,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110134
             districtResult:
               regionId: 35112
@@ -46375,6 +46409,7 @@ MonoBehaviour:
                 percentVotes: 24.5
               totalVotes: 62791
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35113
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46383,7 +46418,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120981
             districtResult:
               regionId: 35113
@@ -46511,6 +46545,7 @@ MonoBehaviour:
                 percentVotes: 12.7
               totalVotes: 68760
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35114
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46519,7 +46554,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 128377
             districtResult:
               regionId: 35114
@@ -46647,6 +46681,7 @@ MonoBehaviour:
                 percentVotes: 43.7
               totalVotes: 68059
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35115
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46655,7 +46690,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118801
             districtResult:
               regionId: 35115
@@ -46831,6 +46865,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 44639
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35116
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46839,7 +46874,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117429
             districtResult:
               regionId: 35116
@@ -46991,6 +47025,7 @@ MonoBehaviour:
                 percentVotes: 33.4
               totalVotes: 56512
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35117
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -46999,7 +47034,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122988
             districtResult:
               regionId: 35117
@@ -47151,6 +47185,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 51539
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35118
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -47159,7 +47194,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104319
             districtResult:
               regionId: 35118
@@ -47263,6 +47297,7 @@ MonoBehaviour:
                 percentVotes: 3.2
               totalVotes: 42588
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35119
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -47271,7 +47306,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104010
             districtResult:
               regionId: 35119
@@ -47423,6 +47457,7 @@ MonoBehaviour:
                 percentVotes: 26.8
               totalVotes: 53303
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35120
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -47431,7 +47466,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 116686
             districtResult:
               regionId: 35120
@@ -47559,6 +47593,7 @@ MonoBehaviour:
                 percentVotes: 3.7
               totalVotes: 44788
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 35121
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -47567,7 +47602,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108037
             districtResult:
               regionId: 35121
@@ -47743,13 +47777,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 37636
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: MB
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -47758,6 +47786,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 46001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -47767,7 +47802,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 88170
             districtResult:
               regionId: 46001
@@ -47967,6 +48001,7 @@ MonoBehaviour:
                 percentVotes: 7.2
               totalVotes: 40536
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -47975,7 +48010,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82574
             districtResult:
               regionId: 46002
@@ -48151,6 +48185,7 @@ MonoBehaviour:
                 percentVotes: 14.2
               totalVotes: 45510
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48159,7 +48194,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 87027
             districtResult:
               regionId: 46003
@@ -48247,6 +48281,7 @@ MonoBehaviour:
                 percentVotes: 5
               totalVotes: 22311
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48255,7 +48290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 87527
             districtResult:
               regionId: 46004
@@ -48407,6 +48441,7 @@ MonoBehaviour:
                 percentVotes: 5.5
               totalVotes: 38686
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48415,7 +48450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 92738
             districtResult:
               regionId: 46005
@@ -48543,6 +48577,7 @@ MonoBehaviour:
                 percentVotes: 37.5
               totalVotes: 43532
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48551,7 +48586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 84077
             districtResult:
               regionId: 46006
@@ -48727,6 +48761,7 @@ MonoBehaviour:
                 percentVotes: 4
               totalVotes: 43768
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48735,7 +48770,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 97354
             districtResult:
               regionId: 46007
@@ -48839,6 +48873,7 @@ MonoBehaviour:
                 percentVotes: 10.7
               totalVotes: 44227
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48847,7 +48882,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 99946
             districtResult:
               regionId: 46008
@@ -48975,6 +49009,7 @@ MonoBehaviour:
                 percentVotes: 2.2
               totalVotes: 48023
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -48983,7 +49018,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 89818
             districtResult:
               regionId: 46009
@@ -49135,6 +49169,7 @@ MonoBehaviour:
                 percentVotes: 42.9
               totalVotes: 46724
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -49143,7 +49178,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94778
             districtResult:
               regionId: 46010
@@ -49271,6 +49305,7 @@ MonoBehaviour:
                 percentVotes: 17.9
               totalVotes: 48974
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -49279,7 +49314,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 85949
             districtResult:
               regionId: 46011
@@ -49431,6 +49465,7 @@ MonoBehaviour:
                 percentVotes: 5.2
               totalVotes: 31066
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -49439,7 +49474,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 95676
             districtResult:
               regionId: 46012
@@ -49639,6 +49673,7 @@ MonoBehaviour:
                 percentVotes: 0.4
               totalVotes: 31528
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -49647,7 +49682,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 99678
             districtResult:
               regionId: 46013
@@ -49775,6 +49809,7 @@ MonoBehaviour:
                 percentVotes: 0.9
               totalVotes: 47199
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 46014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -49783,7 +49818,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 93053
             districtResult:
               regionId: 46014
@@ -49935,13 +49969,7 @@ MonoBehaviour:
                 percentVotes: 17.7
               totalVotes: 48952
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: SK
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -49950,6 +49978,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 47001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -49959,7 +49994,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 73506
             districtResult:
               regionId: 47001
@@ -50087,6 +50121,7 @@ MonoBehaviour:
                 percentVotes: 11.4
               totalVotes: 35189
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50095,7 +50130,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 68353
             districtResult:
               regionId: 47002
@@ -50247,6 +50281,7 @@ MonoBehaviour:
                 percentVotes: 9.5
               totalVotes: 38048
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50255,7 +50290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 70891
             districtResult:
               regionId: 47003
@@ -50343,6 +50377,7 @@ MonoBehaviour:
                 percentVotes: 41.7
               totalVotes: 25924
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50351,7 +50386,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 80662
             districtResult:
               regionId: 47004
@@ -50503,6 +50537,7 @@ MonoBehaviour:
                 percentVotes: 0.8
               totalVotes: 44217
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50511,7 +50546,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 79733
             districtResult:
               regionId: 47005
@@ -50639,6 +50673,7 @@ MonoBehaviour:
                 percentVotes: 2.7
               totalVotes: 43273
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50647,7 +50682,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 79625
             districtResult:
               regionId: 47006
@@ -50799,6 +50833,7 @@ MonoBehaviour:
                 percentVotes: 2.1
               totalVotes: 39201
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50807,7 +50842,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 92426
             districtResult:
               regionId: 47007
@@ -50983,6 +51017,7 @@ MonoBehaviour:
                 percentVotes: 1.1
               totalVotes: 50772
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -50991,7 +51026,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 76017
             districtResult:
               regionId: 47008
@@ -51191,6 +51225,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 38057
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51199,7 +51234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 84153
             districtResult:
               regionId: 47009
@@ -51351,6 +51385,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 44767
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51359,7 +51394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82946
             districtResult:
               regionId: 47010
@@ -51487,6 +51521,7 @@ MonoBehaviour:
                 percentVotes: 53.3
               totalVotes: 48466
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51495,7 +51530,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 82663
             districtResult:
               regionId: 47011
@@ -51647,6 +51681,7 @@ MonoBehaviour:
                 percentVotes: 0.6
               totalVotes: 46372
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51655,7 +51690,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 83711
             districtResult:
               regionId: 47012
@@ -51783,6 +51817,7 @@ MonoBehaviour:
                 percentVotes: 2.7
               totalVotes: 38189
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51791,7 +51826,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 72635
             districtResult:
               regionId: 47013
@@ -51943,6 +51977,7 @@ MonoBehaviour:
                 percentVotes: 1.7
               totalVotes: 40180
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 47014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -51951,7 +51986,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 71031
             districtResult:
               regionId: 47014
@@ -52079,13 +52113,7 @@ MonoBehaviour:
                 percentVotes: 2.8
               totalVotes: 37850
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: AB
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -52094,6 +52122,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 48001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -52103,7 +52138,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 135762
             districtResult:
               regionId: 48001
@@ -52231,6 +52265,7 @@ MonoBehaviour:
                 percentVotes: 10.5
               totalVotes: 76595
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -52239,7 +52274,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110223
             districtResult:
               regionId: 48002
@@ -52367,6 +52401,7 @@ MonoBehaviour:
                 percentVotes: 2.7
               totalVotes: 61404
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -52375,7 +52410,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115022
             districtResult:
               regionId: 48003
@@ -52527,6 +52561,7 @@ MonoBehaviour:
                 percentVotes: 1.5
               totalVotes: 54357
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -52535,7 +52570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119176
             districtResult:
               regionId: 48004
@@ -52735,6 +52769,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 63934
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -52743,7 +52778,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122023
             districtResult:
               regionId: 48005
@@ -52919,6 +52953,7 @@ MonoBehaviour:
                 percentVotes: 55.1
               totalVotes: 64345
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -52927,7 +52962,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111830
             districtResult:
               regionId: 48006
@@ -53151,6 +53185,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 39431
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53159,7 +53194,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112087
             districtResult:
               regionId: 48007
@@ -53335,6 +53369,7 @@ MonoBehaviour:
                 percentVotes: 3.5
               totalVotes: 55202
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53343,7 +53378,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121844
             districtResult:
               regionId: 48008
@@ -53471,6 +53505,7 @@ MonoBehaviour:
                 percentVotes: 2.9
               totalVotes: 66717
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53479,7 +53514,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115795
             districtResult:
               regionId: 48009
@@ -53631,6 +53665,7 @@ MonoBehaviour:
                 percentVotes: 15.7
               totalVotes: 54281
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53639,7 +53674,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 131823
             districtResult:
               regionId: 48010
@@ -53791,6 +53825,7 @@ MonoBehaviour:
                 percentVotes: 2.8
               totalVotes: 69258
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53799,7 +53834,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 147520
             districtResult:
               regionId: 48011
@@ -53927,6 +53961,7 @@ MonoBehaviour:
                 percentVotes: 3
               totalVotes: 76885
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -53935,7 +53970,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121392
             districtResult:
               regionId: 48012
@@ -54111,6 +54145,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 61870
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -54119,7 +54154,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 135730
             districtResult:
               regionId: 48013
@@ -54319,6 +54353,7 @@ MonoBehaviour:
                 percentVotes: 52.5
               totalVotes: 49874
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -54327,7 +54362,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109941
             districtResult:
               regionId: 48014
@@ -54527,6 +54561,7 @@ MonoBehaviour:
                 percentVotes: 20.6
               totalVotes: 51745
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48015
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -54535,7 +54570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112287
             districtResult:
               regionId: 48015
@@ -54759,6 +54793,7 @@ MonoBehaviour:
                 percentVotes: 2.3
               totalVotes: 45977
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48016
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -54767,7 +54802,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121048
             districtResult:
               regionId: 48016
@@ -54943,6 +54977,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 51125
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48017
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -54951,7 +54986,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 118561
             districtResult:
               regionId: 48017
@@ -55103,6 +55137,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 52417
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48018
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55111,7 +55146,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120863
             districtResult:
               regionId: 48018
@@ -55239,6 +55273,7 @@ MonoBehaviour:
                 percentVotes: 15.3
               totalVotes: 59661
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48019
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55247,7 +55282,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106066
             districtResult:
               regionId: 48019
@@ -55423,6 +55457,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 55381
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48020
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55431,7 +55466,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121869
             districtResult:
               regionId: 48020
@@ -55559,6 +55593,7 @@ MonoBehaviour:
                 percentVotes: 14.6
               totalVotes: 57589
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48021
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55567,7 +55602,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 158749
             districtResult:
               regionId: 48021
@@ -55719,6 +55753,7 @@ MonoBehaviour:
                 percentVotes: 12.4
               totalVotes: 85093
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48022
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55727,7 +55762,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 113227
             districtResult:
               regionId: 48022
@@ -55855,6 +55889,7 @@ MonoBehaviour:
                 percentVotes: 5.9
               totalVotes: 64290
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48023
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55863,7 +55898,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110230
             districtResult:
               regionId: 48023
@@ -55991,6 +56025,7 @@ MonoBehaviour:
                 percentVotes: 79.9
               totalVotes: 49680
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48024
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -55999,7 +56034,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117327
             districtResult:
               regionId: 48024
@@ -56127,6 +56161,7 @@ MonoBehaviour:
                 percentVotes: 84
               totalVotes: 59936
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48025
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56135,7 +56170,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108451
             districtResult:
               regionId: 48025
@@ -56311,6 +56345,7 @@ MonoBehaviour:
                 percentVotes: 4.5
               totalVotes: 56573
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48026
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56319,7 +56354,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117394
             districtResult:
               regionId: 48026
@@ -56471,6 +56505,7 @@ MonoBehaviour:
                 percentVotes: 3.1
               totalVotes: 63339
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48027
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56479,7 +56514,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 106896
             districtResult:
               regionId: 48027
@@ -56631,6 +56665,7 @@ MonoBehaviour:
                 percentVotes: 8.7
               totalVotes: 52334
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48028
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56639,7 +56674,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 109965
             districtResult:
               regionId: 48028
@@ -56767,6 +56801,7 @@ MonoBehaviour:
                 percentVotes: 7.5
               totalVotes: 50945
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48029
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56775,7 +56810,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119019
             districtResult:
               regionId: 48029
@@ -56903,6 +56937,7 @@ MonoBehaviour:
                 percentVotes: 5.6
               totalVotes: 67277
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48030
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -56911,7 +56946,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 128786
             districtResult:
               regionId: 48030
@@ -57039,6 +57073,7 @@ MonoBehaviour:
                 percentVotes: 3.6
               totalVotes: 65950
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48031
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -57047,7 +57082,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 121313
             districtResult:
               regionId: 48031
@@ -57199,6 +57233,7 @@ MonoBehaviour:
                 percentVotes: 19.2
               totalVotes: 63850
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48032
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -57207,7 +57242,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122193
             districtResult:
               regionId: 48032
@@ -57359,6 +57393,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 71938
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48033
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -57367,7 +57402,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120784
             districtResult:
               regionId: 48033
@@ -57519,6 +57553,7 @@ MonoBehaviour:
                 percentVotes: 2.5
               totalVotes: 67231
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 48034
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -57527,7 +57562,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101979
             districtResult:
               regionId: 48034
@@ -57703,13 +57737,7 @@ MonoBehaviour:
                 percentVotes: 82.1
               totalVotes: 54961
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: BC
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -57718,6 +57746,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 59001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -57727,7 +57762,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101814
             districtResult:
               regionId: 59001
@@ -57879,6 +57913,7 @@ MonoBehaviour:
                 percentVotes: 16.9
               totalVotes: 48548
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59002
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -57887,7 +57922,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102486
             districtResult:
               regionId: 59002
@@ -58063,6 +58097,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 48988
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59003
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58071,7 +58106,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 111973
             districtResult:
               regionId: 59003
@@ -58247,6 +58281,7 @@ MonoBehaviour:
                 percentVotes: 5.5
               totalVotes: 44701
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59004
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58255,7 +58290,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108907
             districtResult:
               regionId: 59004
@@ -58407,6 +58441,7 @@ MonoBehaviour:
                 percentVotes: 2.2
               totalVotes: 54126
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59005
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58415,7 +58450,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110293
             districtResult:
               regionId: 59005
@@ -58567,6 +58601,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 63436
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59006
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58575,7 +58610,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 100126
             districtResult:
               regionId: 59006
@@ -58751,6 +58785,7 @@ MonoBehaviour:
                 percentVotes: 20.2
               totalVotes: 53272
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59007
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58759,7 +58794,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117640
             districtResult:
               regionId: 59007
@@ -58887,6 +58921,7 @@ MonoBehaviour:
                 percentVotes: 6.4
               totalVotes: 55058
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59008
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -58895,7 +58930,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 123576
             districtResult:
               regionId: 59008
@@ -59047,6 +59081,7 @@ MonoBehaviour:
                 percentVotes: 1.2
               totalVotes: 56634
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59009
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59055,7 +59090,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114647
             districtResult:
               regionId: 59009
@@ -59183,6 +59217,7 @@ MonoBehaviour:
                 percentVotes: 13.5
               totalVotes: 71173
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59010
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59191,7 +59226,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 108052
             districtResult:
               regionId: 59010
@@ -59343,6 +59377,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 63802
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59011
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59351,7 +59386,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103064
             districtResult:
               regionId: 59011
@@ -59527,6 +59561,7 @@ MonoBehaviour:
                 percentVotes: 41.2
               totalVotes: 53288
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59012
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59535,7 +59570,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 116958
             districtResult:
               regionId: 59012
@@ -59663,6 +59697,7 @@ MonoBehaviour:
                 percentVotes: 33.8
               totalVotes: 48194
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59013
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59671,7 +59706,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 124358
             districtResult:
               regionId: 59013
@@ -59847,6 +59881,7 @@ MonoBehaviour:
                 percentVotes: 44.7
               totalVotes: 71703
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59014
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -59855,7 +59890,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119388
             districtResult:
               regionId: 59014
@@ -60031,6 +60065,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 67865
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59015
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60039,7 +60074,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 112354
             districtResult:
               regionId: 59015
@@ -60191,6 +60225,7 @@ MonoBehaviour:
                 percentVotes: 2
               totalVotes: 66327
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59016
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60199,7 +60234,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117017
             districtResult:
               regionId: 59016
@@ -60351,6 +60385,7 @@ MonoBehaviour:
                 percentVotes: 16.8
               totalVotes: 61537
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59017
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60359,7 +60394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 94825
             districtResult:
               regionId: 59017
@@ -60463,6 +60497,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 45743
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59018
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60471,7 +60506,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 122710
             districtResult:
               regionId: 59018
@@ -60695,6 +60729,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 71134
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59019
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60703,7 +60738,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115340
             districtResult:
               regionId: 59019
@@ -60903,6 +60937,7 @@ MonoBehaviour:
                 percentVotes: 8.3
               totalVotes: 52108
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59020
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -60911,7 +60946,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 124605
             districtResult:
               regionId: 59020
@@ -61039,6 +61073,7 @@ MonoBehaviour:
                 percentVotes: 15.3
               totalVotes: 73273
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59021
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61047,7 +61082,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115344
             districtResult:
               regionId: 59021
@@ -61175,6 +61209,7 @@ MonoBehaviour:
                 percentVotes: 42.9
               totalVotes: 61874
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59022
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61183,7 +61218,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 101101
             districtResult:
               regionId: 59022
@@ -61335,6 +61369,7 @@ MonoBehaviour:
                 percentVotes: 29.7
               totalVotes: 53707
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59023
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61343,7 +61378,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110817
             districtResult:
               regionId: 59023
@@ -61495,6 +61529,7 @@ MonoBehaviour:
                 percentVotes: 30.9
               totalVotes: 52929
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59024
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61503,7 +61538,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 110995
             districtResult:
               regionId: 59024
@@ -61591,6 +61625,7 @@ MonoBehaviour:
                 percentVotes: 69.9
               totalVotes: 54597
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59025
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61599,7 +61634,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 98396
             districtResult:
               regionId: 59025
@@ -61751,6 +61785,7 @@ MonoBehaviour:
                 percentVotes: 0.5
               totalVotes: 38142
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59026
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -61759,7 +61794,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120834
             districtResult:
               regionId: 59026
@@ -62007,6 +62041,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 69003
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59027
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62015,7 +62050,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 107339
             districtResult:
               regionId: 59027
@@ -62143,6 +62177,7 @@ MonoBehaviour:
                 percentVotes: 16.6
               totalVotes: 66309
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59028
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62151,7 +62186,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 88920
             districtResult:
               regionId: 59028
@@ -62351,6 +62385,7 @@ MonoBehaviour:
                 percentVotes: 3.3
               totalVotes: 40795
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59029
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62359,7 +62394,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114695
             districtResult:
               regionId: 59029
@@ -62511,6 +62545,7 @@ MonoBehaviour:
                 percentVotes: 2.4
               totalVotes: 66761
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59030
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62519,7 +62554,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104051
             districtResult:
               regionId: 59030
@@ -62647,6 +62681,7 @@ MonoBehaviour:
                 percentVotes: 1.5
               totalVotes: 57120
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59031
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62655,7 +62690,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 99913
             districtResult:
               regionId: 59031
@@ -62783,6 +62817,7 @@ MonoBehaviour:
                 percentVotes: 35.1
               totalVotes: 41084
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59032
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62791,7 +62826,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 120172
             districtResult:
               regionId: 59032
@@ -62991,6 +63025,7 @@ MonoBehaviour:
                 percentVotes: 6.2
               totalVotes: 40825
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59033
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -62999,7 +63034,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 114605
             districtResult:
               regionId: 59033
@@ -63127,6 +63161,7 @@ MonoBehaviour:
                 percentVotes: 1.6
               totalVotes: 40658
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59034
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -63135,7 +63170,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 116443
             districtResult:
               regionId: 59034
@@ -63335,6 +63369,7 @@ MonoBehaviour:
                 percentVotes: 0.1
               totalVotes: 52950
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59035
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -63343,7 +63378,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 115724
             districtResult:
               regionId: 59035
@@ -63543,6 +63577,7 @@ MonoBehaviour:
                 percentVotes: 0.3
               totalVotes: 54222
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59036
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -63551,7 +63586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 103456
             districtResult:
               regionId: 59036
@@ -63703,6 +63737,7 @@ MonoBehaviour:
                 percentVotes: 32.6
               totalVotes: 51202
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59037
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -63711,7 +63746,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105466
             districtResult:
               regionId: 59037
@@ -63831,6 +63865,7 @@ MonoBehaviour:
                 percentVotes: 14.3
               totalVotes: 62126
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59038
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -63839,7 +63874,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 104870
             districtResult:
               regionId: 59038
@@ -64015,6 +64049,7 @@ MonoBehaviour:
                 percentVotes: 1
               totalVotes: 43251
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59039
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -64023,7 +64058,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 105608
             districtResult:
               regionId: 59039
@@ -64175,6 +64209,7 @@ MonoBehaviour:
                 percentVotes: 12.4
               totalVotes: 49314
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59040
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -64183,7 +64218,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 102927
             districtResult:
               regionId: 59040
@@ -64311,6 +64345,7 @@ MonoBehaviour:
                 percentVotes: 5.7
               totalVotes: 42407
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59041
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -64319,7 +64354,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 117133
             districtResult:
               regionId: 59041
@@ -64543,6 +64577,7 @@ MonoBehaviour:
                 percentVotes: 0.2
               totalVotes: 70073
             unassignedConstituencyCount: 0
+            subLists: []
           - id: 59042
             color: {r: 1, g: 1, b: 1, a: 1}
             names:
@@ -64551,7 +64586,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 119113
             districtResult:
               regionId: 59042
@@ -64727,13 +64761,7 @@ MonoBehaviour:
                 percentVotes: 13.9
               totalVotes: 63501
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: YT
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -64742,6 +64770,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 60001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -64751,7 +64786,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 35874
             districtResult:
               regionId: 60001
@@ -64879,13 +64913,7 @@ MonoBehaviour:
                 percentVotes: 1.4
               totalVotes: 20490
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: NT
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -64894,6 +64922,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 61001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -64903,7 +64938,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 41786
             districtResult:
               regionId: 61001
@@ -64991,13 +65025,7 @@ MonoBehaviour:
                 percentVotes: 1.8
               totalVotes: 16588
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
+            subLists: []
         - id: NU
           color: {r: 0.3280082, g: 0.8584906, b: 0.6707228, a: 1}
           names:
@@ -65006,6 +65034,13 @@ MonoBehaviour:
           isAssignable: 1
           isRiding: 0
           isAssigned: 0
+          population: 0
+          districtResult:
+            regionId: 
+            candidateResults: []
+            rawCandidateResults: []
+            totalVotes: 0
+          unassignedConstituencyCount: 0
           subLists:
           - id: 62001
             color: {r: 1, g: 1, b: 1, a: 1}
@@ -65015,7 +65050,6 @@ MonoBehaviour:
             isAssignable: 1
             isRiding: 1
             isAssigned: 0
-            subLists: []
             population: 35944
             districtResult:
               regionId: 62001
@@ -65087,20 +65121,7 @@ MonoBehaviour:
                 percentVotes: 2.1
               totalVotes: 9031
             unassignedConstituencyCount: 0
-          population: 0
-          districtResult:
-            regionId: 
-            candidateResults: []
-            rawCandidateResults: []
-            totalVotes: 0
-          unassignedConstituencyCount: 0
-        population: 0
-        districtResult:
-          regionId: 
-          candidateResults: []
-          rawCandidateResults: []
-          totalVotes: 0
-        unassignedConstituencyCount: 0
+            subLists: []
       - id: USA
         color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
         names:
@@ -65109,7 +65130,6 @@ MonoBehaviour:
         isAssignable: 1
         isRiding: 0
         isAssigned: 0
-        subLists: []
         population: 0
         districtResult:
           regionId: 
@@ -65117,13 +65137,7 @@ MonoBehaviour:
           rawCandidateResults: []
           totalVotes: 0
         unassignedConstituencyCount: 0
-      population: 0
-      districtResult:
-        regionId: 
-        candidateResults: []
-        rawCandidateResults: []
-        totalVotes: 0
-      unassignedConstituencyCount: 0
+        subLists: []
     - id: Water
       color: {r: 0.5855287, g: 0.92050815, b: 0.9622642, a: 1}
       names:
@@ -65131,7 +65145,6 @@ MonoBehaviour:
       isAssignable: 1
       isRiding: 0
       isAssigned: 0
-      subLists: []
       population: 0
       districtResult:
         regionId: 
@@ -65139,13 +65152,7 @@ MonoBehaviour:
         rawCandidateResults: []
         totalVotes: 0
       unassignedConstituencyCount: 0
-    population: 0
-    districtResult:
-      regionId: 
-      candidateResults: []
-      rawCandidateResults: []
-      totalVotes: 0
-    unassignedConstituencyCount: 0
+      subLists: []
   borderColors:
   - {r: 0.027634397, g: 0.028301895, b: 0.027711416, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
@@ -66448,7 +66455,6 @@ MonoBehaviour:
     isAssignable: 1
     isRiding: 0
     isAssigned: 0
-    subLists: []
     population: 0
     districtResult:
       regionId: 
@@ -66456,6 +66462,7 @@ MonoBehaviour:
       rawCandidateResults: []
       totalVotes: 0
     unassignedConstituencyCount: 0
+    subLists: []
   regionName: {fileID: 673816978}
   colourIcon: {fileID: 45764361}
   ridingIcon: {fileID: 2082298958}

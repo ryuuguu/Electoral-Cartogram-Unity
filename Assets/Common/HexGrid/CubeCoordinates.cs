@@ -221,11 +221,11 @@ namespace Com.Ryuuguu.HexGridCC {
         /// <param name="cube">cubeCoordinate</param>
         /// <param name="rect"></param>
         /// <returns></returns>
-        public bool InRectXY(Vector3 cube, Rect rect) {
-            return (cube.x > rect.x 
+        public static bool InRectXY(Vector3 cube, Rect rect) {
+            return (cube.x >= rect.x 
                     && cube.x < rect.xMax 
-                    && cube.y > (cube.x / 2f) + rect.y 
-                    && cube.y < rect.yMax - (cube.x / 2f) + rect.y);
+                    && cube.y >= (-cube.x / 2f) + rect.y 
+                    && cube.y < rect.yMax + (-cube.x / 2f));
         }
         
         // Boolean combines two lists of cube coordinates

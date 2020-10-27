@@ -23,6 +23,8 @@ public class UitHexGridMap : MonoBehaviour {
     public Vector3 mapVEOffset;
     
     public Vector3 selectedCoord; // current Highlighted & info shown for this coord
+
+    public bool showDebugToolTip = false;
     
     protected VisualElement root;
     
@@ -200,16 +202,39 @@ public class UitHexGridMap : MonoBehaviour {
         
         var cubeCoord = mapGrid.Position2Coord(e.localMousePosition,
             new Vector2(-0.5f,-0.5f));//hack: not centered cell 
+        string msg2 = "";
+        if (GameController.inst.isEditMode) {
+            msg2 = cubeCoord.ToString() + " inMap: " +
+                   CubeCoordinates.InRectXY(cubeCoord, mapGrid.mapCubeRect) 
+                + " rect: " + mapGrid.mapCubeRect;
+        }
+
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
-                var name = LanguageController.ChooseName(regionList.names);
-                name += cubeCoord;
-                UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
-                return;
+                var msg = LanguageController.ChooseName(regionList.names);
+                if( showDebugToolTip){msg += msg2;}
+                UitTooltip.Show(e.localMousePosition,e.mousePosition,msg);
+            }
+            else {
+                if (showDebugToolTip) {
+                    UitTooltip.Show(e.localMousePosition, e.mousePosition, msg2);
+                }
+                else {
+                    UitTooltip.Hide(); 
+                }
             }
         }
-        UitTooltip.Hide();
+        
+        else {
+            if (showDebugToolTip) {
+                UitTooltip.Show(e.localMousePosition, e.mousePosition, msg2);
+            }
+            else {
+                UitTooltip.Hide();
+            }
+        }
+        
     }
 
     
@@ -346,31 +371,33 @@ public class UitHexGridMap : MonoBehaviour {
         if (Input.GetKeyUp("w") || Input.GetKeyUp(KeyCode.UpArrow)) {
             MoveToMapCell(0);
         }
-        if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow)) {
-            MoveToMapCell(4);
+        if (Input.GetKeyUp("e") ) {
+            MoveToMapCell(1);
         }
-        if (Input.GetKeyUp("s") || Input.GetKeyUp(KeyCode.DownArrow)) {
+        if (Input.GetKeyUp("x") || Input.GetKeyUp(KeyCode.DownArrow)) {
             MoveToMapCell(3);
         }
+        if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow)) {
+            MoveToMapCell(5);
+        }
+        if (Input.GetKeyUp("z") ) {
+            MoveToMapCell(4);
+        }
         if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow)) {
-            MoveToMapCell(1);
+            MoveToMapCell(2);
         }
         
     }
 
     public  void MoveToMapCell(int edgeDirection) {
-        
-        MapCell target = null;
         for (int i = 0; i < MapGrid.edgeDirections.Count; i++) {
-            var targetCC = selectedCoord + MapGrid.edgeDirections[(edgeDirection + i) % MapGrid.edgeDirections.Count];
-            //check if targerCC is in bounds of map
-            //
-            //if (target != null) {
-                selectedCoord = targetCC;
-               break;
-            //}
+            var target = selectedCoord + MapGrid.edgeDirections[(edgeDirection + i) % MapGrid.edgeDirections.Count];
+            if (CubeCoordinates.InRectXY(target, mapGrid.mapCubeRect)) { 
+                selectedCoord = target;
+                MoveTo(target);
+                break;
+            }
         }
-        
     }
     
     public void ShowVotes(bool on) {
