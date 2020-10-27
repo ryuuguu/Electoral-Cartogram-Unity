@@ -9,8 +9,6 @@ public class UitRegionEditor : MonoBehaviour {
     public static RegionList currentRegionList;
     
     //Uit Version
-
-    public Vector3 selectedCoord;
     
     public static UitRegionEditor inst;
 
@@ -66,7 +64,7 @@ public class UitRegionEditor : MonoBehaviour {
          if (rl.isRiding) {
              rl.AssignConstituency(true);
          }
-         var regionId = UitHexGridMap.ChangeMapData(inst.selectedCoord, rl);
+         var regionId = UitHexGridMap.ChangeMapData(UitHexGridMap.inst.selectedCoord, rl);
          var oldRL = RegionController.inst.regionList.Find(regionId);
          if (oldRL != null && oldRL.isRiding && regionId != rl.id) {
              oldRL.AssignConstituency(false);
@@ -88,12 +86,5 @@ public class UitRegionEditor : MonoBehaviour {
          }
          */
      }
-         
-     
-     
-     public static void SetMapCellActive(Vector3 coord) {
-         HexMarker.MoveTo(coord);
-         inst.selectedCoord = coord;
-     }
-     
+    
 }

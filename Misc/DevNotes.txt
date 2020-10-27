@@ -7,16 +7,19 @@
     
 NOW	 
 
-    show hex marker in non edit mode
-    select center hax
+    reload map does not turn off seats when showing votes to start
+    does not respect current votes settings
+         
+    put arrow key stuff in input class    
+    arrow keys 
+       move selected hex around 
       
     in UitHexGridMap.Moveto(coord)
         reverse Position2Coord(localMousePosition
         to mouseposti0n from Coord  
            deciding if on right or left side of the board
       
-    arrow keys 
-       move selected hex around   
+  
         
     Save alternate file names
         get list of filenames from method

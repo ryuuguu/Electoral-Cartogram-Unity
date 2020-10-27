@@ -22,6 +22,8 @@ public class UitHexGridMap : MonoBehaviour {
     public int regionListHeight = 600;
     public Vector3 mapVEOffset;
     
+    public Vector3 selectedCoord; // current Highlighted & info shown for this coord
+    
     protected VisualElement root;
     
     protected VisualElement mapLayer;
@@ -94,10 +96,7 @@ public class UitHexGridMap : MonoBehaviour {
         markerLayer.transform.position = holderPosition;
         mapLayer.Add(markerLayer); 
         markerLayer.Add(hexMarker);
-        
-        HexMarker.MoveTo(new Vector3(29,-8,-21)); 
-        
-        
+
         regionLayer = new VisualElement();
         regionLayer.style.position = Position.Absolute;
         regionLayer.transform.position = hexLayer.transform.position;
@@ -215,32 +214,35 @@ public class UitHexGridMap : MonoBehaviour {
 
     
     private void MouseDown(Vector2 localMousePosition) {
-
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
             new Vector2(-0.5f,-0.5f));//hack: not centered cell 
+        MoveTo(cubeCoord);
+    }
+
+    public void MoveTo(Vector3 cubeCoord) {
+        selectedCoord = cubeCoord;
         if (cellDict.ContainsKey(cubeCoord)) {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 ElectoralDistrictDisplay.SetRegionList(regionList);
             }
         }
+
         HexMarker.MoveTo(cubeCoord);
         if (GameController.inst.isEditMode) {
-            
-            UitRegionEditor.SetMapCellActive(cubeCoord);
             // offset is not implemented so reseult is off by a hex row
-            float mapSpaceX =  mapGrid.Coord2Position(cubeCoord,Vector2.zero).x/ mapGrid.mapSize.x;
+            float mapSpaceX = mapGrid.Coord2Position(cubeCoord, Vector2.zero).x / mapGrid.mapSize.x;
 
             if (mapSpaceX > 0.55f) {
-                MoveEditor(editorRegionList,false);
+                MoveEditor(editorRegionList, false);
             }
 
             if (mapSpaceX < 0.45f) {
-                MoveEditor(editorRegionList,true);
+                MoveEditor(editorRegionList, true);
             }
         }
-    }    
-    
+    }
+
     private void GeometryChange(Rect screenRect) {
         TopLevelLayout(screenRect);
     }
