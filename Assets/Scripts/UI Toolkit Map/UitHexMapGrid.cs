@@ -18,6 +18,7 @@ public class UitHexMapGrid : UitHexGrid {
     public float subHexScale;
     
     public Vector2 mapSize = new Vector2(1600,800);
+    public Rect mapCubeRect = new Rect(0, -3, 55, 24); 
     
     //private List<VisualElement> subGridHolders = new List<VisualElement>();
     

@@ -204,7 +204,7 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var name = LanguageController.ChooseName(regionList.names);
-                //name += cubeCoord;
+                name += cubeCoord;
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,name );
                 return;
             }
@@ -343,10 +343,36 @@ public class UitHexGridMap : MonoBehaviour {
         
         delayMapBuild--;
         
-        // todo: handle mouse
+        if (Input.GetKeyUp("w") || Input.GetKeyUp(KeyCode.UpArrow)) {
+            MoveToMapCell(0);
+        }
+        if (Input.GetKeyUp("a") || Input.GetKeyUp(KeyCode.LeftArrow)) {
+            MoveToMapCell(4);
+        }
+        if (Input.GetKeyUp("s") || Input.GetKeyUp(KeyCode.DownArrow)) {
+            MoveToMapCell(3);
+        }
+        if (Input.GetKeyUp("d") || Input.GetKeyUp(KeyCode.RightArrow)) {
+            MoveToMapCell(1);
+        }
         
     }
 
+    public  void MoveToMapCell(int edgeDirection) {
+        
+        MapCell target = null;
+        for (int i = 0; i < MapGrid.edgeDirections.Count; i++) {
+            var targetCC = selectedCoord + MapGrid.edgeDirections[(edgeDirection + i) % MapGrid.edgeDirections.Count];
+            //check if targerCC is in bounds of map
+            //
+            //if (target != null) {
+                selectedCoord = targetCC;
+               break;
+            //}
+        }
+        
+    }
+    
     public void ShowVotes(bool on) {
         var votes = hexLayer.Query<VisualElement>(className: UitHexGridMapCell.VOTESClass);
         votes.ForEach(element => element.visible = on);
@@ -443,7 +469,7 @@ public class UitHexGridMap : MonoBehaviour {
             inst.uitHexBorderGrid.MakeHexBorders(inst.uitHexBorderGrid.localSpaceId,mapCellB.cubeCoord,colors); 
         }
         
-        Debug.Log("Map data is changed but not saved"); 
+        Debug.Log("Map data is changed but not saved flag map as unsave"); 
         return result;
     }
 

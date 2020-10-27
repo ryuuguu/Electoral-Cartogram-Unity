@@ -6,13 +6,18 @@
         to put items at end
     
 NOW	 
-
-    reload map does not turn off seats when showing votes to start
-    does not respect current votes settings
          
     put arrow key stuff in input class    
     arrow keys 
        move selected hex around 
+       
+    how to check if cell is in bounds
+        how to define bounds
+        rectangular bounds
+        check cubeCoord in rectangular bounds
+        
+    what are bounds for Canada map
+        where are they stored
       
     in UitHexGridMap.Moveto(coord)
         reverse Position2Coord(localMousePosition

@@ -214,6 +214,20 @@ namespace Com.Ryuuguu.HexGridCC {
             return cubes;
         }
 
+        /// <summary>
+        /// returns true if cube is inside rectangle rect
+        /// not generalized for orientation of grid
+        /// </summary>
+        /// <param name="cube">cubeCoordinate</param>
+        /// <param name="rect"></param>
+        /// <returns></returns>
+        public bool InRectXY(Vector3 cube, Rect rect) {
+            return (cube.x > rect.x 
+                    && cube.x < rect.xMax 
+                    && cube.y > (cube.x / 2f) + rect.y 
+                    && cube.y < rect.yMax - (cube.x / 2f) + rect.y);
+        }
+        
         // Boolean combines two lists of cube coordinates
         public List<Vector3> BooleanCombineCubes(List<Vector3> a, List<Vector3> b) {
             List<Vector3> vec = a;
@@ -488,18 +502,14 @@ namespace Com.Ryuuguu.HexGridCC {
                 coord = new Coord(cube);
                 coordinateContainer[cube] = coord;
             }
-            
             return coord;
-
         }
         
         public Coord GetCoordinateFromContainer(Vector3 cube, string key) {
             Dictionary<Vector3, Coord> coordinateContainer = GetCoordinateContainer(key);
             if (!coordinateContainer.TryGetValue(cube, out var coord)) {
                 coord = new Coord();
-                
             }
-            
             return coord;
 
         }
