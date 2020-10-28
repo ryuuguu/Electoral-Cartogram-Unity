@@ -1,16 +1,46 @@
     
     canada politics reddit
     
-    
- 
 NOW	 
-      
-     if not assignable do not show colour 
-                   
+     highlight selected ( by Click()  record)
+        just change background color            
      if in bounds set to defualt? on start new map
       
      given a map cube bounds and map size
         calc late largest radius that fits all hexes in mapSize 
+    
+    VUE
+        read from server 
+     
+    WebGL (non mobile) mapMaker
+        read files from 
+            server
+            playfab
+         write file
+            playfab user
+    
+    WebGL viewer
+        read files from
+            server 
+         
+    App mobile
+        read file from
+            server
+            playFab if logged in
+        write file
+            playfab
+            
+    publish Me only?
+        reads from playfab and sends to server
+     
+    files 
+        election Data
+            custom CSV?
+        Maps 
+            mapData.json
+            otherMeta.json
+                region stuff
+                mapMeta    
           
     Save alternate file names
         get list of filenames from method
@@ -26,7 +56,8 @@ NOW
             save to there
             
           
-    next make editor in Uit
+    next make more runtime editor in Uit
+    do vue stuff first?
                              
         editor needs to make map data
             region levels
@@ -57,8 +88,6 @@ NOW
         if I split off may lose editor stuff
         so need copy here
 
-	
-	
 		
 	Bugs
 	    
@@ -70,6 +99,11 @@ NOW
 		  finished example code
 
 	Website
+	    app can read write files to website under user?
+	    app can read and write local files
+	    app can read and write shared space on web
+	    app can generate png of seats & votes
+	
 	    consider VUE build with images and data files
             split web into 
                 Unity app with editing
@@ -86,8 +120,7 @@ NOW
                             limited read only privilages
 Blog 
 	    
-    reddit post 
-        endFPTP
+    
 	    
 		
 DOTS project
