@@ -5,29 +5,8 @@
  
 NOW	 
    
-    after setting a hex 
-        if it is a riding change it to ?
-        item in same place if new item is a riding 
-        else item change to parent
-        need item nuber i
-            save as field in EditorRegionListDisplay
-            
-           UitRegionEditor.currentRegionList == null
-             means not assignable
-             
-             
-            when reset items 
-                was prev UitRegionEditor.currentRegionList == null
-                if UitRegionEditor.currentRegionList,isRididng
-                    check if item at index is riding
-                      if it is click it
-                    if not click the item at (index-1)
-                  I guess clicked should just get an index
+   indent
                      
-                    
-         
-   arrow keys are moving listviews 
-    how to stop 
      if in bounds set to defualt? on start new map
       
      given a map cube bounds and map size
