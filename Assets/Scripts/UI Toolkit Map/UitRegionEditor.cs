@@ -32,7 +32,8 @@ public class UitRegionEditor : MonoBehaviour {
     
     public static void ButtonSetHex() {
         AssignRegion(currentRegionList);
-        EditorRegionListDisplay.resetItems();
+        EditorRegionListDisplay.setHexResetItems(currentRegionList);
+        
     }
 
     public static void AssignRegion(RegionList rl) {

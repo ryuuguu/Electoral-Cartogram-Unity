@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a669a95c328be45efabe9395137426fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indent: 0
+  indent: 10
 --- !u!1 &45764359
 GameObject:
   m_ObjectHideFlags: 0
@@ -8133,7 +8133,6 @@ MonoBehaviour:
   regionListHeight: 600
   mapVEOffset: {x: 0, y: 700, z: 0}
   selectedCoord: {x: 0, y: 0, z: 0}
-  showDebugToolTip: 1
 --- !u!114 &1493411969
 MonoBehaviour:
   m_ObjectHideFlags: 0

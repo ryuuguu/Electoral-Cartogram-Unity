@@ -41,6 +41,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public static ListView listView;
     private static List<RegionListRecord> items;
     private static RegionList currentExpandedRegionList;
+    private static int selectedIndex;
     public static VisualElement currentRegionDisplay;
     
     // all these sizes are hard coded as a hack until textMeshPro is supported
@@ -57,12 +58,12 @@ public class EditorRegionListDisplay : MonoBehaviour {
     
     public static void InitialRegionList() {
         currentExpandedRegionList = RegionController.inst.regionList;
+        selectedIndex = 0;
         resetItems();
     }
 
     public static void resetItems() {
         items.Clear();
-        //Debug.Log("reset: "+currentExpandedRegionList.id);
         items.Add(new RegionListRecord(RegionController.inst.regionList) );
         foreach (var child in RegionController.inst.regionList.subLists) {
             AddRL( child);
@@ -70,14 +71,37 @@ public class EditorRegionListDisplay : MonoBehaviour {
         listView.Refresh();
     }
 
+    public static void setHexResetItems(RegionList rl) {
+        items.Clear();
+        items.Add(new RegionListRecord(RegionController.inst.regionList) );
+        foreach (var child in RegionController.inst.regionList.subLists) {
+            AddRL( child);
+        }
+        listView.Refresh();
+    
+        if (items.Count <= selectedIndex) {
+            selectedIndex = items.Count - 1;
+            Clicked(selectedIndex);
+        }
+        else {
+            if (rl.isRiding) {
+                if (RegionController.Find(items[selectedIndex].id).isRiding) {
+                    Clicked(selectedIndex);
+                } else {
+                    Clicked(selectedIndex-1);
+                }
+            }
+        }
+
+        //setup scurrentExpandedRegionList
+    
+    }
+    
     public static void AddRL(RegionList rl) {
-        //Debug.Log("AddRL: "+ rl.id + " : " + rl.parent.id);
         if (currentExpandedRegionList.hierarchyList.Contains(rl.parent) && !rl.isAssigned) {
-            //Debug.Log("AddRL Parent in OK: "+ rl.id + " : " + rl.parent.id);
             items.Add(new RegionListRecord(rl) );
             if (rl.subLists != null) {
                 foreach (var child in rl.subLists) {
-                    //Debug.Log("AddRL child: " + child.id + " : " + child.parent.id);
                     AddRL(child);
                 }
             }
@@ -96,8 +120,9 @@ public class EditorRegionListDisplay : MonoBehaviour {
         }
     }
 
-    public static void Clicked(RegionListRecord rlr) {
-
+    public static void Clicked( int index) {
+        selectedIndex = index;
+        var rlr = items[index];
         var rl = RegionController.Find(rlr.id);
         if (!rl.isRiding) {
             currentExpandedRegionList = rl;
@@ -105,6 +130,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
 
         if (rl.isAssignable) {
             UitRegionEditor.currentRegionList = rl;
+            selectedIndex = index;
             bindRegionRecord(currentRegionDisplay, rlr);
             setHexButton.SetEnabled(true);
         }
@@ -113,7 +139,6 @@ public class EditorRegionListDisplay : MonoBehaviour {
             currentRegionDisplay.Clear();
             setHexButton.SetEnabled(false);
         }
-        
         resetItems();
     }
     
@@ -154,7 +179,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
             // whole button must be cleared and recreated
             bindRegionRecord(e, regionRecord);
             e.Q<VisualElement>(VEIndent).style.width = regionRecord.indent;
-            e.Q<Button>().clicked += () => {Clicked(items[i]); };
+            e.Q<Button>().clicked += () => {Clicked( i); };
         };
         
         /*

@@ -23,8 +23,6 @@ public class UitHexGridMap : MonoBehaviour {
     public Vector3 mapVEOffset;
     
     public Vector3 selectedCoord; // current Highlighted & info shown for this coord
-
-    public bool showDebugToolTip = false;
     
     protected VisualElement root;
     
@@ -213,11 +211,11 @@ public class UitHexGridMap : MonoBehaviour {
             var regionList = cellDict[cubeCoord].regionList;
             if (regionList.isRiding) {
                 var msg = LanguageController.ChooseName(regionList.names);
-                if( showDebugToolTip){msg += msg2;}
+                if( GameController.inst.isEditMode){msg += msg2;}
                 UitTooltip.Show(e.localMousePosition,e.mousePosition,msg);
             }
             else {
-                if (showDebugToolTip) {
+                if (GameController.inst.isEditMode) {
                     UitTooltip.Show(e.localMousePosition, e.mousePosition, msg2);
                 }
                 else {
@@ -227,7 +225,7 @@ public class UitHexGridMap : MonoBehaviour {
         }
         
         else {
-            if (showDebugToolTip) {
+            if (GameController.inst.isEditMode) {
                 UitTooltip.Show(e.localMousePosition, e.mousePosition, msg2);
             }
             else {

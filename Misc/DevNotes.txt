@@ -2,23 +2,37 @@
     canada politics reddit
     
     
-    how to change layout inside flexbox
-        to put items at end
-    
+ 
 NOW	 
-         
-    put arrow key stuff in input class    
-    arrow keys 
-       move selected hex around 
-       use bounds
-       
-    if out of bounds do not draw?
-        if in bounds setto defualt?
-      
    
+    after setting a hex 
+        if it is a riding change it to ?
+        item in same place if new item is a riding 
+        else item change to parent
+        need item nuber i
+            save as field in EditorRegionListDisplay
+            
+           UitRegionEditor.currentRegionList == null
+             means not assignable
+             
+             
+            when reset items 
+                was prev UitRegionEditor.currentRegionList == null
+                if UitRegionEditor.currentRegionList,isRididng
+                    check if item at index is riding
+                      if it is click it
+                    if not click the item at (index-1)
+                  I guess clicked should just get an index
+                     
+                    
+         
+   arrow keys are moving listviews 
+    how to stop 
+     if in bounds set to defualt? on start new map
       
-  
-        
+     given a map cube bounds and map size
+        calc late largest radius that fits all hexes in mapSize 
+          
     Save alternate file names
         get list of filenames from method
                     struct name plus fixed path
@@ -41,16 +55,15 @@ NOW
                 font size
             border colors
         
-        make hex grid given dimensions 
-            click on hex assign region
-                
-                region scroll list Panel
-                    arrow keys 
-                        move selected hex around
-
+        set hex grid  rect size
+        set MapSize
+            
                                              
         party color data
             include use other color
+    
+    text Labels overtop of hex locations for regions
+        should be editable
     
     
     when editor and same map done
@@ -64,35 +77,9 @@ NOW
         
         if I split off may lose editor stuff
         so need copy here
-       
-        
-   
-LATER
 
-   
-    
-	 add text Labels overtop of hex locations for regions
-	        should be editable
 	
-     make visibile
-     switch to square
-     
-     box with info Canada wide 
-        seats per party
-        votes per party
-        
-                 
 	
-	Redesign
-		isSquare
-			where is isSquare 
-				UitHexGrid (UitHexMapGrid is a subclass)
-		use overlay global grid postion not buttons
-		how to turn on and off subgrids
-			keep list of subgrid elements and turn on/off
-			 list in UitHexMapGrid 
-				IStyle.visibility
-				IStyle.display
 		
 	Bugs
 	    
@@ -102,10 +89,7 @@ LATER
 		need to treat this code like a code review coding exercise
 		  tutorial how to use for myself.
 		  finished example code
-		    		
-	Editing mode need language control event 
-	   deleted it by accident
-	   
+
 	Website
 	    consider VUE build with images and data files
             split web into 
