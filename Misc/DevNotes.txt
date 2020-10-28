@@ -4,9 +4,9 @@
     
  
 NOW	 
-   
-   indent
-                     
+      
+     if not assignable do not show colour 
+                   
      if in bounds set to defualt? on start new map
       
      given a map cube bounds and map size

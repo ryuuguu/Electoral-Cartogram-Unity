@@ -22,6 +22,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
         public string id;
         public float indent;
         public string[] names;
+        public bool isAssignable;
         public Color color;
         public int constituencyCount;
 
@@ -29,6 +30,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
             id = rl.id;
             indent = indentIncr* (rl.hierarchyList.Count -1);
             names = rl.names.ToArray();
+            isAssignable = rl.isAssignable;
             color = rl.color;
             constituencyCount = rl.unassignedConstituencyCount;
         }
@@ -208,8 +210,15 @@ public class EditorRegionListDisplay : MonoBehaviour {
         var label = e.Q<Label>(VERegionName);
         label.text = LanguageController.ChooseName(regionRecord.names);
         Shrink(label, inst.nameSize, inst.nameSizeSmall, inst.nameLength);
+        var rcVE = e.Q<VisualElement>(VERegionColor);
+        if (regionRecord.isAssignable) {
+            rcVE.style.backgroundColor = regionRecord.color;
+            rcVE.visible = true;
+        }
+        else {
+            rcVE.visible = false;
+        }
 
-        e.Q<VisualElement>(VERegionColor).style.backgroundColor = regionRecord.color;
         var countText = regionRecord.constituencyCount == 0 ? "" : regionRecord.constituencyCount.ToString();
         e.Q<Label>(VEConstituencyCount).text = countText;
     }
