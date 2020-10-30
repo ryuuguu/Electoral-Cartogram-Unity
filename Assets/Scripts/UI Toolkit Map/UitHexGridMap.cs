@@ -9,6 +9,10 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 public class UitHexGridMap : MonoBehaviour {
+
+    public Vector3 fixScale;
+    public Vector3 fixShift;
+    
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
@@ -26,6 +30,7 @@ public class UitHexGridMap : MonoBehaviour {
     
     protected VisualElement root;
     
+    protected VisualElement mapSizerLayer;
     protected VisualElement mapLayer;
     protected VisualElement hexLayer;
     protected VisualElement borderLayer;
@@ -56,10 +61,10 @@ public class UitHexGridMap : MonoBehaviour {
 
     void Start() {
         // Reference to the root of the window.
-        
-        var uiDoc= GetComponent<UIDocument>();
+
+        var uiDoc = GetComponent<UIDocument>();
         root = uiDoc.rootVisualElement;
-        root.RegisterCallback<GeometryChangedEvent>( (evt) =>
+        root.RegisterCallback<GeometryChangedEvent>((evt) =>
             GeometryChange(evt.newRect));
 
         // Associates a stylesheet to our root. Thanks to inheritance, all root’s
@@ -69,32 +74,35 @@ public class UitHexGridMap : MonoBehaviour {
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
         var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
         tree.CloneTree(root);
+
+        mapSizerLayer = new VisualElement();
+        root.Add(mapSizerLayer);
         
         mapLayer = new VisualElement();
         // setting size so details top right corner can be calculated
         mapLayer.style.width = mapGrid.mapSize.x;
         mapLayer.style.height = mapGrid.mapSize.x;
-        root.Add(mapLayer);
-        
+        mapSizerLayer.Add(mapLayer);
+
         //this acts as visual "Layer"
         hexLayer = new VisualElement();
-        
-        var holderPosition = hexLayer.transform.position + mapVEOffset;
-        hexLayer.transform.position = holderPosition;
-        
+
+        //var holderPosition = hexLayer.transform.position + mapVEOffset;
+        //hexLayer.transform.position = holderPosition;
+
         mapLayer.Add(hexLayer);
-        var localSpaceId =  mapGrid.Init(hexLayer);
+        var localSpaceId = mapGrid.Init(hexLayer);
         hexMarker = HexMarker.MakeHexMarker(localSpaceId);
-        
+
         borderLayer = new VisualElement();
-        borderLayer.transform.position = holderPosition;
-        mapLayer.Add(borderLayer); 
+        //borderLayer.transform.position = holderPosition;
+        mapLayer.Add(borderLayer);
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
-        
+
         var markerLayer = new VisualElement();
-        markerLayer.transform.position = holderPosition;
-        mapLayer.Add(markerLayer); 
+        //markerLayer.transform.position = holderPosition;
+        mapLayer.Add(markerLayer);
         markerLayer.Add(hexMarker);
 
         regionLayer = new VisualElement();
@@ -102,66 +110,69 @@ public class UitHexGridMap : MonoBehaviour {
         regionLayer.transform.position = hexLayer.transform.position;
         regionLayer.transform.scale = hexLayer.transform.scale;
         mapLayer.Add(regionLayer);
-        RegionLayer.Init(localSpaceId,regionLayer);
+        RegionLayer.Init(localSpaceId, regionLayer);
         RegionLayer.Redraw();
 
-        overlayLayer= new VisualElement();
+        overlayLayer = new VisualElement();
         overlayLayer.RegisterCallback<MouseMoveEvent>(
-            e => MouseOver( e));
+            e => MouseOver(e));
         overlayLayer.RegisterCallback<MouseDownEvent>(
-            e => MouseDown( e.localMousePosition));
+            e => MouseDown(e.localMousePosition));
         mapLayer.Add(overlayLayer);
 
         overlayLayer.style.position = Position.Absolute;
         overlayLayer.transform.position = hexLayer.transform.position;
         overlayLayer.transform.scale = hexLayer.transform.scale;
-        
-        
+
+
         // this is a hack get all mouse events
-        var    ve = new TextElement();
+        var ve = new TextElement();
+
         ve.style.position = Position.Absolute;
         ve.style.width = 4000;
         ve.style.height = 4000;
         ve.style.backgroundColor = Color.clear;
-        ve.transform.position = new Vector3(-2000,-2000,0);
+        ve.transform.position = new Vector3(-2000, -2000, 0);
         overlayLayer.Add(ve);
 
         var topBar = TopBar();
-        topBar.transform.position =new  Vector3(0,150 - mapGrid.mapSize.y , 0);
+        topBar.transform.position = new Vector3(0, 150 - mapGrid.mapSize.y, 0);
         overlayLayer.Add(topBar);
-        
+
         LeftInfoSetup();
 
         RightInfoSetUp();
 
         var detailDisplay = ElectoralDistrictDisplay.MakeDetailDisplay();
         rightInfo.Add(detailDisplay);
-        
+
         var partyTotalsDisplay = PartyTotalsDisplay.MakePartyTotalsDisplay();
-        
+
         leftInfo.Add(partyTotalsDisplay);
-        
+
         overlayLayer.Add(leftInfo);
         overlayLayer.Add(rightInfo);
-        
+
         var toolTip = UitTooltip.Init();
         overlayLayer.Add(toolTip);
-        
+
         editorRegionList = EditorRegionListDisplay.MakeRegionListDisplay();
         MoveEditor(editorRegionList, false);
         SetEditMode(false);
         overlayLayer.Add(editorRegionList);
-
-        
     }
 
     private void RightInfoSetUp() {
         rightInfo = new VisualElement();
         rightInfo.style.position = Position.Absolute;
-        rightInfo.style.width = rightInfoWidth;
-        rightInfo.style.height = rightInfoHeight;
+        //rightInfo.style.width = rightInfoWidth;
+        //rightInfo.style.height = rightInfoHeight;
         rightInfo.style.backgroundColor = Color.black;
-        rightInfo.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth, 100 - rightInfoHeight, 0);
+        rightInfo.style.top = Length.Percent(50);
+        rightInfo.style.bottom = Length.Percent(0);
+        rightInfo.style.left = Length.Percent(0);
+        rightInfo.style.right = Length.Percent(30);
+        //rightInfo.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth, 100 - rightInfoHeight, 0);
     }
 
     private void LeftInfoSetup() {
@@ -271,14 +282,8 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     private void TopLevelLayout(Rect screenRect) {
-        var scale = ScaleMapHolder(mapLayer, mapGrid.mapSize,
+        var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapSize,
             screenRect.max);
-        //Debug.Log("TopLevelLayout: "+ screenRect );
-        
-        //DebugHexPos();
-        //detailsLayer.transform.scale = mapLayer.transform.scale;
-        //detailsLayer.transform.position = new Vector3(mapLayer.transform.position.x,-1*screenRect.max.y, 0);
-
     }
     
     private void ScaledAt(VisualElement  ve,Rect rect) {
@@ -428,6 +433,8 @@ public class UitHexGridMap : MonoBehaviour {
         var mapDataJSON = Resources.Load<TextAsset>("MapData");
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
+            mapData.ScaleCoords(fixScale);
+            mapData.ShiftCoords(fixShift);
         }
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
@@ -572,7 +579,20 @@ public class UitHexGridMap : MonoBehaviour {
         
         public float scale = 2;
         public float posCellScale = 4.94f;
-        public List<CellData> cellDatas; 
+        public List<CellData> cellDatas;
+
+        public void ScaleCoords(Vector3 scale) {
+            foreach (var cd in cellDatas) {
+                cd.cubeCoord.Scale(scale);
+                
+            }
+        }
+        public void ShiftCoords(Vector3 shift) {
+            foreach (var cd in cellDatas) {
+                cd.cubeCoord+=shift;
+                
+            }
+        }
     }
     
     [System.Serializable]

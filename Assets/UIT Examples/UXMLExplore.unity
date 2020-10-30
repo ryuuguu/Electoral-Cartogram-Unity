@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b547322e0f964df6bd3c669d9cd066c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 200, y: 400, z: 0}
 --- !u!114 &45303102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f21c074d86024caca2a0034ce4f53f73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 11400000, guid: 92fc1936767854baabaf77e69637a3ce, type: 2}
+  m_PanelSettings: {fileID: 11400000, guid: 9153e9ea9d3504f8cbc869daf3fb16b2, type: 2}
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 0}
 --- !u!4 &45303104

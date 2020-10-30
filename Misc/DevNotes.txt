@@ -2,9 +2,33 @@
     canada politics reddit
     
 NOW	 
+    current problem
+   
+   
+   
+    events are in overlay layer space
+    overlay layer has been made larger 
+        not problem?
+            could make MapSyncLayer of nominal mapsize
+        shift -2000,-2000
+            could make MapSyncLayer  of mapsize?
+            sift it -1*overlaylayer shift
+            
+     so make MapSyncLayer 
+        put maplayer under centered and top
+        and put display areas on ir
+     
+      
+    
+          
      highlight selected ( by Click()  record)
-        just change background color            
-     if in bounds set to defualt? on start new map
+        just change background color 
+        
+        
+        
+                   
+     if in bounds set to default? on start new map
+      
       
      given a map cube bounds and map size
         calc late largest radius that fits all hexes in mapSize 

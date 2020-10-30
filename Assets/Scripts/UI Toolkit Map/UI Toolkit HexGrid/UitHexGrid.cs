@@ -43,7 +43,9 @@ public class UitHexGrid : MonoBehaviour {
         hexHolder = aHexHolder;
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId = CubeCoordinates.NewLocalSpaceId(hexRadius / 2, Vector2.one,
+        
+        //invert Y coordinate of scaleV2 because in UI Toolkit Y = 0 is top of screen
+        localSpaceId = CubeCoordinates.NewLocalSpaceId(hexRadius / 2, new Vector2(1,1), 
             CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
         return localSpaceId;
     }

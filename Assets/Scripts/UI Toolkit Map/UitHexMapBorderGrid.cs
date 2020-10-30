@@ -15,7 +15,7 @@ public class UitHexMapBorderGrid : UitHexBorderGrid {
     public void SetupHexBorders() {
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;
-        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, Vector2.one,
+        localSpaceId =  CubeCoordinates.NewLocalSpaceId(hexRadius/2, new Vector2(1,1),
             CubeCoordinates.LocalSpace.Orientation.XY,null,offsetCoord);
     }
 }
