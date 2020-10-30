@@ -74,12 +74,15 @@ public class UitHexGridMap : MonoBehaviour {
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
         var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
         tree.CloneTree(root);
+        
 
         mapSizerLayer = new VisualElement();
+        mapSizerLayer.style.width = mapGrid.mapSize.x;
+        mapSizerLayer.style.height = mapGrid.mapSize.y;
         root.Add(mapSizerLayer);
         
         mapLayer = new VisualElement();
-        // setting size so details top right corner can be calculated
+        // setting size so FlexBox works with position drawn map 
         mapLayer.style.width = mapGrid.mapSize.x;
         mapLayer.style.height = mapGrid.mapSize.x;
         mapSizerLayer.Add(mapLayer);
@@ -107,8 +110,8 @@ public class UitHexGridMap : MonoBehaviour {
 
         regionLayer = new VisualElement();
         regionLayer.style.position = Position.Absolute;
-        regionLayer.transform.position = hexLayer.transform.position;
-        regionLayer.transform.scale = hexLayer.transform.scale;
+        //regionLayer.transform.position = hexLayer.transform.position;
+        //regionLayer.transform.scale = hexLayer.transform.scale;
         mapLayer.Add(regionLayer);
         RegionLayer.Init(localSpaceId, regionLayer);
         RegionLayer.Redraw();
@@ -284,6 +287,7 @@ public class UitHexGridMap : MonoBehaviour {
     private void TopLevelLayout(Rect screenRect) {
         var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapSize,
             screenRect.max);
+        Debug.Log("Root: "+ mapSizerLayer.parent.layout + " screen: "+ screenRect);
     }
     
     private void ScaledAt(VisualElement  ve,Rect rect) {
@@ -294,7 +298,29 @@ public class UitHexGridMap : MonoBehaviour {
         ve.transform.position = position;
         ve.transform.scale = scale;
     }
-    
+
+    /// <summary>
+    /// set scale  of map holder
+    /// based on boxRatio
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="boxRatio"></param>
+    /// <param name="geometryRect"></param>
+    private Vector3 ScaleMapHolder(VisualElement ve,Vector2 holderSize, Vector2 geometryRect) {
+        var parentRatio = geometryRect.x / geometryRect.y;
+        var holderRatio = holderSize.x / holderSize.y;
+        var scale = 1f;
+        if (holderRatio > parentRatio) {
+            scale = geometryRect.x/holderSize.x;
+            ve.transform.position = Vector2.zero;
+        }
+        else {
+            scale = geometryRect.y/holderSize.y;
+            ve.transform.position = new Vector2((geometryRect.x - holderSize.x*scale) / 2f, 0);
+        }
+        ve.transform.scale = scale * Vector3.one;
+        return ve.transform.scale;
+    }
     
     private void DebugHexPos() {
         if (mapGrid.hexes.Count != 0) {
@@ -330,29 +356,6 @@ public class UitHexGridMap : MonoBehaviour {
         }
     }
     
-    /// <summary>
-    /// set scale  of map holder
-    /// based on boxRatio
-    /// </summary>
-    /// <param name="ve"></param>
-    /// <param name="boxRatio"></param>
-    /// <param name="parentSize"></param>
-    private Vector3 ScaleMapHolder(VisualElement ve,Vector2 holderSize, Vector2 parentSize) {
-        var parentRatio = parentSize.x / parentSize.y;
-        var holderRatio = holderSize.x / holderSize.y;
-        var scale = 1f; 
-        
-        if (holderRatio > parentRatio) {
-            scale = parentSize.x/holderSize.x;
-            ve.transform.position = Vector2.zero;
-        }
-        else {
-            scale = parentSize.y/holderSize.y;
-            ve.transform.position = new Vector2((parentSize.x - holderSize.x*scale) / 2f, 0);
-        }
-        ve.transform.scale = scale * Vector3.one;
-        return ve.transform.scale;
-    }
     
     void Update() {
         

@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="Electoral.uss" />
+    <ui:VisualElement style="flex-direction: row; align-items: center; justify-content: center;">
+        <ui:VisualElement />
+    </ui:VisualElement>
+</ui:UXML>
