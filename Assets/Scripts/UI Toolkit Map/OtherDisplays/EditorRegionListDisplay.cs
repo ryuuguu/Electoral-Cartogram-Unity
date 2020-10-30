@@ -94,9 +94,6 @@ public class EditorRegionListDisplay : MonoBehaviour {
                 }
             }
         }
-
-        //setup scurrentExpandedRegionList
-    
     }
     
     public static void AddRL(RegionList rl) {

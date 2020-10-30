@@ -4,22 +4,14 @@
 NOW	 
     current problem
    
-     try check world position
-        overlayLayer
-        mapLayer
-        mapSizerLayer
    
-    events are in overlay layer space
-    overlay layer has been made larger 
-        not problem?
-            could make MapSyncLayer of nominal mapsize
-        shift -2000,-2000
-            could make MapSyncLayer  of mapsize?
-            sift it -1*overlaylayer shift
-            
-     so make MapSyncLayer 
-        put maplayer under centered and top
-        and put display areas on ir
+   
+    need to fix region name overlay stuff
+    
+    also mouse position does not seem to map properly to regions 
+        check what data is used in the code
+    
+    calculateright and left info from sizes in inspector
      
       
     

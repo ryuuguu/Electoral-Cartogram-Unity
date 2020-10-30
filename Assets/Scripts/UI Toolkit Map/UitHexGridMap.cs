@@ -160,6 +160,7 @@ public class UitHexGridMap : MonoBehaviour {
 
         leftInfo.Add(partyTotalsDisplay);
 
+        
         overlayLayer.Add(leftInfo);
         overlayLayer.Add(rightInfo);
 
@@ -175,10 +176,8 @@ public class UitHexGridMap : MonoBehaviour {
     private void RightInfoSetUp() {
         rightInfo = new VisualElement();
         rightInfo.style.position = Position.Absolute;
-        //rightInfo.style.width = rightInfoWidth;
-        //rightInfo.style.height = rightInfoHeight;
         rightInfo.style.backgroundColor = Color.black;
-        rightInfo.style.top = Length.Percent(50);
+        rightInfo.style.top = Length.Percent(70);
         rightInfo.style.bottom = Length.Percent(0);
         rightInfo.style.left = Length.Percent(70);
         rightInfo.style.right = Length.Percent(0);
@@ -188,21 +187,24 @@ public class UitHexGridMap : MonoBehaviour {
     private void LeftInfoSetup() {
         leftInfo = new VisualElement();
         leftInfo.style.position = Position.Absolute;
-        leftInfo.style.width = leftInfoWidth;
-        leftInfo.style.height = leftInfoHeight;
+        leftInfo.style.top = Length.Percent(60);
+        leftInfo.style.bottom = Length.Percent(0);
+        leftInfo.style.left = Length.Percent(0);
+        leftInfo.style.right = Length.Percent(70);
         leftInfo.style.backgroundColor = Color.black;
         leftInfo.transform.position = new Vector3(0, 100 - leftInfoHeight, 0);
     }
 
     private void MoveEditor(VisualElement ve, bool right) {
         ve.style.position = Position.Absolute;
-        ve.style.width = regionListWidth;
-        ve.style.height = regionListHeight;
+        ve.style.top = Length.Percent(20);
+        ve.style.bottom = Length.Percent(20);
+        ve.style.left = Length.Percent(10);
+        ve.style.right = Length.Percent(60);
         ve.style.backgroundColor = Color.black;
         if (right) {
-            ve.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth - 100, 100 - regionListHeight, 0);
-        } else {
-            ve.transform.position = new Vector3(100, 100 - regionListHeight, 0);
+            ve.style.left = Length.Percent(60);
+            ve.style.right = Length.Percent(10);
         }
     }
 
@@ -445,8 +447,8 @@ public class UitHexGridMap : MonoBehaviour {
         var mapDataJSON = Resources.Load<TextAsset>("MapData");
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
-            mapData.ScaleCoords(fixScale);
-            mapData.ShiftCoords(fixShift);
+            //mapData.ScaleCoords(fixScale);
+            //mapData.ShiftCoords(fixShift);
         }
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");

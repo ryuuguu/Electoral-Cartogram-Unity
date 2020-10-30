@@ -1137,31 +1137,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   regionDatas:
-  - coord: {x: 24, y: 2, z: -26}
+  - coord: {x: 24, y: -19, z: -5}
     name: MB
-  - coord: {x: 20, y: 5, z: -25}
+  - coord: {x: 20, y: -15, z: -4}
     name: SK
-  - coord: {x: 10, y: 12.7, z: -20.7}
+  - coord: {x: 10.3, y: -9.3, z: -1}
     name: AL
-  - coord: {x: 28.3, y: -5, z: -23.3}
+  - coord: {x: 28.3, y: -26, z: -2.3}
     name: ON
-  - coord: {x: 7, y: 13.5, z: 20.5}
+  - coord: {x: 7, y: -7.5, z: 0.5}
     name: BC
-  - coord: {x: 4.5, y: 17, z: -21.5}
+  - coord: {x: 4.5, y: -4, z: -0.5}
     name: YK
-  - coord: {x: 17, y: 10, z: -27}
+  - coord: {x: 17, y: -53, z: 36}
     name: NW
-  - coord: {x: 31.3, y: 3, z: -34.3}
+  - coord: {x: 31.3, y: -18, z: -13.3}
     name: NU
-  - coord: {x: 35, y: -2, z: -37}
+  - coord: {x: 35, y: -23, z: -12}
     name: QC
-  - coord: {x: 46, y: -4, z: -42}
+  - coord: {x: 46, y: -25, z: -21}
     name: NL
-  - coord: {x: 50.5, y: -9.5, z: -41}
+  - coord: {x: 50.5, y: -30.5, z: -20}
     name: PE
-  - coord: {x: 46, y: -11.5, z: -34.5}
+  - coord: {x: 46, y: -32.5, z: -13.5}
     name: NB
-  - coord: {x: 52.1, y: -17, z: -35.1}
+  - coord: {x: 52.1, y: -38, z: -14.1}
     name: NS
 --- !u!4 &175483152
 Transform:
