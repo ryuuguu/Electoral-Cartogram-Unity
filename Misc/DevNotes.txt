@@ -4,7 +4,10 @@
 NOW	 
     current problem
    
-   maybe layout engine is not called
+     try check world position
+        overlayLayer
+        mapLayer
+        mapSizerLayer
    
     events are in overlay layer space
     overlay layer has been made larger 

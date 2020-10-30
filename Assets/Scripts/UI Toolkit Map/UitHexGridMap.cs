@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Com.Ryuuguu.HexGridCC;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
+using Debug = UnityEngine.Debug;
 
 public class UitHexGridMap : MonoBehaviour {
 
@@ -83,8 +85,12 @@ public class UitHexGridMap : MonoBehaviour {
         
         mapLayer = new VisualElement();
         // setting size so FlexBox works with position drawn map 
-        mapLayer.style.width = mapGrid.mapSize.x;
-        mapLayer.style.height = mapGrid.mapSize.x;
+        //setting top & bottom left height at 0
+        //mapLayer.style.top = Length.Percent(0);
+        //mapLayer.style.bottom = Length.Percent(0);
+        mapLayer.style.left = Length.Percent(0);
+        mapLayer.style.right = Length.Percent(0);
+        mapLayer.style.height = mapGrid.mapSize.y;
         mapSizerLayer.Add(mapLayer);
 
         //this acts as visual "Layer"
@@ -124,8 +130,9 @@ public class UitHexGridMap : MonoBehaviour {
         mapLayer.Add(overlayLayer);
 
         overlayLayer.style.position = Position.Absolute;
-        overlayLayer.transform.position = hexLayer.transform.position;
-        overlayLayer.transform.scale = hexLayer.transform.scale;
+        overlayLayer.style.height = mapGrid.mapSize.y;
+        overlayLayer.style.left = Length.Percent(0);
+        overlayLayer.style.right = Length.Percent(0);
 
 
         // this is a hack get all mouse events
@@ -139,7 +146,7 @@ public class UitHexGridMap : MonoBehaviour {
         overlayLayer.Add(ve);
 
         var topBar = TopBar();
-        topBar.transform.position = new Vector3(0, 150 - mapGrid.mapSize.y, 0);
+        //topBar.transform.position = new Vector3(0, 150 - mapGrid.mapSize.y, 0);
         overlayLayer.Add(topBar);
 
         LeftInfoSetup();
@@ -173,8 +180,8 @@ public class UitHexGridMap : MonoBehaviour {
         rightInfo.style.backgroundColor = Color.black;
         rightInfo.style.top = Length.Percent(50);
         rightInfo.style.bottom = Length.Percent(0);
-        rightInfo.style.left = Length.Percent(0);
-        rightInfo.style.right = Length.Percent(30);
+        rightInfo.style.left = Length.Percent(70);
+        rightInfo.style.right = Length.Percent(0);
         //rightInfo.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth, 100 - rightInfoHeight, 0);
     }
 
@@ -287,7 +294,9 @@ public class UitHexGridMap : MonoBehaviour {
     private void TopLevelLayout(Rect screenRect) {
         var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapSize,
             screenRect.max);
-        Debug.Log("Root: "+ mapSizerLayer.parent.layout + " screen: "+ screenRect);
+        Debug.Log("mapSizerLayer: "+ mapSizerLayer.worldBound + " local: "+ mapSizerLayer.localBound);
+        Debug.Log("mapLayer: "+ mapLayer.worldBound + " local: "+ mapLayer.localBound);
+        Debug.Log("overLayLayer: "+ overlayLayer.worldBound + " local: "+ overlayLayer.localBound);
     }
     
     private void ScaledAt(VisualElement  ve,Rect rect) {
