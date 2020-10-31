@@ -3,12 +3,12 @@
     <ui:VisualElement style="width: 550px; height: auto;">
         <ui:Label text="Newfoundland and Labrodor" display-tooltip-when-elided="True" name="Region" focusable="false" style="-unity-text-align: upper-center; font-size: 40px; color: rgb(253, 253, 253); white-space: normal; flex-wrap: nowrap; height: 51.5px;" />
         <ui:Label text="Riding Name long " display-tooltip-when-elided="True" name="Riding" style="font-size: 35px; -unity-text-align: upper-center; color: rgb(255, 254, 254); white-space: normal; height: 52.5px; flex-wrap: wrap;" />
-        <ui:VisualElement name="WinnerRecord" style="flex-direction: row; color: rgb(255, 255, 255); height: 114px; width: 550px;">
+        <ui:VisualElement name="WinnerRecord" style="flex-direction: row; color: rgb(255, 255, 255); height: 30px; width: 550px;">
             <ui:Label text="Candidate Name" display-tooltip-when-elided="false" name="CandidateName" style="font-size: 25px; color: rgb(255, 255, 255); width: 250px; padding-right: 3px; -unity-text-align: upper-center; height: 30px;" />
             <ui:VisualElement name="PartyColor" style="width: 30px; height: 30px; background-color: rgb(248, 6, 6);" />
             <ui:Label text="Party Name" display-tooltip-when-elided="false" name="PartyName" style="font-size: 25px; color: rgb(255, 255, 255); -unity-text-align: upper-center; white-space: normal; width: 200px; height: 30px;" />
             <ui:Label text="37.5" display-tooltip-when-elided="false" name="VotePercent" style="font-size: 25px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 50px; height: 30px;" />
         </ui:VisualElement>
-        <ui:ListView focusable="false" name="OtherList" selection-type="None" horizontal-scrolling="false" style="width: 549px; color: rgb(255, 255, 255); height: 100%;" />
+        <ui:ListView focusable="false" name="OtherList" selection-type="None" horizontal-scrolling="false" style="width: 549px; color: rgb(255, 255, 255); height: 195px; margin-top: 20px;" />
     </ui:VisualElement>
 </ui:UXML>

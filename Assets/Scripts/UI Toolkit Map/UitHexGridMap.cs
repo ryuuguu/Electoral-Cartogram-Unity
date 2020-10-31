@@ -166,7 +166,7 @@ public class UitHexGridMap : MonoBehaviour {
 
         editorRegionList = EditorRegionListDisplay.MakeRegionListDisplay();
         editorRegionList.RegisterCallback<MouseDownEvent>(
-            e =>  Debug.Log("editorRegionList.RegisterCallback"));
+            e => e.StopPropagation());
         MoveEditor(editorRegionList, false);
         SetEditMode(false);
         overlayLayer.Add(editorRegionList);

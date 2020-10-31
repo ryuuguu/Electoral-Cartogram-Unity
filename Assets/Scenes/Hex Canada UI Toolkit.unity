@@ -8126,7 +8126,7 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   leftInfoWidth: 450
-  leftInfoHeight: 450
+  leftInfoHeight: 425
   rightInfoWidth: 550
   rightInfoHeight: 350
   regionListWidth: 500
