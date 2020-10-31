@@ -18,9 +18,13 @@ public class UitHexMapGrid : UitHexGrid {
     public float subHexScale;
     
     public Vector2 mapSize = new Vector2(1600,800);
-    public Rect mapCubeRect = new Rect(0, 0, 55, 21); 
-    
-    //private List<VisualElement> subGridHolders = new List<VisualElement>();
+    public Rect mapCubeRect = new Rect(0, 0, 55, 21);
+
+
+    public override string Init(VisualElement aHexHolder) {
+        hexRadius = 38.5f;
+        return base.Init(aHexHolder);
+    }
     
     public UitHex CreateCell(Vector3 v3, bool isRectangle = false) {
         var cell =  MakeHex(v3); // this creates the Visual element but not the region

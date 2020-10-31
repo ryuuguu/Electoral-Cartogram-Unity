@@ -23,8 +23,7 @@ public class UitHexGridMap : MonoBehaviour {
     public int rightInfoHeight = 300;
     public int  regionListWidth = 300;
     public int regionListHeight = 600;
-    public Vector3 mapVEOffset;
-    
+
     public Vector3 selectedCoord; // current Highlighted & info shown for this coord
     
     protected VisualElement root;
@@ -529,7 +528,6 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     public void MakeMapFromData() {
-        var debugCoord = new Vector3(33, -23, -10);
         ClearMap();
         foreach (var cd in mapData.cellDatas) {
             var rl = RegionController.inst.regionList.Find(cd.regionID);

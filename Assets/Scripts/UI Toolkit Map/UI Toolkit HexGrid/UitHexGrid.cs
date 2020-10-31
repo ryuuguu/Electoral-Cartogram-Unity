@@ -14,7 +14,7 @@ public class UitHexGrid : MonoBehaviour {
     public Texture2D cellBackground;
     public bool isSquare = true;
 
-    public float hexRadius = 50f;
+    public float hexRadius = 50f;// need to set this before init is called
     public float hexScalefactor = 1.8f; //2 would remove gap in most places but show artifact gaps
     public Vector2 offsetCoord = new Vector2(4, -3);
     public float squareScaleHeightHack = 0.004f;
@@ -39,7 +39,7 @@ public class UitHexGrid : MonoBehaviour {
     /// setup a local space
     /// </summary>
     /// <param name="aHexHolder"></param>
-    public string Init(VisualElement aHexHolder) {
+    public virtual string Init(VisualElement aHexHolder) {
         hexHolder = aHexHolder;
         cubeCoordinates = new CubeCoordinates();
         AllToken = CubeCoordinates.AllContainer;

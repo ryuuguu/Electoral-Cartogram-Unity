@@ -10,7 +10,7 @@
                 <ui:VisualElement name="CurrentRegion" style="height: 30px;" />
                 <ui:Button text="Set Hex" display-tooltip-when-elided="True" name="SetHex" style="left: auto; right: auto;" />
             </ui:VisualElement>
-            <ui:ListView focusable="True" name="RegionList" selection-type="Single" horizontal-scrolling="false" style="width: auto; color: rgb(255, 255, 255); height: 550px; font-size: 16px; -unity-text-align: middle-left; white-space: nowrap; margin-top: 10px;" />
+            <ui:ListView focusable="True" name="RegionList" selection-type="Single" horizontal-scrolling="true" style="width: auto; color: rgb(255, 255, 255); height: 600px; font-size: 16px; -unity-text-align: middle-left; white-space: nowrap; margin-top: 10px;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
