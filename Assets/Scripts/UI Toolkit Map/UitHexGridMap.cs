@@ -102,6 +102,7 @@ public class UitHexGridMap : MonoBehaviour {
         borderLayer = new VisualElement();
         //borderLayer.transform.position = holderPosition;
         mapLayer.Add(borderLayer);
+        uitHexBorderGrid.hexRadius = mapGrid.hexRadius;
         uitHexBorderGrid.Init(borderLayer);
         uitHexBorderGrid.SetupHexBorders();
 

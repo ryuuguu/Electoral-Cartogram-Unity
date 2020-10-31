@@ -3,22 +3,8 @@
     
 NOW	 
     current problem   
+       
      
-     strange scroll bar on screen from region list edit
-     
-     turn scroll bar off :)
-     
-     redo region list & regionlist record with fixed sizes
-       afterworking
-       find out what bearks it
-          
-     highlight selected ( by Click()  record)
-        just change background color 
-        
-     border is not using the newly set readius  
-        
-                   
-     if in bounds set to default? on start new map
       
       
      given a map cube bounds and map size
@@ -29,11 +15,11 @@ NOW
            Z = -3 = (X/2*-1) + width + 1
            Y = -1*  (X+Z)
          
-     where ?    
-          
-          
-               
-              
+     where 
+        mapGrid ?    
+                   
+                 
+     if in bounds set to default? on start new map          
                
     
     VUE
