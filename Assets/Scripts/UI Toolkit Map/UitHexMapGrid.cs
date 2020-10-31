@@ -23,6 +23,19 @@ public class UitHexMapGrid : UitHexGrid {
 
     public override string Init(VisualElement aHexHolder) {
         hexRadius = 38.5f;
+       
+        
+        var x = mapCubeRect.width - 1;
+        var z =  (x/ 2f * -1) + mapCubeRect.height + 1;
+        var y = -1 * (x + z);
+        //add a kludged number to get edge of far right hex
+        var bottomLeftCoord  = new Vector3( x+1.3f, y, z-1.3f) ;
+        
+        var calcSpaceId = CubeCoordinates.NewLocalSpaceId(1f / 2f, new Vector2(1,1), 
+            CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
+        var cornerInVESpace =  CubeCoordinates.ConvertPlaneToLocalPosition(bottomLeftCoord,calcSpaceId);
+        hexRadius = Mathf.Min((mapSize.x / cornerInVESpace.x), (mapSize.y/cornerInVESpace.y) );
+        Debug.Log("cornerInVESpace: "+ cornerInVESpace + hexRadius + " : " + bottomLeftCoord);
         return base.Init(aHexHolder);
     }
     
