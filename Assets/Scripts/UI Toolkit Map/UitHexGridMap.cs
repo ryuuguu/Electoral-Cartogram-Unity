@@ -296,9 +296,6 @@ public class UitHexGridMap : MonoBehaviour {
     private void TopLevelLayout(Rect screenRect) {
         var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapSize,
             screenRect.max);
-        Debug.Log("mapSizerLayer: "+ mapSizerLayer.worldBound + " local: "+ mapSizerLayer.localBound);
-        Debug.Log("mapLayer: "+ mapLayer.worldBound + " local: "+ mapLayer.localBound);
-        Debug.Log("overLayLayer: "+ overlayLayer.worldBound + " local: "+ overlayLayer.localBound);
     }
     
     private void ScaledAt(VisualElement  ve,Rect rect) {
@@ -448,7 +445,7 @@ public class UitHexGridMap : MonoBehaviour {
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
             //mapData.ScaleCoords(fixScale);
-            //mapData.ShiftCoords(fixShift);
+            mapData.ShiftCoords(fixShift);
         }
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
@@ -530,13 +527,18 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     public void MakeMapFromData() {
+        var debugCoord = new Vector3(33, -23, -10);
+        Debug.Log("search for "+debugCoord);
         ClearMap();
         foreach (var cd in mapData.cellDatas) {
+            if(cd.cubeCoord == debugCoord){ Debug.Log("Found: "+ cd.regionID);}
             var rl = RegionController.inst.regionList.Find(cd.regionID);
             if (rl != null) {
+                if(cd.cubeCoord == debugCoord){ Debug.Log("Found in RC: "+ cd.regionID);}
                 var mapCell = mapGrid.CreateCellRegion(cd.cubeCoord, rl);
                 if (mapCell != null) {
                     cellDict[cd.cubeCoord] = mapCell;
+                    if(cd.cubeCoord == debugCoord){ Debug.Log("CellDict: "+ cd.regionID);}
                     if (rl.isRiding) {
                         rl.AssignConstituency(true);
                     }

@@ -8115,7 +8115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fixScale: {x: 1, y: 1, z: 1}
-  fixShift: {x: 0, y: -21, z: 0}
+  fixShift: {x: 0, y: 0, z: 0}
   mapGrid: {fileID: 404597493}
   uitHexBorderGrid: {fileID: 1436845646}
   mapData:
