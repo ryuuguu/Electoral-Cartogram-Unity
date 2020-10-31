@@ -8114,8 +8114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0269ad592fdf444a481d7ab1ad439e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fixScale: {x: 1, y: 1, z: 1}
-  fixShift: {x: 0, y: 0, z: 0}
   mapGrid: {fileID: 404597493}
   uitHexBorderGrid: {fileID: 1436845646}
   mapData:
@@ -8128,9 +8126,9 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   leftInfoWidth: 450
-  leftInfoHeight: 400
+  leftInfoHeight: 450
   rightInfoWidth: 550
-  rightInfoHeight: 300
+  rightInfoHeight: 350
   regionListWidth: 500
   regionListHeight: 600
   mapVEOffset: {x: 0, y: 0, z: 0}

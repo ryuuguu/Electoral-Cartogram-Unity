@@ -21,7 +21,6 @@
 }
 
 .OtherList .unity-scroller--horizontal {
-    display: none;
 }
 
 .PartyList .unity-scroller--horizontal {

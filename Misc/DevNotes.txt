@@ -2,16 +2,9 @@
     canada politics reddit
     
 NOW	 
-    current problem
-   
-   
-    map data cube coords have z out by -21
-   
-    also mouse position does not seem to map properly to regions 
-        check what data is used in the code
-    
-    calculate right and left info from sizes in inspector
+    current problem   
      
+     redo regionlist size and postion
       
     
           

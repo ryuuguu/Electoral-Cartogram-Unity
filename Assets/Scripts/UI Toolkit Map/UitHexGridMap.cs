@@ -11,9 +11,6 @@ using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
 public class UitHexGridMap : MonoBehaviour {
-
-    public Vector3 fixScale;
-    public Vector3 fixShift;
     
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
@@ -168,6 +165,8 @@ public class UitHexGridMap : MonoBehaviour {
         overlayLayer.Add(toolTip);
 
         editorRegionList = EditorRegionListDisplay.MakeRegionListDisplay();
+        editorRegionList.RegisterCallback<MouseDownEvent>(
+            e =>  Debug.Log("editorRegionList.RegisterCallback"));
         MoveEditor(editorRegionList, false);
         SetEditMode(false);
         overlayLayer.Add(editorRegionList);
@@ -177,28 +176,30 @@ public class UitHexGridMap : MonoBehaviour {
         rightInfo = new VisualElement();
         rightInfo.style.position = Position.Absolute;
         rightInfo.style.backgroundColor = Color.black;
-        rightInfo.style.top = Length.Percent(70);
+        var top=100*((mapGrid.mapSize.y-rightInfoHeight)/mapGrid.mapSize.y);
+        rightInfo.style.top = Length.Percent(top);
         rightInfo.style.bottom = Length.Percent(0);
-        rightInfo.style.left = Length.Percent(70);
+        var left=100*((mapGrid.mapSize.x-rightInfoWidth)/mapGrid.mapSize.x);
+        rightInfo.style.left = Length.Percent(left);
         rightInfo.style.right = Length.Percent(0);
-        //rightInfo.transform.position = new Vector3(mapGrid.mapSize.x - rightInfoWidth, 100 - rightInfoHeight, 0);
     }
 
     private void LeftInfoSetup() {
         leftInfo = new VisualElement();
         leftInfo.style.position = Position.Absolute;
-        leftInfo.style.top = Length.Percent(60);
+        var top=100*((mapGrid.mapSize.y-leftInfoHeight)/mapGrid.mapSize.y);
+        leftInfo.style.top = Length.Percent(top);
         leftInfo.style.bottom = Length.Percent(0);
         leftInfo.style.left = Length.Percent(0);
-        leftInfo.style.right = Length.Percent(70);
+        var right=100*((mapGrid.mapSize.x-leftInfoWidth)/mapGrid.mapSize.x);
+        leftInfo.style.right = Length.Percent(right);
         leftInfo.style.backgroundColor = Color.black;
-        leftInfo.transform.position = new Vector3(0, 100 - leftInfoHeight, 0);
     }
 
     private void MoveEditor(VisualElement ve, bool right) {
         ve.style.position = Position.Absolute;
-        ve.style.top = Length.Percent(20);
-        ve.style.bottom = Length.Percent(20);
+        ve.style.top = Length.Percent(10);
+        ve.style.bottom = Length.Percent(10);
         ve.style.left = Length.Percent(10);
         ve.style.right = Length.Percent(60);
         ve.style.backgroundColor = Color.black;
@@ -444,8 +445,7 @@ public class UitHexGridMap : MonoBehaviour {
         var mapDataJSON = Resources.Load<TextAsset>("MapData");
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
-            //mapData.ScaleCoords(fixScale);
-            mapData.ShiftCoords(fixShift);
+            
         }
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");
@@ -528,17 +528,13 @@ public class UitHexGridMap : MonoBehaviour {
     
     public void MakeMapFromData() {
         var debugCoord = new Vector3(33, -23, -10);
-        Debug.Log("search for "+debugCoord);
         ClearMap();
         foreach (var cd in mapData.cellDatas) {
-            if(cd.cubeCoord == debugCoord){ Debug.Log("Found: "+ cd.regionID);}
             var rl = RegionController.inst.regionList.Find(cd.regionID);
-            if (rl != null) {
-                if(cd.cubeCoord == debugCoord){ Debug.Log("Found in RC: "+ cd.regionID);}
+            if (rl != null) { 
                 var mapCell = mapGrid.CreateCellRegion(cd.cubeCoord, rl);
                 if (mapCell != null) {
                     cellDict[cd.cubeCoord] = mapCell;
-                    if(cd.cubeCoord == debugCoord){ Debug.Log("CellDict: "+ cd.regionID);}
                     if (rl.isRiding) {
                         rl.AssignConstituency(true);
                     }
