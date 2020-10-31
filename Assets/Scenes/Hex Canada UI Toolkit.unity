@@ -1149,7 +1149,7 @@ MonoBehaviour:
     name: BC
   - coord: {x: 4.5, y: -4, z: -0.5}
     name: YK
-  - coord: {x: 17, y: -53, z: 36}
+  - coord: {x: 17, y: -11, z: 6}
     name: NW
   - coord: {x: 31.3, y: -18, z: -13.3}
     name: NU
@@ -2537,7 +2537,7 @@ MonoBehaviour:
   mapCubeRect:
     serializedVersion: 2
     x: 0
-    y: -3
+    y: -24
     width: 55
     height: 23
 --- !u!4 &404597494

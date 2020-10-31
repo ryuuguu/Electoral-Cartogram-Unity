@@ -4,9 +4,6 @@
 NOW	 
     current problem   
      
-     redo regionlist size and postion
-      
-    
           
      highlight selected ( by Click()  record)
         just change background color 
@@ -19,6 +16,13 @@ NOW
       
      given a map cube bounds and map size
         calc late largest radius that fits all hexes in mapSize 
+          +1 hex width and height?
+          
+          now  
+            take hexlocation at top left hex bounds
+                add 1/2 hex
+                
+          
     
     VUE
         read from server 

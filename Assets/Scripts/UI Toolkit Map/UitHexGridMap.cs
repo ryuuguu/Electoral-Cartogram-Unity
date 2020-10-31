@@ -262,8 +262,10 @@ public class UitHexGridMap : MonoBehaviour {
     
     private void MouseDown(Vector2 localMousePosition) {
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
-            new Vector2(-0.5f,-0.5f));//hack: not centered cell 
-        MoveTo(cubeCoord);
+            new Vector2(-0.5f,-0.5f));//hack: not centered cell
+        if(CubeCoordinates.InRectXY(cubeCoord, mapGrid.mapCubeRect)){
+            MoveTo(cubeCoord);
+        }
     }
 
     public void MoveTo(Vector3 cubeCoord) {
