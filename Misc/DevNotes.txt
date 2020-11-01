@@ -5,7 +5,8 @@ NOW
     current problem   
       
     color squares do not go invisble when ediotr turned off  
-       
+     
+    how is editor frame turned off?   
                  
      clean last bit of map
      

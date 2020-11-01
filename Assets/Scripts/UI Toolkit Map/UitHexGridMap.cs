@@ -211,12 +211,11 @@ public class UitHexGridMap : MonoBehaviour {
 
     public void SetEditMode(bool val) {
         GameController.inst.isEditMode = val;
-        editorRegionList.visible = val;
-        /*
         if (val) {
-            MouseDown((inst.mapGrid.mapSize / 2)-(Vector2)overlayLayer.transform.position);
+            editorRegionList.style.display = DisplayStyle.Flex;
+        } else {
+            editorRegionList.style.display = DisplayStyle.None;
         }
-       */
     }
     
     private void MouseOver(MouseMoveEvent e) {
