@@ -35,7 +35,6 @@ public class UitHexMapGrid : UitHexGrid {
             CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
         var cornerInVESpace =  CubeCoordinates.ConvertPlaneToLocalPosition(bottomLeftCoord,calcSpaceId);
         hexRadius = Mathf.Min((mapSize.x / cornerInVESpace.x), (mapSize.y/cornerInVESpace.y) );
-        Debug.Log("cornerInVESpace: "+ cornerInVESpace + hexRadius + " : " + bottomLeftCoord);
         return base.Init(aHexHolder);
     }
     

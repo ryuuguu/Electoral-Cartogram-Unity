@@ -3,24 +3,44 @@
     
 NOW	 
     current problem   
+      
+    color squares do not go invisble when ediotr turned off  
        
-     
-      
-      
-     given a map cube bounds and map size
-        calc late largest radius that fits all hexes in mapSize 
-          +1 hex width and height?
-          
-           X = 54 = height - 1
-           Z = -3 = (X/2*-1) + width + 1
-           Y = -1*  (X+Z)
-         
-     where 
-        mapGrid ?    
-                   
                  
-     if in bounds set to default? on start new map          
-               
+     clean last bit of map
+     
+     make Unity version that uses images and data files only         
+        files 
+             election Data
+                 custom json
+                   RegionControl.regionList
+             Maps 
+                 Mapadata.Json
+                 otherMeta.json
+                     mapMeta found in 
+                         mapSize for scaling and ratio
+                         radius compared to map size      
+                 PartyController.PartyDatas
+                 
+             Images
+                 votes + whole map with info areas off or solid black
+                 seats + whole map with info areas off or solid black  
+                 
+                 camera to png 
+                    texture ratio?
+        write to Application.dataPath
+        for webgl version read from 
+            resources 
+                UXML, CSS - 0
+                Map Images
+                    seats
+                    votes
+                Mapdata.json - O
+                RegionControl.regionList
+                PartyController.PartyDatas
+                OtherMapData.json
+            or from server           
+                              
     
     VUE
         read from server 
@@ -46,14 +66,7 @@ NOW
     publish Me only?
         reads from playfab and sends to server
      
-    files 
-        election Data
-            custom CSV?
-        Maps 
-            mapData.json
-            otherMeta.json
-                region stuff
-                mapMeta    
+          
           
     Save alternate file names
         get list of filenames from method
@@ -67,11 +80,8 @@ NOW
         show list
         select name struct 
             save to there
-            
-          
-    next make more runtime editor in Uit
-    do vue stuff first?
-                             
+                
+    do vue stuff first?              
         editor needs to make map data
             region levels
             region text overlay
@@ -84,13 +94,13 @@ NOW
                                              
         party color data
             include use other color
-    
-    text Labels overtop of hex locations for regions
-        should be editable
-    
+        
+    next make more runtime editor in Uit
     
     when editor and same map done
-    
+        text Labels overtop of hex locations for regions
+            should be editable
+            
         remove old uGUI code
         clean bugs related to not using data
         
