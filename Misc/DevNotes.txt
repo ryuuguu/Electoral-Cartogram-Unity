@@ -2,12 +2,27 @@
     canada politics reddit
     
 NOW	 
-    current problem   
-      
-    color squares do not go invisble when ediotr turned off  
-     
-    how is editor frame turned off?   
-                 
+    current problem 
+    
+    Add write all data button in edit
+        write 
+            RegionControl.regionList
+            PartyController.PartyDatas
+            OtherMapData.json
+        images 
+            turn off 
+                edit panel
+                right & left data
+                topbar
+                take image
+                save
+                    camaera or panel?
+                    ScreenCapture.CaptureScreenshot?
+                    
+            seats
+            votes
+                               
+                    
      clean last bit of map
      
      make Unity version that uses images and data files only         
@@ -42,7 +57,8 @@ NOW
                 OtherMapData.json
             or from server           
                               
-    
+     TextElement.MeasureTextSize
+             use to resize text 
     VUE
         read from server 
      

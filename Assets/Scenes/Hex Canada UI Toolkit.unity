@@ -3045,6 +3045,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587397383}
   m_CullTransparentMesh: 0
+--- !u!1 &601011129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601011131}
+  - component: {fileID: 601011130}
+  m_Layer: 0
+  m_Name: DummyTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &601011130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601011129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa6365f48aaf478eaeb63ca749dead0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takeShot: 0
+  fileName: testScreenShot
+--- !u!4 &601011131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601011129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -825.7023, y: 488.18222, z: -43.39024}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &618519628
 GameObject:
   m_ObjectHideFlags: 0
@@ -8131,7 +8176,6 @@ MonoBehaviour:
   rightInfoHeight: 350
   regionListWidth: 500
   regionListHeight: 600
-  mapVEOffset: {x: 0, y: 0, z: 0}
   selectedCoord: {x: 0, y: 0, z: 0}
 --- !u!114 &1493411969
 MonoBehaviour:
