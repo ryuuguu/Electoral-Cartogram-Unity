@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class UitRegionEditor : MonoBehaviour {
     public float indent;
     public static RegionList currentRegionList;
-    
-    //Uit Version
+    public string votesImageName = "VotesImage.png";
+    public string seatsImageName = "SeatsImage.png";
+    public string imageDirectory = "Assets/DisplayOnlyData/";
+    public int imageFrame = -5;
     
     public static UitRegionEditor inst;
 
@@ -19,8 +21,17 @@ public class UitRegionEditor : MonoBehaviour {
     void Start() {
         if(!GameController.inst.isEditMode) this.gameObject.SetActive(false);
     }
-
-
+    
+    void Update() {
+        if (imageFrame + 2 == Time.frameCount) {
+            TakeVotesImage();
+        } else if (imageFrame + 4 == Time.frameCount) {
+            TakeSeatsImage();
+        }else if (imageFrame + 6 == Time.frameCount) {
+            UitHexGridMap.DisplayOverlay(true);
+        }
+    }
+    
     public static void ButtonReloadMap() {
         UitHexGridMap.inst.LoadMakeMap();
         EditorRegionListDisplay.resetItems();
@@ -33,7 +44,6 @@ public class UitRegionEditor : MonoBehaviour {
     public static void ButtonSetHex() {
         AssignRegion(currentRegionList);
         EditorRegionListDisplay.setHexResetItems(currentRegionList);
-        
     }
 
     public static void AssignRegion(RegionList rl) {
@@ -46,7 +56,25 @@ public class UitRegionEditor : MonoBehaviour {
              oldRL.AssignConstituency(false);
          }
     }
-     
+
+    public static void TakeImages() {
+        inst.imageFrame = Time.frameCount;
+
+    }
+
+    public void TakeVotesImage() {
+        UitHexGridMap.DisplayOverlay(false); 
+        UitHexGridMap.inst.ShowVotes(true);
+        ScreenCapture.CaptureScreenshot(imageDirectory + votesImageName);
+    }
+
+    public void TakeSeatsImage() {
+        UitHexGridMap.DisplayOverlay(false); 
+        UitHexGridMap.inst.ShowVotes(false);
+        ScreenCapture.CaptureScreenshot(imageDirectory + seatsImageName);
+       
+    }
+    
     
     
 }

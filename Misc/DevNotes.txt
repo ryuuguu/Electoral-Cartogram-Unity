@@ -10,14 +10,13 @@ NOW
             PartyController.PartyDatas
             OtherMapData.json
         images 
-            turn off 
-                edit panel
-                right & left data
-                topbar
-                take image
-                save
-                    camaera or panel?
-                    ScreenCapture.CaptureScreenshot?
+            save image
+                displayOverlay(false) 
+                show votes
+                ScreenCapture.CaptureScreenshot(fileName);
+                show seats
+                ScreenCapture.CaptureScreenshot(fileName);
+                displayOverlay(true) 
                     
             seats
             votes

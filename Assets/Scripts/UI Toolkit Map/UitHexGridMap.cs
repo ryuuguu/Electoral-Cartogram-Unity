@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
 public class UitHexGridMap : MonoBehaviour {
-    
+
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
@@ -217,6 +217,10 @@ public class UitHexGridMap : MonoBehaviour {
             editorRegionList.style.display = DisplayStyle.None;
         }
     }
+
+    public static void DisplayOverlay(bool val) {
+        inst.overlayLayer.style.display = val ? DisplayStyle.Flex : DisplayStyle.None;
+    }
     
     private void MouseOver(MouseMoveEvent e) {
         
@@ -367,7 +371,6 @@ public class UitHexGridMap : MonoBehaviour {
     
     
     void Update() {
-        
         if (delayMapBuild == 0) {
             MapBuild();
             ShowVotes(true);

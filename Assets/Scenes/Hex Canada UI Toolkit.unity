@@ -435,6 +435,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   indent: 10
+  votesImageName: VotesImage.png
+  seatsImageName: SeatsImage.png
+  imageDirectory: Assets/DisplayOnlyData/
 --- !u!1 &45764359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3075,7 +3078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   takeShot: 0
-  fileName: testScreenShot
+  fileName: Assets/testScreenShot
 --- !u!4 &601011131
 Transform:
   m_ObjectHideFlags: 0

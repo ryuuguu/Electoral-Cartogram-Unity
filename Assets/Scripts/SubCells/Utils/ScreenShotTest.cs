@@ -12,7 +12,7 @@ public class ScreenShotTest : MonoBehaviour {
     {
         if (takeShot) {
             takeShot = false;
-            ScreenCapture.CaptureScreenshot(fileName);
+            UitRegionEditor.TakeImages();
             Debug.Log("ScreenShotTest");
         } 
     }
