@@ -17,8 +17,8 @@ public class UitHexMapGrid : UitHexGrid {
     public Texture2D borderImage;
     public float subHexScale;
     
-    public Vector2 mapSize = new Vector2(1600,800);
     public Rect mapCubeRect = new Rect(0, 0, 55, 21);
+    public MapLayout mapLayout;
 
 
     public override string Init(VisualElement aHexHolder) {
@@ -32,7 +32,8 @@ public class UitHexMapGrid : UitHexGrid {
         var calcSpaceId = CubeCoordinates.NewLocalSpaceId(1f / 2f, new Vector2(1,1), 
             CubeCoordinates.LocalSpace.Orientation.XY, null, offsetCoord);
         var cornerInVESpace =  CubeCoordinates.ConvertPlaneToLocalPosition(bottomLeftCoord,calcSpaceId);
-        hexRadius = Mathf.Min((mapSize.x / cornerInVESpace.x), (mapSize.y/cornerInVESpace.y) );
+        hexRadius = Mathf.Min((mapLayout.mapSize.x / cornerInVESpace.x), (mapLayout.mapSize.y/cornerInVESpace.y) );
+        mapLayout.hexRadius =  hexRadius;
         return base.Init(aHexHolder);
     }
     
@@ -63,4 +64,19 @@ public class UitHexMapGrid : UitHexGrid {
         return (UitHexGridMapCell) hexes[localSpaceId][v3];
     }
     
+}
+
+
+/// <summary>
+/// Fixed map layout data
+/// Size and position of display elements
+///
+/// </summary>
+[System.Serializable]
+public struct MapLayout {
+    public Vector2 mapSize;
+    public Rect mapCubeRect;
+    public float hexRadius;
+    public Rect info1Area; //left info in unrefactored code
+    public Rect info2Area; //right info in unrefactored code
 }

@@ -437,7 +437,7 @@ MonoBehaviour:
   indent: 10
   votesImageName: VotesImage.png
   seatsImageName: SeatsImage.png
-  displayOnlyDataDirectory: Assets/DisplayOnlyData/
+  displayOnlyDataDirectory: Files/DisplayOnlyData/
   imageFrame: -5
 --- !u!1 &45764359
 GameObject:
@@ -2537,13 +2537,33 @@ MonoBehaviour:
   squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   subHexScale: 1.1
-  mapSize: {x: 1600, y: 900}
   mapCubeRect:
     serializedVersion: 2
     x: 0
     y: -24
     width: 55
     height: 23
+  mapLayout:
+    mapSize: {x: 1600, y: 900}
+    mapCubeRect:
+      serializedVersion: 2
+      x: 0
+      y: -24
+      width: 55
+      height: 23
+    hexRadius: 0
+    info1Area:
+      serializedVersion: 2
+      x: 0
+      y: 415
+      width: 450
+      height: 485
+    info2Area:
+      serializedVersion: 2
+      x: 1050
+      y: 490
+      width: 550
+      height: 410
 --- !u!4 &404597494
 Transform:
   m_ObjectHideFlags: 0

@@ -74,8 +74,8 @@ public class UitHexGridMap : MonoBehaviour {
         
 
         mapSizerLayer = new VisualElement();
-        mapSizerLayer.style.width = mapGrid.mapSize.x;
-        mapSizerLayer.style.height = mapGrid.mapSize.y;
+        mapSizerLayer.style.width = mapGrid.mapLayout.mapSize.x;
+        mapSizerLayer.style.height = mapGrid.mapLayout.mapSize.y;
         root.Add(mapSizerLayer);
         
         mapLayer = new VisualElement();
@@ -85,7 +85,7 @@ public class UitHexGridMap : MonoBehaviour {
         //mapLayer.style.bottom = Length.Percent(0);
         mapLayer.style.left = Length.Percent(0);
         mapLayer.style.right = Length.Percent(0);
-        mapLayer.style.height = mapGrid.mapSize.y;
+        mapLayer.style.height = mapGrid.mapLayout.mapSize.y;
         mapSizerLayer.Add(mapLayer);
 
         //this acts as visual "Layer"
@@ -126,7 +126,7 @@ public class UitHexGridMap : MonoBehaviour {
         mapLayer.Add(overlayLayer);
 
         overlayLayer.style.position = Position.Absolute;
-        overlayLayer.style.height = mapGrid.mapSize.y;
+        overlayLayer.style.height = mapGrid.mapLayout.mapSize.y;
         overlayLayer.style.left = Length.Percent(0);
         overlayLayer.style.right = Length.Percent(0);
 
@@ -171,26 +171,42 @@ public class UitHexGridMap : MonoBehaviour {
         overlayLayer.Add(editorRegionList);
     }
 
+    /// <summary>
+    /// RightInfoSetup & LeftInfoSetup
+    /// are not generallized.
+    /// mapGrid.mapLayout.info2Area & mapGrid.mapLayout.mapSize
+    /// could be passed in
+    /// and rightInfo returned
+    /// and correct rect could be calculated for all cases
+    /// </summary>
     private void RightInfoSetUp() {
         rightInfo = new VisualElement();
         rightInfo.style.position = Position.Absolute;
         rightInfo.style.backgroundColor = Color.black;
-        var top=100*((mapGrid.mapSize.y-rightInfoHeight)/mapGrid.mapSize.y);
+        var top=100*((mapGrid.mapLayout.info2Area.y)/mapGrid.mapLayout.mapSize.y);
         rightInfo.style.top = Length.Percent(top);
         rightInfo.style.bottom = Length.Percent(0);
-        var left=100*((mapGrid.mapSize.x-rightInfoWidth)/mapGrid.mapSize.x);
+        var left=100*((mapGrid.mapLayout.info2Area.x)/mapGrid.mapLayout.mapSize.x);
         rightInfo.style.left = Length.Percent(left);
         rightInfo.style.right = Length.Percent(0);
     }
 
+    /// <summary>
+    /// RightInfoSetup & LeftInfoSetup
+    /// are not generallized.
+    /// mapGrid.mapLayout.info2Area & mapGrid.mapLayout.mapSize
+    /// could be passed in
+    /// and rightInfo returned
+    /// and correct rect could be calculated for all cases
+    /// </summary>
     private void LeftInfoSetup() {
         leftInfo = new VisualElement();
         leftInfo.style.position = Position.Absolute;
-        var top=100*((mapGrid.mapSize.y-leftInfoHeight)/mapGrid.mapSize.y);
+        var top=100*(mapGrid.mapLayout.info1Area.y/mapGrid.mapLayout.mapSize.y);
         leftInfo.style.top = Length.Percent(top);
         leftInfo.style.bottom = Length.Percent(0);
         leftInfo.style.left = Length.Percent(0);
-        var right=100*((mapGrid.mapSize.x-leftInfoWidth)/mapGrid.mapSize.x);
+        var right=100*((mapGrid.mapLayout.mapSize.x- mapGrid.mapLayout.info1Area.xMax)/mapGrid.mapLayout.mapSize.x);
         leftInfo.style.right = Length.Percent(right);
         leftInfo.style.backgroundColor = Color.black;
     }
@@ -218,8 +234,9 @@ public class UitHexGridMap : MonoBehaviour {
         }
     }
 
-    public static void DisplayOverlay(bool val) {
+    public static void DisplayOverlayAndHexMarker(bool val) {
         inst.overlayLayer.style.display = val ? DisplayStyle.Flex : DisplayStyle.None;
+        inst.hexMarker.style.display = val ? DisplayStyle.Flex : DisplayStyle.None;
     }
     
     private void MouseOver(MouseMoveEvent e) {
@@ -282,7 +299,7 @@ public class UitHexGridMap : MonoBehaviour {
         HexMarker.MoveTo(cubeCoord);
         if (GameController.inst.isEditMode) {
             // offset is not implemented so reseult is off by a hex row
-            float mapSpaceX = mapGrid.Coord2Position(cubeCoord, Vector2.zero).x / mapGrid.mapSize.x;
+            float mapSpaceX = mapGrid.Coord2Position(cubeCoord, Vector2.zero).x / mapGrid.mapLayout.mapSize.x;
 
             if (mapSpaceX > 0.55f) {
                 MoveEditor(editorRegionList, false);
@@ -299,7 +316,7 @@ public class UitHexGridMap : MonoBehaviour {
     }
     
     private void TopLevelLayout(Rect screenRect) {
-        var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapSize,
+        var scale = ScaleMapHolder(mapSizerLayer, mapGrid.mapLayout.mapSize,
             screenRect.max);
     }
     
@@ -374,7 +391,7 @@ public class UitHexGridMap : MonoBehaviour {
         if (delayMapBuild == 0) {
             MapBuild();
             ShowVotes(true);
-            MouseDown((inst.mapGrid.mapSize / 2)-(Vector2)overlayLayer.transform.position);
+            MouseDown((inst.mapGrid.mapLayout.mapSize / 2)-(Vector2)overlayLayer.transform.position);
         }
         
         

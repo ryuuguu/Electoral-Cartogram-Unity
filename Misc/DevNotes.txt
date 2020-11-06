@@ -4,6 +4,8 @@
 NOW	 
     current problem 
     
+    partyDatas empty
+   
     Add write all data button in edit
         write 
             RegionControl.regionList

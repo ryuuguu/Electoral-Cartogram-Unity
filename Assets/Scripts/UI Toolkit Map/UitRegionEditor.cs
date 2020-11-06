@@ -9,7 +9,7 @@ public class UitRegionEditor : MonoBehaviour {
     public static RegionList currentRegionList;
     public string votesImageName = "VotesImage.png";
     public string seatsImageName = "SeatsImage.png";
-    public string displayOnlyDataDirectory = "Assets/DisplayOnlyData/";
+    public string displayOnlyDataDirectory = "Files/DisplayOnlyData/";
     public int imageFrame = -5;
     
     public static UitRegionEditor inst;
@@ -28,7 +28,7 @@ public class UitRegionEditor : MonoBehaviour {
         } else if (imageFrame + 4 == Time.frameCount) {
             TakeSeatsImage();
         }else if (imageFrame + 6 == Time.frameCount) {
-            UitHexGridMap.DisplayOverlay(true);
+            UitHexGridMap.DisplayOverlayAndHexMarker(true);
         }
     }
     
@@ -58,25 +58,23 @@ public class UitRegionEditor : MonoBehaviour {
     }
     
     public void TakeVotesImage() {
-        UitHexGridMap.DisplayOverlay(false); 
+        UitHexGridMap.DisplayOverlayAndHexMarker(false); 
         UitHexGridMap.inst.ShowVotes(true);
-        ScreenCapture.CaptureScreenshot(displayOnlyDataDirectory + votesImageName);
+        ScreenCapture.CaptureScreenshot( "Assets/" + displayOnlyDataDirectory + votesImageName);
     }
 
     public void TakeSeatsImage() {
-        UitHexGridMap.DisplayOverlay(false); 
+        UitHexGridMap.DisplayOverlayAndHexMarker(false); 
         UitHexGridMap.inst.ShowVotes(false);
-        ScreenCapture.CaptureScreenshot(displayOnlyDataDirectory + seatsImageName);
+        ScreenCapture.CaptureScreenshot("Assets/" + displayOnlyDataDirectory + seatsImageName);
        
     }
 
     public static void SaveDisplayOnlyData() {
         WriteDisplayOnlyData(RegionController.inst.regionList,"RegionList.json");
         WriteDisplayOnlyData(PartyController.inst.partyDatas,"PartyDatas.json");
-        
-        //OtherMapData.json
-        //    mapSize for scaling and ratio
-        //    radius compared to map size inst.imageFrame = Time.frameCount;
+        WriteDisplayOnlyData(UitHexGridMap.inst.mapGrid.mapLayout, "MapLayout.json");
+        inst.imageFrame = Time.frameCount;
     }
 
     private static void WriteDisplayOnlyData(object obj, string fileName) {
