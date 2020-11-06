@@ -72,7 +72,10 @@ public class UitRegionEditor : MonoBehaviour {
 
     public static void SaveDisplayOnlyData() {
         WriteDisplayOnlyData(RegionController.inst.regionList,"RegionList.json");
-        WriteDisplayOnlyData(PartyController.inst.partyDatas,"PartyDatas.json");
+        var pdw = new PartyDatasWrapper() {
+            partyDatas = PartyController.inst.partyDatas
+        };
+        WriteDisplayOnlyData(pdw,"PartyDataWrapper.json");
         WriteDisplayOnlyData(UitHexGridMap.inst.mapGrid.mapLayout, "MapLayout.json");
         inst.imageFrame = Time.frameCount;
     }
@@ -80,7 +83,6 @@ public class UitRegionEditor : MonoBehaviour {
     private static void WriteDisplayOnlyData(object obj, string fileName) {
         string path = Application.dataPath + "/" + inst.displayOnlyDataDirectory;
         var jsonText = JsonUtility.ToJson(obj);
-
         if (!System.IO.Directory.Exists(path)) {
             System.IO.Directory.CreateDirectory(path);
             Debug.Log("Create Dir: " + path);
@@ -89,4 +91,8 @@ public class UitRegionEditor : MonoBehaviour {
         string fName = path + fileName;
         System.IO.File.WriteAllText(fName, jsonText);
     }
+}
+
+public struct PartyDatasWrapper {
+    public List<PartyData> partyDatas;
 }
