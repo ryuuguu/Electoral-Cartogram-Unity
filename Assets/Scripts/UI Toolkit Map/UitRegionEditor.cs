@@ -9,7 +9,7 @@ public class UitRegionEditor : MonoBehaviour {
     public static RegionList currentRegionList;
     public string votesImageName = "VotesImage.png";
     public string seatsImageName = "SeatsImage.png";
-    public string imageDirectory = "Assets/DisplayOnlyData/";
+    public string displayOnlyDataDirectory = "Assets/DisplayOnlyData/";
     public int imageFrame = -5;
     
     public static UitRegionEditor inst;
@@ -56,25 +56,39 @@ public class UitRegionEditor : MonoBehaviour {
              oldRL.AssignConstituency(false);
          }
     }
-
-    public static void TakeImages() {
-        inst.imageFrame = Time.frameCount;
-
-    }
-
+    
     public void TakeVotesImage() {
         UitHexGridMap.DisplayOverlay(false); 
         UitHexGridMap.inst.ShowVotes(true);
-        ScreenCapture.CaptureScreenshot(imageDirectory + votesImageName);
+        ScreenCapture.CaptureScreenshot(displayOnlyDataDirectory + votesImageName);
     }
 
     public void TakeSeatsImage() {
         UitHexGridMap.DisplayOverlay(false); 
         UitHexGridMap.inst.ShowVotes(false);
-        ScreenCapture.CaptureScreenshot(imageDirectory + seatsImageName);
+        ScreenCapture.CaptureScreenshot(displayOnlyDataDirectory + seatsImageName);
        
     }
-    
-    
-    
+
+    public static void SaveDisplayOnlyData() {
+        WriteDisplayOnlyData(RegionController.inst.regionList,"RegionList.json");
+        WriteDisplayOnlyData(PartyController.inst.partyDatas,"PartyDatas.json");
+        
+        //OtherMapData.json
+        //    mapSize for scaling and ratio
+        //    radius compared to map size inst.imageFrame = Time.frameCount;
+    }
+
+    private static void WriteDisplayOnlyData(object obj, string fileName) {
+        string path = Application.dataPath + "/" + inst.displayOnlyDataDirectory;
+        var jsonText = JsonUtility.ToJson(obj);
+
+        if (!System.IO.Directory.Exists(path)) {
+            System.IO.Directory.CreateDirectory(path);
+            Debug.Log("Create Dir: " + path);
+        }
+
+        string fName = path + fileName;
+        System.IO.File.WriteAllText(fName, jsonText);
+    }
 }

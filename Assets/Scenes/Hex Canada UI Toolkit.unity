@@ -437,7 +437,8 @@ MonoBehaviour:
   indent: 10
   votesImageName: VotesImage.png
   seatsImageName: SeatsImage.png
-  imageDirectory: Assets/DisplayOnlyData/
+  displayOnlyDataDirectory: Assets/DisplayOnlyData/
+  imageFrame: -5
 --- !u!1 &45764359
 GameObject:
   m_ObjectHideFlags: 0
@@ -2536,7 +2537,7 @@ MonoBehaviour:
   squareBackgound: {fileID: 2800000, guid: 41dbc881fa87d475f8db2f9a7eb258bf, type: 3}
   borderImage: {fileID: 2800000, guid: aaf086e7f4e6f4621a94465cde557929, type: 3}
   subHexScale: 1.1
-  mapSize: {x: 1600, y: 850}
+  mapSize: {x: 1600, y: 900}
   mapCubeRect:
     serializedVersion: 2
     x: 0
@@ -8174,9 +8175,9 @@ MonoBehaviour:
   regionEditor: {fileID: 0}
   electoralDistrictPanel: {fileID: 0}
   leftInfoWidth: 450
-  leftInfoHeight: 425
+  leftInfoHeight: 485
   rightInfoWidth: 550
-  rightInfoHeight: 350
+  rightInfoHeight: 410
   regionListWidth: 500
   regionListHeight: 600
   selectedCoord: {x: 0, y: 0, z: 0}

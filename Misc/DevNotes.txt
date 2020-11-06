@@ -9,26 +9,19 @@ NOW
             RegionControl.regionList
             PartyController.PartyDatas
             OtherMapData.json
+                mapSize for scaling and ratio
+                radius compared to map size  
         images 
             save image
-                displayOverlay(false) 
-                show votes
-                ScreenCapture.CaptureScreenshot(fileName);
-                show seats
-                ScreenCapture.CaptureScreenshot(fileName);
-                displayOverlay(true) 
-                    
-            seats
-            votes
                                
-                    
+                   
      clean last bit of map
      
      make Unity version that uses images and data files only         
         files 
              election Data
                  custom json
-                   RegionControl.regionList
+                    RegionControl.regionList
              Maps 
                  Mapadata.Json
                  otherMeta.json
@@ -36,14 +29,7 @@ NOW
                          mapSize for scaling and ratio
                          radius compared to map size      
                  PartyController.PartyDatas
-                 
-             Images
-                 votes + whole map with info areas off or solid black
-                 seats + whole map with info areas off or solid black  
-                 
-                 camera to png 
-                    texture ratio?
-        write to Application.dataPath
+
         for webgl version read from 
             resources 
                 UXML, CSS - 0

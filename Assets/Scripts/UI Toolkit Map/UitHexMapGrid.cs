@@ -22,8 +22,6 @@ public class UitHexMapGrid : UitHexGrid {
 
 
     public override string Init(VisualElement aHexHolder) {
-        hexRadius = 38.5f;
-       
         
         var x = mapCubeRect.width - 1;
         var z =  (x/ 2f * -1) + mapCubeRect.height + 1;
