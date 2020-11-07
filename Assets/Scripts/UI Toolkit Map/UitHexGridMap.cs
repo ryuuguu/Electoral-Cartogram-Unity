@@ -447,25 +447,37 @@ public class UitHexGridMap : MonoBehaviour {
         LoadMakeMap();
     }
     
-    [ContextMenu("test makeMap in edit")]
+    
     public void LoadMakeMap() {
         RegionController.inst.LoadRegionData();
         LoadMapDataResource();
         MakeMapFromData();
         ShowVotes(currentVotes);
     }
-    
+
+    /// <summary>
+    /// Remove cells outside mapCubeRect
+    /// </summary>
+    public void CleanMap() {
+        var temp = new List<CellData>();
+        foreach (var cd in mapData.cellDatas) {
+            if (CubeCoordinates.InRectXY(cd.cubeCoord, mapGrid.mapCubeRect)) {
+                temp.Add(cd);
+            }
+        }
+        mapData.cellDatas = temp;
+    }
     
     
     /// <summary>
     /// Load Map data from a resource
     ///     works in WebGL
     /// </summary>
+    [ContextMenu("Load MapData in edit")]
     public void LoadMapDataResource() {
         var mapDataJSON = Resources.Load<TextAsset>("MapData");
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
-            
         }
         else {
             Debug.Log("could not load JSON TextAsset resource at MapData");

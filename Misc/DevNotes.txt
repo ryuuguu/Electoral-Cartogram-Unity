@@ -4,45 +4,44 @@
 NOW	 
     current problem 
     
-    partyDatas empty
-   
-    Add write all data button in edit
-        write 
-            RegionControl.regionList
-            PartyController.PartyDatas
-            OtherMapData.json
-                mapSize for scaling and ratio
-                radius compared to map size  
-        images 
-            save image
-                               
-                   
-     clean last bit of map
-     
-     make Unity version that uses images and data files only         
-        files 
-             election Data
-                 custom json
-                    RegionControl.regionList
-             Maps 
-                 Mapadata.Json
-                 otherMeta.json
-                     mapMeta found in 
-                         mapSize for scaling and ratio
-                         radius compared to map size      
-                 PartyController.PartyDatas
+                                
+  
+     make Unity version that uses images and data files only 
+        project tiny version
+            2D
+            center map
+            laod maps to  ??
+                resize
+            TopBar
+                make two 2D buttons
+                    seats
+                    Francais 
+            CubeCoord
+                translate mouse to coord
+                    show ToolTip  2D
+                make right info2Area
+                    show riding data
+                info1Area   
+                    show party data
+                    how to handle large list
+                        add info3Area & info4Area 
+                            bottom center         
+       
 
-        for webgl version read from 
-            resources 
-                UXML, CSS - 0
+        for projectTiny version read from 
+            either build with or get from server
                 Map Images
                     seats
                     votes
-                Mapdata.json - O
-                RegionControl.regionList
-                PartyController.PartyDatas
-                OtherMapData.json
-            or from server           
+                Mapdata.json - O in different directory (resouce)
+                RegionList
+                PartyDatasWrapper
+                MapLayout.json
+            from server use files
+            build with make a scene with objects
+                could read data during build 
+                    use an authoring script to read it
+                    then move it to DOTS component         
                               
      TextElement.MeasureTextSize
              use to resize text 
