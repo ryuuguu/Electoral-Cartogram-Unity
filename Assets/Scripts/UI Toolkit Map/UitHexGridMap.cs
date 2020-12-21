@@ -47,8 +47,6 @@ public class UitHexGridMap : MonoBehaviour {
     private int delayMaplayout = -2;
     
     bool inRiding = false;
-    UIHexGridMapCell prevCell = null;
-    UIHexGridMapCell prevSelectedCell = null;
 
     public static UitHexGridMap inst;
 

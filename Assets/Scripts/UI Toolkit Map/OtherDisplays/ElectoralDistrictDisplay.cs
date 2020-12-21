@@ -89,10 +89,25 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
     }
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
+    
+         //changing label.style.fontSize does not immediately affect label.MeasureTextSize 
+         // so this method can not be used to calc correct fontsize to fit
+        /*
         label.style.fontSize = baseSize;
+        var size1 =  label.MeasureTextSize(label.text,label.worldBound.width,
+            VisualElement.MeasureMode.Exactly, 
+            label.worldBound.height, VisualElement.MeasureMode.Exactly );
+            */
         if (label.text.Length > maxSize) {
             label.style.fontSize = smallSize;
         }
+        /*
+        var size2 =  label.MeasureTextSize(label.text,label.worldBound.width,
+            VisualElement.MeasureMode.Exactly, 
+            label.worldBound.height, VisualElement.MeasureMode.Exactly );
+        Debug.Log("sizing: " +  label.text + " :: " + baseSize +  " : " +  size1 + " :: " +
+                  label.style.fontSize + " : "+ size2);
+        */
     }
 
     public static VisualElement MakeDetailDisplay() {

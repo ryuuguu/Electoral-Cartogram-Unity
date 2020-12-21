@@ -1,9 +1,13 @@
     
     canada politics reddit
     
+    https://ryuuguu.com/unity/Electoralgrams/ElectoralGramV0_1_2/
+    
+    
 NOW	 
     current problem 
     
+     TextElement.MeasureTextSize
                                 
   
      make Unity version that uses images and data files only 

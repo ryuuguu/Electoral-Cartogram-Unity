@@ -14,6 +14,7 @@ public class EditorRegionListDisplay : MonoBehaviour {
     public const string VESetHex = "SetHex";
     public const string VEReloadMap = "ReloadMap";
     public const string VESaveMap = "SaveMap";
+    public const string VENoSave = "NoSave";
     
     public const string VTARegionListDisplay = "EditorRegionListDisplay";
     public const string VTARegionListRecord = "RegionListRecord";
@@ -142,11 +143,14 @@ public class EditorRegionListDisplay : MonoBehaviour {
     }
     
     public static void Shrink(Label label, float baseSize, float smallSize, int maxSize) {
-        label.style.fontSize = baseSize;
+        
         if (label.text.Length > maxSize) {
             label.style.fontSize = smallSize;
         }
+        
     }
+
+    
     
     public static VisualElement MakeRegionListDisplay() {
         regionListDisplay = new VisualElement();
@@ -160,7 +164,13 @@ public class EditorRegionListDisplay : MonoBehaviour {
         setHexButton.SetEnabled(false);
         
         regionListDisplay.Q<Button>(VEReloadMap).clicked += UitRegionEditor.ButtonReloadMap;
-        regionListDisplay.Q<Button>(VESaveMap).clicked += UitRegionEditor.ButtonSaveMap;
+         
+        var saveMapButton = regionListDisplay.Q<Button>(VESaveMap);
+        saveMapButton.clicked += UitRegionEditor.ButtonSaveMap;
+        #if UNITY_WEBGL 
+        saveMapButton.SetEnabled(false);
+        regionListDisplay.Q<Label>(VENoSave).style.display = DisplayStyle.Flex;
+        #endif
 
         
         listView = regionListDisplay.Q<ListView>();

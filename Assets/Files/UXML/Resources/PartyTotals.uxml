@@ -7,5 +7,5 @@
         <ui:Label text="Prop seats" display-tooltip-when-elided="True" name="PropSeats" style="font-size: 15px; color: rgb(255, 255, 255); -unity-text-align: upper-center; margin-right: 0; padding-right: 4px; width: 55px; white-space: normal;" />
         <ui:Label text="Vote%" display-tooltip-when-elided="True" name="VotePercent" style="font-size: 14px; color: rgb(255, 255, 255); -unity-text-align: middle-center; margin-right: 0; padding-right: 4px; width: 55px;" />
     </ui:VisualElement>
-    <ui:ListView focusable="false" name="PartyList" style="height: 400px;" />
+    <ui:ListView focusable="false" name="PartyList" style="height: 450px;" />
 </ui:UXML>
