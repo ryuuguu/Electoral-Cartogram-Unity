@@ -6,7 +6,9 @@ using System.Linq;
 
 namespace Com.Ryuuguu.HexGridCC {
     /// <summary>
-    /// A coordinates in a single instance can be compared to each other
+    /// Handle coordinate mapping and related functions such distances etc.
+    /// this does not handle actual hex objects just whether an object is expected to exist at a given coordinate
+    /// Coordinates in a single instance can be compared to each other
     /// Local spaces are static 
     /// </summary>
     public class CubeCoordinates

@@ -23,6 +23,9 @@ public class UitRegionEditor : MonoBehaviour {
     }
     
     void Update() {
+        //since  UI toolkit operates asynchronously
+        // this is the easiest way to make sure changes happen between each step
+        // when ui toolkit is out of beta there may be a simple API to use instead
         if (imageFrame + 2 == Time.frameCount) {
             TakeVotesImage();
         } else if (imageFrame + 4 == Time.frameCount) {
@@ -57,12 +60,22 @@ public class UitRegionEditor : MonoBehaviour {
          }
     }
     
+    /// <summary>
+    /// Screen shot with without overlays
+    /// For use in Editor only
+    /// if needed outside Editor change capture location 
+    /// </summary>
     public void TakeVotesImage() {
         UitHexGridMap.DisplayOverlayAndHexMarker(false); 
         UitHexGridMap.inst.ShowVotes(true);
         ScreenCapture.CaptureScreenshot( "Assets/" + displayOnlyDataDirectory + votesImageName);
     }
 
+    /// <summary>
+    /// Screen shot with without overlays
+    /// For use in Editor only
+    /// if needed outside Editor change capture location 
+    /// </summary>
     public void TakeSeatsImage() {
         UitHexGridMap.DisplayOverlayAndHexMarker(false); 
         UitHexGridMap.inst.ShowVotes(false);
@@ -93,6 +106,10 @@ public class UitRegionEditor : MonoBehaviour {
     }
 }
 
+/// <summary>
+/// Unity JsonUtility does not save bare lists or arrays
+/// putting the list in a structure or object is the work around 
+/// </summary>
 public struct PartyDatasWrapper {
     public List<PartyData> partyDatas;
 }

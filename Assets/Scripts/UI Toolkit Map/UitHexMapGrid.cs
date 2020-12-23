@@ -10,8 +10,6 @@ using UnityEngine.UIElements;
 /// </summary>
 public class UitHexMapGrid : UitHexGrid {
 
-    public bool debugSubGridOff;
-    
     public Texture2D hexBackground;
     public Texture2D squareBackgound;
     public Texture2D borderImage;

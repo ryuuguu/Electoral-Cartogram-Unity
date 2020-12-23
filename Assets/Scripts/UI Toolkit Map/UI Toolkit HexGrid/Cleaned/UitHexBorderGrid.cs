@@ -28,6 +28,10 @@ public class UitHexBorderGrid :MonoBehaviour {
     
     public VisualElement borderHolder;
 
+    /// <summary>
+    /// the  center of the hex VE
+    ///  and child border VEs 
+    /// </summary>
     public struct HexBorder {
         public VisualElement borderCenter;
         public VisualElement[] borders;

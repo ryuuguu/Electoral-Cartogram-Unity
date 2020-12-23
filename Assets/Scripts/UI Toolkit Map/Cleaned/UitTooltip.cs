@@ -47,6 +47,14 @@ public class UitTooltip  {
         textElement.visible = false;
     }
     
+    
+    /// <summary>
+    /// Kludge until more text handling is implemented in UI Toolkit
+    /// </summary>
+    /// <param name="textElement"></param>
+    /// <param name="baseSize"></param>
+    /// <param name="smallSize"></param>
+    /// <param name="maxSize"></param>
     public static void Shrink(TextElement textElement, float baseSize, float smallSize, int maxSize) {
         textElement.style.fontSize = baseSize;
         if (textElement.text.Length > maxSize) {

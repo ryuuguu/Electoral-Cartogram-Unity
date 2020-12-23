@@ -1,0 +1,1 @@
+These shader were placed ina resource file because Unity was not finding them  in the preview package while building in later builder it may be possible to remove these shaders.

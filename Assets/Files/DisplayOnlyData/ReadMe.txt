@@ -1,0 +1,1 @@
+These files can be used to create a minimal display only map app. For example using Tiny project to run on mobile browsers.

@@ -5,8 +5,13 @@ using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
 /// <summary>
-/// Add UitHex MakeHex(Vector3 coord,Vector2 location, VisualElement aHolder)
-/// :: Retrieve UitHex hexes[aLocalSpaceId][coord.cubeCoord] 
+/// handles basic hex grid operations using UI Toolkit
+///  make a hex, retrieve a hex, position a hex in visual element
+/// 
+/// to make a hex use
+/// UitHex MakeHex(Vector3 coord,Vector2 location, VisualElement aHolder)
+/// to retrieve a hex use 
+/// UitHex hexes[aLocalSpaceId][coord.cubeCoord] 
 /// 
 /// </summary>
 public class UitHexGrid : MonoBehaviour {
@@ -138,8 +143,7 @@ public class UitHexGrid : MonoBehaviour {
     ///
     /// oofset is not implemented so result will not be shifted by offset
     /// </summary>
-    /// <param name="aCoord"></param>
-    /// <param name="???"></param>
+    /// <param name="aCoord">in hex coordinate space</param>
     /// <param name="offsetInCubeCoord"></param>
     /// <returns></returns>
     public Vector3 Coord2Position(Vector3 aCoord, Vector2 offsetInCubeCoord) {
