@@ -14,14 +14,6 @@ public class UitHexGridMap : MonoBehaviour {
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
-    public RegionEditor regionEditor;
-    public ElectoralDistrictPanel electoralDistrictPanel;
-    [FormerlySerializedAs("ridingInfoWidth")] public int  leftInfoWidth = 450;
-    [FormerlySerializedAs("ridingInfoHeight")] public int leftInfoHeight = 400;
-    public int  rightInfoWidth = 600;
-    public int rightInfoHeight = 300;
-    public int  regionListWidth = 300;
-    public int regionListHeight = 600;
 
     public Vector3 selectedCoord; // current Highlighted & info shown for this coord
     
@@ -263,9 +255,7 @@ public class UitHexGridMap : MonoBehaviour {
                     UitTooltip.Hide(); 
                 }
             }
-        }
-        
-        else {
+        } else {
             if (GameController.inst.isEditMode) {
                 UitTooltip.Show(e.localMousePosition, e.mousePosition, msg2);
             }
@@ -275,7 +265,6 @@ public class UitHexGridMap : MonoBehaviour {
         }
         
     }
-
     
     private void MouseDown(Vector2 localMousePosition) {
         var cubeCoord = mapGrid.Position2Coord(localMousePosition,
@@ -296,7 +285,7 @@ public class UitHexGridMap : MonoBehaviour {
 
         HexMarker.MoveTo(cubeCoord);
         if (GameController.inst.isEditMode) {
-            // offset is not implemented so reseult is off by a hex row
+            // offset is not implemented so result is off by a hex row
             float mapSpaceX = mapGrid.Coord2Position(cubeCoord, Vector2.zero).x / mapGrid.mapLayout.mapSize.x;
 
             if (mapSpaceX > 0.55f) {
