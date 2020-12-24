@@ -78,28 +78,6 @@ public class UitHexGridMapCell : UitHex {
        uitCell.Add(borderHolder);
        */
    }
-
-   /// <summary>
-   /// Make Square sub hexes and return ordered list of subhexes
-   /// </summary>
-   /// <returns></returns>
-   public List<VisualElement> MakeSquareSubHexes() {
-       var scale = Vector3.one * 0.1f ;
-       
-       var result = new List<VisualElement>();
-       var pos = Vector3.one;
-
-       //strange "for loop" settings and order are to get correct order
-       for (int j = 9; j >= 0; j--) {
-            for (int i = 0;i<10;i++) {
-                pos = new Vector3(i, j, 1);
-               pos.Scale(scale);
-               result.Add(MakeSubHex( pos,scale));
-            }
-       }
-       return result;
-   }
-   
    
    public UitSubHex MakeSubHex( Vector3 location,Vector3 scale) {
        var hex = new UitSubHex();
@@ -194,7 +172,7 @@ public class UitHexGridMapCell : UitHex {
 
 
     /// <summary>
-    /// Make a square subgrid
+    /// Make a  subgrid
     /// </summary>
     public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, float coordScale) {
         int subGridSize = 91;
@@ -211,10 +189,7 @@ public class UitHexGridMapCell : UitHex {
         //radius 5 gives 91 subhexes
         subHexes = MakeSubHexes(holder, 5, coordScale,subHexScale);
         subGridSize = subHexes.Count;
-       
         
-        // need total votes 
-        // sorted candidates 
         var candidateResults = aRegionList.districtResult.candidateResults;
         
         int childIndex = 0;
@@ -229,43 +204,17 @@ public class UitHexGridMapCell : UitHex {
             int maxIndex = Mathf.Min(subGridSize,Mathf.FloorToInt(subGridSize * sumVotes / totalVotes));
             
             var color = PartyController.GetPartyData(cr.partyId).color;
-            //Debug.Log("ColorSubGrid: "+ regionList.names[0]+ " " +regionList.id + ":" +cr.partyId + ": " + childIndex + " : " + maxIndex + " : " + color);
 
             var hexDebug = subHexes[childIndex];
             
             for (; childIndex < maxIndex; childIndex++) {
                 var hex = subHexes[childIndex];
                 holder.Add(hex);
-                //hex.style.backgroundColor= color;
                 hex.style.backgroundImage = centerRiding;
                 hex.style.unityBackgroundImageTintColor = color;
                 
             }
-            // Debug.Log("Subhex:" + childIndex + " : "  +hexDebug.transform.position + " : " 
-            //          + hexDebug.transform.scale + " : " + hexDebug.style.backgroundColor  );
         }
-    }
-
-        
-    public List<VisualElement>  ColorSubGrid( VisualElement aParent, bool isSquare) {
-        var holder = new VisualElement();
-        aParent.Add(holder);
-        holder.transform.rotation = Quaternion.Euler(0,0,30);
-        // need to shift holder because hex is placed using 
-        // top left not center
-        holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
-        List<VisualElement> subHexes = new List<VisualElement>();
-        //radius 5 gives 91 subhexes
-        subHexes = MakeSubHexes(holder, 5, aParent.transform.scale.x,subHexScale);
-        
-        var color = new Color(0, 1, 1, 1f);
-        foreach(var hex in subHexes){
-            holder.Add(hex);
-            hex.style.backgroundImage = centerRiding;
-            hex.style.unityBackgroundImageTintColor = color;
-        }
-
-        return subHexes;
     }
     
     public List<Vector3> ConstructMegaHex(int radius) {
