@@ -17,7 +17,6 @@ using UnityEngine.UIElements;
 public class UitHexGrid : MonoBehaviour {
 
     public Texture2D cellBackground;
-    public bool isSquare = true;
 
     public float hexRadius = 50f;// need to set this before init is called
     public float hexScalefactor = 1.8f; //2 would remove gap in most places but show artifact gaps
@@ -101,23 +100,9 @@ public class UitHexGrid : MonoBehaviour {
         var ls = CubeCoordinates.GetLocalSpace(localSpaceId);
         var location = CubeCoordinates.ConvertPlaneToLocalPosition(coord, ls);
         Vector3 scale;
-        if (isSquare) {
-            var l1 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(0, 1, -1), ls);
-            var l2 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(0, -1, 1), ls);
-            var l3 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(1, 0, -1), ls);
-            var l4 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(-1, 0, 1), ls);
-            var l5 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(1, -1, 0), ls);
-            var l6 = CubeCoordinates.ConvertPlaneToLocalPosition(coord + new Vector3(-1, 1, 0), ls);
-            var highX = Mathf.Max(l1.x, l2.x, l3.x, l4.x, l5.x, l6.x);
-            var lowX = Mathf.Min(l1.x, l2.x, l3.x, l4.x, l5.x, l6.x);
-            var highY = Mathf.Max(l1.y, l2.y, l3.y, l4.y, l5.y, l6.y);
-            var lowY = Mathf.Min(l1.y, l2.y, l3.y, l4.y, l5.y, l6.y);
-            scale = new Vector3(highX - lowX, highY - lowY, 1) / 2f;
-            //Debug.Log("One MakeHex scale: "+ scale.x + " : "+ scale.y);
-        }
-        else {
-            scale = Vector3.one * ls.gameScale * hexScalefactor;
-        }
+   
+        scale = Vector3.one * ls.gameScale * hexScalefactor;
+        
         return MakeHex(coord, location, scale, aHolder);
     }
 

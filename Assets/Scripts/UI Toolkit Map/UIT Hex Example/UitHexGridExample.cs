@@ -25,7 +25,7 @@ public class UitHexGridExample : UitHexGrid {
         foreach (var hex in hexes[localSpaceId].Values) {
             hex.style.backgroundImage = cellBackground;
             hex.style.unityBackgroundImageTintColor = Color.red;
-            ColorSubGrid(hex, false);
+            ColorSubGrid(hex);
         }
     }
     
@@ -38,22 +38,7 @@ public class UitHexGridExample : UitHexGrid {
         return hex;
     }
     
-    public List<VisualElement> MakeSquareSubHexes() {
-        var scale = Vector3.one * 0.5f ;
-       
-        var result = new List<VisualElement>();
-        var pos = Vector3.one*2f;
-        //squares seem to twice the size of this scale so *2
-        for (int i = 0;i<2;i++) {
-            for (int j = 0; j < 2; j++) {
-                pos = new Vector3(i, j, 1)*2f;
-                pos.Scale(scale);
-                result.Add(MakeSubHex( pos,scale));
-            }
-        }
-        return result;
-    }
-    public List<VisualElement>  ColorSubGrid( VisualElement aParent, bool isSquare) {
+    public List<VisualElement>  ColorSubGrid( VisualElement aParent) {
         var holder = new VisualElement();
         aParent.Add(holder);
         holder.transform.rotation = Quaternion.Euler(0,0,30);
