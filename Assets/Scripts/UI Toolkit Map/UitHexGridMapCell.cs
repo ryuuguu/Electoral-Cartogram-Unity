@@ -23,7 +23,6 @@ public class UitHexGridMapCell : UitHex {
     //below should be   ===static== 
     public Texture2D centerRiding;
     public Texture2D borderImage;
-    public bool isSquare = true;
     public string localSpaceId;
     public float subHexScale;
     //above should be   ===static== 
@@ -65,7 +64,7 @@ public class UitHexGridMapCell : UitHex {
            //if ( !GameController.inst.isEditMode ) {
                voteHolder.AddToClassList(VOTESClass);
                uitCell.Add(voteHolder);
-               ColorSubGrid(aRegionList, voteHolder, isSquare,uitCell.transform.scale.x);
+               ColorSubGrid(aRegionList, voteHolder,uitCell.transform.scale.x);
            //}
            
        } else {
@@ -197,27 +196,23 @@ public class UitHexGridMapCell : UitHex {
     /// <summary>
     /// Make a square subgrid
     /// </summary>
-    public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, bool isSquare, float coordScale) {
+    public void  ColorSubGrid(RegionList aRegionList, VisualElement aParent, float coordScale) {
         int subGridSize = 91;
         var holder = aParent;
         List<VisualElement> subHexes = new List<VisualElement>();
-        if (isSquare) {
-            subGridSize = 100;
-            subHexes = MakeSquareSubHexes();
-        }
-        else {
-            holder = new VisualElement();
-            aParent.Add(holder);
-            holder.transform.rotation = Quaternion.Euler(0,0,30);
-            // need to shift holder because hex is placed using 
-            // top left not center
-            holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
-            
-            //radius 5 gives 91 subhexes
-            subHexes = MakeSubHexes(holder, 5, coordScale,subHexScale);
-            subGridSize = subHexes.Count;
-           
-        }
+        
+        holder = new VisualElement();
+        aParent.Add(holder);
+        holder.transform.rotation = Quaternion.Euler(0,0,30);
+        // need to shift holder because hex is placed using 
+        // top left not center
+        holder.transform.position += new Vector3(1, 1, 0) * 0.5f;
+        
+        //radius 5 gives 91 subhexes
+        subHexes = MakeSubHexes(holder, 5, coordScale,subHexScale);
+        subGridSize = subHexes.Count;
+       
+        
         // need total votes 
         // sorted candidates 
         var candidateResults = aRegionList.districtResult.candidateResults;

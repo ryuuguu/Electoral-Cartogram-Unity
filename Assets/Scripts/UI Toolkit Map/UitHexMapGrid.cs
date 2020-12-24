@@ -11,7 +11,6 @@ using UnityEngine.UIElements;
 public class UitHexMapGrid : UitHexGrid {
 
     public Texture2D hexBackground;
-    public Texture2D squareBackgound;
     public Texture2D borderImage;
     public float subHexScale;
     
@@ -46,11 +45,10 @@ public class UitHexMapGrid : UitHexGrid {
         var uitHex = CreateCell(v3, false);
         
         UitHexGridMapCell mapCell =  new UitHexGridMapCell() {
-            centerRiding = isSquare? squareBackgound : hexBackground,
-                isSquare = isSquare,
-                localSpaceId = localSpaceId,
-                subHexScale = subHexScale,
-                borderImage = borderImage
+            centerRiding = hexBackground,
+            localSpaceId = localSpaceId,
+            subHexScale = subHexScale,
+            borderImage = borderImage
         };
         mapCell.uitCell = uitHex;
         mapCell.SetRegion(rl, v3);
