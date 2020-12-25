@@ -7,6 +7,17 @@ using System.Linq;
 
 public class PartyTotalsDisplay : MonoBehaviour {
     
+    
+    public const string VTAPartyTotals = "PartyTotals";
+    //party Total item parts
+    public const string VELabelPartyName = "PartyName";
+    public const string VEPartyColor = "PartyColor";
+    public const string VELabelSeats = "Seats";
+    public const string VELabelPropSeats = "PropSeats";
+    public const string VELabelPercentVote = "PercentVote";
+    
+    public const string VTAPartyTotalsRecord = "PartyTotalsRecord";
+    
     public static VisualElement partyDisplay;
     
     private static List<PartyData> items;
@@ -42,7 +53,7 @@ public class PartyTotalsDisplay : MonoBehaviour {
 
     public static VisualElement MakePartyTotalsDisplay() {
         partyDisplay = new VisualElement();
-        var treeDetailDisplay = Resources.Load<VisualTreeAsset>("PartyTotals");
+        var treeDetailDisplay = Resources.Load<VisualTreeAsset>(VTAPartyTotals);
         treeDetailDisplay.CloneTree(partyDisplay);
         
 
@@ -51,7 +62,7 @@ public class PartyTotalsDisplay : MonoBehaviour {
         
         Func<VisualElement> makeItem = () => {
             var result = new VisualElement();
-            var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>("PartyTotalsRecord");
+            var treePartyRecordlDisplay = Resources.Load<VisualTreeAsset>(VTAPartyTotalsRecord);
             treePartyRecordlDisplay.CloneTree(result);
             return result;
         };
@@ -65,14 +76,14 @@ public class PartyTotalsDisplay : MonoBehaviour {
             var seats = partyData.totalSeats.ToString();
             var propSeats = partyData.propSeats.ToString("F1");
             
-            var label = e.Q<Label>("PartyName");
+            var label = e.Q<Label>(VELabelPartyName);
             label.text = partyName;
             Shrink(label,inst.partySize, inst.partySizeSmall, inst.partyLength);
             
-            e.Q<VisualElement>("PartyColor").style.backgroundColor = partyColor;
-            e.Q<Label>("Seats").text = seats;
-            e.Q<Label>("PropSeats").text = propSeats;
-            e.Q<Label>("PercentVote").text = percentVote;
+            e.Q<VisualElement>(VEPartyColor).style.backgroundColor = partyColor;
+            e.Q<Label>(VELabelSeats).text = seats;
+            e.Q<Label>(VELabelPropSeats).text = propSeats;
+            e.Q<Label>(VELabelPercentVote).text = percentVote;
             
         };
         listView.makeItem = makeItem;
