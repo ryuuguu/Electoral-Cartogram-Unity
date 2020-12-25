@@ -6,6 +6,18 @@ using UnityEngine.UIElements;
 
 public class ElectoralDistrictDisplay : MonoBehaviour {
     
+    public const string VTARidingDisplay = "RidingDisplay";
+    //Riding Display item parts
+    public const string VELabelRegion = "Region";
+    public const string VELabelRiding = "Riding";
+    public const string VEWinnerRecord = "WinnerRecord";
+    public const string VELabelCandidateName = "CandidateName";
+    public const string VEPartyColor = "PartyColor";
+    public const string VELabelPartyName = "PartyName";
+    public const string VELabelVotePercent = "VotePercent";
+
+    public const string VTAOtherCandidate = "OtherCandidate";
+    
     public static VisualElement detailDisplay;
 
     public static RegionList regionList;
@@ -112,25 +124,25 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
 
     public static VisualElement MakeDetailDisplay() {
         detailDisplay = new VisualElement();
-        var treeDetailDisplay = Resources.Load<VisualTreeAsset>("RidingDisplay");
+        var treeDetailDisplay = Resources.Load<VisualTreeAsset>(VTARidingDisplay);
         treeDetailDisplay.CloneTree(detailDisplay);
         
-        detailDisplay.Q<Label>("Region").text = "";
+        detailDisplay.Q<Label>(VELabelRegion).text = "";
         
-        detailDisplay.Q<Label>("Riding").text = "";
+        detailDisplay.Q<Label>(VELabelRiding).text = "";
         
-        var winnerVE = detailDisplay.Q<VisualElement>("WinnerRecord");
-        winnerVE.Q<Label>("CandidateName").text = "";
-        winnerVE.Q<VisualElement>("PartyColor").style.backgroundColor = Color.clear;
-        winnerVE.Q<Label>("PartyName").text= "";
-        winnerVE.Q<Label>("VotePercent").text= "";
+        var winnerVE = detailDisplay.Q<VisualElement>(VEWinnerRecord);
+        winnerVE.Q<Label>(VELabelCandidateName).text = "";
+        winnerVE.Q<VisualElement>(VEPartyColor).style.backgroundColor = Color.clear;
+        winnerVE.Q<Label>(VELabelPartyName).text= "";
+        winnerVE.Q<Label>(VELabelVotePercent).text= "";
 
         var listView = detailDisplay.Q<ListView>();
         items = new List<CandidateResult>();
         
         Func<VisualElement> makeItem = () => {
             var result = new VisualElement();
-            var otreeDetailDisplay = Resources.Load<VisualTreeAsset>("OtherCandidate");
+            var otreeDetailDisplay = Resources.Load<VisualTreeAsset>(VTAOtherCandidate);
             otreeDetailDisplay.CloneTree(result);
             return result;
         };
