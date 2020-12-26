@@ -10,6 +10,13 @@ using UnityEngine.UIElements;
 using Debug = UnityEngine.Debug;
 
 public class UitHexGridMap : MonoBehaviour {
+    
+    public const string StyleSheetHexGrid = "HexGrid_Style";
+    public const string VTAHexGrid = "HexGrid_Main";
+    public const string VTATopBar = "TopBar";
+    public const string VEToggleVotes = "Votes";
+    public const string VEToggleFrench = "Fr";
+    public const string VEToggleEdit = "Edit";
 
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
@@ -56,10 +63,10 @@ public class UitHexGridMap : MonoBehaviour {
 
         // Associates a stylesheet to our root. Thanks to inheritance, all root’s
         // children will have access to it.
-        root.styleSheets.Add(Resources.Load<StyleSheet>("HexGrid_Style"));
+        root.styleSheets.Add(Resources.Load<StyleSheet>(StyleSheetHexGrid));
 
         // Loads and clones our VisualTree (eg. our UXML structure) inside the root.
-        var tree = Resources.Load<VisualTreeAsset>("HexGrid_Main");
+        var tree = Resources.Load<VisualTreeAsset>(VTAHexGrid );
         tree.CloneTree(root);
         
 
@@ -339,6 +346,9 @@ public class UitHexGridMap : MonoBehaviour {
         return ve.transform.scale;
     }
     
+    /*
+    ///debug code for understanding hex grid to screen positions
+    ///may be needed again when generalizing map builder to diffent sizes 
     private void DebugHexPos() {
         if (mapGrid.hexes.Count != 0) {
             var hex1 = mapGrid.hexes[mapGrid.localSpaceId][new Vector3(10,10,-20)];
@@ -372,7 +382,7 @@ public class UitHexGridMap : MonoBehaviour {
                            + hex1.localBound.width/hex1.localBound.height);
         }
     }
-    
+    */
     
     void Update() {
         if (delayMapBuild == 0) {
@@ -589,14 +599,14 @@ public class UitHexGridMap : MonoBehaviour {
     
     public VisualElement TopBar() {
         var topBar = new VisualElement();
-        var treeTopBar = Resources.Load<VisualTreeAsset>("TopBar");
+        var treeTopBar = Resources.Load<VisualTreeAsset>(VTATopBar);
         treeTopBar.CloneTree(topBar);
-        topBar.Q<Toggle>("Votes")
+        topBar.Q<Toggle>(VEToggleVotes)
             .RegisterCallback<ClickEvent>(evt => 
                 ShowVotes(((Toggle) evt.target).value));
-        topBar.Q<Toggle>("Fr")
+        topBar.Q<Toggle>(VEToggleFrench)
             .RegisterCallback<ClickEvent>(evt => LanguageController.Lang_1(((Toggle) evt.target).value));
-        topBar.Q<Toggle>("Edit")
+        topBar.Q<Toggle>(VEToggleEdit)
             .RegisterCallback<ClickEvent>(evt => SetEditMode(((Toggle) evt.target).value));
         return topBar;
     }
