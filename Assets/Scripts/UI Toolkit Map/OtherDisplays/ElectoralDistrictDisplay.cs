@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class ElectoralDistrictDisplay : MonoBehaviour {
     
     public const string VTARidingDisplay = "RidingDisplay";
-    //Riding Display item parts
+    //Riding Display parts
     public const string VELabelRegion = "Region";
     public const string VELabelRiding = "Riding";
     public const string VEWinnerRecord = "WinnerRecord";
@@ -17,6 +17,14 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
     public const string VELabelVotePercent = "VotePercent";
 
     public const string VTAOtherCandidate = "OtherCandidate";
+    //Detail Display  parts
+    public const string VEDDLabelRegion = "Region";
+    public const string VEDDLabelRiding = "Riding";
+    public const string VEDDWinnerRecord = "WinnerRecord";
+    public const string VEDDLabelCandidateName = "CandidateName";
+    public const string VEDDPartyColor = "PartyColor";
+    public const string VEDDLabelPartyName = "PartyName";
+    public const string VEDDLabelVotePercent = "VotePercent";
     
     public static VisualElement detailDisplay;
 
@@ -50,18 +58,18 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         regionList = rl;
         if (rl == null || !rl.isRiding || detailDisplay == null) return;
         var name = LanguageController.ChooseName(rl.parent.names);
-        var label = detailDisplay.Q<Label>("Region");
+        var label = detailDisplay.Q<Label>(VEDDLabelRegion);
         label.text = name;
         Shrink(label,inst.regionSize, inst.regionSizeSmall, inst.regionLength);
         
         name = LanguageController.ChooseName(rl.names);
-        label = detailDisplay.Q<Label>("Riding");
+        label = detailDisplay.Q<Label>(VEDDLabelRiding);
         label.text = name;
         Shrink(label,inst.ridingSize, inst.ridingSizeSmall, inst.ridingLength);
 
         var cr = regionList.districtResult.candidateResults[0];
         
-        var winnerVE = detailDisplay.Q<VisualElement>("WinnerRecord");
+        var winnerVE = detailDisplay.Q<VisualElement>(VEDDWinnerRecord);
 
         name = cr.surname + ", " + cr.givenName;
         if(cr.middleName.Length > 0)  {name  += ", " + cr.middleName;}
@@ -70,18 +78,18 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         var partyName = LanguageController.ChooseName(pd.names);
         var percentVote = cr.percentVotes.ToString();
         
-        label = winnerVE.Q<Label>("CandidateName");
+        label = winnerVE.Q<Label>(VEDDLabelCandidateName);
         label.text = name;
         Shrink(label,inst.winnerSize, inst.winnerSizeSmall, inst.winnerLength);
         
-        var ve = winnerVE.Q<VisualElement>("PartyColor");
+        var ve = winnerVE.Q<VisualElement>(VEDDPartyColor);
         ve.style.backgroundColor = partyColor;
         
-        label = winnerVE.Q<Label>("PartyName");
+        label = winnerVE.Q<Label>(VEDDLabelPartyName);
         label.text = partyName;
         Shrink(label,inst.wPartySize, inst.wPartySizeSmall, inst.wPartyLength);
         
-        label = winnerVE.Q<Label>("VotePercent");
+        label = winnerVE.Q<Label>(VEDDLabelVotePercent);
         label.text = percentVote.ToString();
 
         items.Clear();
@@ -104,6 +112,7 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
     
          //changing label.style.fontSize does not immediately affect label.MeasureTextSize 
          // so this method can not be used to calc correct fontsize to fit
+         // keeping code until checked if it works with latest text handling update
         /*
         label.style.fontSize = baseSize;
         var size1 =  label.MeasureTextSize(label.text,label.worldBound.width,
@@ -142,8 +151,8 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
         
         Func<VisualElement> makeItem = () => {
             var result = new VisualElement();
-            var otreeDetailDisplay = Resources.Load<VisualTreeAsset>(VTAOtherCandidate);
-            otreeDetailDisplay.CloneTree(result);
+            var oTreeDetailDisplay = Resources.Load<VisualTreeAsset>(VTAOtherCandidate);
+            oTreeDetailDisplay.CloneTree(result);
             return result;
         };
         
@@ -159,17 +168,17 @@ public class ElectoralDistrictDisplay : MonoBehaviour {
             var cpartyName = LanguageController.ChooseName(cpd.names);
             var cpercentVote = ocr.percentVotes.ToString();
         
-            var clabel = e.Q<Label>("CandidateName");
+            var clabel = e.Q<Label>(VELabelCandidateName);
             clabel.text = cname;
             Shrink(clabel,inst.winnerSize*shrinkFactor, inst.winnerSizeSmall*shrinkFactor, inst.winnerLength);
         
-            e.Q<VisualElement>("PartyColor").style.backgroundColor = cpartyColor;
+            e.Q<VisualElement>(VEPartyColor).style.backgroundColor = cpartyColor;
             
-            var clabel2 = e.Q<Label>("PartyName");
+            var clabel2 = e.Q<Label>(VELabelPartyName);
             clabel2.text = cpartyName;
             Shrink(clabel2,inst.wPartySize*shrinkFactor, inst.wPartySizeSmall*shrinkFactor, inst.wPartyLength);
         
-            e.Q<Label>("VotePercent").text = cpercentVote.ToString();
+            e.Q<Label>(VELabelVotePercent).text = cpercentVote.ToString();
             
 
         };
