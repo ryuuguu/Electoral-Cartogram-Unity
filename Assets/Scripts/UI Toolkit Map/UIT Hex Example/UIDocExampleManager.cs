@@ -46,17 +46,5 @@ public class UIDocExampleManager : MonoBehaviour {
         root.Query(className: "Border").ForEach(element => Debug.Log("Border: " + element.worldBound));
 
     }
-    
-/*
-    // should on Gemotry change instead
-    private int debugDelay = 3;
-    public void Update() {
-        if (debugDelay == 0) {
-            ShowDebug();
 
-        }
-
-        debugDelay--;
-    }
-    */
 }

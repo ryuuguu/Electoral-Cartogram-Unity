@@ -18,6 +18,8 @@ public class UitHexGridMap : MonoBehaviour {
     public const string VEToggleFrench = "Fr";
     public const string VEToggleEdit = "Edit";
 
+    public const string TextAssetMapData = "MapData"; 
+
     public UitHexMapGrid mapGrid;
     public UitHexMapBorderGrid uitHexBorderGrid;
     public MapData mapData;
@@ -128,7 +130,7 @@ public class UitHexGridMap : MonoBehaviour {
         overlayLayer.style.right = Length.Percent(0);
 
 
-        // this is a hack get all mouse events
+        // this is a hack to get all mouse events
         var ve = new TextElement();
 
         ve.style.position = Position.Absolute;
@@ -208,6 +210,12 @@ public class UitHexGridMap : MonoBehaviour {
         leftInfo.style.backgroundColor = Color.black;
     }
 
+    /// <summary>
+    /// Moves edit panel when hex is selected near panel
+    /// Not needed if edit panel is can be moved by user
+    /// </summary>
+    /// <param name="ve"></param>
+    /// <param name="right"></param>
     private void MoveEditor(VisualElement ve, bool right) {
         ve.style.position = Position.Absolute;
         ve.style.top = Length.Percent(10);
@@ -472,14 +480,14 @@ public class UitHexGridMap : MonoBehaviour {
     /// </summary>
     [ContextMenu("Load MapData in edit")]
     public void LoadMapDataResource() {
-        var mapDataJSON = Resources.Load<TextAsset>("MapData");
+        var mapDataJSON = Resources.Load<TextAsset>(TextAssetMapData);
         if (mapDataJSON != null) {
             mapData = JsonUtility.FromJson<MapData>(mapDataJSON.text);
         }
         else {
-            Debug.Log("could not load JSON TextAsset resource at MapData");
+            Debug.Log("could not load JSON TextAsset resource at " + TextAssetMapData);
         }
-        
+
     }
 
     /// <summary>
@@ -493,7 +501,7 @@ public class UitHexGridMap : MonoBehaviour {
             System.IO.Directory.CreateDirectory(path);
             Debug.Log("Create Dir: " + path);
         }
-        string fName = path +  "MapData.json";
+        string fName = path + TextAssetMapData + ".json";
         
         System.IO.File.WriteAllText( fName, jsonText);
         Debug.Log("Create file: " + fName); 
